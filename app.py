@@ -261,14 +261,21 @@ def render_single(q_index):
 
     # Choix
     key_radio = f"choice_{q_index}"
-    selected = st.radio(
-        "Choisissez une réponse :",
-        options=list(range(4)),
-        format_func=lambda i: q["choices"][i],
-        index=st.session_state.answers.get(q_index, 0),
-        key=key_radio,
-    )
-    st.session_state.answers[q_index] = selected
+
+# valeur par défaut uniquement la 1ère fois où on voit cette question
+if key_radio not in st.session_state:
+    # 0 par défaut, ou la dernière réponse mémorisée si tu veux
+    st.session_state[key_radio] = st.session_state.answers.get(q_index, 0)
+
+selected = st.radio(
+    "Choisissez une réponse :",
+    options=list(range(4)),
+    format_func=lambda i: q["choices"][i],
+    key=key_radio,          # <-- PAS d'argument 'index' ici
+)
+
+# garde ton dictionnaire 'answers' synchronisé
+st.session_state.answers[q_index] = selected
 
     # Valider
     validate = st.button("✅ Valider", key=f"validate_{q_index}")
