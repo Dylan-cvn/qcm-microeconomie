@@ -17,8 +17,20 @@ QUESTIONS = [
         "choices": ["11'200", "10'200", "8'200", "3'000"],
         "answer": 0, # 0 = première option ("11'200")
         "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (11'200)."
-    }
+    },
+{
+    "q": (
+        "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+        "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
+        "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+        "Pour Roger, quel est le coût d'opportunité des cours de football ?"
+    ),
+    "choices": ["11'200", "8'200", "3'000", "10'200"],
+    "answer": 2,  # 0=A, 1=B, 2=C, 3=D -> ici "3'000"
+    "explain": "Coût d'opportunité = meilleure alternative sacrifiée : ici, le bénéfice net du tennis = 10'000 - 7'000 = 3'000."
+}
 ]
+
 
 # ------------- SIDEBAR ------------- #
 with st.sidebar:
