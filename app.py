@@ -27,7 +27,7 @@ with st.sidebar:
     shuffle_q = st.checkbox("Mélanger les questions (au démarrage)", value=True)
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
     mode_mastery = st.checkbox("Mode apprentissage (type Quizlet)", value=True)
-    target_mastery = st.number_input("Nombre de réussites par question (maîtrise)", min_value=1, max_value=5, value=2, step=1)
+    target_mastery = 1
     st.caption("Partagez simplement l’URL publique de cette page dans WhatsApp.")
 
 # ------------- INIT STATE ------------- #
