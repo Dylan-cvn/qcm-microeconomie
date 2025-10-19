@@ -273,27 +273,25 @@ def render_single(q_index):
     st.session_state.answers[q_index] = selected
 
     # Valider
-    validate = st.button("✅ Valider", key=f"validate_{q_index}")
-    if validate:
-        correct = (selected == q["answer"])
-        st.session_state.just_validated = True
-        st.session_state.last_result = correct
+validate = st.button("✅ Valider", key=f"validate_{q_index}")
+if validate:
+    correct = (selected == q["answer"])
+    st.session_state.just_validated = True
+    st.session_state.last_result = correct
 
-        # Maj de la streak
-        if correct:
-            st.session_state.streak = st.session_state.get("streak", 0) + 1
-            if st.session_state.mastery[q_index] < TARGET_MASTERY:
-                st.session_state.mastery[q_index] += 1
-        else:
-            st.session_state.streak = 0
+    # Maj de la streak (PAS d'incrément mastery ici)
+    if correct:
+        st.session_state.streak = st.session_state.get("streak", 0) + 1
+    else:
+        st.session_state.streak = 0
 
-        if correct:
-            st.success("✔️ Bonne réponse !")
-        else:
-            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
-        if show_explain and q.get("explain"):
-            st.info(f"🧠 Explication : {q['explain']}")
-        return correct
+    if correct:
+        st.success("✔️ Bonne réponse !")
+    else:
+        st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
+    if show_explain and q.get("explain"):
+        st.info(f"🧠 Explication : {q['explain']}")
+    return correct
 
     # Si on a déjà validé (afficher les messages au re-run)
     if st.session_state.just_validated:
@@ -309,20 +307,20 @@ def render_single(q_index):
 
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
 
-# 1) Emplacements réservés tout en haut (barre + texte)
+# Placeholders tout en haut pour garder la barre au-dessus
 progress_css_slot = st.empty()
 progress_bar_slot = st.empty()
 progress_text_slot = st.empty()
 
-# 2) Afficher la question (met à jour streak/mastery si on clique Valider)
+# Affiche la question (met à jour 'streak' quand on clique Valider)
 q_idx = st.session_state.current
 result = render_single(q_idx)  # None / True / False
 
-# 3) Calculer la progression MAINTENANT (après le clic éventuel)
+# Calcul de la progression (comme AVANT : pas d'incrément avant "Continuer")
 mastered_count = sum(1 for v in st.session_state.mastery.values()
                      if v >= TARGET_MASTERY)
 
-# 4) Couleur: bleu par défaut, rouge si 7 bonnes réponses consécutives
+# Couleur : bleu par défaut, rouge si 7 bonnes réponses de suite
 bar_color = "red" if st.session_state.get("streak", 0) >= 7 else "var(--primary-color)"
 progress_css_slot.markdown(f"""
 <style>
@@ -334,16 +332,17 @@ div[data-testid="stProgressBar"] > div > div > div > div,
 </style>
 """, unsafe_allow_html=True)
 
-# 5) Rendre la barre et le texte (ils restent au-dessus de la question)
+# Rendu de la barre + texte (toujours au-dessus)
 progress_bar_slot.progress(mastered_count / len(QUESTIONS))
 progress_text_slot.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
     f"(objectif {TARGET_MASTERY} réussite(s) chacune)."
 )
 
-# 6) Bouton Continuer (on ne touche plus à mastery ici)
+# Après validation : le score n'augmente qu'au clic sur "Continuer" si c'était correct
 if st.session_state.just_validated:
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
+        if st.session_state.last_result and st.session_state.mastery[q_idx] < TARGET_MASTERY:
+            st.session_state.mastery[q_idx] += 1
         _advance_to_next()
-
 
