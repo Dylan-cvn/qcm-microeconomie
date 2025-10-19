@@ -8,35 +8,16 @@ st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="ce
 # ------------- QUIZ DATA ------------- #
 QUESTIONS = [
     {
-        "q": "Laquelle des propositions relève de la microéconomie ?",
-        "choices": [
-            "Si Migros fait une action sur le prix des mandarines, Coop vend moins de mandarines.",
-            "La BNS baisse son taux directeur.",
-            "L’IPC augmente en Suisse de 1 %.",
-            "Le chômage est plus élevé à Genève qu’à Zurich."
-        ],
+        "q": (
+            "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+            "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
+            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+            "Pour Roger, quel est le coût d'opportunité des cours de tennis ?"
+        ),
+        "choices": ["11'200", "10'200", "8'200", "3'000"],
         "answer": 0,
-        "explain": "Micro = comportements d’agents individuels/firme/marché spécifique."
-    },
-    {
-        "q": "Pour la demande Q = 17 - P, à P = 3, l’élasticité-prix vaut (arrondir au dixième) :",
-        "choices": ["-0,2", "-3,0", "-4,7", "0,2"],
-        "answer": 0,
-        "explain": "dQ/dP=-1, E = (dQ/dP)*(P/Q) = -1*(3/14) ≈ -0,2."
-    },
-    {
-        "q": "Offre Q = -63 + 9P. À P = 18, l’élasticité de l’offre (au dixième) vaut :",
-        "choices": ["1,6", "0,6", "1,0", "2,0"],
-        "answer": 0,
-        "explain": "Q=99, dQ/dP=9 → E=9*(18/99)=162/99≈1,6."
-    },
-    {
-        "q": "Quel prix rend la demande Q = 17 - P unitairement élastique ?",
-        "choices": ["8,5", "17,0", "1,0", "3,4"],
-        "answer": 0,
-        "explain": "E=-1 ⇒ -1 = -P/(17-P) ⇒ P=8,5."
-    },
-]
+        "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (11'200)."
+    }
 
 # ------------- SIDEBAR ------------- #
 with st.sidebar:
@@ -75,8 +56,8 @@ def reset_all():
     st.session_state.current = st.session_state.order[0]
 
 # ------------- UI HEADER ------------- #
-st.title("🧠 QCM Microéconomie")
-st.caption("Deux modes : **classique** (score global) ou **apprentissage** (maîtrise avec répétition des erreurs).")
+st.title("🧠Révision examen : Microéconomie I")
+st.caption("Deux modes : **classique** (score global) ou **apprentissage** (répétition des erreurs).")
 
 # ------------- HELPERS ------------- #
 def render_single(q_index, show_nav=True):
