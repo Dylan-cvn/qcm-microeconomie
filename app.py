@@ -283,7 +283,7 @@ def render_single(q_index):
         if correct:
             st.session_state.streak = st.session_state.get("streak", 0) + 1
             if st.session_state.mastery[q_index] < TARGET_MASTERY:
-            st.session_state.mastery[q_index] += 1
+                st.session_state.mastery[q_index] += 1
         else:
             st.session_state.streak = 0
 
