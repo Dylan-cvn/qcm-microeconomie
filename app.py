@@ -215,7 +215,7 @@ def _choose_next(exclude_idx=None):
 def _advance_to_next():
     next_idx = _choose_next(exclude_idx=st.session_state.current)
     if next_idx is None:
-        st.balloons
+        st.balloons()  # 🎈 effet fin de quiz
         st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")
         stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
         name_line = f" par {user_name}" if user_name.strip() else ""
