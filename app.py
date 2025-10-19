@@ -9,9 +9,9 @@ st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="ce
 QUESTIONS = [
     {
         "q": (
-            "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+            "Roger hésite entre prendre des cours de tennis ou des cours de football."
             "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
-            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800."
             "Pour Roger, quel est le coût d'opportunité des cours de tennis ?"
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
@@ -20,9 +20,9 @@ QUESTIONS = [
     },
     {
     "q": (
-        "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+        "Roger hésite entre prendre des cours de tennis ou des cours de football."
         "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
-        "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+        "tandis que le football lui permettra de gagner 12'000 pour un coût de 800."
         "Pour Roger, quel est le coût d'opportunité des cours de football ?"
     ),
     "choices": ["11'200", "10'200", "8'200", "3'000"],
