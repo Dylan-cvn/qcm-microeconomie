@@ -93,13 +93,16 @@ def render_single(q_index, show_nav=True):
     if len(lines) >= 1:
         st.subheader(lines[0])
 
-    # 2) Formule seule (ligne 2)
-    if len(lines) >= 2:
-        st.latex(lines[1])
-
-    # 3) Reste de l’énoncé (à partir de la ligne 3)
-    if len(lines) >= 3:
-        st.markdown("  \n".join(lines[2:]))
+    # 2) Lignes suivantes : texte ou formule si ça y ressemble
+    for i in range(1, len(lines)):
+        s = lines[i]
+        if any(token in s for token in ("=", "^", "\\frac", "\\cdot", "\\times")):
+            try:
+                st.latex(s)
+            except Exception:
+                st.markdown(s)
+        else:
+            st.markdown(s)
 
     # --- Choix de réponse ---
     key_radio = f"choice_{q_index}"
