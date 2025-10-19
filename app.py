@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 from datetime import datetime
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
@@ -194,6 +195,22 @@ def reset_all():
 
 if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
     full_init()
+    
+def confetti():
+    components.html("""
+    <script>
+    (function () {
+      var s=document.createElement('script');
+      s.src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+      s.onload=function(){
+        confetti({particleCount:160, spread:100, startVelocity:45, origin:{y:0.7}});
+        setTimeout(()=>confetti({particleCount:120, spread:120, origin:{y:0.6}}), 200);
+        setTimeout(()=>confetti({particleCount:80,  spread:140, origin:{y:0.5}}), 400);
+      };
+      document.head.appendChild(s);
+    })();
+    </script>
+    """, height=0, width=0)
 
 # ------------- HEADER ------------- #
 st.title("🧠 Révision examen : Microéconomie I")
@@ -215,7 +232,7 @@ def _choose_next(exclude_idx=None):
 def _advance_to_next():
     next_idx = _choose_next(exclude_idx=st.session_state.current)
     if next_idx is None:
-        st.snow()
+        confetti()
         st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")
         stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
         name_line = f" par {user_name}" if user_name.strip() else ""
@@ -291,7 +308,7 @@ def render_single(q_index):
         else:
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
-            st.info(f"🧠 Explication : {q['explain']}")
+            st.info(f" Explication : {q['explain']}")
 
     return None
 
@@ -311,7 +328,6 @@ mastered_count = sum(1 for v in st.session_state.mastery.values()
 progress_bar_slot.progress(mastered_count / len(QUESTIONS))
 progress_text_slot.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
-    f"(objectif {TARGET_MASTERY} réussite(s) chacune)."
 )
 
 # Après validation : bouton pour passer à la suite (plus d'incrément ici)
