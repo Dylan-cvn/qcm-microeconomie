@@ -305,17 +305,21 @@ def render_single(q_index):
 
     return None
 
-
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
+q_idx = st.session_state.current
+result = render_single(q_idx)  # None / True / False  -> met à jour streak ici
+
+# Après l'affichage de la question, on calcule et on rend la barre
 mastered_count = sum(1 for v in st.session_state.mastery.values()
                      if v >= TARGET_MASTERY)
 
-# --- Couleur de la barre si 7 bonnes réponses de suite ---
+# Couleur de la barre si 7 bonnes réponses de suite
 bar_color = "red" if st.session_state.get("streak", 0) >= 7 else "var(--primary-color)"
 st.markdown(f"""
 <style>
-/* Cible la barre de progression Streamlit */
-div[data-testid="stProgressBar"] > div > div > div > div {{
+/* Compat différents Streamlit */
+div[data-testid="stProgressBar"] > div > div > div > div,
+.stProgress > div > div > div > div {{
     background-color: {bar_color} !important;
 }}
 </style>
@@ -327,14 +331,10 @@ st.write(
     f"(objectif {TARGET_MASTERY} réussite(s) chacune)."
 )
 
-q_idx = st.session_state.current
-result = render_single(q_idx)  # None / True / False
-
 # Après validation, bouton "Continuer"
 if st.session_state.just_validated:
-    # Met à jour la maîtrise uniquement si c'était correct
     if st.session_state.last_result:
         st.session_state.mastery[q_idx] += 1
-
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
         _advance_to_next()
+
