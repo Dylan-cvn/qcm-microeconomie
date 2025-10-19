@@ -259,23 +259,18 @@ def render_single(q_index):
         else:
             st.markdown(s)
 
-    # Choix
+    # Choix — on ne force PAS 'index' à chaque rerun
     key_radio = f"choice_{q_index}"
+    if key_radio not in st.session_state:
+        st.session_state[key_radio] = st.session_state.answers.get(q_index, 0)
 
-# valeur par défaut uniquement la 1ère fois où on voit cette question
-if key_radio not in st.session_state:
-    # 0 par défaut, ou la dernière réponse mémorisée si tu veux
-    st.session_state[key_radio] = st.session_state.answers.get(q_index, 0)
-
-selected = st.radio(
-    "Choisissez une réponse :",
-    options=list(range(4)),
-    format_func=lambda i: q["choices"][i],
-    key=key_radio,          # <-- PAS d'argument 'index' ici
-)
-
-# garde ton dictionnaire 'answers' synchronisé
-st.session_state.answers[q_index] = selected
+    selected = st.radio(
+        "Choisissez une réponse :",
+        options=list(range(4)),
+        format_func=lambda i: q["choices"][i],
+        key=key_radio,   # <-- pas d'argument 'index' ici
+    )
+    st.session_state.answers[q_index] = selected
 
     # Valider
     validate = st.button("✅ Valider", key=f"validate_{q_index}")
@@ -284,7 +279,7 @@ st.session_state.answers[q_index] = selected
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # --- NEW: mise à jour de la streak ---
+        # Maj de la streak
         if correct:
             st.session_state.streak = st.session_state.get("streak", 0) + 1
         else:
@@ -309,6 +304,7 @@ st.session_state.answers[q_index] = selected
             st.info(f"🧠 Explication : {q['explain']}")
 
     return None
+
 
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
 mastered_count = sum(1 for v in st.session_state.mastery.values()
