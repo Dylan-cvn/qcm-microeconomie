@@ -37,6 +37,17 @@ QUESTIONS = [
         "choices": ["18", "16", "14", "12"],
         "answer": 2,  # "14"
         "explain": "Inverse de la demande : P = 17 - Q. Pour Q = 3, P = 14."
+    },
+    {
+        "q": (
+            "La fonction de demande s'écrit :\n"
+            "Q^D = 17 - P\n"
+            "Si le prix est 3, quelle sera l'élasticité prix de la demande ?\n"
+            "(arrondissez le résultat au dixième)"
+    ),
+    "choices": ["-4.7", "-3", "-0.2", "-0.1"],
+    "answer": 2,  # 0=-4.7, 1=-3, 2=-0.2, 3=-0.1
+    "explain": "dQ/dP = -1 et Q=14 (car 17-3). Élasticité: ε = (dQ/dP)*(P/Q) = -1*(3/14) ≈ -0,214 → -0,2 au dixième."
     }
 ]
 
