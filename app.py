@@ -131,54 +131,83 @@ def render_single(q_index, show_nav=True):
 
 # ------------- MODES ------------- #
 if mode_mastery:
-    # --- Mastery mode --- #
-    mastered_count = sum(1 for v in st.session_state.mastery.values() if v >= target_mastery)
+    # --- Mastery mode (affiche l'explication, pas d'auto-rerun) --- #
+    mastered_count = sum(1 for v in st.session_state.mastery.values()
+                         if v >= target_mastery)
     st.progress(mastered_count / len(QUESTIONS))
-    st.write(f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions (objectif {target_mastery} réussites chacune).")
+    st.write(
+        f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
+        f"(objectif {target_mastery} réussite(s) chacune)."
+    )
 
     q_idx = st.session_state.current
-    result = render_single(q_idx, show_nav=False)
+    # render_single affiche :
+    # - ✅/❌ selon la réponse
+    # - l'explication si show_explain est coché (et q['explain'] présent)
+    result = render_single(q_idx, show_nav=False)   # None / True / False
 
     if result is not None:
-        if result:
-            st.session_state.mastery[q_idx] += 1
-        # next question: choose among least-mastered first
-        remaining = [i for i in st.session_state.order if st.session_state.mastery[i] < target_mastery]
-        if remaining:
-            remaining.sort(key=lambda i: st.session_state.mastery[i])
-            min_level = st.session_state.mastery[remaining[0]]
-            candidates = [i for i in remaining if st.session_state.mastery[i] == min_level]
-            st.session_state.current = random.choice(candidates)
-            st.rerun()
-        else:
-            st.balloons()
-            stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
-            name_line = f" par {user_name}" if user_name.strip() else ""
-            total_success = sum(st.session_state.mastery.values())
-            st.success(f"🎉 Maîtrise atteinte{name_line} — toutes les questions réussies {target_mastery} fois. ({total_success} réussites comptées) — {stamped}")
-            if st.button("🔁 Recommencer"):
-                reset_all()
+        # On laisse l'utilisateur voir le message, puis il appuie sur Continuer
+        if st.button("➡️ Continuer", key=f"next_{q_idx}"):
+            # Si c'était correct, on incrémente la maîtrise
+            if result:
+                st.session_state.mastery[q_idx] += 1
+
+            # Choisir la prochaine question : priorité aux moins maîtrisées
+            remaining = [i for i in st.session_state.order
+                         if st.session_state.mastery[i] < target_mastery]
+            if remaining:
+                remaining.sort(key=lambda i: st.session_state.mastery[i])
+                min_level = st.session_state.mastery[remaining[0]]
+                candidates = [i for i in remaining
+                              if st.session_state.mastery[i] == min_level]
+                st.session_state.current = random.choice(candidates)
                 st.rerun()
+            else:
+                st.balloons()
+                stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
+                name_line = f" par {user_name}" if user_name.strip() else ""
+                total_success = sum(st.session_state.mastery.values())
+                st.success(
+                    f"🎉 Maîtrise atteinte{name_line} — toutes les questions "
+                    f"réussies {target_mastery} fois. "
+                    f"({total_success} réussites comptées) — {stamped}"
+                )
+                if st.button("🔁 Recommencer"):
+                    reset_all()
+                    st.rerun()
 
 else:
-    # --- Classic mode --- #
+    # --- Classic mode (inchangé : messages + navigation manuelle) --- #
     st.write("**Mode classique** — corrigez chaque question puis passez à la suivante.")
     q_index = st.session_state.order[st.session_state.idx]
     was_correct = render_single(q_index, show_nav=True)
+
     if was_correct is not None:
         if was_correct and not st.session_state.validated.get(q_index, False):
             st.session_state.score += 1
         st.session_state.validated[q_index] = True
 
-    col1, col2, col3 = st.columns([1,1,1])
+    col1, col2, col3 = st.columns([1, 1, 1])
     with col1:
-        st.button("⬅️ Précédent", disabled=st.session_state.idx == 0, on_click=lambda: st.session_state.update(idx=max(0, st.session_state.idx - 1)))
+        st.button(
+            "⬅️ Précédent",
+            disabled=st.session_state.idx == 0,
+            on_click=lambda: st.session_state.update(idx=max(0, st.session_state.idx - 1)),
+        )
     with col3:
-        st.button("➡️ Suivant", disabled=st.session_state.idx == len(QUESTIONS)-1, on_click=lambda: st.session_state.update(idx=min(len(QUESTIONS)-1, st.session_state.idx + 1)))
+        st.button(
+            "➡️ Suivant",
+            disabled=st.session_state.idx == len(QUESTIONS) - 1,
+            on_click=lambda: st.session_state.update(idx=min(len(QUESTIONS) - 1, st.session_state.idx + 1)),
+        )
 
     n_validated = sum(1 for v in st.session_state.validated.values() if v)
     st.markdown("---")
-    st.write(f"**Score actuel** : {st.session_state.score} / {len(QUESTIONS)} — Questions validées : {n_validated}/{len(QUESTIONS)}")
+    st.write(
+        f"**Score actuel** : {st.session_state.score} / {len(QUESTIONS)} — "
+        f"Questions validées : {n_validated}/{len(QUESTIONS)}"
+    )
     if n_validated == len(QUESTIONS):
         stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
         name_line = f" par {user_name}" if user_name.strip() else ""
@@ -186,3 +215,4 @@ else:
         if st.button("🔁 Recommencer"):
             reset_all()
             st.rerun()
+
