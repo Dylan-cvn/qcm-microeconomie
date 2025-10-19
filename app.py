@@ -245,7 +245,7 @@ def render_single(q_index):
     """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
     q = QUESTIONS[q_index]
 
-    # Titre + lignes suivantes (texte vs formule)
+    # Titre + lignes suivantes
     lines = [s for s in q["q"].split("\n") if s.strip()]
     if len(lines) >= 1:
         st.subheader(lines[0])
@@ -259,7 +259,7 @@ def render_single(q_index):
         else:
             st.markdown(s)
 
-    # Choix — on ne force PAS 'index' à chaque rerun
+    # Choix — pas d'index forcé
     key_radio = f"choice_{q_index}"
     if key_radio not in st.session_state:
         st.session_state[key_radio] = st.session_state.answers.get(q_index, 0)
@@ -268,32 +268,32 @@ def render_single(q_index):
         "Choisissez une réponse :",
         options=list(range(4)),
         format_func=lambda i: q["choices"][i],
-        key=key_radio,   # <-- pas d'argument 'index' ici
+        key=key_radio,
     )
     st.session_state.answers[q_index] = selected
 
     # Valider
-validate = st.button("✅ Valider", key=f"validate_{q_index}")
-if validate:
-    correct = (selected == q["answer"])
-    st.session_state.just_validated = True
-    st.session_state.last_result = correct
+    validate = st.button("✅ Valider", key=f"validate_{q_index}")
+    if validate:
+        correct = (selected == q["answer"])
+        st.session_state.just_validated = True
+        st.session_state.last_result = correct
 
-    # Maj de la streak (PAS d'incrément mastery ici)
-    if correct:
-        st.session_state.streak = st.session_state.get("streak", 0) + 1
-    else:
-        st.session_state.streak = 0
+        # MAJ streak uniquement
+        if correct:
+            st.session_state.streak = st.session_state.get("streak", 0) + 1
+        else:
+            st.session_state.streak = 0
 
-    if correct:
-        st.success("✔️ Bonne réponse !")
-    else:
-        st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
-    if show_explain and q.get("explain"):
-        st.info(f"🧠 Explication : {q['explain']}")
-    return correct
+        if correct:
+            st.success("✔️ Bonne réponse !")
+        else:
+            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
+        if show_explain and q.get("explain"):
+            st.info(f"🧠 Explication : {q['explain']}")
+        return correct   # <-- bien à l'intérieur de render_single ET du if validate
 
-    # Si on a déjà validé (afficher les messages au re-run)
+    # Réaffichage après validation
     if st.session_state.just_validated:
         correct = st.session_state.last_result
         if correct:
