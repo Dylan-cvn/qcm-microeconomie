@@ -44,11 +44,66 @@ QUESTIONS = [
             "Q^D = 17 - P\n"
             "Si le prix est 3, quelle sera l'élasticité prix de la demande ?\n"
             "(arrondissez le résultat au dixième)"
-    ),
-    "choices": ["-4.7", "-3", "-0.2", "-0.1"],
-    "answer": 2,  # 0=-4.7, 1=-3, 2=-0.2, 3=-0.1
-    "explain": "dQ/dP = -1 et Q=14 (car 17-3). Élasticité: ε = (dQ/dP)*(P/Q) = -1*(3/14) ≈ -0,214 → -0,2 au dixième."
-    }
+        ),
+        "choices": ["-4.7", "-3", "-0.2", "-0.1"],
+        "answer": 2,  # 0=-4.7, 1=-3, 2=-0.2, 3=-0.1
+        "explain": "dQ/dP = -1 et Q=14 (car 17-3). Élasticité: ε = (dQ/dP)*(P/Q) = -1*(3/14) ≈ -0,214 → -0,2 au dixième."
+    },
+    {
+        "q": (
+            "La fonction de demande s'écrit :\n"
+            "Q^D = 17 - P\n"
+            "Pour quel prix l'élasticité prix de cette demande est-elle unitaire ?\n"
+            "(arrondissez le résultat au dixième)"
+        ),
+        "choices": ["17", "8.5", "3.4", "1"],
+        "answer": 1,  # 0=17, 1=8.5, 2=3.4, 3=1
+        "explain": "ε = (dQ/dP)*(P/Q) = -1*(P/Q). Unitaire ⇒ |ε|=1 ⇒ P/Q=1 ⇒ P=Q. Or Q=17−P ⇒ P=17−P ⇒ 2P=17 ⇒ P=8,5."
+    },
+    {
+        "q": (
+            "La fonction d'offre s'écrit :\n"
+            "Q^O = -63 + 9P\n"
+            "Si le prix est 18, quelle sera la quantité offerte ?"
+        ),
+        "choices": ["117", "99", "81", "18"],
+        "answer": 1,  # 0=117, 1=99, 2=81, 3=18
+        "explain": "Q = -63 + 9P ⇒ pour P = 18 : Q = -63 + 9×18 = -63 + 162 = 99."
+    },
+    {
+        "q": (
+            "La fonction d'offre s'écrit :\n"
+            "Q^O = -63 + 9P\n"
+            "À quel prix minimal les producteurs seraient-ils disposés à vendre 25 unités ?\n"
+            "(arrondissez le résultat au dixième)"
+        ),
+        "choices": ["10.5", "9.8", "8.2", "7"],
+        "answer": 1,  # 0=10.5, 1=9.8, 2=8.2, 3=7
+        "explain": "Inverse de l'offre : P = (Q + 63)/9. Pour Q = 25, P = (25 + 63)/9 = 88/9 ≈ 9,8."
+    },
+    {
+        "q": (
+            "La fonction d'offre s'écrit :\n"
+            "Q^O = -63 + 9P\n"
+            "Si le prix est 18, quelle sera l'élasticité prix de l'offre ?\n"
+            "(arrondissez le résultat au dixième)"
+        ),
+        "choices": ["2", "1.8", "1.6", "1"],
+        "answer": 2,  # 0=2, 1=1.8, 2=1.6, 3=1
+        "explain": "ε_offre = (dQ/dP)·(P/Q). dQ/dP = 9 ; Q = -63 + 9×18 = 99 ; donc ε = 9×18/99 = 162/99 ≈ 1,64 → 1,6."
+    },
+    {
+        "q": ("Laquelle des propositions suivantes relève du champ d’étude de la microéconomie ?"),
+    "choices": [
+        "Le taux de chômage est plus élevé à Genève qu’à Zurich",
+        "L’IPC a augmenté en Suisse de 1 % entre 2023 et 2024",
+        "La BNS décide de baisser son taux directeur",
+        "Migros fait une action sur le prix des mandarines"],
+    "answer": 3,  # 0,1,2 = macro ; 3 = micro (marché/entreprise spécifique)
+    "explain": "La microéconomie étudie les décisions des ménages/entreprises et le fonctionnement d’un marché particulier. Une action de Migros sur le prix d’un produit concerne un marché spécifique. Les autres propositions relèvent de la macroéconomie (agrégats/ politiques)."
+    },
+
+
 ]
 
 # ------------- SIDEBAR (mode apprentissage unique) ------------- #
@@ -164,7 +219,7 @@ def render_single(q_index):
         else:
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
-            st.info(f"🧠 Explication : {q['explain']}")
+            st.info(f" Explication : {q['explain']}")
         return correct
 
     # Si on a déjà validé (afficher les messages au re-run)
