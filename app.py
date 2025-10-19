@@ -85,7 +85,23 @@ st.caption("Deux modes : **classique** (score global) ou **apprentissage** (rép
 # ------------- HELPERS ------------- #
 def render_single(q_index, show_nav=True):
     q = QUESTIONS[q_index]
-    st.subheader(q["q"])
+
+    # --- Affichage du titre / formule / énoncé sur des lignes séparées ---
+    lines = [s for s in q["q"].split("\n") if s.strip()]
+
+    # 1) Titre (ligne 1)
+    if len(lines) >= 1:
+        st.subheader(lines[0])
+
+    # 2) Formule seule (ligne 2)
+    if len(lines) >= 2:
+        st.latex(lines[1])
+
+    # 3) Reste de l’énoncé (à partir de la ligne 3)
+    if len(lines) >= 3:
+        st.markdown("  \n".join(lines[2:]))
+
+    # --- Choix de réponse ---
     key_radio = f"choice_{q_index}"
     selected = st.radio(
         "Choisissez une réponse :",
@@ -95,6 +111,8 @@ def render_single(q_index, show_nav=True):
         key=key_radio
     )
     st.session_state.answers[q_index] = selected
+
+    # --- Validation ---
     validate = st.button("✅ Valider", key=f"validate_{q_index}")
     if validate:
         correct = (selected == q["answer"])
@@ -105,6 +123,7 @@ def render_single(q_index, show_nav=True):
         if show_explain and q.get("explain"):
             st.info(f"🧠 Explication : {q['explain']}")
         return correct
+
     return None
 
 # ------------- MODES ------------- #
