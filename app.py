@@ -1,4 +1,3 @@
-
 import streamlit as st
 import random
 from datetime import datetime
@@ -15,32 +14,31 @@ QUESTIONS = [
             "Pour Roger, quel est le coût d'opportunité des cours de tennis ?"
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
-        "answer": 0, # 0 = première option ("11'200")
-        "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (11'200)."
+        "answer": 0,  # 0 = "11'200"
+        "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (12'000 - 800) = 11'200."
     },
     {
-    "q": (
-        "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
-        "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
-        "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
-        "Pour Roger, quel est le coût d'opportunité des cours de football ?"
-    ),
-    "choices": ["11'200", "10'200", "8'200", "3'000"],
-    "answer": 3,  # 0=A, 1=B, 2=C, 3=D -> ici "3'000"
-    "explain": "Coût d'opportunité = meilleure alternative sacrifiée : ici, le bénéfice net du tennis = 10'000 - 7'000 = 3'000."
+        "q": (
+            "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+            "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
+            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+            "Pour Roger, quel est le coût d'opportunité des cours de football ?"
+        ),
+        "choices": ["11'200", "10'200", "8'200", "3'000"],
+        "answer": 3,  # 3 = "3'000"
+        "explain": "Coût d'opportunité = meilleure alternative sacrifiée : ici, le bénéfice net du tennis (10'000 - 7'000) = 3'000."
     },
     {
-    "q": (
-        "La fonction de demande s'écrit :\n"
-        "Q^D = 17 - P\n"
-        "À quel prix maximal les consommateurs seraient-ils disposés à acheter 3 unités ?"
-    ),
-    "choices": ["18", "16", "14", "12"],
-    "answer": 2,  # 0=A, 1=B, 2=C -> "14"
-    "explain": "Inverse de la demande : P = 17 - Q. Pour Q = 3, P = 17 - 3 = 14."
+        "q": (
+            "La fonction de demande s'écrit :\n"
+            "Q^D = 17 - P\n"
+            "À quel prix maximal les consommateurs seraient-ils disposés à acheter 3 unités ?"
+        ),
+        "choices": ["18", "16", "14", "12"],
+        "answer": 2,  # 2 = "14"
+        "explain": "Inverse de la demande : P = 17 - Q. Pour Q = 3, P = 14."
     }
 ]
-
 
 # ------------- SIDEBAR ------------- #
 with st.sidebar:
@@ -49,47 +47,46 @@ with st.sidebar:
     shuffle_q = st.checkbox("Mélanger les questions (au démarrage)", value=True)
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
     mode_mastery = st.checkbox("Mode apprentissage (type Quizlet)", value=True)
-    target_mastery = 1
+    target_mastery = 1  # verrouillé à 1 réussite
     st.caption("Partagez simplement l’URL publique de cette page dans WhatsApp.")
 
-# ------------- INIT STATE ------------- #
-if "init" not in st.session_state:
+# ------------- INIT / RESET HELPERS ------------- #
+def full_init():
+    """Initialise ou ré-initialise tout l'état (appelé au 1er chargement et si le nombre de questions change)."""
     st.session_state.init = True
+    st.session_state.n_questions = len(QUESTIONS)
     st.session_state.order = list(range(len(QUESTIONS)))
     if shuffle_q:
         random.shuffle(st.session_state.order)
-    # For classic mode
+    # État mode classique
     st.session_state.idx = 0
     st.session_state.score = 0
-    st.session_state.answers = {}       # q_idx -> last selected
-    st.session_state.validated = {}     # q_idx -> bool
-    # For mastery mode
-    st.session_state.mastery = {i: 0 for i in range(len(QUESTIONS))}  # q_idx -> successes count
+    st.session_state.answers = {}      # q_idx -> dernier choix
+    st.session_state.validated = {}    # q_idx -> bool
+    # État mode apprentissage
+    st.session_state.mastery = {i: 0 for i in range(len(QUESTIONS))}  # q_idx -> nb de réussites
     st.session_state.current = st.session_state.order[0]
 
 def reset_all():
-    st.session_state.order = list(range(len(QUESTIONS)))
-    if shuffle_q:
-        random.shuffle(st.session_state.order)
-    st.session_state.idx = 0
-    st.session_state.score = 0
-    st.session_state.answers = {}
-    st.session_state.validated = {}
-    st.session_state.mastery = {i: 0 for i in range(len(QUESTIONS))}
-    st.session_state.current = st.session_state.order[0]
+    full_init()
+
+# ------------- INIT STATE ------------- #
+if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
+    full_init()
 
 # ------------- UI HEADER ------------- #
-st.title("🧠Révision examen : Microéconomie I")
+st.title("🧠 Révision examen : Microéconomie I")
 st.caption("Deux modes : **classique** (score global) ou **apprentissage** (répétition des erreurs).")
 
 # ------------- HELPERS ------------- #
 def render_single(q_index, show_nav=True):
+    """Affiche une question. Retourne True/False si l'utilisateur a cliqué Valider, sinon None."""
     q = QUESTIONS[q_index]
 
-    # --- Affichage du titre / formule / énoncé sur des lignes séparées ---
+    # --- Titre / lignes suivantes (texte vs formule) ---
     lines = [s for s in q["q"].split("\n") if s.strip()]
 
-    # 1) Titre (ligne 1)
+    # 1) Titre
     if len(lines) >= 1:
         st.subheader(lines[0])
 
@@ -131,7 +128,7 @@ def render_single(q_index, show_nav=True):
 
 # ------------- MODES ------------- #
 if mode_mastery:
-    # --- Mastery mode (affiche l'explication, pas d'auto-rerun) --- #
+    # --- Mode apprentissage (pas d'auto-rerun, bouton Continuer) --- #
     mastered_count = sum(1 for v in st.session_state.mastery.values()
                          if v >= target_mastery)
     st.progress(mastered_count / len(QUESTIONS))
@@ -141,19 +138,15 @@ if mode_mastery:
     )
 
     q_idx = st.session_state.current
-    # render_single affiche :
-    # - ✅/❌ selon la réponse
-    # - l'explication si show_explain est coché (et q['explain'] présent)
-    result = render_single(q_idx, show_nav=False)   # None / True / False
+    result = render_single(q_idx, show_nav=False)  # None / True / False
 
     if result is not None:
-        # On laisse l'utilisateur voir le message, puis il appuie sur Continuer
         if st.button("➡️ Continuer", key=f"next_{q_idx}"):
-            # Si c'était correct, on incrémente la maîtrise
+            # Incrémente la maîtrise seulement si c'était correct
             if result:
                 st.session_state.mastery[q_idx] += 1
 
-            # Choisir la prochaine question : priorité aux moins maîtrisées
+            # Prochaine question : priorité aux moins maîtrisées
             remaining = [i for i in st.session_state.order
                          if st.session_state.mastery[i] < target_mastery]
             if remaining:
@@ -178,7 +171,7 @@ if mode_mastery:
                     st.rerun()
 
 else:
-    # --- Classic mode (inchangé : messages + navigation manuelle) --- #
+    # --- Mode classique (navigation manuelle) --- #
     st.write("**Mode classique** — corrigez chaque question puis passez à la suivante.")
     q_index = st.session_state.order[st.session_state.idx]
     was_correct = render_single(q_index, show_nav=True)
@@ -215,4 +208,3 @@ else:
         if st.button("🔁 Recommencer"):
             reset_all()
             st.rerun()
-
