@@ -185,9 +185,10 @@ def full_init():
         random.shuffle(st.session_state.order)
     st.session_state.mastery = {i: 0 for i in range(len(QUESTIONS))}  # q_idx -> nb de réussites
     st.session_state.current = st.session_state.order[0]
-    st.session_state.answers = {}       # q_idx -> dernier choix
-    st.session_state.just_validated = False  # pour gérer l'apparition du bouton Continuer
-    st.session_state.last_result = None      # True/False du dernier Valider
+    st.session_state.answers = {}             # q_idx -> dernier choix
+    st.session_state.just_validated = False   # pour gérer l'apparition du bouton Continuer
+    st.session_state.last_result = None       # True/False du dernier Valider
+    st.session_state.streak = 0               # série de bonnes réponses consécutives (NEW)
 
 def reset_all():
     full_init()
@@ -275,12 +276,19 @@ def render_single(q_index):
         correct = (selected == q["answer"])
         st.session_state.just_validated = True
         st.session_state.last_result = correct
+
+        # --- NEW: mise à jour de la streak ---
+        if correct:
+            st.session_state.streak = st.session_state.get("streak", 0) + 1
+        else:
+            st.session_state.streak = 0
+
         if correct:
             st.success("✔️ Bonne réponse !")
         else:
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
-            st.info(f" Explication : {q['explain']}")
+            st.info(f"🧠 Explication : {q['explain']}")
         return correct
 
     # Si on a déjà validé (afficher les messages au re-run)
@@ -298,6 +306,18 @@ def render_single(q_index):
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
 mastered_count = sum(1 for v in st.session_state.mastery.values()
                      if v >= TARGET_MASTERY)
+
+# --- Couleur de la barre si 7 bonnes réponses de suite ---
+bar_color = "red" if st.session_state.get("streak", 0) >= 7 else "var(--primary-color)"
+st.markdown(f"""
+<style>
+/* Cible la barre de progression Streamlit */
+div[data-testid="stProgressBar"] > div > div > div > div {{
+    background-color: {bar_color} !important;
+}}
+</style>
+""", unsafe_allow_html=True)
+
 st.progress(mastered_count / len(QUESTIONS))
 st.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
