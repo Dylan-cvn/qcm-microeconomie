@@ -1,7 +1,6 @@
 import streamlit as st
 import random
 from datetime import datetime
-import streamlit.components.v1 as components
 
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
@@ -195,22 +194,6 @@ def reset_all():
 
 if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
     full_init()
-    
-def confetti():
-    components.html("""
-    <script>
-    (function () {
-      var s=document.createElement('script');
-      s.src='https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
-      s.onload=function(){
-        confetti({particleCount:160, spread:100, startVelocity:45, origin:{y:0.7}});
-        setTimeout(()=>confetti({particleCount:120, spread:120, origin:{y:0.6}}), 200);
-        setTimeout(()=>confetti({particleCount:80,  spread:140, origin:{y:0.5}}), 400);
-      };
-      document.head.appendChild(s);
-    })();
-    </script>
-    """, height=0, width=0)
 
 # ------------- HEADER ------------- #
 st.title("🧠 Révision examen : Microéconomie I")
