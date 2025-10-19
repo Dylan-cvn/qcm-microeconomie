@@ -279,7 +279,7 @@ def render_single(q_index):
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # MAJ streak uniquement
+        # MAJ uniquement de la streak
         if correct:
             st.session_state.streak = st.session_state.get("streak", 0) + 1
         else:
@@ -291,7 +291,7 @@ def render_single(q_index):
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
             st.info(f"🧠 Explication : {q['explain']}")
-        return correct   # <-- bien à l'intérieur de render_single ET du if validate
+        return correct
 
     # Réaffichage après validation
     if st.session_state.just_validated:
@@ -307,39 +307,53 @@ def render_single(q_index):
 
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
 
-# Placeholders tout en haut pour garder la barre au-dessus
+# Placeholders pour garder la barre au-dessus de la question
 progress_css_slot = st.empty()
 progress_bar_slot = st.empty()
 progress_text_slot = st.empty()
 
-# Affiche la question (met à jour 'streak' quand on clique Valider)
+# Affiche la question (met à jour 'streak' au clic sur Valider)
 q_idx = st.session_state.current
-result = render_single(q_idx)  # None / True / False
+_ = render_single(q_idx)
 
-# Calcul de la progression (comme AVANT : pas d'incrément avant "Continuer")
+# Calcul de la progression (comme avant : pas d'incrément avant "Continuer")
 mastered_count = sum(1 for v in st.session_state.mastery.values()
                      if v >= TARGET_MASTERY)
+ratio = mastered_count / len(QUESTIONS)
 
 # Couleur : bleu par défaut, rouge si 7 bonnes réponses de suite
 bar_color = "red" if st.session_state.get("streak", 0) >= 7 else "var(--primary-color)"
+
+# CSS robuste (couvre plusieurs versions de Streamlit)
 progress_css_slot.markdown(f"""
 <style>
-/* Compat différentes versions de Streamlit */
-div[data-testid="stProgressBar"] > div > div > div > div,
+/* Hauteur un peu plus visible */
+div[data-testid="stProgressBar"] {{
+  height: 10px;
+}}
+/* track transparent pour bien voir le fill */
+div[data-testid="stProgressBar"] > div {{
+  background: transparent !important;
+}}
+/* fill - structure récente */
+div[data-testid="stProgressBar"] div[role="progressbar"] > div {{
+  background: {bar_color} !important;
+}}
+/* fill - structure ancienne (fallback) */
 .stProgress > div > div > div > div {{
-    background-color: {bar_color} !important;
+  background: {bar_color} !important;
 }}
 </style>
 """, unsafe_allow_html=True)
 
 # Rendu de la barre + texte (toujours au-dessus)
-progress_bar_slot.progress(mastered_count / len(QUESTIONS))
+progress_bar_slot.progress(ratio)
 progress_text_slot.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
     f"(objectif {TARGET_MASTERY} réussite(s) chacune)."
 )
 
-# Après validation : le score n'augmente qu'au clic sur "Continuer" si c'était correct
+# Après validation : la progression n'augmente qu'au clic sur "Continuer" si c'était correct
 if st.session_state.just_validated:
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
         if st.session_state.last_result and st.session_state.mastery[q_idx] < TARGET_MASTERY:
