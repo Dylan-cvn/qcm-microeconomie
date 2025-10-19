@@ -105,7 +105,7 @@ if mode_mastery:
             min_level = st.session_state.mastery[remaining[0]]
             candidates = [i for i in remaining if st.session_state.mastery[i] == min_level]
             st.session_state.current = random.choice(candidates)
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.balloons()
             stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -114,7 +114,7 @@ if mode_mastery:
             st.success(f"🎉 Maîtrise atteinte{name_line} — toutes les questions réussies {target_mastery} fois. ({total_success} réussites comptées) — {stamped}")
             if st.button("🔁 Recommencer"):
                 reset_all()
-                st.experimental_rerun()
+                st.rerun()
 
 else:
     # --- Classic mode --- #
@@ -141,4 +141,4 @@ else:
         st.success(f"🎉 Terminé{name_line} — Score {st.session_state.score}/{len(QUESTIONS)} — {stamped}")
         if st.button("🔁 Recommencer"):
             reset_all()
-            st.experimental_rerun()
+            st.rerun()
