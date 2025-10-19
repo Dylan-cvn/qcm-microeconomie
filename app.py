@@ -15,9 +15,10 @@ QUESTIONS = [
             "Pour Roger, quel est le coût d'opportunité des cours de tennis ?"
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
-        "answer": 0,
+        "answer": 0, # 0 = première option ("11'200")
         "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (11'200)."
     }
+]
 
 # ------------- SIDEBAR ------------- #
 with st.sidebar:
