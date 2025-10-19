@@ -282,6 +282,8 @@ def render_single(q_index):
         # Maj de la streak
         if correct:
             st.session_state.streak = st.session_state.get("streak", 0) + 1
+            if st.session_state.mastery[q_index] < TARGET_MASTERY:
+            st.session_state.mastery[q_index] += 1
         else:
             st.session_state.streak = 0
 
@@ -306,18 +308,25 @@ def render_single(q_index):
     return None
 
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
-q_idx = st.session_state.current
-result = render_single(q_idx)  # None / True / False  -> met à jour streak ici
 
-# Après l'affichage de la question, on calcule et on rend la barre
+# 1) Emplacements réservés tout en haut (barre + texte)
+progress_css_slot = st.empty()
+progress_bar_slot = st.empty()
+progress_text_slot = st.empty()
+
+# 2) Afficher la question (met à jour streak/mastery si on clique Valider)
+q_idx = st.session_state.current
+result = render_single(q_idx)  # None / True / False
+
+# 3) Calculer la progression MAINTENANT (après le clic éventuel)
 mastered_count = sum(1 for v in st.session_state.mastery.values()
                      if v >= TARGET_MASTERY)
 
-# Couleur de la barre si 7 bonnes réponses de suite
+# 4) Couleur: bleu par défaut, rouge si 7 bonnes réponses consécutives
 bar_color = "red" if st.session_state.get("streak", 0) >= 7 else "var(--primary-color)"
-st.markdown(f"""
+progress_css_slot.markdown(f"""
 <style>
-/* Compat différents Streamlit */
+/* Compat différentes versions de Streamlit */
 div[data-testid="stProgressBar"] > div > div > div > div,
 .stProgress > div > div > div > div {{
     background-color: {bar_color} !important;
@@ -325,16 +334,16 @@ div[data-testid="stProgressBar"] > div > div > div > div,
 </style>
 """, unsafe_allow_html=True)
 
-st.progress(mastered_count / len(QUESTIONS))
-st.write(
+# 5) Rendre la barre et le texte (ils restent au-dessus de la question)
+progress_bar_slot.progress(mastered_count / len(QUESTIONS))
+progress_text_slot.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
     f"(objectif {TARGET_MASTERY} réussite(s) chacune)."
 )
 
-# Après validation, bouton "Continuer"
+# 6) Bouton Continuer (on ne touche plus à mastery ici)
 if st.session_state.just_validated:
-    if st.session_state.last_result:
-        st.session_state.mastery[q_idx] += 1
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
         _advance_to_next()
+
 
