@@ -94,16 +94,76 @@ QUESTIONS = [
     },
     {
         "q": ("Laquelle des propositions suivantes relève du champ d’étude de la microéconomie ?"),
-    "choices": [
-        "Le taux de chômage est plus élevé à Genève qu’à Zurich",
-        "L’IPC a augmenté en Suisse de 1 % entre 2023 et 2024",
-        "La BNS décide de baisser son taux directeur",
-        "Migros fait une action sur le prix des mandarines"],
-    "answer": 3,  # 0,1,2 = macro ; 3 = micro (marché/entreprise spécifique)
-    "explain": "La microéconomie étudie les décisions des ménages/entreprises et le fonctionnement d’un marché particulier. Une action de Migros sur le prix d’un produit concerne un marché spécifique. Les autres propositions relèvent de la macroéconomie (agrégats/ politiques)."
+        "choices": [
+            "Le taux de chômage est plus élevé à Genève qu’à Zurich",
+            "L’IPC a augmenté en Suisse de 1 % entre 2023 et 2024",
+            "La BNS décide de baisser son taux directeur",
+            "Migros fait une action sur le prix des mandarines"],
+        "answer": 3,  # 0,1,2 = macro ; 3 = micro (marché/entreprise spécifique)
+        "explain": "La microéconomie étudie les décisions des ménages/entreprises et le fonctionnement d’un marché particulier. Une action de Migros sur le prix d’un produit concerne un marché spécifique. Les autres propositions relèvent de la macroéconomie (agrégats/ politiques)."
     },
-
-
+    {
+        "q": ("Laquelle des affirmations suivantes est positive (par opposition à normative) ?"),
+        "choices": [
+            "Les entreprises doivent prendre des mesures pour augmenter le nombre de femmes dans les conseils d’administration.",
+            "Il faudrait que le Portugal réduise sa dette publique pendant la période de croissance économique actuelle.",
+            "Si l’État de Genève décidait d’introduire une taxe au sac, le tri des déchets augmenterait.",
+            "La Confédération devrait augmenter et généraliser la taxe carbone afin de réduire les émissions de CO₂."],
+        "answer": 2,  # 0=A, 1=B, 2=C, 3=D -> l’énoncé positif/testable est la 3e proposition
+        "explain": "Une affirmation positive est vérifiable/causale (« augmenterait »). Les autres sont normatives (jugements de valeur : « doivent », « il faudrait », « devrait »)."
+    },
+    {
+        "q": ("Laquelle des propositions suivantes concernant l’organisation de la vie économique est correcte ?"),
+        "choices": [
+            "Le souci principal du système de marché pur consiste en l’absence d’incitations, ce qui entraîne peu d’innovation et donc une croissance économique faible.",
+            "Dans une économie planifiée, les agents économiques disposent d’une large liberté pour décider ce qu’ils souhaitent produire et consommer.",
+            "Dans une économie mixte, l’État ne peut pas intervenir sur les marchés.",
+            "Dans une économie mixte, l’État intervient pour encadrer l’activité économique afin de limiter les problèmes potentiels du système de marché ou de l’économie planifiée."],
+        "answer": 3,  # 0=A, 1=B, 2=C, 3=D -> la 4e est correcte
+        "explain": "Économie de marché : décisions surtout laissées aux prix et aux agents privés. Économie planifiée : décisions centralisées par l’État. Économie mixte : combinaison des deux, avec intervention publique pour corriger des défaillances (réglementation, redistribution, stabilisation)."
+    },
+    {
+        "q": ("Laquelle des affirmations suivantes concernant les modèles économiques est fausse ?"),
+        "choices": [
+            "Un modèle économique permet d’établir des lois s’appliquant indépendamment du contexte.",
+            "L’empirisme est une analyse basée sur des observations et des preuves.",
+            "Un modèle économique peut aider à évaluer ou prédire les impacts d’une politique publique ou d’un évènement précis.",
+            "Un bon modèle n’est pas nécessairement réaliste."],
+    "answer": 0,  # la 1re affirmation est fausse
+    "explain": "Les modèles économiques sont des simplifications conditionnelles : leurs résultats dépendent d’hypothèses et du contexte. Ils ne produisent pas des « lois » universelles valables indépendamment du contexte. Les autres affirmations sont correctes (définition de l’empirisme, utilité prédictive d’un modèle, et fait qu’un bon modèle peut être peu réaliste mais pertinent)."
+    },
+    {
+        "q": (
+            "On observe qu’en moyenne les résultats scolaires sont meilleurs dans les petites classes "
+            "gérées par des enseignantes mieux payées que la moyenne.\n"
+            "Que pouvez-vous affirmer ?"),
+        "choices": [
+            "Il existe une corrélation négative entre la rémunération des enseignantes et les résultats des élèves.",
+            "Les salaires des enseignantes et la petite taille des classes améliorent directement la performance des élèves.",
+            "Les meilleures enseignantes, qui sont aussi les mieux payées, préfèrent travailler dans des petites classes.",
+            "Il existe une corrélation négative entre la taille des classes et les résultats des élèves."],
+        "answer": 3,  # seule conclusion sûre: corrélation (négative) taille de classe ↔ résultats
+        "explain": (
+        "L’énoncé décrit une co-variation (petites classes ↔ meilleurs résultats). "
+        "On peut donc affirmer une corrélation négative entre la taille des classes et les résultats. "
+        "Rien ne permet d’inférer une causalité directe des salaires ou des préférences des enseignantes."),
+    },
+    {
+        "q": (
+            "Il existe une forte corrélation entre la probabilité d’observer une guerre civile dans un pays "
+            "et le taux de croissance du PIB de ce pays.\n"
+            "Comment peut-on s’assurer qu’en plus de cette corrélation, il existe en fait une relation de causalité ?"),
+        "choices": [
+            "Il faut s’assurer que la corrélation soit au moins de 0.9",
+            "Il faut d’abord s’assurer qu’il n’existe pas d’autre facteur pouvant expliquer à la fois la guerre civile et le taux de croissance économique du pays.",
+            "Il faut d’abord s’assurer que le PIB du pays soit une variable explicative dans le modèle statistique",
+            "Il faut s’assurer que la corrélation soit positive"],
+        "answer": 1,  # éliminer les variables confondantes pour approcher la causalité
+        "explain": (
+            "La corrélation ne suffit pas à établir la causalité. Il faut vérifier qu’aucun facteur confondant "
+            "n’explique simultanément la guerre civile et la croissance (contrôle expérimental/quasi-expérimental, contrôle statistique, etc.). "
+            "Ni la force ou le signe de la corrélation, ni le choix arbitraire d’une variable explicative ne prouvent la causalité."),
+    },
 ]
 
 # ------------- SIDEBAR (mode apprentissage unique) ------------- #
@@ -137,7 +197,7 @@ if ("init" not in st.session_state) or (st.session_state.get("n_questions") != l
 
 # ------------- HEADER ------------- #
 st.title("🧠 Révision examen : Microéconomie I")
-st.caption("Mode **apprentissage** : répéter les erreurs jusqu’à maîtrise (1 réussite par question).")
+st.caption("Mode **apprentissage** : répéter les erreurs jusqu’à maîtriser le sujet.")
 
 # ------------- HELPERS ------------- #
 def _choose_next(exclude_idx=None):
