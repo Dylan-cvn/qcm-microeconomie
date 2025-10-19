@@ -196,7 +196,7 @@ if ("init" not in st.session_state) or (st.session_state.get("n_questions") != l
     full_init()
 
 # ------------- HEADER ------------- #
-st.title("🧠 Révision examen : Microéconomie I")
+st.title("🎈Révision examen : Microéconomie I")
 st.caption("Mode **apprentissage** : répéter les erreurs jusqu’à maîtriser le sujet.")
 
 # ------------- HELPERS ------------- #
@@ -280,7 +280,7 @@ def render_single(q_index):
         else:
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
-            st.info(f"🧠 Explication : {q['explain']}")
+            st.info(f" Explication : {q['explain']}")
         return correct
 
     # Réaffichage après validation (si on revient sur la même question)
