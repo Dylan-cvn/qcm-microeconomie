@@ -58,7 +58,7 @@ QUESTIONS = [
         ),
         "choices": ["17", "8.5", "3.4", "1"],
         "answer": 1,
-        "explain": "ε_demande = (dQ^d/dP)·(P/Q^d) sachant (dQ^d/dP) = -1 alors ε_demande = -1 × (P/Q^d) = -(P/(17 - P))\n"
+        "explain": "ε_demande = (dQ^d/dP)·(P/Q^d) sachant (dQ^d/dP) = -1 alors ε_demande = -1 × (P/Q^d) = -(P/(17 - P)).\n"
                     "Condition d’élasticité unitaire ⇒ |ε_demamde| = |-(P/(17 - P))| = |1| donc P/(17 - P) = 1 ⇒ P = 17 − P ⇒ 2P = 17 ⇒ P=8,5."
     },
     {
