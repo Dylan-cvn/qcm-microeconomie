@@ -58,7 +58,8 @@ QUESTIONS = [
         ),
         "choices": ["17", "8.5", "3.4", "1"],
         "answer": 1,
-        "explain": "ε = (dQ/dP)*(P/Q) = -1*(P/Q). Unitaire ⇒ |ε|=1 ⇒ P/Q=1 ⇒ P=Q. Or Q=17−P ⇒ P=17−P ⇒ 2P=17 ⇒ P=8,5."
+        "explain": "ε_demande = (dQ^d/dP)·(P/Q^d) sachant (dQ^d/dP) = -1 alors ε_demande = -1 × (P/Q^d) = -(P/(17 - P))\n"
+                    "Condition d’élasticité unitaire ⇒ |ε_demamde| = |-(P/(17 - P))| = |1| donc P/(17 - P) = 1 ⇒ P = 17 − P ⇒ 2P = 17 ⇒ P=8,5."
     },
     {
         "q": (
@@ -90,7 +91,7 @@ QUESTIONS = [
         ),
         "choices": ["2", "1.8", "1.6", "1"],
         "answer": 2,
-        "explain": "ε_offre = (dQ/dP)·(P/Q). dQ/dP = 9 ; Q = -63 + 9×18 = 99 ; donc ε = 9×18/99 = 162/99 ≈ 1,64 → 1,6."
+        "explain": "ε_offre = (dQ^o/dP)·(P/Q) sachant (dQ^o/dP) = 9 alors Q^o = -63 + 9 × 18 = 99 ; donc ε_offre = 9 × (18/99) = 162/99 ≈ 1,64 → 1,6."
     },
     {
         "q": ("Laquelle des propositions suivantes relève du champ d’étude de la microéconomie ?"),
