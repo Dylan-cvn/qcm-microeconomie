@@ -15,7 +15,7 @@ QUESTIONS = [
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
         "answer": 0,
-        "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (12'000 - 800) = 11'200."
+        "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (12'000 - 800) = 11'200"
     },
     {
         "q": (
@@ -26,7 +26,7 @@ QUESTIONS = [
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
         "answer": 3,
-        "explain": "Coût d'opportunité = meilleure alternative sacrifiée : ici, le bénéfice net du tennis (10'000 - 7'000) = 3'000."
+        "explain": "Coût d'opportunité = meilleure alternative sacrifiée : ici, le bénéfice net du tennis (10'000 - 7'000) = 3'000"
     },
     {
         "q": (
@@ -36,7 +36,7 @@ QUESTIONS = [
         ),
         "choices": ["18", "16", "14", "12"],
         "answer": 2,
-        "explain": "Inverse de la demande : P = 17 - Q. Pour Q = 3, P = 14."
+        "explain": "Inverse de la demande : P = 17 - Q^d. Pour Q^d = 3 al. P = 14"
     },
     {
         "q": (
@@ -47,7 +47,7 @@ QUESTIONS = [
         ),
         "choices": ["-4.7", "-3", "-0.2", "-0.1"],
         "answer": 2,
-        "explain": "dQ/dP = -1 et Q=14 (car 17-3). Élasticité: ε = (dQ/dP)*(P/Q) = -1*(3/14) ≈ -0,214 → -0,2 au dixième."
+        "explain": "ε_demande = (dQ^d/dP) × (P/Q) sachant (dQ^d/dP) = -1 & Q^d = 17 - 3 = 14 ∴ ε_offre = -1 × (3/14) ≈ -0,214 ⇒ -0.2"
     },
     {
         "q": (
@@ -58,8 +58,8 @@ QUESTIONS = [
         ),
         "choices": ["17", "8.5", "3.4", "1"],
         "answer": 1,
-        "explain": "ε_demande = (dQ^d/dP)·(P/Q^d) sachant (dQ^d/dP) = -1 alors ε_demande = -1 × (P/Q^d) = -(P/(17 - P)).\n"
-                    "Condition d’élasticité unitaire ⇒ |ε_demamde| = |-(P/(17 - P))| = |1| donc P/(17 - P) = 1 ⇒ P = 17 − P ⇒ 2P = 17 ⇒ P=8,5."
+        "explain": "ε_demande = (dQ^d/dP) × (P/Q^d) sachant (dQ^d/dP) = -1 & Q^d = ? al. ε_demande = -1 × (P/Q^d) = -(P/(17 - P)).\n"
+                    "Condition d’élasticité unitaire ⇒ |ε_demande| = |-(P/(17 - P))| = |1| ∴ P/(17 - P) = 1 ⇒ P = 17 − P ⇒ 2P = 17 ⇒ P = 8.5"
     },
     {
         "q": (
