@@ -165,6 +165,19 @@ QUESTIONS = [
             "n’explique simultanément la guerre civile et la croissance."
         ),
     },
+    {
+        "q": (
+            "Si l'élasticité-prix de la demande à court-terme est de -0.30 alors une hausse de prix de +5% due à une taxe implique..."), 
+        "choices": [
+            "que la quantité baisse de 15% et que la dépense diminue fortement.",
+            "que la quantité augmente de 1.5% et que la dépense augmente.",
+            "que la quantité baisse de 5% et que la dépense reste inchangée.",
+            "que la quantité baisse de 1.5% et que la dépense augmente."],
+        "answer": 3,
+        "explain": (
+            "ε_demande = -0.30 ∴ |ε| < 1 al. demande inélastique ⇒ P↑ & Q↓(léger). Si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement). Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)
+            ),
+    },
 ]
 
 # ------------- SIDEBAR ------------- #
