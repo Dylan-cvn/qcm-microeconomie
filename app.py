@@ -175,7 +175,7 @@ QUESTIONS = [
             "que la quantité baisse de 1.5% et que la dépense augmente."],
         "answer": 3,
         "explain": (
-            "ε_demande = -0.30 ∴ |ε| < 1 al. demande inélastique ⇒ P↑ & Q↓(léger). Si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement). Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)
+            "ε_demande = -0.30 ∴ |ε| < 1 al. demande inélastique ⇒ P↑ & Q↓(léger). Si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement). Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)"
             ),
     },
 ]
