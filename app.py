@@ -202,15 +202,12 @@ def full_init():
     st.session_state.answers = {}
     st.session_state.just_validated = False
     st.session_state.last_result = None
-    st.session_state.correct_streak = 0
 
 def reset_all():
     full_init()
 
 if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
     full_init()
-if "correct_streak" not in st.session_state:
-    st.session_state.correct_streak = 0
 
 # ------------- HEADER ------------- #
 st.title("🎈Révision examen : Microéconomie I")
@@ -291,10 +288,10 @@ def render_single(q_index):
         # Progression : on augmente immédiatement si c'est correct
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
             st.session_state.mastery[q_index] += 1
-            st.session_state.correct_streak = min(st.session_state.correct_streak + 1, 3)
+
+        if correct:
             st.success("✔️ Bonne réponse !")
         else:
-            st.session_state.correct_streak = 0
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
             st.info(f" Explication : {q['explain']}")
@@ -317,23 +314,6 @@ def render_single(q_index):
 # Placeholders pour garder la barre au-dessus
 progress_bar_slot = st.empty()
 progress_text_slot = st.empty()
-def render_progress_bar(slot, ratio, streak):
-    ratio = max(0.0, min(1.0, ratio))
-    fill_color = "#21c45a" if streak >= 3 else "var(--primary-color)"
-    slot.markdown(
-        f"""
-        <div style="background-color: rgba(49, 51, 63, 0.1); border-radius: 999px; height: 16px; width: 100%;">
-            <div style="
-                background: {fill_color};
-                width: {ratio * 100:.1f}%;
-                height: 100%;
-                border-radius: 999px;
-                transition: width 200ms ease-out;
-            "></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
 # Affiche la question (met à jour mastery si on a validé correctement)
 q_idx = st.session_state.current
@@ -346,10 +326,6 @@ progress_bar_slot.progress(mastered_count / len(QUESTIONS))
 progress_text_slot.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
 )
-progress_ratio = mastered_count / len(QUESTIONS) if QUESTIONS else 0.0
-render_progress_bar(progress_bar_slot, progress_ratio, st.session_state.correct_streak)
-progress_text_slot.write(
-    f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions | Série actuelle : {st.session_state.correct_streak}/3")
 
 # Après validation : bouton pour passer à la suite (plus d'incrément ici)
 if st.session_state.just_validated:
