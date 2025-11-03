@@ -332,7 +332,9 @@ progress_style_slot.markdown(
     f"""
     <style>
     div[data-testid="stProgressBar"] div[role="progressbar"] {{
-        background: {progress_color};
+        background: {progress_color} !important;
+        background-color: {progress_color} !important;
+        background-image: none !important;
     }}
     </style>
     """,
@@ -347,3 +349,4 @@ progress_text_slot.write(
 if st.session_state.just_validated:
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
         _advance_to_next()
+
