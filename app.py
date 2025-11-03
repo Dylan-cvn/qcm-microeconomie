@@ -167,7 +167,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Si l'élasticité-prix de la demande à court-terme est de -0.30 alors une hausse de prix de +5% due à une taxe implique..."), 
+            "Si l'élasticité-prix de la demande à court-terme est de -0.30 alors une hausse de prix de +5% due à une taxe implique..."),
         "choices": [
             "que la quantité baisse de 15% et que la dépense diminue fortement.",
             "que la quantité augmente de 1.5% et que la dépense augmente.",
@@ -176,7 +176,7 @@ QUESTIONS = [
         "answer": 3,
         "explain": (
             "ε_demande = -0.30 ∴ |ε| < 1 al. demande inélastique ⇒ P↑ & Q↓(léger). Si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement). Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)"
-            ),
+        ),
     },
 ]
 
@@ -202,12 +202,15 @@ def full_init():
     st.session_state.answers = {}
     st.session_state.just_validated = False
     st.session_state.last_result = None
+    st.session_state.correct_streak = 0
 
 def reset_all():
     full_init()
 
 if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
     full_init()
+if "correct_streak" not in st.session_state:
+    st.session_state.correct_streak = 0
 
 # ------------- HEADER ------------- #
 st.title("🎈Révision examen : Microéconomie I")
@@ -285,13 +288,13 @@ def render_single(q_index):
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # Progression : on augmente immédiatement si c'est correct
-        if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
-            st.session_state.mastery[q_index] += 1
-
         if correct:
+            if st.session_state.mastery[q_index] < TARGET_MASTERY:
+                st.session_state.mastery[q_index] += 1
+            st.session_state.correct_streak = min(st.session_state.correct_streak + 1, 3)
             st.success("✔️ Bonne réponse !")
         else:
+            st.session_state.correct_streak = 0
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
             st.info(f" Explication : {q['explain']}")
@@ -312,6 +315,7 @@ def render_single(q_index):
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
 
 # Placeholders pour garder la barre au-dessus
+progress_style_slot = st.empty()
 progress_bar_slot = st.empty()
 progress_text_slot = st.empty()
 
@@ -322,7 +326,19 @@ _ = render_single(q_idx)
 # Calcule et affiche la progression (barre bleue par défaut)
 mastered_count = sum(1 for v in st.session_state.mastery.values()
                      if v >= TARGET_MASTERY)
-progress_bar_slot.progress(mastered_count / len(QUESTIONS))
+progress_ratio = mastered_count / len(QUESTIONS) if QUESTIONS else 0.0
+progress_color = "#21c45a" if st.session_state.correct_streak >= 3 else "var(--primary-color)"
+progress_style_slot.markdown(
+    f"""
+    <style>
+    div[data-testid="stProgressBar"] div[role="progressbar"] {{
+        background: {progress_color};
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+progress_bar_slot.progress(progress_ratio)
 progress_text_slot.write(
     f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions "
 )
