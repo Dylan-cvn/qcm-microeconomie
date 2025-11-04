@@ -193,7 +193,7 @@ QUESTIONS = [
             "En concurrence parfaite, le prix du marché (P) = au coût marginal (Cm) = à la recette marginal (Rm)." 
             "Le producteur étant preneur de prix en concurrence parfaite veut maximiser son profit."
             ),
-        "highlight_color": "#ff4b4b" # rouge
+        "highlight_color": "#ffc107",  # jaune
     }     
 ]
 
