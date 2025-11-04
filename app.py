@@ -2,9 +2,11 @@ import streamlit as st
 import random
 from datetime import datetime
 
+# 1) Configuration de la page Streamlit dès son chargement : “QCM Microéconomie”, icône 🧠 et mise en page centrée (layout="centered")
+
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
-# ------------- QUIZ DATA ------------- #
+# 2) Données du Quiz mis en ligne
 QUESTIONS = [
     {
         "q": (
@@ -180,7 +182,7 @@ QUESTIONS = [
     },
 ]
 
-# ------------- SIDEBAR ------------- #
+# 3) Onglet latéral pour paramétrer sa façon d'apprendre
 with st.sidebar:
     st.header("⚙️ Paramètres")
     user_name = st.text_input("Votre nom (optionnel)", "")
@@ -188,63 +190,68 @@ with st.sidebar:
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
     st.caption("Partagez simplement l’URL publique de cette page.")
 
+# 4) Seuil minimum pour valider la question donc une quest. correct = un quest. liquidée
 TARGET_MASTERY = 1  # 1 réussite par question
 
-# ------------- INIT / RESET ------------- #
+# 5) Initialisation du quiz
 def full_init():
-    st.session_state.init = True
-    st.session_state.n_questions = len(QUESTIONS)
-    st.session_state.order = list(range(len(QUESTIONS)))
+    st.session_state.init = True                                     # marque l’état comme initialisé pour éviter une nouvelle configuration au rafraîchissement
+    st.session_state.n_questions = len(QUESTIONS)                    # mémorise le nombre total de questions disponibles
+    st.session_state.order = list(range(len(QUESTIONS)))             # crée la liste d’indices des questions dans l’ordre naturel
     if shuffle_q:
-        random.shuffle(st.session_state.order)
-    st.session_state.mastery = {i: 0 for i in range(len(QUESTIONS))}
-    st.session_state.current = st.session_state.order[0]
-    st.session_state.answers = {}
-    st.session_state.just_validated = False
-    st.session_state.last_result = None
+        random.shuffle(st.session_state.order)                       # mélange la liste d’indices lorsque l’option de mélange est activée
+    st.session_state.mastery = {i: 0 for i in range(len(QUESTIONS))} # initialise le compteur de maîtrise à zéro pour chaque question
+    st.session_state.current = st.session_state.order[0]             # sélectionne l’indice de la première question à afficher
+    st.session_state.answers = {}                                    # vide l’historique des réponses enregistrées
+    st.session_state.just_validated = False                          # indique qu’aucune réponse ne vient d’être validée
+    st.session_state.last_result = None                              # réinitialise le dernier résultat connu pour la question courante
 
-def reset_all():
-    full_init()
+# 5) Remise à zéro du quiz quand c'est nécessaire
+def reset_all():                                                     # déclare une fonction utilitaire pour relancer complètement la session
+    full_init()                                                      # appelle la routine d’initialisation complète lorsque l’utilisateur demande un reset
 
-if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
-    full_init()
+if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)): 
+    full_init()                                                      # vérifie au chargement si l’état n’a pas encore été initialisé ou si le nombre de questions en mémoire n’est plus à jour
 
-# ------------- HEADER ------------- #
+# 6) En-tête et titre du quiz
 st.title("🎈Révision examen : Microéconomie I")
 st.caption("Mode **apprentissage** : répéter les erreurs jusqu’à maîtriser le sujet.")
 
-# ------------- HELPERS ------------- #
-def _choose_next(exclude_idx=None):
-    remaining = [i for i in st.session_state.order
-                 if st.session_state.mastery[i] < TARGET_MASTERY]
-    if not remaining:
-        return None
-    remaining.sort(key=lambda i: st.session_state.mastery[i])
-    min_level = st.session_state.mastery[remaining[0]]
-    candidates = [i for i in remaining if st.session_state.mastery[i] == min_level]
-    if exclude_idx in candidates and len(candidates) > 1:
-        candidates = [i for i in candidates if i != exclude_idx]
-    return random.choice(candidates)
-
-def _advance_to_next():
-    next_idx = _choose_next(exclude_idx=st.session_state.current)
-    if next_idx is None:
-        st.balloons()  # 🎈 effet fin de quiz
-        st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")
-        stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
-        name_line = f" par {user_name}" if user_name.strip() else ""
-        total_success = sum(st.session_state.mastery.values())
+# 7) Sélection aléatoire de la prochaine question du quiz correct ou incorrect
+def _choose_next(exclude_idx=None):                                                 # déclare la fonction chargée de choisir l’indice de la prochaine question, en option sans répéter l’actuelle
+    remaining = [i for i in st.session_state.order                                  
+                 if st.session_state.mastery[i] < TARGET_MASTERY]                   # construit la liste des questions qui n’ont pas encore été maitrisées
+    if not remaining:                                                               # si aucune question ne reste à travailler, on signale la fin en renvoyant None
+        return None                                                                 # met fin à la fonction lorsqu’il n’y a plus de question (None)
+    remaining.sort(key=lambda i: st.session_state.mastery[i])                       # trie les questions restantes par ordre croissant de niveau de maîtrise pour prioriser les moins bien apprises
+    min_level = st.session_state.mastery[remaining[0]]                              # identifie le niveau de maîtrise le plus faible parmi les questions encore à traiter
+    candidates = [i for i in remaining if st.session_state.mastery[i] == min_level] # retient uniquement les questions qui partagent ce niveau minimal pour un tirage équitable
+    if exclude_idx in candidates and len(candidates) > 1:                           # évite de proposer la même question immédiatement si d’autres options de même priorité existent
+        candidates = [i for i in candidates if i != exclude_idx]                    # retire l’indice à exclure de la liste des candidats lorsqu’il reste d’autres choix
+    return random.choice(candidates)                                                # sélectionne au hasard l’une des questions retenues pour introduire de l'aléatoir
+    
+# 8) Ce qu'il se passe en passant à la question suivante
+def _advance_to_next():                                                                # appelle la fonction qui gère le passage à une nouvelle question
+    next_idx = _choose_next(exclude_idx=st.session_state.current)                      # demande à l’algorithme l’indice de la prochaine question en excluant celle validé
+    if next_idx is None:                                                               # vérifie s’il reste encore des questions à réviser
+        st.balloons()                                                                  # 🎈 effet fin de quiz
+        st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")                              # affiche une notification de félicitations
+        stamped = datetime.now().strftime("%Y-%m-%d %H:%M")                            # formate l’horodatage du moment où la maîtrise est atteinte
+        name_line = f" par {user_name}" if user_name.strip() else ""                   # ajoute le nom de l’utilisateur à la mention finale s’il a été saisi
+        total_success = sum(st.session_state.mastery.values())                         # calcule le nombre total de réussites cumulées sur toutes les questions
         st.success(
-            f"🎉 Maîtrise atteinte{name_line} — toutes les questions réussies "
-            f"{TARGET_MASTERY} fois. ({total_success} réussites comptées) — {stamped}"
+            f"🎉 Maîtrise atteinte{name_line} — toutes les questions réussies "        # ouvre le texte principal du message qui confirme la réussite globale du quiz
+            f"{TARGET_MASTERY} fois. ({total_success} réussites comptées) — {stamped}"  # donne le seuil, le cumul de réussites et l’heure à la fin du quiz
         )
-        if st.button("🔁 Recommencer"):
-            reset_all()
-            st.rerun()
+        if st.button("🔁 Recommencer"):                                                # affiche un bouton permettant de recommencer le quiz depuis le début
+            reset_all()                                                                 # réinitialise toute la session si l’utilisateur choisit de redémarrer
+            st.rerun()                                                                  # relance immédiatement l’application Streamlit pour repartir sur un état neuf
+
+# 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante    
         return
-    st.session_state.current = next_idx
-    st.session_state.just_validated = False
-    st.session_state.last_result = None
+    st.session_state.current = next_idx     # met à jour l’indice courant avec la nouvelle question choisie
+    st.session_state.just_validated = False # indique qu’aucune réponse n’a encore été validée sur cette nouvelle question.
+    st.session_state.last_result = None     # efface le résultat précédemment affiché pour repartir proprement
     st.rerun()
 
 def render_single(q_index):
