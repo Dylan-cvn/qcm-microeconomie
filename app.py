@@ -180,6 +180,21 @@ QUESTIONS = [
             "ε_demande = -0.30 ∴ |ε| < 1 al. demande inélastique ⇒ P↑ & Q↓(léger). Si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement). Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)"
             ),
     },
+    {
+        "q": (
+            "On peut affirmer qu'en concurrence parfaite..."), 
+        "choices": [
+            "un producteur produit une quantité d'output tel que Rm = Cm.",
+            "la quantité à produire est donnée par le Cm du producteur.",
+            "l'offre du marché est donnée par le Cm du producteur.",
+            "il suffit qu'un producteur baisse son prix pour que les consommateurs puissent atteindre un niveau d'utilité plus élevé pour un revenu donné."],
+        "answer": 0,
+        "explain": (
+            "En concurrence parfaite, le prix du marché (P) = au coût marginal (Cm) = à la recette marginal (Rm)." 
+            "Le producteur étant preneur de prix en concurrence parfaite veut maximiser son profit."
+        "highlight_color": "#ff4b4b" #rouge
+            ),
+    }     
 ]
 
 # 3) Onglet latéral pour paramétrer sa façon d'apprendre
@@ -258,20 +273,32 @@ def _advance_to_next():                                                         
 def render_single(q_index):
     """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
     q = QUESTIONS[q_index]
+    highlight_color = q.get("highlight_color")
 
 # 11) Afficher chaque ligne de l’énoncé avec le format le plus lisible (titre, Markdown ou LaTeX) pour que la question reste claire
     lines = [s for s in q["q"].split("\n") if s.strip()]
-    if len(lines) >= 1:
-        st.subheader(lines[0])
-    for i in range(1, len(lines)):
-        s = lines[i]
-        if any(token in s for token in ("=", "^", "\\frac", "\\cdot", "\\times")):
-            try:
-                st.latex(s)
-            except Exception:
-                st.markdown(s)
+    if lines:
+        if highlight_color:
+            st.markdown(
+                f"<h3 style='color:{highlight_color};margin-bottom:0.3rem;'>{lines[0]}</h3>",
+                unsafe_allow_html=True,
+            )
         else:
-            st.markdown(s)
+            st.subheader(lines[0])
+
+    for line in lines[1:]:
+        if highlight_color:
+            st.markdown(
+                f"<span style='color:{highlight_color};'>{line}</span>",
+                unsafe_allow_html=True,
+            )
+        elif any(token in line for token in ("=", "^", "\\frac", "\\cdot", "\\times")):
+            try:
+                st.latex(line)
+            except Exception:
+                st.markdown(line)
+        else:
+            st.markdown(line)
 
 # 12) Choix (pas d'index forcé pour éviter le double-clic)
     key_radio = f"choice_{q_index}"
