@@ -252,13 +252,14 @@ def _advance_to_next():                                                         
     st.session_state.current = next_idx     # met à jour l’indice courant avec la nouvelle question choisie
     st.session_state.just_validated = False # indique qu’aucune réponse n’a encore été validée sur cette nouvelle question.
     st.session_state.last_result = None     # efface le résultat précédemment affiché pour repartir proprement
-    st.rerun()
+    st.rerun()                              #  recharge l’application afin d’afficher la nouvelle question immédiatement
 
+# 10) L'affichage durant la question du quiz
 def render_single(q_index):
     """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
     q = QUESTIONS[q_index]
 
-    # Titre + lignes suivantes
+# 11) Afficher chaque ligne de l’énoncé avec le format le plus lisible (titre, Markdown ou LaTeX) pour que la question reste claire
     lines = [s for s in q["q"].split("\n") if s.strip()]
     if len(lines) >= 1:
         st.subheader(lines[0])
@@ -272,10 +273,10 @@ def render_single(q_index):
         else:
             st.markdown(s)
 
-    # Choix (pas d'index forcé pour éviter le double-clic)
+# 12) Choix (pas d'index forcé pour éviter le double-clic)
     key_radio = f"choice_{q_index}"
     if key_radio not in st.session_state:
-        st.session_state[key_radio] = st.session_state.answers.get(q_index, 0)
+        st.session_state[key_radio] = st.session_state.answers.get(q_index, None)
 
     selected = st.radio(
         "Choisissez une réponse :",
@@ -285,14 +286,14 @@ def render_single(q_index):
     )
     st.session_state.answers[q_index] = selected
 
-    # Valider
+# 13) Stockage du widget radio de chaque question dans [st.session_state] pour mémoriser le choix sélectionné et éviter le double‑clic en revenant sur l’énoncé
     validate = st.button("✅ Valider", key=f"validate_{q_index}")
     if validate:
         correct = (selected == q["answer"])
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # Progression : on augmente immédiatement si c'est correct
+# 14) Barre de Progression : on augmente immédiatement si c'est correct
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
             st.session_state.mastery[q_index] += 1
 
@@ -304,7 +305,7 @@ def render_single(q_index):
             st.info(f" Explication : {q['explain']}")
         return correct
 
-    # Réaffichage après validation (si on revient sur la même question)
+# 15) Réaffichage après validation (si on revient sur la même question)
     if st.session_state.just_validated:
         correct = st.session_state.last_result
         if correct:
