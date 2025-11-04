@@ -182,7 +182,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "On peut affirmer qu'en concurrence parfaite..."), 
+            "⚠️ On peut affirmer qu'en concurrence parfaite..."), 
         "choices": [
             "un producteur produit une quantité d'output tel que Rm = Cm.",
             "la quantité à produire est donnée par le Cm du producteur.",
