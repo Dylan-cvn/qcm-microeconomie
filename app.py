@@ -306,19 +306,25 @@ def render_single(q_index):
         else:
             st.subheader(lines[0])
 
-    for line in lines[1:]:
-        if highlight_color:
-            st.markdown(
-                f"<span style='color:{highlight_color};'>{line}</span>",
-                unsafe_allow_html=True,
-            )
-        elif any(token in line for token in ("=", "^", "\\frac", "\\cdot", "\\times")):
-            try:
-                st.latex(line)
-            except Exception:
+        for line in lines[1:]:
+            has_math = any(token in line for token in ("=", "^", "\\frac", "\\cdot", "\\times"))
+            if highlight_color and has_math:
+                st.markdown(
+                    f"$$\\color{{{highlight_color}}}{{{line}}}$$",
+                    unsafe_allow_html=True,
+                )
+            elif highlight_color:
+                st.markdown(
+                    f"<span style='color:{highlight_color};'>{line}</span>",
+                    unsafe_allow_html=True,
+                )
+            elif has_math:
+                try:
+                    st.latex(line)
+                except Exception:
+                    st.markdown(line)
+            else:
                 st.markdown(line)
-        else:
-            st.markdown(line)
 
 # 12) Choix (pas d'index forcé pour éviter le double-clic)
     key_radio = f"choice_{q_index}"
