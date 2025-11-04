@@ -207,11 +207,11 @@ QUESTIONS = [
             "Offre : x = 4p + 3 pour tout p"],
         "answer": 0,
         "explain": (
-            "Coût marginal = C'(x) = (2x^2 - 3x + 50)' = 4x - 3"
-            "En concurrence parfaite : P = Cm = Rm ∴ P = 4x - 3 étant donc la fonction d'offre de l'entreprise."
-            "Sachant C(x) = CV + CF = 2x^2 - 3x + 50 al. CVM = CV/x = (2x^2 - 3x)/x = 2x - 3 ∴ l'entreprise produit si P ≥ CVM_min"
-            "Ainsi, CVM_min = (dCVM/dx) = (d(2x - 3)/dx) = (2x - 3)' = 2 ⇒ Minimum du CVM & CVM croissant"
-            "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variabl,e c-à-d quand P > 0"
+            "Coût marginal = C'(x) = (2x^2 - 3x + 50)' = 4x - 3. "
+            "En concurrence parfaite : P = Cm = Rm ∴ P = 4x - 3 étant donc la fonction d'offre de l'entreprise. "
+            "Sachant C(x) = CV + CF = 2x^2 - 3x + 50 al. CVM = CV/x = (2x^2 - 3x)/x = 2x - 3 ∴ l'entreprise produit si P ≥ CVM_min. "
+            "Ainsi, CVM_min = (dCVM/dx) = (d(2x - 3)/dx) = (2x - 3)' = 2 ⇒ Minimum du CVM & CVM croissant. "
+            "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variabl,e c-à-d quand P > 0."
         ),
         "highlight_color": "#ffc107", # jaune
     }
