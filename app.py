@@ -182,7 +182,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "⚠️ On peut affirmer qu'en concurrence parfaite..."), 
+            "On peut affirmer qu'en concurrence parfaite..."), 
         "choices": [
             "un producteur produit une quantité d'output tel que Rm = Cm.",
             "la quantité à produire est donnée par le Cm du producteur.",
@@ -197,7 +197,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "⚠️ La fonction des coûts d'une entreprise en concurrence parfaite s'écrit :\n"
+            "La fonction des coûts d'une entreprise en concurrence parfaite s'écrit :\n"
             "C(x) = 2x^2 - 3x + 50\n"
             "Trouver la fonction d'offre individuelle, à court terme, de cette entreprise."),
         "choices": [
