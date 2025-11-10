@@ -214,6 +214,39 @@ QUESTIONS = [
             "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variabl,e c-à-d quand P > 0."
         ),
         "highlight_color": "#ffc107", # jaune
+    },
+    {
+        "q": (
+            "À propos des contrôles de prix, laquelle des affirmations suivantes est correcte ?"),
+        "choices": [
+            "Ils permettent à l'Etat d'améliorer l'efficacité économique d'un marché parfaitement concurrentiel.",
+            "Ils permettent à l'Etat de générer des recettes supplémentaires.",
+            "Ils permettent à l'Etat de rétablir une forme d'équité sur un marché concurrentiel.",
+            "Ils permettent à tous les producteurs et à tous les consommateurs de participer au marché."],
+        "answer": 2,
+        "explain": (
+            "Un marché en concurrence parfaite est déjà efficace car on maximise le surplus total. "
+            "Le contrôle de prix (plafond ou plancher) créer au contraire une perte sèche. "
+            "Le contrôle de prix n'apporte aucune recette à l'Etat car ce n'est pas un impôt. "
+            "Avec un prix plancher ou un prix plafond, tous les producteurs ou les consommateurs ne participens pas à l'échange. "
+            "En revanche, l'Etat peut vouloir renforcer l'équité (p.ex. loyer plafonnés, salaire minimum, etc..) en acceptant une perte d'efficacité."
+        ),
+    },
+    { 
+        "q": (
+            "Le marcher immobilier est en situation de concurrence parfaite avec une multitude d'acteurs côté bailleurs et locataires. \n"
+            "Le maire décide de mettre un loyer plafond. Que peut-on affirmer avec certitude concernant cette mesure?"),
+        "choices": [
+            "Le prix plafond créera une offre excédentaire sur le marché immobilier.",
+            "Le surplus total augmentera sur le marché immobilier.",
+            "Le gain en surplus d'un des groupes d'acteurs (bailleurs ou locataires) sera identique à la perte en surplus de l'autre groupe.",
+            "Le prix plafond créera une demande excédentaire sur le marché immobilier."],
+        "answer": 3,
+        "explain": (
+            "Un prix plafond fixé en dessous du prix d'équilibre ⇒ prix trop bas. "
+            "Les locataires demandent plus de logements. "
+            "Les bailleurs offrent moins de logements ⇒ demande excédentaire = pénurie."
+            ),
     }
 ]
 
