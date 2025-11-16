@@ -1,6 +1,8 @@
 import streamlit as st
 import random
 from datetime import datetime
+from pathlib import Path        # <--- nouveau
+import pandas as pd             # <--- nouveau
 
 # 1) Configuration de la page Streamlit dès son chargement : “QCM Microéconomie”, icône 🧠 et mise en page centrée (layout="centered")
 
