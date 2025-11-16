@@ -251,6 +251,40 @@ QUESTIONS = [
             ),
     }
 ]
+#--------------------------------------------------------------------------------------------------------------------------------------
+# Fichier dans lequel on enregistre toutes les réponses
+RESULTS_FILE = "results.csv"
+
+def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
+    """
+    Enregistre une réponse dans un fichier CSV.
+    - user_name : nom tapé dans la sidebar (ou 'Anonyme')
+    - q_index   : index de la question dans la liste QUESTIONS
+    - correct   : True/False
+    - selected  : index de la réponse choisie
+    """
+    name = user_name.strip() or "Anonyme"
+    q = QUESTIONS[q_index]
+
+    row = {
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "user": name,
+        "question_index": q_index,
+        "question": q["q"].replace("\n", " "),
+        "selected_index": selected,
+        "selected_choice": q["choices"][selected],
+        "correct_index": q["answer"],
+        "correct_choice": q["choices"][q["answer"]],
+        "is_correct": int(bool(correct)),  # 1 = bonne réponse, 0 = mauvaise
+    }
+
+    df = pd.DataFrame([row])
+    file_exists = Path(RESULTS_FILE).exists()
+    df.to_csv(RESULTS_FILE, mode="a", header=not file_exists, index=False)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 # 3) Onglet latéral pour paramétrer sa façon d'apprendre
 with st.sidebar:
@@ -380,6 +414,8 @@ def render_single(q_index):
         correct = (selected == q["answer"])
         st.session_state.just_validated = True
         st.session_state.last_result = correct
+        # 🔹 Enregistre la réponse dans le CSV
+        log_answer(user_name, q_index, correct, selected) #--------nouveau
 
 # 14) Barre de Progression : on augmente immédiatement si c'est correct
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
@@ -427,3 +463,22 @@ progress_text_slot.write(
 if st.session_state.just_validated:
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
         _advance_to_next()
+#------------------------------------------------------------------------------------------------------------------------------------
+st.markdown("---")
+st.markdown("### Mode analyse : résultats enregistrés")
+
+if Path(RESULTS_FILE).exists():
+    df = pd.read_csv(RESULTS_FILE)
+    st.subheader("Toutes les réponses")
+    st.dataframe(df)
+
+    st.subheader("Nombre d'erreurs par utilisateur")
+    errors = (
+        df[df["is_correct"] == 0]
+        .groupby("user")
+        .size()
+        .reset_index(name="nb_erreurs")
+    )
+    st.dataframe(errors)
+else:
+    st.info("Aucune réponse enregistrée pour l'instant.")
