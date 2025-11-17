@@ -476,7 +476,7 @@ st.markdown("### Mode analyse")
 
 # 🔒 Section réservée au développeur
 if not is_admin:
-    st.info("🔒 Section réservée au dev.")
+    st.info("🔒 Section dev.")
 else:
     if Path(RESULTS_FILE).exists():
         df = pd.read_csv(RESULTS_FILE)
