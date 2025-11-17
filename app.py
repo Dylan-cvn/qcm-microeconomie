@@ -294,6 +294,12 @@ with st.sidebar:
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
     st.caption("Partagez simplement l’URL publique de cette page.")
 
+    admin_password = st.text_input("Mot de passe dev.", type="password") # <--- nouveau
+
+# ✅ vrai si le bon mot de passe est entré
+ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "dev")
+is_admin = (admin_password == ADMIN_PASSWORD) # <--- nouveau
+
 # 4) Seuil minimum pour valider la question donc une quest. correct = un quest. liquidée
 TARGET_MASTERY = 1  # 1 réussite par question
 
@@ -350,6 +356,7 @@ def _advance_to_next():                                                         
         if st.button("🔁 Recommencer"):                                                # affiche un bouton permettant de recommencer le quiz depuis le début
             reset_all()                                                                 # réinitialise toute la session si l’utilisateur choisit de redémarrer
             st.rerun()                                                                  # relance immédiatement l’application Streamlit pour repartir sur un état neuf
+        return
 
 # 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante    
         return
@@ -467,18 +474,42 @@ if st.session_state.just_validated:
 st.markdown("---")
 st.markdown("### Mode analyse : résultats enregistrés")
 
-if Path(RESULTS_FILE).exists():
-    df = pd.read_csv(RESULTS_FILE)
-    st.subheader("Toutes les réponses")
-    st.dataframe(df)
-
-    st.subheader("Nombre d'erreurs par utilisateur")
-    errors = (
-        df[df["is_correct"] == 0]
-        .groupby("user")
-        .size()
-        .reset_index(name="nb_erreurs")
-    )
-    st.dataframe(errors)
+# 🔒 Section réservée au developpeur
+if not is_admin:
+    st.info("🔒 Section réservée au developpeur. Entrez le mot de passe dans la barre latérale.")
 else:
-    st.info("Aucune réponse enregistrée pour l'instant.")
+    if Path(RESULTS_FILE).exists():
+        df = pd.read_csv(RESULTS_FILE)
+
+        st.subheader("Toutes les réponses")
+        st.dataframe(df)
+
+        # 📥 Télécharger toutes les réponses brutes
+        csv_all = df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="📥 Télécharger toutes les réponses (CSV)",
+            data=csv_all,
+            file_name="results_qcm_microeconomie.csv",
+            mime="text/csv",
+        )
+
+        st.subheader("Nombre d'erreurs par utilisateur")
+        errors = (
+            df[df["is_correct"] == 0]
+            .groupby("user")
+            .size()
+            .reset_index(name="nb_erreurs")
+        )
+        st.dataframe(errors)
+
+        # 📥 Télécharger le tableau des erreurs
+        csv_errors = errors.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="📥 Télécharger les erreurs par utilisateur (CSV)",
+            data=csv_errors,
+            file_name="erreurs_qcm_microeconomie.csv",
+            mime="text/csv",
+        )
+    else:
+        st.info("Aucune réponse enregistrée pour l'instant.")
+
