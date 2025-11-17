@@ -297,7 +297,7 @@ with st.sidebar:
     admin_password = st.text_input("Mot de passe dev.", type="password") # <--- nouveau
 
 # ✅ vrai si le bon mot de passe est entré
-ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "dev")
+ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "Testz") # <--- nouveau
 is_admin = (admin_password == ADMIN_PASSWORD) # <--- nouveau
 
 # 4) Seuil minimum pour valider la question donc une quest. correct = un quest. liquidée
@@ -472,7 +472,7 @@ if st.session_state.just_validated:
         _advance_to_next()
 #------------------------------------------------------------------------------------------------------------------------------------
 st.markdown("---")
-st.markdown("### Mode analyse : résultats enregistrés")
+st.markdown("### Mode analyse")
 
 # 🔒 Section réservée au developpeur
 if not is_admin:
