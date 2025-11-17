@@ -294,7 +294,7 @@ with st.sidebar:
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
     st.caption("Partagez simplement l’URL publique de cette page.")
 
-    admin_password = st.text_input("Mot de passe dev.", type="password") # <--- nouveau
+    admin_password = st.text_input("Mdp", type="password") # <--- nouveau
 
 # ✅ vrai si le bon mot de passe est entré
 ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "Testz") # <--- nouveau
