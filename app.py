@@ -1,6 +1,6 @@
 import streamlit as st
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path        # <--- nouveau
 import pandas as pd             # <--- nouveau
 
@@ -474,42 +474,53 @@ if st.session_state.just_validated:
 st.markdown("---")
 st.markdown("### Mode analyse")
 
-# 🔒 Section réservée au developpeur
-if not is_admin: 
-    st.info("🔒 Section dev.")
+# 🔒 Section réservée au développeur
+if not is_admin:
+    st.info("🔒 Section réservée au dev.")
 else:
     if Path(RESULTS_FILE).exists():
         df = pd.read_csv(RESULTS_FILE)
 
-        st.subheader("Toutes les réponses")
-        st.dataframe(df)
+        # 🔹 Ne garder que les réponses des dernières 24h
+        df["timestamp"] = pd.to_datetime(df["timestamp"])
+        cutoff = datetime.now() - timedelta(days=1)
+        df_recent = df[df["timestamp"] >= cutoff].copy()
 
-        # 📥 Télécharger toutes les réponses brutes
-        csv_all = df.to_csv(index=False).encode("utf-8")
-        st.download_button(
-            label="📥 Télécharger toutes les réponses (CSV)",
-            data=csv_all,
-            file_name="results_qcm_microeconomie.csv",
-            mime="text/csv",
-        )
+        # 🔹 Réécrire le CSV en ne conservant que ces lignes
+        df_recent.to_csv(RESULTS_FILE, index=False)
 
-        st.subheader("Nombre d'erreurs par utilisateur")
-        errors = (
-            df[df["is_correct"] == 0]
-            .groupby("user")
-            .size()
-            .reset_index(name="nb_erreurs")
-        )
-        st.dataframe(errors)
+        if df_recent.empty:
+            st.info("Aucune réponse enregistrée sur les dernières 24 heures.")
+        else:
+            st.subheader("Toutes les réponses (24h)")
+            st.dataframe(df_recent)
 
-        # 📥 Télécharger le tableau des erreurs
-        csv_errors = errors.to_csv(index=False).encode("utf-8")
-        st.download_button(
-            label="📥 Télécharger les erreurs par utilisateur (CSV)",
-            data=csv_errors,
-            file_name="erreurs_qcm_microeconomie.csv",
-            mime="text/csv",
-        )
+            # 📥 Télécharger toutes les réponses des 24h
+            csv_all = df_recent.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                label="📥 Télécharger toutes les réponses (CSV, 24h)",
+                data=csv_all,
+                file_name="results_qcm_microeconomie_24h.csv",
+                mime="text/csv",
+            )
+
+            st.subheader("Nombre d'erreurs par utilisateur (24h)")
+            errors = (
+                df_recent[df_recent["is_correct"] == 0]
+                .groupby("user")
+                .size()
+                .reset_index(name="nb_erreurs")
+            )
+            st.dataframe(errors)
+
+            # 📥 Télécharger le tableau des erreurs (24h)
+            csv_errors = errors.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                label="📥 Télécharger les erreurs par utilisateur (CSV, 24h)",
+                data=csv_errors,
+                file_name="erreurs_qcm_microeconomie_24h.csv",
+                mime="text/csv",
+            )
     else:
         st.info("Aucune réponse enregistrée pour l'instant.")
 
