@@ -249,7 +249,23 @@ QUESTIONS = [
             "Les locataires demandent plus de logements. "
             "Les bailleurs offrent moins de logements ⇒ demande excédentaire = pénurie."
             ),
-    }
+    },
+    {
+        "q": (
+            "Le marcher immobilier est en situation de concurrence parfaite avec une multitude d'acteurs côté bailleurs et locataires. \n"
+            "Le maire décide de mettre un loyer plafond contraingant. Laquelle des affirmations est fausse avec certitude suite à l'introduction de cette mesure ?"),
+        "choices": [
+            "Le surplus des locataires qui payent le prix plafond augmente.",
+            "Le nombre d'appartements loués diminue.",
+            "Le surplus total augmente.",
+            "Le surplus des bailleurs diminue."],
+        "answer": 2,
+        "explain": (
+            "Le surplus des locataires qui payent le prix plafond augmente, c'est vrai car ils continuent à louer leur logement mais à un loyer plus faible que le prix d’équilibre. "
+            "Le nombre d'appartements loués diminue, c'est vrai car le loyer plafonné plus bas incite certains bailleurs à ne pas offrir leurs logements, ce qui réduit la quantité offerte. "
+            "Le surplus des bailleurs diminue, c'est vrai car ils louent moins de logements et touchent un loyer inférieur à celui d’équilibre, ce qui réduit leur gain global."
+            ),
+    }  
 ]
 #--------------------------------------------------------------------------------------------------------------------------------------
 # Fichier dans lequel on enregistre toutes les réponses
