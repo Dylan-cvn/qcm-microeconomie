@@ -1,11 +1,11 @@
 import streamlit as st
 import random
 from datetime import datetime, timedelta
-from pathlib import Path        # <--- nouveau
-import pandas as pd             # <--- nouveau
+from pathlib import Path
+import pandas as pd
 
 # 1) Configuration de la page Streamlit dès son chargement :
-#    “QCM Microéconomie”, icône 🧠 et mise en page centrée (layout="centered")
+#    "QCM Microéconomie", icône 🧠 et mise en page centrée (layout="centered")
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
 # 2) Données du Quiz mis en ligne (SANS IMAGE)
@@ -19,7 +19,7 @@ QUESTIONS = [
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
         "answer": 0,
-        "explain": "Le coût d’opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (12'000 - 800) = 11'200",
+        "explain": "Le coût d'opportunité est la meilleure alternative sacrifiée : ici, le bénéfice net du football (12'000 - 800) = 11'200",
     },
     {
         "q": (
@@ -65,7 +65,7 @@ QUESTIONS = [
         "explain": (
             "ε_demande = (dQ^d/dP) × (P/Q^d) sachant (dQ^d/dP) = -1 & Q^d = ? al. "
             "ε_demande = -1 × (P/Q^d) = -(P/(17 - P)).\n"
-            "Condition d’élasticité unitaire ⇒ |ε_demande| = |-(P/(17 - P))| = |1| ∴ "
+            "Condition d'élasticité unitaire ⇒ |ε_demande| = |-(P/(17 - P))| = |1| ∴ "
             "P/(17 - P) = 1 ⇒ P = 17 − P ⇒ 2P = 17 ⇒ P = 8.5"
         ),
     },
@@ -105,26 +105,26 @@ QUESTIONS = [
         ),
     },
     {
-        "q": "Laquelle des propositions suivantes relève du champ d’étude de la microéconomie ?",
+        "q": "Laquelle des propositions suivantes relève du champ d'étude de la microéconomie ?",
         "choices": [
-            "Le taux de chômage est plus élevé à Genève qu’à Zurich",
-            "L’IPC a augmenté en Suisse de 1 % entre 2023 et 2024",
+            "Le taux de chômage est plus élevé à Genève qu'à Zurich",
+            "L'IPC a augmenté en Suisse de 1 % entre 2023 et 2024",
             "La BNS décide de baisser son taux directeur",
             "Migros fait une action sur le prix des mandarines",
         ],
         "answer": 3,
         "explain": (
-            "La microéconomie étudie les décisions des ménages/entreprises et le fonctionnement d’un marché particulier. "
-            "Une action de Migros sur le prix d’un produit concerne un marché spécifique. Les autres propositions relèvent "
+            "La microéconomie étudie les décisions des ménages/entreprises et le fonctionnement d'un marché particulier. "
+            "Une action de Migros sur le prix d'un produit concerne un marché spécifique. Les autres propositions relèvent "
             "de la macroéconomie (agrégats/ politiques)."
         ),
     },
     {
         "q": "Laquelle des affirmations suivantes est positive (par opposition à normative) ?",
         "choices": [
-            "Les entreprises doivent prendre des mesures pour augmenter le nombre de femmes dans les conseils d’administration.",
+            "Les entreprises doivent prendre des mesures pour augmenter le nombre de femmes dans les conseils d'administration.",
             "Il faudrait que le Portugal réduise sa dette publique pendant la période de croissance économique actuelle.",
-            "Si l’État de Genève décidait d’introduire une taxe au sac, le tri des déchets augmenterait.",
+            "Si l'État de Genève décidait d'introduire une taxe au sac, le tri des déchets augmenterait.",
             "La Confédération devrait augmenter et généraliser la taxe carbone afin de réduire les émissions de CO₂.",
         ],
         "answer": 2,
@@ -134,37 +134,37 @@ QUESTIONS = [
         ),
     },
     {
-        "q": "Laquelle des propositions suivantes concernant l’organisation de la vie économique est correcte ?",
+        "q": "Laquelle des propositions suivantes concernant l'organisation de la vie économique est correcte ?",
         "choices": [
-            "Le souci principal du système de marché pur consiste en l’absence d’incitations, ce qui entraîne peu d’innovation et donc une croissance économique faible.",
-            "Dans une économie planifiée, les agents économiques disposent d’une large liberté pour décider ce qu’ils souhaitent produire et consommer.",
-            "Dans une économie mixte, l’État ne peut pas intervenir sur les marchés.",
-            "Dans une économie mixte, l’État intervient pour encadrer l’activité économique afin de limiter les problèmes potentiels du système de marché ou de l’économie planifiée.",
+            "Le souci principal du système de marché pur consiste en l'absence d'incitations, ce qui entraîne peu d'innovation et donc une croissance économique faible.",
+            "Dans une économie planifiée, les agents économiques disposent d'une large liberté pour décider ce qu'ils souhaitent produire et consommer.",
+            "Dans une économie mixte, l'État ne peut pas intervenir sur les marchés.",
+            "Dans une économie mixte, l'État intervient pour encadrer l'activité économique afin de limiter les problèmes potentiels du système de marché ou de l'économie planifiée.",
         ],
         "answer": 3,
         "explain": (
             "Économie de marché : décisions surtout laissées aux prix et aux agents privés. "
-            "Économie planifiée : décisions centralisées par l’État. Économie mixte : combinaison des deux, "
+            "Économie planifiée : décisions centralisées par l'État. Économie mixte : combinaison des deux, "
             "avec intervention publique pour corriger des défaillances."
         ),
     },
     {
         "q": "Laquelle des affirmations suivantes concernant les modèles économiques est fausse ?",
         "choices": [
-            "Un modèle économique permet d’établir des lois s’appliquant indépendamment du contexte.",
-            "L’empirisme est une analyse basée sur des observations et des preuves.",
-            "Un modèle économique peut aider à évaluer ou prédire les impacts d’une politique publique ou d’un évènement précis.",
-            "Un bon modèle n’est pas nécessairement réaliste.",
+            "Un modèle économique permet d'établir des lois s'appliquant indépendamment du contexte.",
+            "L'empirisme est une analyse basée sur des observations et des preuves.",
+            "Un modèle économique peut aider à évaluer ou prédire les impacts d'une politique publique ou d'un évènement précis.",
+            "Un bon modèle n'est pas nécessairement réaliste.",
         ],
         "answer": 0,
         "explain": (
             "Les modèles économiques sont des simplifications conditionnelles : leurs résultats dépendent "
-            "d’hypothèses et du contexte."
+            "d'hypothèses et du contexte."
         ),
     },
     {
         "q": (
-            "On observe qu’en moyenne les résultats scolaires sont meilleurs dans les petites classes "
+            "On observe qu'en moyenne les résultats scolaires sont meilleurs dans les petites classes "
             "gérées par des enseignantes mieux payées que la moyenne.\n"
             "Que pouvez-vous affirmer ?"
         ),
@@ -176,26 +176,26 @@ QUESTIONS = [
         ],
         "answer": 3,
         "explain": (
-            "L’énoncé décrit une co-variation (petites classes ↔ meilleurs résultats). "
+            "L'énoncé décrit une co-variation (petites classes ↔ meilleurs résultats). "
             "On peut donc affirmer une corrélation négative entre la taille des classes et les résultats."
         ),
     },
     {
         "q": (
-            "Il existe une forte corrélation entre la probabilité d’observer une guerre civile dans un pays "
+            "Il existe une forte corrélation entre la probabilité d'observer une guerre civile dans un pays "
             "et le taux de croissance du PIB de ce pays.\n"
-            "Comment peut-on s’assurer qu’en plus de cette corrélation, il existe en fait une relation de causalité ?"
+            "Comment peut-on s'assurer qu'en plus de cette corrélation, il existe en fait une relation de causalité ?"
         ),
         "choices": [
-            "Il faut s’assurer que la corrélation soit au moins de 0.9",
-            "Il faut d’abord s’assurer qu’il n’existe pas d’autre facteur pouvant expliquer à la fois la guerre civile et le taux de croissance économique du pays.",
-            "Il faut d’abord s’assurer que le PIB du pays soit une variable explicative dans le modèle statistique",
-            "Il faut s’assurer que la corrélation soit positive",
+            "Il faut s'assurer que la corrélation soit au moins de 0.9",
+            "Il faut d'abord s'assurer qu'il n'existe pas d'autre facteur pouvant expliquer à la fois la guerre civile et le taux de croissance économique du pays.",
+            "Il faut d'abord s'assurer que le PIB du pays soit une variable explicative dans le modèle statistique",
+            "Il faut s'assurer que la corrélation soit positive",
         ],
         "answer": 1,
         "explain": (
-            "La corrélation ne suffit pas à établir la causalité. Il faut vérifier qu’aucun facteur confondant "
-            "n’explique simultanément la guerre civile et la croissance."
+            "La corrélation ne suffit pas à établir la causalité. Il faut vérifier qu'aucun facteur confondant "
+            "n'explique simultanément la guerre civile et la croissance."
         ),
     },
     {
@@ -302,11 +302,11 @@ QUESTIONS = [
         "answer": 2,
         "explain": (
             "Le surplus des locataires qui payent le prix plafond augmente, c'est vrai car ils continuent à louer leur logement "
-            "mais à un loyer plus faible que le prix d’équilibre. "
+            "mais à un loyer plus faible que le prix d'équilibre. "
             "Le nombre d'appartements loués diminue, c'est vrai car le loyer plafonné plus bas incite certains bailleurs à ne pas "
             "offrir leurs logements, ce qui réduit la quantité offerte. "
             "Le surplus des bailleurs diminue, c'est vrai car ils louent moins de logements et touchent un loyer inférieur à celui "
-            "d’équilibre, ce qui réduit leur gain global."
+            "d'équilibre, ce qui réduit leur gain global."
         ),
     },
     {
@@ -325,7 +325,6 @@ QUESTIONS = [
     },
 ]
 
-#----------------------------------------------------------------------
 # Fichier dans lequel on enregistre toutes les réponses
 RESULTS_FILE = "results.csv"
 
@@ -358,19 +357,17 @@ def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> No
     df.to_csv(RESULTS_FILE, mode="a", header=not file_exists, index=False)
 
 
-#----------------------------------------------------------------------
 # 3) Onglet latéral pour paramétrer sa façon d'apprendre
 with st.sidebar:
     st.header("⚙️ Paramètres")
     user_name = st.text_input("Votre nom (optionnel)", "")
     shuffle_q = st.checkbox("Mélanger les questions (au démarrage)", value=True)
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
-    st.caption("Partagez simplement l’URL publique de cette page.")
+    st.caption("Partagez simplement l'URL publique de cette page.")
 
-    admin_password = st.text_input("Mdp", type="password")  # <--- nouveau
-    # ✅ vrai si le bon mot de passe est entré
-    ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "Testz")  # <--- nouveau
-    is_admin = admin_password == ADMIN_PASSWORD  # <--- nouveau
+    admin_password = st.text_input("Mdp", type="password")
+    ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "Testz")
+    is_admin = admin_password == ADMIN_PASSWORD
 
 # 4) Seuil minimum pour valider la question donc une quest. correct = un quest. liquidée
 TARGET_MASTERY = 1  # 1 réussite par question
@@ -378,7 +375,7 @@ TARGET_MASTERY = 1  # 1 réussite par question
 
 # 5) Initialisation du quiz
 def full_init():
-    st.session_state.init = True  # marque l’état comme initialisé
+    st.session_state.init = True
     st.session_state.n_questions = len(QUESTIONS)
     st.session_state.order = list(range(len(QUESTIONS)))
     if shuffle_q:
@@ -390,7 +387,7 @@ def full_init():
     st.session_state.last_result = None
 
 
-# 5) Remise à zéro du quiz quand c'est nécessaire
+# Remise à zéro du quiz quand c'est nécessaire
 def reset_all():
     full_init()
 
@@ -400,7 +397,7 @@ if ("init" not in st.session_state) or (st.session_state.get("n_questions") != l
 
 # 6) En-tête et titre du quiz
 st.title("🎈Révision examen : Microéconomie I")
-st.caption("Mode **apprentissage** : répéter les erreurs jusqu’à maîtriser le sujet.")
+st.caption("Mode **apprentissage** : répéter les erreurs jusqu'à maîtriser le sujet.")
 
 
 # 7) Sélection aléatoire de la prochaine question du quiz correct ou incorrect
@@ -439,11 +436,11 @@ def _advance_to_next():
             st.rerun()
         return
 
-    # 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante
+    # 9) Mise à jour de [st.session_state] dès qu'on passe à la question suivante
     st.session_state.current = next_idx
     st.session_state.just_validated = False
     st.session_state.last_result = None
-    st.rerun()
+    # 🔹 PAS de st.rerun() ici - laisse le bouton gérer le rerun
 
 
 # 10) L'affichage durant la question du quiz
@@ -452,7 +449,7 @@ def render_single(q_index):
     q = QUESTIONS[q_index]
     highlight_color = q.get("highlight_color")
 
-    # 11) Afficher chaque ligne de l’énoncé avec le format le plus lisible
+    # 11) Afficher chaque ligne de l'énoncé avec le format le plus lisible
     lines = [s for s in q["q"].split("\n") if s.strip()]
     if lines:
         if highlight_color:
@@ -515,7 +512,7 @@ def render_single(q_index):
         else:
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
-            st.info(f" Explication : {q['explain']}")
+            st.info(f"💡 Explication : {q['explain']}")
         return correct
 
     # 15) Réaffichage après validation (si on revient sur la même question)
@@ -526,7 +523,7 @@ def render_single(q_index):
         else:
             st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
         if show_explain and q.get("explain"):
-            st.info(f" Explication : {q['explain']}")
+            st.info(f"💡 Explication : {q['explain']}")
 
     return None
 
@@ -549,8 +546,9 @@ progress_text_slot.write(f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** que
 if st.session_state.just_validated:
     if st.button("➡️ Continuer", key=f"next_{q_idx}"):
         _advance_to_next()
+        st.rerun()  # 🔹 Rerun uniquement quand on clique sur "Continuer"
 
-#----------------------------------------------------------------------
+# ----------------------------------------------------------------------
 st.markdown("---")
 st.markdown("### Mode analyse")
 
