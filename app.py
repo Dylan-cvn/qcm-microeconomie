@@ -403,30 +403,38 @@ def _choose_next(exclude_idx=None):
         candidates = [i for i in candidates if i != exclude_idx]
 
     return random.choice(candidates)
-
-
+# --------------------------------
 def _advance_to_next():
     next_idx = _choose_next(exclude_idx=st.session_state.current)
 
     if next_idx is None:
+        # Toutes les questions sont maîtrisées
         st.balloons()
         st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")
         stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
         name_line = f" par {user_name}" if user_name.strip() else ""
         total_success = sum(st.session_state.mastery.values())
+        
+        # Afficher le message de succès
         st.success(
             f"🎉 Maîtrise atteinte{name_line} — toutes les questions réussies "
             f"{TARGET_MASTERY} fois. ({total_success} réussites comptées) — {stamped}"
         )
-
-        if st.button("🔁 Recommencer"):
+        
+        # Afficher le bouton "Recommencer"
+        if st.button("🔁 Recommencer", key="restart_final"):
             reset_all()
             st.rerun()
-        return
+    else:
+        # Continuer vers la prochaine question
+        st.session_state.current = next_idx
+        st.session_state.just_validated = False
+        st.session_state.last_result = None
+        st.rerun()
 
-    st.session_state.current = next_idx
-    st.session_state.just_validated = False
-    st.session_state.last_result = None
+#--------------------------------------------------------
+
+
 
 
 def render_single(q_index):
@@ -537,9 +545,15 @@ progress_bar_slot.progress(mastered_count / len(QUESTIONS))
 progress_text_slot.write(f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions ")
 
 if st.session_state.just_validated:
-    if st.button("➡️ Continuer", key=f"next_{q_idx}"):
+    # Vérifier s'il reste des questions à maîtriser
+    remaining = [i for i in st.session_state.order if st.session_state.mastery[i] < TARGET_MASTERY]
+    
+    if remaining:
+        if st.button("➡️ Continuer", key=f"next_{q_idx}"):
+            _advance_to_next()
+    else:
+        # Si toutes les questions sont maîtrisées, afficher directement l'écran de fin
         _advance_to_next()
-        st.rerun()
 
 # -----------------------
 # 🧠 Section analyse (version avec nettoyage automatique)
