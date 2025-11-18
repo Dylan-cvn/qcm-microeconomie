@@ -403,7 +403,11 @@ def render_single(q_index):
     highlight_color = q.get("highlight_color")
     img_path = q.get("image")   # <- récupère le chemin de l'image si présent
 
-    # A) Affichage du texte de la question
+    # A) Affichage de l'image si la question en contient une
+    if img_path:
+        st.image(img_path, use_column_width=True)
+
+    # B) Affichage du texte de la question
     lines = [s for s in q["q"].split("\n") if s.strip()]
     if lines:
         if highlight_color:
@@ -433,10 +437,6 @@ def render_single(q_index):
                     st.markdown(line)
             else:
                 st.markdown(line)
-
-    # B) Affichage de l'image si la question en contient une
-    if img_path:
-        st.image(img_path, use_column_width=True)
 
     # C) Choix de réponse
     key_radio = f"choice_{q_index}"
