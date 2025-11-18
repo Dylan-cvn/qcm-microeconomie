@@ -268,13 +268,13 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Le gouvernement décide d'imposer sur ce marché un prix plancher égal à P_2 et de racheter l'éventuelle surproduction causée par son introduction. \n"
+            "Le gouvernement décide d'imposer sur ce marché un prix plancher égal à P2 et de racheter l'éventuelle surproduction causée par son introduction. \n"
             "Sur la base de ces informations et du graphiques ci-dessus, laquelle des affirmations suivantes est correcte suite à l'intrdocution du prix plancher ?"),
         "choices": [
-            "L'introduction du prix plancher engendre une surproduction de Q_1 - Q_0.",
+            "L'introduction du prix plancher engendre une surproduction de Q1 - Q0.",
             "Le coût supporté par l'Etat est représenté par la surface CED.",
-            "Le surplus des producteurs augmente de la surface P_2CEP_1.",
-            "Le surplus des consommateurs s'est réduit de la surface P_2CEP_1."],
+            "Le surplus des producteurs augmente de la surface P2CEP1.",
+            "Le surplus des consommateurs s'est réduit de la surface P2CEP1."],
         "answer": 2,
         "explain": (
             "..."
