@@ -397,14 +397,13 @@ def _advance_to_next():                                                         
     st.rerun()                              #  recharge l’application afin d’afficher la nouvelle question immédiatement
 
 # 10) L'affichage durant la question du quiz (Couleur et image)
-
 def render_single(q_index):
     """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
     q = QUESTIONS[q_index]
     highlight_color = q.get("highlight_color")
     img_path = q.get("image")   # <- récupère le chemin de l'image si présent
 
-    # A) Affichage du texte de la question (ton code existant)
+    # A) Affichage du texte de la question
     lines = [s for s in q["q"].split("\n") if s.strip()]
     if lines:
         if highlight_color:
@@ -438,6 +437,53 @@ def render_single(q_index):
     # B) Affichage de l'image si la question en contient une
     if img_path:
         st.image(img_path, use_column_width=True)
+
+    # C) Choix de réponse
+    key_radio = f"choice_{q_index}"
+    if key_radio not in st.session_state:
+        st.session_state[key_radio] = st.session_state.answers.get(q_index, None)
+
+    selected = st.radio(
+        "Choisissez une réponse :",
+        options=list(range(4)),
+        format_func=lambda i: q["choices"][i],
+        key=key_radio,
+    )
+    st.session_state.answers[q_index] = selected
+
+    # D) Validation
+    validate = st.button("✅ Valider", key=f"validate_{q_index}")
+    if validate:
+        correct = (selected == q["answer"])
+        st.session_state.just_validated = True
+        st.session_state.last_result = correct
+
+        # Enregistre la réponse dans le CSV
+        log_answer(user_name, q_index, correct, selected)
+
+        if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
+            st.session_state.mastery[q_index] += 1
+
+        if correct:
+            st.success("✔️ Bonne réponse !")
+        else:
+            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
+
+        if show_explain and q.get("explain"):
+            st.info(f" Explication : {q['explain']}")
+        return correct
+
+    # E) Réaffichage après validation (si on revient sur la même question)
+    if st.session_state.just_validated:
+        correct = st.session_state.last_result
+        if correct:
+            st.success("✔️ Bonne réponse !")
+        else:
+            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
+        if show_explain and q.get("explain"):
+            st.info(f" Explication : {q['explain']}")
+
+    return None
 
 # 11) Afficher chaque ligne de l’énoncé avec le format le plus lisible (titre, Markdown ou LaTeX) pour que la question reste claire
     lines = [s for s in q["q"].split("\n") if s.strip()]
