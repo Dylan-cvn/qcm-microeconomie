@@ -321,7 +321,6 @@ QUESTIONS = [
     ],
     "answer": 2,
     "explain": "...",
-    "image": "https://github.com/Dylan-cvn/qcm-microeconomie/blob/main/qcm%20micro%C3%A9conomie%20image_1_prix_plancher.png"
     },
     ]
 
