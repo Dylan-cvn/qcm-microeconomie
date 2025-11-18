@@ -239,7 +239,7 @@ QUESTIONS = [
             "Ainsi, CVM_min = (dCVM/dx) = (d(2x - 3)/dx) = (2x - 3)' = 2 ⇒ Minimum du CVM & CVM croissant. "
             "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variable, "
             "c-à-d quand P > 0."),
-        "highlight_color": "#ffc107",
+        "highlight_color": "#ffc107", #jaune
     },
     {
         "q": "À propos des contrôles de prix, laquelle des affirmations suivantes est correcte ?",
@@ -351,6 +351,24 @@ QUESTIONS = [
             "En concurrence parfaite et en monopole, les entreprises maximisent toujours le profit. "
             "La différence vient du fait que le monopoleur choisit P > CM, alors qu’en concurrence P = CM."),
     },
+    { 
+        "q": (
+            " Une fabrique d'objets souvenirs travaille dans des locaux loués et le loyer diminue subitement. Si le marché est en concurrence parfaite et \n"
+            "que sa capacité de production était déjà au maximum, quelle sera l'incidence de cette baisse de loyer sur le prix offert et le profit du producteur ?"
+        ),
+        "choices": [
+            "Le prix va diminuer et le profit augmenter.", 
+            "Le prix augmente et le profit aussi.", 
+            "Le prix reste constant mais le profit augmente.", 
+            "Aucune des questions précédentes."
+        ],
+        "answer": 2,
+        "explain": (
+            "Le prix reste identique (il dépend du marché, pas du loyer). "
+            "Le profit augmente, car Profit = Recette - Coûts. "
+            " Si les coûts diminuent (loyer ↓), alors le profit ↑."),
+        "highlight_color": "#ffc107", #jaune
+    }
     ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
