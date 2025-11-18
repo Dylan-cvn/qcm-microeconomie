@@ -401,9 +401,6 @@ def render_single(q_index):
     """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
     q = QUESTIONS[q_index]
     highlight_color = q.get("highlight_color")
-    img_path = q.get("image")
-if img_path:
-    st.image(img_path, use_column_width=True)
 
 # 11) Afficher chaque ligne de l’énoncé avec le format le plus lisible (titre, Markdown ou LaTeX) pour que la question reste claire
     lines = [s for s in q["q"].split("\n") if s.strip()]
