@@ -311,7 +311,7 @@ QUESTIONS = [
     {
     "q": (
         "Le gouvernement décide d'imposer sur ce marché un prix plancher égal à P2 et de racheter l'éventuelle surproduction causée par son introduction. \n"
-        "Sur la base de ces informations et du graphiques ci-dessus, laquelle des affirmations suivantes est correcte suite à l'introduction du prix plancher ?"
+        "Sur la base de ces informations et du graphiques ci-dessous, laquelle des affirmations suivantes est correcte suite à l'introduction du prix plancher ?"
     ),
     "choices": [
         "L'introduction du prix plancher engendre une surproduction de Q1 - Q0.",
