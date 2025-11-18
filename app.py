@@ -543,6 +543,9 @@ if st.session_state.just_validated:
 # -----------------------
 # 🧠 Section analyse
 # -----------------------
+# -----------------------
+# 🧠 Section analyse
+# -----------------------
 st.markdown("---")
 st.markdown("### Mode analyse")
 
@@ -558,13 +561,23 @@ else:
         # 📥 Chargement des résultats
         df = pd.read_csv(results_path)
 
-        # ⏱️ Conversion et filtrage sur les 24 dernières heures
-        df["timestamp"] = pd.to_datetime(df["timestamp"])
-        cutoff = datetime.now() - timedelta(days=1)
-        df_recent = df[df["timestamp"] >= cutoff].copy()
+        # ⏱️ Conversion sécurisée du timestamp avec gestion des erreurs
+        try:
+            df["timestamp"] = pd.to_datetime(df["timestamp"], errors='coerce')
+            # Supprimer les lignes où la conversion a échoué (valeurs NaT)
+            df = df.dropna(subset=["timestamp"])
+        except Exception as e:
+            st.error(f"Erreur lors de la conversion des dates : {e}")
+            st.info("Affichage des données brutes sans filtre temporel")
+            df_recent = df.copy()
+        else:
+            # Filtrage sur les 24 dernières heures
+            cutoff = datetime.now() - timedelta(days=1)
+            df_recent = df[df["timestamp"] >= cutoff].copy()
 
         # 💾 On met à jour le CSV avec uniquement les données des 24h
-        df_recent.to_csv(results_path, index=False)
+        if not df_recent.empty:
+            df_recent.to_csv(results_path, index=False)
 
         if df_recent.empty:
             st.info("Aucune réponse enregistrée sur les dernières 24 heures.")
@@ -598,5 +611,4 @@ else:
                 file_name="erreurs_qcm_microeconomie_24h.csv",
                 mime="text/csv",
             )
-
 
