@@ -385,8 +385,8 @@ def _advance_to_next():                                                         
             f"{TARGET_MASTERY} fois. ({total_success} réussites comptées) — {stamped}"  # donne le seuil, le cumul de réussites et l’heure à la fin du quiz
         )
         if st.button("🔁 Recommencer"):                                                # affiche un bouton permettant de recommencer le quiz depuis le début
-            reset_all()                                                                 # réinitialise toute la session si l’utilisateur choisit de redémarrer
-           
+            reset_all()                                                                # relance immédiatement l’application Streamlit pour repartir sur un état neuf
+            st.rerun()                                                                 # réinitialise toute la session si l’utilisateur choisit de redémarrer
         return
 
 # 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante    
@@ -394,6 +394,7 @@ def _advance_to_next():                                                         
     st.session_state.current = next_idx     # met à jour l’indice courant avec la nouvelle question choisie
     st.session_state.just_validated = False # indique qu’aucune réponse n’a encore été validée sur cette nouvelle question.
     st.session_state.last_result = None     # efface le résultat précédemment affiché pour repartir proprement
+
     
 
 # 10) L'affichage durant la question du quiz (Couleur et image)
