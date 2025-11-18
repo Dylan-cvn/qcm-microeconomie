@@ -394,7 +394,7 @@ def _advance_to_next():                                                         
     st.session_state.current = next_idx     # met à jour l’indice courant avec la nouvelle question choisie
     st.session_state.just_validated = False # indique qu’aucune réponse n’a encore été validée sur cette nouvelle question.
     st.session_state.last_result = None     # efface le résultat précédemment affiché pour repartir proprement
-
+st.rerun()
     
 
 # 10) L'affichage durant la question du quiz (Couleur et image)
