@@ -34,74 +34,73 @@ QUESTIONS = [
     {
         "q": (
             "La fonction de demande s'écrit :\n"
-            "Q^D = 17 - P\n"
+            "Qᵈ = 17 - P\n"
             "À quel prix maximal les consommateurs seraient-ils disposés à acheter 3 unités ?"
         ),
         "choices": ["18", "16", "14", "12"],
         "answer": 2,
-        "explain": "Inverse de la demande : P = 17 - Q^d. Pour Q^d = 3 al. P = 14",
+        "explain": "Inverse de la demande : P = 17 - Qᵈ. Pour Qᵈ = 3 al. P = 14",
     },
     {
         "q": (
             "La fonction de demande s'écrit :\n"
-            "Q^D = 17 - P\n"
+            "Qᵈ = 17 - P\n"
             "Si le prix est 3, quelle sera l'élasticité prix de la demande ?\n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["-4.7", "-3", "-0.2", "-0.1"],
         "answer": 2,
-        "explain": "ε_demande = (dQ^d/dP) × (P/Q) sachant (dQ^d/dP) = -1 & Q^d = 17 - 3 = 14 ∴ ε_offre = -1 × (3/14) ≈ -0,214 ⇒ -0.2",
+        "explain": "ε_demande = (dQᵈ/dP) × (P/Q) sachant (dQᵈ/dP) = -1 & Qᵈ = 17 - 3 = 14 ∴ ε_offre = -1 × (3/14) ≈ -0,214 ⇒ -0,2",
     },
     {
         "q": (
             "La fonction de demande s'écrit :\n"
-            "Q^D = 17 - P\n"
+            "Qᵈ = 17 - P\n"
             "Pour quel prix l'élasticité prix de cette demande est-elle unitaire ?\n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["17", "8.5", "3.4", "1"],
         "answer": 1,
         "explain": (
-            "ε_demande = (dQ^d/dP) × (P/Q^d) sachant (dQ^d/dP) = -1 & Q^d = ? al. "
-            "ε_demande = -1 × (P/Q^d) = -(P/(17 - P)).\n"
+            "ε_demande = (dQᵈ/dP) × (P/Qᵈ) sachant (dQᵈ/dP) = -1 & Qᵈ = ? al. "
+            "ε_demande = -1 × (P/Qᵈ) = -(P/(17 - P)).\n"
             "Condition d'élasticité unitaire ⇒ |ε_demande| = |-(P/(17 - P))| = |1| ∴ "
-            "P/(17 - P) = 1 ⇒ P = 17 − P ⇒ 2P = 17 ⇒ P = 8.5"
-        ),
+            "P/(17 - P) = 1 ⇒ P = 17 - P ⇒ 2P = 17 ⇒ P = 8.5")
+    
     },
     {
         "q": (
             "La fonction d'offre s'écrit :\n"
-            "Q^O = -63 + 9P\n"
+            "Qᵒ = -63 + 9P\n"
             "Si le prix est 18, quelle sera la quantité offerte ?"
         ),
         "choices": ["117", "99", "81", "18"],
         "answer": 1,
-        "explain": "Q = -63 + 9P ⇒ pour P = 18 : Q = -63 + 9×18 = -63 + 162 = 99.",
+        "explain": "Qᵒ = -63 + 9P ⇒ pour P = 18 : Qᵒ = -63 + 9×18 = -63 + 162 = 99.",
     },
     {
         "q": (
             "La fonction d'offre s'écrit :\n"
-            "Q^O = -63 + 9P\n"
+            "Qᵒ = -63 + 9P\n"
             "À quel prix minimal les producteurs seraient-ils disposés à vendre 25 unités ?\n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["10.5", "9.8", "8.2", "7"],
         "answer": 1,
-        "explain": "Inverse de l'offre : P = (Q + 63)/9. Pour Q = 25, P = (25 + 63)/9 = 88/9 ≈ 9,8.",
+        "explain": "Inverse de l'offre : P = (Qᵒ + 63)/9. Pour Qᵒ = 25, P = (25 + 63)/9 = 88/9 ≈ 9,8.",
     },
     {
         "q": (
             "La fonction d'offre s'écrit :\n"
-            "Q^O = -63 + 9P\n"
+            "Qᵒ = -63 + 9P\n"
             "Si le prix est 18, quelle sera l'élasticité prix de l'offre ?\n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["2", "1.8", "1.6", "1"],
         "answer": 2,
         "explain": (
-            "ε_offre = (dQ^o/dP)·(P/Q) sachant (dQ^o/dP) = 9 alors Q^o = -63 + 9 × 18 = 99 ; "
-            "donc ε_offre = 9 × (18/99) = 162/99 ≈ 1,64 → 1,6."
-        ),
+            "ε_offre = (dQᵒ/dP)·(P/Q) sachant (dQᵒ/dP) = 9 alors Qᵒ = -63 + 9 × 18 = 99 ; "
+            "donc ε_offre = 9 × (18/99) = 162/99 ≈ 1,64 → 1,6."),
     },
     {
         "q": "Laquelle des propositions suivantes relève du champ d'étude de la microéconomie ?",
@@ -115,8 +114,7 @@ QUESTIONS = [
         "explain": (
             "La microéconomie étudie les décisions des ménages/entreprises et le fonctionnement d'un marché particulier. "
             "Une action de Migros sur le prix d'un produit concerne un marché spécifique. Les autres propositions relèvent "
-            "de la macroéconomie (agrégats/ politiques)."
-        ),
+            "de la macroéconomie (agrégats/ politiques)."),
     },
     {
         "q": "Laquelle des affirmations suivantes est positive (par opposition à normative) ?",
@@ -129,8 +127,7 @@ QUESTIONS = [
         "answer": 2,
         "explain": (
             "Une affirmation positive est vérifiable/causale (« augmenterait »). Les autres sont normatives "
-            "(jugements de valeur : « doivent », « il faudrait », « devrait »)."
-        ),
+            "(jugements de valeur : « doivent », « il faudrait », « devrait »)."),
     },
     {
         "q": "Laquelle des propositions suivantes concernant l'organisation de la vie économique est correcte ?",
@@ -144,8 +141,7 @@ QUESTIONS = [
         "explain": (
             "Économie de marché : décisions surtout laissées aux prix et aux agents privés. "
             "Économie planifiée : décisions centralisées par l'État. Économie mixte : combinaison des deux, "
-            "avec intervention publique pour corriger des défaillances."
-        ),
+            "avec intervention publique pour corriger des défaillances."),
     },
     {
         "q": "Laquelle des affirmations suivantes concernant les modèles économiques est fausse ?",
@@ -158,8 +154,7 @@ QUESTIONS = [
         "answer": 0,
         "explain": (
             "Les modèles économiques sont des simplifications conditionnelles : leurs résultats dépendent "
-            "d'hypothèses et du contexte."
-        ),
+            "d'hypothèses et du contexte."),
     },
     {
         "q": (
@@ -176,15 +171,13 @@ QUESTIONS = [
         "answer": 3,
         "explain": (
             "L'énoncé décrit une co-variation (petites classes ↔ meilleurs résultats). "
-            "On peut donc affirmer une corrélation négative entre la taille des classes et les résultats."
-        ),
+            "On peut donc affirmer une corrélation négative entre la taille des classes et les résultats."),
     },
     {
         "q": (
             "Il existe une forte corrélation entre la probabilité d'observer une guerre civile dans un pays "
             "et le taux de croissance du PIB de ce pays.\n"
-            "Comment peut-on s'assurer qu'en plus de cette corrélation, il existe en fait une relation de causalité ?"
-        ),
+            "Comment peut-on s'assurer qu'en plus de cette corrélation, il existe en fait une relation de causalité ?"),
         "choices": [
             "Il faut s'assurer que la corrélation soit au moins de 0.9",
             "Il faut d'abord s'assurer qu'il n'existe pas d'autre facteur pouvant expliquer à la fois la guerre civile et le taux de croissance économique du pays.",
@@ -194,8 +187,7 @@ QUESTIONS = [
         "answer": 1,
         "explain": (
             "La corrélation ne suffit pas à établir la causalité. Il faut vérifier qu'aucun facteur confondant "
-            "n'explique simultanément la guerre civile et la croissance."
-        ),
+            "n'explique simultanément la guerre civile et la croissance."),
     },
     {
         "q": (
@@ -211,8 +203,7 @@ QUESTIONS = [
         "explain": (
             "ε_demande = -0.30 ∴ |ε| < 1 al. demande inélastique ⇒ P↑ & Q↓(léger). "
             "Si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement). "
-            "Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)"
-        ),
+            "Si |ε| > 1 al. demande élastique ⇒ P↑ & Q↓(fort)"),
     },
     {
         "q": "On peut affirmer qu'en concurrence parfaite...",
@@ -225,8 +216,7 @@ QUESTIONS = [
         "answer": 0,
         "explain": (
             "En concurrence parfaite, le prix du marché (P) = au coût marginal (Cm) = à la recette marginal (Rm). "
-            "Le producteur étant preneur de prix en concurrence parfaite veut maximiser son profit."
-        ),
+            "Le producteur étant preneur de prix en concurrence parfaite veut maximiser son profit."),
         "highlight_color": "#ffc107",
     },
     {
@@ -243,13 +233,12 @@ QUESTIONS = [
         ],
         "answer": 0,
         "explain": (
-            "Coût marginal = C'(x) = (2x^2 - 3x + 50)' = 4x - 3. "
+            "Coût marginal = C'(x) = (2x² - 3x + 50)' = 4x - 3. "
             "En concurrence parfaite : P = Cm = Rm ∴ P = 4x - 3 étant donc la fonction d'offre de l'entreprise. "
-            "Sachant C(x) = CV + CF = 2x^2 - 3x + 50 al. CVM = CV/x = (2x^2 - 3x)/x = 2x - 3 ∴ l'entreprise produit si P ≥ CVM_min. "
+            "Sachant C(x) = CV + CF = 2x² - 3x + 50 al. CVM = CV/x = (2x² - 3x)/x = 2x - 3 ∴ l'entreprise produit si P ≥ CVM_min. "
             "Ainsi, CVM_min = (dCVM/dx) = (d(2x - 3)/dx) = (2x - 3)' = 2 ⇒ Minimum du CVM & CVM croissant. "
             "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variable, "
-            "c-à-d quand P > 0."
-        ),
+            "c-à-d quand P > 0."),
         "highlight_color": "#ffc107",
     },
     {
@@ -266,8 +255,7 @@ QUESTIONS = [
             "Le contrôle de prix (plafond ou plancher) crée au contraire une perte sèche. "
             "Le contrôle de prix n'apporte aucune recette à l'Etat car ce n'est pas un impôt. "
             "Avec un prix plancher ou un prix plafond, tous les producteurs ou les consommateurs ne participent pas à l'échange. "
-            "En revanche, l'Etat peut vouloir renforcer l'équité (p.ex. loyers plafonnés, salaire minimum, etc.) en acceptant une perte d'efficacité."
-        ),
+            "En revanche, l'Etat peut vouloir renforcer l'équité (p.ex. loyers plafonnés, salaire minimum, etc.) en acceptant une perte d'efficacité."),
     },
     {
         "q": (
@@ -284,8 +272,7 @@ QUESTIONS = [
         "explain": (
             "Un prix plafond fixé en dessous du prix d'équilibre ⇒ prix trop bas. "
             "Les locataires demandent plus de logements. "
-            "Les bailleurs offrent moins de logements ⇒ demande excédentaire = pénurie."
-        ),
+            "Les bailleurs offrent moins de logements ⇒ demande excédentaire = pénurie."),
     },
     {
         "q": (
@@ -305,8 +292,7 @@ QUESTIONS = [
             "Le nombre d'appartements loués diminue, c'est vrai car le loyer plafonné plus bas incite certains bailleurs à ne pas "
             "offrir leurs logements, ce qui réduit la quantité offerte. "
             "Le surplus des bailleurs diminue, c'est vrai car ils louent moins de logements et touchent un loyer inférieur à celui "
-            "d'équilibre, ce qui réduit leur gain global."
-        ),
+            "d'équilibre, ce qui réduit leur gain global."),
     },
     {
         "q": (
@@ -324,17 +310,58 @@ QUESTIONS = [
             "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀, c'est faux car à P₂, les producteurs offrent Q₂, les consommateurs n’achètent que Q₀ "
             "donc la surproduction = Q₂ − Q₀, pas Q₁ − Q₀. "
             "Le coût supporté par l'Etat représente le prix payé × la quantité rachetée tandis que CED représente la perte sèche. "
-            "P₂CEP₁ est la perte de surplus des consommateurs, et non pas l'augmentation de surplus des producteurs."
-        ),
+            "P₂CEP₁ est la perte de surplus des consommateurs, et non pas l'augmentation de surplus des producteurs."),
     "image":"qcm microéconomie image_1_prix_plancher.png"
+    },
+    {
+        "q": (
+            " Soit les fonctions de demande et d’offre sur le marché des fraises sécrivent :\n"
+            "Qᵈ = 60 - 4P\n"
+            "Qᵒ = −2.5 + P\n"
+            "Où Qᵈ représente la quantité demandée de fraises, Qᵒ la quantité offerte de fraises et P le prix du kilo de fraises. \n"
+            "Jugeant que l’équilibre du marché concurrentiel n’est pas adéquat, l’Etat introduit un prix plancher de 14 CHF par kilo et d’imposer des quotas de production pour éliminer de potentielles demande ou offre excédentaires. \n"
+            " Quelle sera la conséquence de l’introduction de ce prix plancher ?\n"
+        ),
+        "choices": [
+            "Une demande excédentaire de 7.5 sans la mise en place des quotas de production.", 
+            "Une perte sèche égale à 45.", 
+            "Une surproduction de 7.5 sans la mise en place des quotas de production.", 
+            "Une hausse du surplus des consommateurs."
+        ],
+        "answer": 2,
+        "explain": (
+            "Qᵈ = Qᵒ ⇒ 62.5 = 5P ⇒ P* = 12.5 ∴ Q* = 60 - 4P* = 10. "
+            "Sachant que P̲ = 14 > 12.5, ∴ contraignant (au dessus du P_eq). "
+            "Si P̲ = 14 al. Qᵈ(P̲) = 60 - 4P̲ = 4 & Qᵒ(P̲) = −2.5 + P̲ = 11.5. "
+            "donc sans quota, on aura une Surproduction = Qᵒ − Qᵈ = 11.5 − 4 = 7.5. "
+            "Ainsi, sans quotas, l’introduction du prix plancher entraînerait bien une surproduction de 7.5."),
+    },
+    {
+        "q": (
+            " Laquelle des affirmations suivantes est fausse lorsqu’on compare une situation de concurrence parfaite à un monopole ? "
+        ),
+        "choices": [
+            "Contrairement à la concurrence parfaite, le monopoleur ne cherche pas à maximiser son profit.", 
+            "Le monopoleur cible les acheteurs ayant les consentements à payer les plus élevés.", 
+            "Imposer un prix plafond permet de limiter le pouvoir de marché d’un monopoleur.", 
+            "Les consommateurs sont perdants lorsqu’on passe d’un marché concurrentiel à un monopole."
+        ],
+        "answer": 0,
+        "explain": (
+            "En concurrence parfaite et en monopole, les entreprises maximisent toujours le profit. "
+            "La différence vient du fait que le monopoleur choisit P > CM, alors qu’en concurrence P = CM."),
     },
     ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
+# CONFIGURATION ET VARIABLES GLOBALES
+#-------------------------------------------------------------------------------------------------------------------------------------------
 
+RESULTS_FILE = "results.csv" # Fichier de résultats
 
-# Fichier de résultats
-RESULTS_FILE = "results.csv"
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# FONCTIONS DE GESTION DES RÉSULTATS
+#-------------------------------------------------------------------------------------------------------------------------------------------
 
 def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
     """Enregistre une réponse dans un fichier CSV."""
@@ -372,6 +399,9 @@ with st.sidebar:
 
 TARGET_MASTERY = 1
 
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# FONCTIONS DE GESTION DU QUIZ
+#-------------------------------------------------------------------------------------------------------------------------------------------
 
 def full_init():
     st.session_state.init = True
@@ -439,10 +469,6 @@ def _advance_to_next():
         st.session_state.last_result = None
         st.rerun()
 
-#--------------------------------------------------------
-
-
-
 
 def render_single(q_index):
     """Affiche une question."""
@@ -507,7 +533,12 @@ def render_single(q_index):
         if selected is None:
             st.warning("⚠️ Veuillez sélectionner une réponse avant de valider.")
             return None
-            
+
+        
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# FONCTIONS DE GESTION DU QUIZ
+#-------------------------------------------------------------------------------------------------------------------------------------------
+    
         correct = selected == q["answer"]
         st.session_state.just_validated = True
         st.session_state.last_result = correct
