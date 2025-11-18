@@ -596,7 +596,8 @@ else:
         df = pd.read_csv(RESULTS_FILE)
 
         # 🔹 Ne garder que les réponses des dernières 24h
-        df["timestamp"] = pd.to_datetime(df["timestamp"])
+        df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+        df = df.dropna(subset=["timestamp"])
         cutoff = datetime.now() - timedelta(days=1)
         df_recent = df[df["timestamp"] >= cutoff].copy()
 
