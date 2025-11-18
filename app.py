@@ -541,7 +541,7 @@ if st.session_state.just_validated:
         st.rerun()
 
 # -----------------------
-# 🧠 Section analyse (version simplifiée)
+# 🧠 Section analyse (version avec nettoyage automatique)
 # -----------------------
 st.markdown("---")
 st.markdown("### Mode analyse")
@@ -561,8 +561,29 @@ else:
                 st.warning("Le fichier de résultats existe mais est vide.")
                 df = pd.DataFrame()
             else:
-                # 📥 Chargement simple sans traitement de dates
+                # 📥 Chargement des données
                 df = pd.read_csv(results_path)
+                
+                # Nettoyage automatique des données de plus de 24h
+                if not df.empty and 'timestamp' in df.columns:
+                    # Conversion sécurisée des dates
+                    df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+                    
+                    # Filtrer pour garder seulement les dernières 24h
+                    cutoff_time = datetime.now() - timedelta(hours=24)
+                    df_clean = df[df['timestamp'] >= cutoff_time].copy()
+                    
+                    # Si des données ont été supprimées, mettre à jour le fichier
+                    if len(df_clean) < len(df):
+                        deleted_count = len(df) - len(df_clean)
+                        st.info(f"🔧 {deleted_count} entrées de plus de 24h ont été automatiquement supprimées.")
+                        
+                        # Sauvegarder les données nettoyées
+                        df_clean.to_csv(results_path, index=False)
+                        df = df_clean
+                    
+                    # Réinitialiser l'index après nettoyage
+                    df = df.reset_index(drop=True)
                 
         except Exception as e:
             st.error(f"Erreur lors du chargement : {e}")
@@ -577,12 +598,31 @@ else:
             df = pd.DataFrame()
 
         if df.empty:
-            st.info("Aucune donnée à afficher.")
+            st.info("Aucune donnée à afficher (ou toutes les données étaient de plus de 24h).")
         else:
-            # Afficher simplement les données brutes
-            st.subheader("Toutes les réponses")
+            # Afficher les statistiques de base
+            st.subheader("📊 Statistiques générales")
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                total_reponses = len(df)
+                st.metric("Total réponses", total_reponses)
+            
+            with col2:
+                if 'is_correct' in df.columns:
+                    taux_reussite = (df['is_correct'].sum() / len(df)) * 100
+                    st.metric("Taux de réussite", f"{taux_reussite:.1f}%")
+            
+            with col3:
+                if 'timestamp' in df.columns:
+                    derniere_activite = df['timestamp'].max() if not df.empty else "N/A"
+                    st.metric("Dernière activité", derniere_activite)
+
+            # 📋 Tableau des réponses
+            st.subheader("📋 Toutes les réponses (24h max)")
             st.dataframe(df)
 
+            # 📥 Téléchargement
             csv_all = df.to_csv(index=False).encode("utf-8")
             st.download_button(
                 label="📥 Télécharger toutes les réponses (CSV)",
@@ -591,15 +631,69 @@ else:
                 mime="text/csv",
             )
 
-            # Analyse simple sans filtre temporel
+            # 📈 Analyses détaillées
             if 'is_correct' in df.columns and 'user' in df.columns:
-                st.subheader("Nombre d'erreurs par utilisateur")
+                st.subheader("📈 Analyses par utilisateur")
+                
+                # Erreurs par utilisateur
                 errors = (
                     df[df["is_correct"] == 0]
                     .groupby("user")
                     .size()
                     .reset_index(name="nb_erreurs")
                 )
-                st.dataframe(errors)
+                
+                # Réussites par utilisateur
+                successes = (
+                    df[df["is_correct"] == 1]
+                    .groupby("user")
+                    .size()
+                    .reset_index(name="nb_reussites")
+                )
+                
+                # Fusionner les deux
+                user_stats = pd.merge(errors, successes, on='user', how='outer').fillna(0)
+                user_stats['total'] = user_stats['nb_erreurs'] + user_stats['nb_reussites']
+                user_stats['taux_reussite'] = (user_stats['nb_reussites'] / user_stats['total'] * 100).round(1)
+                
+                st.dataframe(user_stats)
 
+                # Télécharger les stats utilisateur
+                csv_stats = user_stats.to_csv(index=False).encode("utf-8")
+                st.download_button(
+                    label="📥 Télécharger les stats par utilisateur",
+                    data=csv_stats,
+                    file_name="stats_utilisateurs_qcm.csv",
+                    mime="text/csv",
+                )
+
+            # 🗑️ Option de nettoyage manuel
+            st.subheader("🔧 Maintenance")
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                if st.button("🗑️ Nettoyer maintenant", help="Supprime toutes les données de plus de 24h"):
+                    try:
+                        if not df.empty and 'timestamp' in df.columns:
+                            cutoff_time = datetime.now() - timedelta(hours=24)
+                            df_clean = df[df['timestamp'] >= cutoff_time].copy()
+                            deleted_count = len(df) - len(df_clean)
+                            
+                            if deleted_count > 0:
+                                df_clean.to_csv(results_path, index=False)
+                                st.success(f"{deleted_count} entrées supprimées !")
+                                st.rerun()
+                            else:
+                                st.info("Aucune donnée à nettoyer (toutes sont récentes).")
+                    except Exception as clean_error:
+                        st.error(f"Erreur lors du nettoyage : {clean_error}")
+            
+            with col2:
+                if st.button("⚠️ Tout supprimer", help="Supprime TOUTES les données (irréversible)"):
+                    try:
+                        results_path.unlink()
+                        st.success("Toutes les données ont été supprimées !")
+                        st.rerun()
+                    except Exception as delete_error:
+                        st.error(f"Erreur lors de la suppression : {delete_error}")
 
