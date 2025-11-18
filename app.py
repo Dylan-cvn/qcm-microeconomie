@@ -543,6 +543,7 @@ if st.session_state.just_validated:
 # -----------------------
 # 🧠 Section analyse (version avec nettoyage automatique)
 # -----------------------
+
 st.markdown("---")
 st.markdown("### Mode analyse")
 
@@ -638,46 +639,6 @@ else:
                 file_name="results_qcm_microeconomie.csv",
                 mime="text/csv",
             )
-
-            # 📈 Analyses détaillées
-            if 'is_correct' in df.columns and 'user' in df.columns:
-                st.subheader("📈 Analyses par utilisateur")
-                
-                # Erreurs par utilisateur
-                errors = (
-                    df[df["is_correct"] == 0]
-                    .groupby("user")
-                    .size()
-                    .reset_index(name="nb_erreurs")
-                )
-                
-                # Réussites par utilisateur
-                successes = (
-                    df[df["is_correct"] == 1]
-                    .groupby("user")
-                    .size()
-                    .reset_index(name="nb_reussites")
-                )
-                
-                # Fusionner les deux
-                user_stats = pd.merge(errors, successes, on='user', how='outer').fillna(0)
-                user_stats['total'] = user_stats['nb_erreurs'] + user_stats['nb_reussites']
-                # Éviter la division par zéro
-                user_stats['taux_reussite'] = user_stats.apply(
-                    lambda x: (x['nb_reussites'] / x['total'] * 100).round(1) if x['total'] > 0 else 0.0, 
-                    axis=1
-                )
-                
-                st.dataframe(user_stats)
-
-                # Télécharger les stats utilisateur
-                csv_stats = user_stats.to_csv(index=False).encode("utf-8")
-                st.download_button(
-                    label="📥 Télécharger les stats par utilisateur",
-                    data=csv_stats,
-                    file_name="stats_utilisateurs_qcm.csv",
-                    mime="text/csv",
-                )
 
             # 🗑️ Option de nettoyage manuel
             st.subheader("🔧 Maintenance")
