@@ -319,9 +319,9 @@ QUESTIONS = [
             "Le surplus des producteurs augmente de la surface P₂CEP₁.",
             "Le surplus des consommateurs s'est réduit de la surface P₂CEP₁.",
         ],
-        "answer": 2,
+        "answer": 3,
         "explain": (
-            "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀, c'est faux car À P₂, les producteurs offrent Q₂, les consommateurs n’achètent que Q₀ "
+            "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀, c'est faux car à P₂, les producteurs offrent Q₂, les consommateurs n’achètent que Q₀ "
             "donc la surproduction = Q₂ − Q₀, pas Q₁ − Q₀. "
             "Le coût supporté par l'Etat représente le prix payé × la quantité rachetée tandis que CED représente la perte sèche. "
             "P₂CEP₁ est la perte de surplus des consommateurs, et non pas l'augmentation de surplus des producteurs."
