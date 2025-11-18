@@ -401,44 +401,9 @@ def render_single(q_index):
     """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
     q = QUESTIONS[q_index]
     highlight_color = q.get("highlight_color")
-    img_path = q.get("image")   # <- récupère le chemin de l'image si présent
-
-    # a) Affichage du texte de la question (ton code existant)
-    lines = [s for s in q["q"].split("\n") if s.strip()]
-    if lines:
-        if highlight_color:
-            st.markdown(
-                f"<h3 style='color:{highlight_color};margin-bottom:0.3rem;'>{lines[0]}</h3>",
-                unsafe_allow_html=True,
-            )
-        else:
-            st.subheader(lines[0])
-
-        for line in lines[1:]:
-            has_math = any(token in line for token in ("=", "^", "\\frac", "\\cdot", "\\times"))
-            if highlight_color and has_math:
-                st.markdown(
-                    f"$$\\color{{{highlight_color}}}{{{line}}}$$",
-                    unsafe_allow_html=True,
-                )
-            elif highlight_color:
-                st.markdown(
-                    f"<span style='color:{highlight_color};'>{line}</span>",
-                    unsafe_allow_html=True,
-                )
-            elif has_math:
-                try:
-                    st.latex(line)
-                except Exception:
-                    st.markdown(line)
-            else:
-                st.markdown(line)
-
-    # b) Affichage de l'image uniquement si la question en a une
-    if img_path:
-        st.image(img_path, use_column_width=True)
-
-
+    img_path = q.get("image")
+if img_path:
+    st.image(img_path, use_column_width=True)
 
 # 11) Afficher chaque ligne de l’énoncé avec le format le plus lisible (titre, Markdown ou LaTeX) pour que la question reste claire
     lines = [s for s in q["q"].split("\n") if s.strip()]
