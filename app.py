@@ -4,11 +4,10 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import pandas as pd
 
-# 1) Configuration de la page Streamlit dès son chargement :
-#    "QCM Microéconomie", icône 🧠 et mise en page centrée (layout="centered")
+# Configuration de la page Streamlit
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
-# 2) Données du Quiz mis en ligne (SANS IMAGE)
+# Données du Quiz
 QUESTIONS = [
     {
         "q": (
@@ -228,7 +227,7 @@ QUESTIONS = [
             "En concurrence parfaite, le prix du marché (P) = au coût marginal (Cm) = à la recette marginal (Rm). "
             "Le producteur étant preneur de prix en concurrence parfaite veut maximiser son profit."
         ),
-        "highlight_color": "#ffc107",  # jaune
+        "highlight_color": "#ffc107",
     },
     {
         "q": (
@@ -251,7 +250,7 @@ QUESTIONS = [
             "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variable, "
             "c-à-d quand P > 0."
         ),
-        "highlight_color": "#ffc107",  # jaune
+        "highlight_color": "#ffc107",
     },
     {
         "q": "À propos des contrôles de prix, laquelle des affirmations suivantes est correcte ?",
@@ -325,23 +324,17 @@ QUESTIONS = [
     },
 ]
 
-# Fichier dans lequel on enregistre toutes les réponses
+# Fichier de résultats
 RESULTS_FILE = "results.csv"
 
 
 def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
-    """
-    Enregistre une réponse dans un fichier CSV.
-    - user_name : nom tapé dans la sidebar (ou 'Anonyme')
-    - q_index : index de la question dans la liste QUESTIONS
-    - correct : True/False
-    - selected : index de la réponse choisie
-    """
+    """Enregistre une réponse dans un fichier CSV."""
     name = user_name.strip() or "Anonyme"
     q = QUESTIONS[q_index]
 
     row = {
-        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "timestamp": datetime.now().isoformat(),  # Format ISO8601
         "user": name,
         "question_index": q_index,
         "question": q["q"].replace("\n", " "),
@@ -349,7 +342,7 @@ def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> No
         "selected_choice": q["choices"][selected],
         "correct_index": q["answer"],
         "correct_choice": q["choices"][q["answer"]],
-        "is_correct": int(bool(correct)),  # 1 = bonne réponse, 0 = mauvaise
+        "is_correct": int(bool(correct)),
     }
 
     df = pd.DataFrame([row])
@@ -357,7 +350,7 @@ def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> No
     df.to_csv(RESULTS_FILE, mode="a", header=not file_exists, index=False)
 
 
-# 3) Onglet latéral pour paramétrer sa façon d'apprendre
+# Sidebar
 with st.sidebar:
     st.header("⚙️ Paramètres")
     user_name = st.text_input("Votre nom (optionnel)", "")
@@ -369,11 +362,9 @@ with st.sidebar:
     ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "Testz")
     is_admin = admin_password == ADMIN_PASSWORD
 
-# 4) Seuil minimum pour valider la question donc une quest. correct = un quest. liquidée
-TARGET_MASTERY = 1  # 1 réussite par question
+TARGET_MASTERY = 1
 
 
-# 5) Initialisation du quiz
 def full_init():
     st.session_state.init = True
     st.session_state.n_questions = len(QUESTIONS)
@@ -387,7 +378,6 @@ def full_init():
     st.session_state.last_result = None
 
 
-# Remise à zéro du quiz quand c'est nécessaire
 def reset_all():
     full_init()
 
@@ -395,12 +385,10 @@ def reset_all():
 if ("init" not in st.session_state) or (st.session_state.get("n_questions") != len(QUESTIONS)):
     full_init()
 
-# 6) En-tête et titre du quiz
 st.title("🎈Révision examen : Microéconomie I")
 st.caption("Mode **apprentissage** : répéter les erreurs jusqu'à maîtriser le sujet.")
 
 
-# 7) Sélection aléatoire de la prochaine question du quiz correct ou incorrect
 def _choose_next(exclude_idx=None):
     remaining = [i for i in st.session_state.order if st.session_state.mastery[i] < TARGET_MASTERY]
     if not remaining:
@@ -416,7 +404,6 @@ def _choose_next(exclude_idx=None):
     return random.choice(candidates)
 
 
-# 8) Ce qu'il se passe en passant à la question suivante
 def _advance_to_next():
     next_idx = _choose_next(exclude_idx=st.session_state.current)
 
@@ -436,20 +423,17 @@ def _advance_to_next():
             st.rerun()
         return
 
-    # 9) Mise à jour de [st.session_state] dès qu'on passe à la question suivante
     st.session_state.current = next_idx
     st.session_state.just_validated = False
     st.session_state.last_result = None
-    # 🔹 PAS de st.rerun() ici - laisse le bouton gérer le rerun
 
 
-# 10) L'affichage durant la question du quiz
 def render_single(q_index):
-    """Affiche une question. Retourne True/False si 'Valider' vient d'être cliqué, sinon None."""
+    """Affiche une question."""
     q = QUESTIONS[q_index]
     highlight_color = q.get("highlight_color")
 
-    # 11) Afficher chaque ligne de l'énoncé avec le format le plus lisible
+    # Afficher l'énoncé
     lines = [s for s in q["q"].split("\n") if s.strip()]
     if lines:
         if highlight_color:
@@ -480,7 +464,14 @@ def render_single(q_index):
             else:
                 st.markdown(line)
 
-    # 12) Choix (pas d'index forcé pour éviter le double-clic)
+    # Afficher l'image si elle existe
+    if q.get("image"):
+        try:
+            st.image(q["image"], use_container_width=True)
+        except Exception:
+            pass
+
+    # Choix
     key_radio = f"choice_{q_index}"
     if key_radio not in st.session_state:
         st.session_state[key_radio] = st.session_state.answers.get(q_index, None)
@@ -493,17 +484,22 @@ def render_single(q_index):
     )
     st.session_state.answers[q_index] = selected
 
-    # 13) Bouton de validation
+    # Bouton de validation
     validate = st.button("✅ Valider", key=f"validate_{q_index}")
     if validate:
+        # ✅ Vérifier que l'utilisateur a sélectionné une réponse
+        if selected is None:
+            st.warning("⚠️ Veuillez sélectionner une réponse avant de valider.")
+            return None
+            
         correct = selected == q["answer"]
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # 🔹 Enregistre la réponse dans le CSV
+        # Enregistrer la réponse
         log_answer(user_name, q_index, correct, selected)
 
-        # 14) Barre de Progression : on augmente immédiatement si c'est correct
+        # Mise à jour de la maîtrise
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
             st.session_state.mastery[q_index] += 1
 
@@ -515,7 +511,7 @@ def render_single(q_index):
             st.info(f"💡 Explication : {q['explain']}")
         return correct
 
-    # 15) Réaffichage après validation (si on revient sur la même question)
+    # Réaffichage après validation
     if st.session_state.just_validated:
         correct = st.session_state.last_result
         if correct:
@@ -526,3 +522,22 @@ def render_single(q_index):
             st.info(f"💡 Explication : {q['explain']}")
 
     return None
+
+
+# MODE APPRENTISSAGE
+progress_bar_slot = st.empty()
+progress_text_slot = st.empty()
+
+q_idx = st.session_state.current
+_ = render_single(q_idx)
+
+mastered_count = sum(1 for v in st.session_state.mastery.values() if v >= TARGET_MASTERY)
+progress_bar_slot.progress(mastered_count / len(QUESTIONS))
+progress_text_slot.write(f"Maîtrise : **{mastered_count}/{len(QUESTIONS)}** questions ")
+
+if st.session_state.just_validated:
+    if st.button("➡️ Continuer", key=f"next_{q_idx}"):
+        _advance_to_next()
+        st.rerun()
+
+# Section analyse
