@@ -347,7 +347,7 @@ def full_init():
     st.session_state.just_validated = False                          # indique qu’aucune réponse ne vient d’être validée
     st.session_state.last_result = None                              # réinitialise le dernier résultat connu pour la question courante
 
-# 5) Remise à zéro du quiz quand c'est nécessaire
+# A) Remise à zéro du quiz quand c'est nécessaire
 def reset_all():                                                     # déclare une fonction utilitaire pour relancer complètement la session
     full_init()                                                      # appelle la routine d’initialisation complète lorsque l’utilisateur demande un reset
 
@@ -390,7 +390,7 @@ def _advance_to_next():                                                         
         return
 
 # 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante    
-        return
+    
     st.session_state.current = next_idx     # met à jour l’indice courant avec la nouvelle question choisie
     st.session_state.just_validated = False # indique qu’aucune réponse n’a encore été validée sur cette nouvelle question.
     st.session_state.last_result = None     # efface le résultat précédemment affiché pour repartir proprement
@@ -472,17 +472,7 @@ def render_single(q_index):
         if show_explain and q.get("explain"):
             st.info(f" Explication : {q['explain']}")
         return correct
-
-    # E) Réaffichage après validation (si on revient sur la même question)
-    if st.session_state.just_validated:
-        correct = st.session_state.last_result
-        if correct:
-            st.success("✔️ Bonne réponse !")
-        else:
-            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
-        if show_explain and q.get("explain"):
-            st.info(f" Explication : {q['explain']}")
-
+        
     return None
 
 # ------------- MODE APPRENTISSAGE (unique) ------------- #
