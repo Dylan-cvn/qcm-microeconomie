@@ -386,7 +386,7 @@ def _advance_to_next():                                                         
         )
         if st.button("🔁 Recommencer"):                                                # affiche un bouton permettant de recommencer le quiz depuis le début
             reset_all()                                                                 # réinitialise toute la session si l’utilisateur choisit de redémarrer
-            st.rerun()                                                                  # relance immédiatement l’application Streamlit pour repartir sur un état neuf
+           
         return
 
 # 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante    
@@ -394,7 +394,7 @@ def _advance_to_next():                                                         
     st.session_state.current = next_idx     # met à jour l’indice courant avec la nouvelle question choisie
     st.session_state.just_validated = False # indique qu’aucune réponse n’a encore été validée sur cette nouvelle question.
     st.session_state.last_result = None     # efface le résultat précédemment affiché pour repartir proprement
-    st.rerun()                              #  recharge l’application afin d’afficher la nouvelle question immédiatement
+    
 
 # 10) L'affichage durant la question du quiz (Couleur et image)
 def render_single(q_index):
