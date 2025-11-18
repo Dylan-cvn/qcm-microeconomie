@@ -265,7 +265,21 @@ QUESTIONS = [
             "Le nombre d'appartements loués diminue, c'est vrai car le loyer plafonné plus bas incite certains bailleurs à ne pas offrir leurs logements, ce qui réduit la quantité offerte. "
             "Le surplus des bailleurs diminue, c'est vrai car ils louent moins de logements et touchent un loyer inférieur à celui d’équilibre, ce qui réduit leur gain global."
             ),
-    }  
+    },
+    {
+        "q": (
+            "Le gouvernement décide d'imposer sur ce marché un prix plancher égal à P_2 et de racheter l'éventuelle surproduction causée par son introduction. \n"
+            "Sur la base de ces informations et du graphiques ci-dessus, laquelle des affirmations suivantes est correcte suite à l'intrdocution du prix plancher ?"),
+        "choices": [
+            "L'introduction du prix plancher engendre une surproduction de Q_1 - Q_0.",
+            "Le coût supporté par l'Etat est représenté par la surface CED.",
+            "Le surplus des producteurs augmente de la surface P_2CEP_1.",
+            "Le surplus des consommateurs s'est réduit de la surface P_2CEP_1."],
+        "answer": 2,
+        "explain": (
+            "..."
+            ),
+    }
 ]
 #--------------------------------------------------------------------------------------------------------------------------------------
 # Fichier dans lequel on enregistre toutes les réponses
