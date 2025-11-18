@@ -463,20 +463,7 @@ def render_single(q_index):
                     st.markdown(line)
             else:
                 st.markdown(line)
-#---------------------------------------
-    # Afficher l'image si elle existe
-if q.get("image"):
-    try:
-        # Essayer de charger l'image depuis le chemin spécifié
-        image_path = Path(q["image"])
-        if image_path.exists():
-            st.image(str(image_path), use_container_width=True, caption="Graphique de référence")
-        else:
-            # Si le fichier n'existe pas, essayer de le charger depuis GitHub ou autre source
-            st.image(q["image"], use_container_width=True, caption="Graphique de référence")
-    except Exception as e:
-        st.warning(f"⚠️ Impossible de charger l'image : {e}")
-#------------------------------------
+                
     # Choix
     key_radio = f"choice_{q_index}"
     if key_radio not in st.session_state:
