@@ -353,7 +353,7 @@ QUESTIONS = [
     },
     { 
         "q": (
-            " Une fabrique d'objets souvenirs travaille dans des locaux loués et le loyer diminue subitement. Si le marché est en concurrence parfaite et \n"
+            " Une fabrique d'objets souvenirs travaille dans des locaux loués et le loyer diminue subitement. Si le marché est en concurrence parfaite et "
             "que sa capacité de production était déjà au maximum, quelle sera l'incidence de cette baisse de loyer sur le prix offert et le profit du producteur ?"
         ),
         "choices": [
