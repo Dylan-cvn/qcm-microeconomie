@@ -614,9 +614,17 @@ else:
                     st.metric("Taux de réussite", f"{taux_reussite:.1f}%")
             
             with col3:
-                if 'timestamp' in df.columns:
-                    derniere_activite = df['timestamp'].max() if not df.empty else "N/A"
-                    st.metric("Dernière activité", derniere_activite)
+                if 'timestamp' in df.columns and not df.empty:
+                    # Convertir le timestamp en format lisible
+                    derniere_activite = df['timestamp'].max()
+                    if pd.notna(derniere_activite):
+                        # Formater la date pour l'affichage
+                        derniere_activite_str = derniere_activite.strftime("%d/%m/%Y %H:%M")
+                        st.metric("Dernière activité", derniere_activite_str)
+                    else:
+                        st.metric("Dernière activité", "N/A")
+                else:
+                    st.metric("Dernière activité", "N/A")
 
             # 📋 Tableau des réponses
             st.subheader("📋 Toutes les réponses (24h max)")
@@ -654,7 +662,11 @@ else:
                 # Fusionner les deux
                 user_stats = pd.merge(errors, successes, on='user', how='outer').fillna(0)
                 user_stats['total'] = user_stats['nb_erreurs'] + user_stats['nb_reussites']
-                user_stats['taux_reussite'] = (user_stats['nb_reussites'] / user_stats['total'] * 100).round(1)
+                # Éviter la division par zéro
+                user_stats['taux_reussite'] = user_stats.apply(
+                    lambda x: (x['nb_reussites'] / x['total'] * 100).round(1) if x['total'] > 0 else 0.0, 
+                    axis=1
+                )
                 
                 st.dataframe(user_stats)
 
@@ -696,4 +708,3 @@ else:
                         st.rerun()
                     except Exception as delete_error:
                         st.error(f"Erreur lors de la suppression : {delete_error}")
-
