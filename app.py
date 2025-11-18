@@ -321,6 +321,7 @@ QUESTIONS = [
     ],
     "answer": 2,
     "explain": "...",
+    "image":"qcm microéconomie image_1_prix_plancher.png"
     },
     ]
 
@@ -463,7 +464,14 @@ def render_single(q_index):
                     st.markdown(line)
             else:
                 st.markdown(line)
-                
+
+    # Afficher l'image si elle existe
+    if q.get("image"):
+        try:
+            st.image(q["image"], use_container_width=True, caption="Graphique de référence")
+        except Exception as e:
+            st.warning(f"⚠️ Impossible de charger l'image : {e}")
+    
     # Choix
     key_radio = f"choice_{q_index}"
     if key_radio not in st.session_state:
