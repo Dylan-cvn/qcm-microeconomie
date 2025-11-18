@@ -309,25 +309,32 @@ QUESTIONS = [
         ),
     },
     {
-    "q": (
-        "Le gouvernement décide d'imposer sur ce marché un prix plancher égal à P2 et de racheter l'éventuelle surproduction causée par son introduction. \n"
-        "Sur la base de ces informations et du graphiques ci-dessous, laquelle des affirmations suivantes est correcte suite à l'introduction du prix plancher ?"
-    ),
-    "choices": [
-        "L'introduction du prix plancher engendre une surproduction de Q1 - Q0.",
-        "Le coût supporté par l'Etat est représenté par la surface CED.",
-        "Le surplus des producteurs augmente de la surface P2CEP1.",
-        "Le surplus des consommateurs s'est réduit de la surface P2CEP1.",
-    ],
-    "answer": 2,
-    "explain": "...",
+        "q": (
+            "Le gouvernement décide d'imposer sur ce marché un prix plancher égal à P₂ et de racheter l'éventuelle surproduction causée par son introduction. \n"
+            "Sur la base de ces informations et du graphiques ci-dessous, laquelle des affirmations suivantes est correcte suite à l'introduction du prix plancher ?"
+        ),
+        "choices": [
+            "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀.",
+            "Le coût supporté par l'Etat est représenté par la surface CED.",
+            "Le surplus des producteurs augmente de la surface P₂CEP₁.",
+            "Le surplus des consommateurs s'est réduit de la surface P₂CEP₁.",
+        ],
+        "answer": 2,
+        "explain": (
+            "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀, c'est faux car À P₂, les producteurs offrent Q₂, les consommateurs n’achètent que Q₀ "
+            "donc la surproduction = Q₂ − Q₀, pas Q₁ − Q₀. "
+            "Le coût supporté par l'Etat représente le prix payé × la quantité rachetée tandis que CED représente la perte sèche. "
+            "P₂CEP₁ est la perte de surplus des consommateurs, et non pas l'augmentation de surplus des producteurs."
+        ),
     "image":"qcm microéconomie image_1_prix_plancher.png"
     },
     ]
 
+#-------------------------------------------------------------------------------------------------------------------------------------------
+
+
 # Fichier de résultats
 RESULTS_FILE = "results.csv"
-
 
 def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
     """Enregistre une réponse dans un fichier CSV."""
