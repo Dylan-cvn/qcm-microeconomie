@@ -321,7 +321,7 @@ QUESTIONS = [
         ],
         "answer": 2,
         "explain": ("..."),
-        "image": "QCM Microéconomie image_1_prix_plancher.png"  # ← AJOUTE CETTE LIGNE
+        "image": "qcm Microéconomie image_1_prix_plancher.png"  # ← AJOUTE CETTE LIGNE
      }
     ]
 
