@@ -320,9 +320,10 @@ QUESTIONS = [
             "Le surplus des consommateurs s'est réduit de la surface P2CEP1.",
         ],
         "answer": 2,
-        "explain": "...",
-    },
-]
+        "explain": ("..."),
+        "image": "QCM Microéconomie image_1_prix_plancher.png"  # ← AJOUTE CETTE LIGNE
+     }
+    ]
 
 # Fichier de résultats
 RESULTS_FILE = "results.csv"
