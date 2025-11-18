@@ -541,10 +541,7 @@ if st.session_state.just_validated:
         st.rerun()
 
 # -----------------------
-# 🧠 Section analyse
-# -----------------------
-# -----------------------
-# 🧠 Section analyse
+# 🧠 Section analyse (version simplifiée)
 # -----------------------
 st.markdown("---")
 st.markdown("### Mode analyse")
@@ -558,57 +555,51 @@ else:
     if not results_path.exists():
         st.info("Aucune réponse enregistrée pour l'instant.")
     else:
-        # 📥 Chargement des résultats
-        df = pd.read_csv(results_path)
-
-        # ⏱️ Conversion sécurisée du timestamp avec gestion des erreurs
         try:
-            df["timestamp"] = pd.to_datetime(df["timestamp"], errors='coerce')
-            # Supprimer les lignes où la conversion a échoué (valeurs NaT)
-            df = df.dropna(subset=["timestamp"])
+            # Vérifier si le fichier n'est pas vide
+            if results_path.stat().st_size == 0:
+                st.warning("Le fichier de résultats existe mais est vide.")
+                df = pd.DataFrame()
+            else:
+                # 📥 Chargement simple sans traitement de dates
+                df = pd.read_csv(results_path)
+                
         except Exception as e:
-            st.error(f"Erreur lors de la conversion des dates : {e}")
-            st.info("Affichage des données brutes sans filtre temporel")
-            df_recent = df.copy()
+            st.error(f"Erreur lors du chargement : {e}")
+            # Option pour réinitialiser le fichier
+            if st.button("🔄 Réinitialiser le fichier de résultats"):
+                try:
+                    results_path.unlink()
+                    st.success("Fichier réinitialisé. Les nouvelles données seront enregistrées normalement.")
+                    st.rerun()
+                except Exception as delete_error:
+                    st.error(f"Erreur lors de la réinitialisation : {delete_error}")
+            df = pd.DataFrame()
+
+        if df.empty:
+            st.info("Aucune donnée à afficher.")
         else:
-            # Filtrage sur les 24 dernières heures
-            cutoff = datetime.now() - timedelta(days=1)
-            df_recent = df[df["timestamp"] >= cutoff].copy()
+            # Afficher simplement les données brutes
+            st.subheader("Toutes les réponses")
+            st.dataframe(df)
 
-        # 💾 On met à jour le CSV avec uniquement les données des 24h
-        if not df_recent.empty:
-            df_recent.to_csv(results_path, index=False)
-
-        if df_recent.empty:
-            st.info("Aucune réponse enregistrée sur les dernières 24 heures.")
-        else:
-            # 📊 Tableau complet des réponses (24h)
-            st.subheader("Toutes les réponses (24h)")
-            st.dataframe(df_recent)
-
-            csv_all = df_recent.to_csv(index=False).encode("utf-8")
+            csv_all = df.to_csv(index=False).encode("utf-8")
             st.download_button(
-                label="📥 Télécharger toutes les réponses (CSV, 24h)",
+                label="📥 Télécharger toutes les réponses (CSV)",
                 data=csv_all,
-                file_name="results_qcm_microeconomie_24h.csv",
+                file_name="results_qcm_microeconomie.csv",
                 mime="text/csv",
             )
 
-            # ❌ Nombre d'erreurs par utilisateur (24h)
-            st.subheader("Nombre d'erreurs par utilisateur (24h)")
-            errors = (
-                df_recent[df_recent["is_correct"] == 0]
-                .groupby("user")
-                .size()
-                .reset_index(name="nb_erreurs")
-            )
-            st.dataframe(errors)
+            # Analyse simple sans filtre temporel
+            if 'is_correct' in df.columns and 'user' in df.columns:
+                st.subheader("Nombre d'erreurs par utilisateur")
+                errors = (
+                    df[df["is_correct"] == 0]
+                    .groupby("user")
+                    .size()
+                    .reset_index(name="nb_erreurs")
+                )
+                st.dataframe(errors)
 
-            csv_errors = errors.to_csv(index=False).encode("utf-8")
-            st.download_button(
-                label="📥 Télécharger les erreurs par utilisateur (CSV, 24h)",
-                data=csv_errors,
-                file_name="erreurs_qcm_microeconomie_24h.csv",
-                mime="text/csv",
-            )
 
