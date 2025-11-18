@@ -386,7 +386,7 @@ def _advance_to_next():                                                         
         )
         if st.button("🔁 Recommencer"):                                                # affiche un bouton permettant de recommencer le quiz depuis le début
             reset_all()                                                                # relance immédiatement l’application Streamlit pour repartir sur un état neuf
-            st.rerun()                                                                 # réinitialise toute la session si l’utilisateur choisit de redémarrer
+
         return
 
 # 9) Mise à jour de [st.session_state] dès qu’on passe à la question suivante    
