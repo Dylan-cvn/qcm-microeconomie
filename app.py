@@ -382,7 +382,7 @@ QUESTIONS = [
         "answer": 2,
         "explain": (
             "... "),
-        "highlight_color": "#ffc107", #jaune
+    "image":"qcm microéconomie image_1_prix_plancher.png"
     }
     ]
 
