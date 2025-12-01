@@ -379,7 +379,7 @@ QUESTIONS = [
             "Brigitte possède un avantage comparatif pour la rédaction de courriers.", 
             "Brigitte possède un avantage comparatif pour les photocopies."
         ],
-        "answer": 3,
+        "answer": 2,
         "explain": (
             "Avantage absolu pour Albert : 8 courriers max. ou 400 photocopies max. "
             "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
@@ -397,7 +397,7 @@ QUESTIONS = [
             "9 courriers (rédigés par Albert & Brigitte) et 1'440 photocopies (effectuées par Brigitte).", 
             "8 courriers (rédigés par Albert) et 1'600 photocopies (effectuées par Brigitte)."
         ],
-        "answer": 2,
+        "answer": 3,
         "explain": (
             "Avantage absolu pour Albert : 8 courriers max. ou 400 photocopies max. "
             "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
