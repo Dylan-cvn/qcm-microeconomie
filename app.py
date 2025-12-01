@@ -366,7 +366,7 @@ QUESTIONS = [
         "explain": (
             "Le prix reste identique (il dépend du marché, pas du loyer). "
             "Le profit augmente, car Profit = Recette - Coûts. "
-            " Si les coûts diminuent (loyer ↓), alors le profit ↑."),
+            "Si les coûts diminuent (loyer ↓), alors le profit ↑."),
         "highlight_color": "#ffc107", #jaune
     },
     {
@@ -403,7 +403,27 @@ QUESTIONS = [
             "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
             "S’ils se spécialisent complètement et se répartissent les tâches efficacement : Albert = 8 courriers en 1h & Brigitte = 1'600 photocopies en 1h"),
     "image":"QCM Microéconomie image_2_frontières_possibilités.png",
-    }
+    },
+    {
+        "q": (
+            "Mariah, responsable marketing d’une petite entreprise, dépose chaque matin sa fille à la crèche avant de prendre la route au volant de sa voiture pour se rendre à son bureau. "
+            "À propos de son salaire de réserve ω_res,  voici une liste d’affirmations : n\"
+            "i. Si tarifs de la crèche ↑ al. ω_res ↓. "
+            "ii. Si prix du carburant utilisé pour le déplacement ↑ al. ω_res ↓. "
+            "iii. Si payement crédit hypothécaire est de 3'200 par mois al. ω_res ↑. "
+            "iv. Si héritage suite à un décès de 1'000'000 al. ω_res ↑."
+        ),
+        "choices": [
+            "Seules les propositions i & ii sont correctes.", 
+            "Seules les propositions ii & iv sont correctes.", 
+            "Seules les propositions iii & iv sont correctes.", 
+            "Seule la proposition iv est correcte."
+        ],
+        "answer": 3
+        "explain": (
+            "..."
+            "..."),
+},
 
 
         
