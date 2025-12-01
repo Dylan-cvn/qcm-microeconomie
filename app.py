@@ -370,20 +370,43 @@ QUESTIONS = [
         "highlight_color": "#ffc107", #jaune
     },
     {
-         "q": (
-             "..."
+        "q": (
+             "Sur la base de cette représentation graphique, laquelle des propositions suivantes est fausse ?"
         ),
         "choices": [
-            "...", 
-            "...", 
-            "...", 
-            "..."
+            "Brigitte possède un avantage absolu pour la rédaction de courriers.", 
+            "Brigitte possède un avantage absolu pour les photocopies.", 
+            "Brigitte possède un avantage comparatif pour la rédaction de courriers.", 
+            "Brigitte possède un avantage comparatif pour les photocopies."
         ],
         "answer": 2,
         "explain": (
-            "... "),
-    "image":"QCM Microéconomie image_2_frontières_possibilités.png"
+            "Avantage absolu pour Albert : 8 courriers max. ou 400 photocopies max. "
+            "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
+            "Avantage comparatif (CO) pour Albert : 400/8 = 50 photocopies sacrifiées par courrier. "
+            "Avantage comparatif (CO) pour Brigitte : 1'600/10 = 160 photocopies sacrifiées par courrier ⇒ Albert a l’avantage comparatif pour les courriers & Brigitte pour les photocopies. "),
+    "image":"QCM Microéconomie image_2_frontières_possibilités.png",
+    },
+    {
+        "q": (
+             "Si Albert & Brigitte décident de serépartir les tâches efficacement et se spécialisent complètement, combien pourront-ils produire en une heure ?"
+        ),
+        "choices": [
+            "20 courriers (rédigés par Albert & Brigitte).", 
+            "12 courriers (rédigés par Brigitte) et 400 photocopies (effectuées par Albert).", 
+            "9 courriers (rédigés par Albert & Brigitte) et 1'440 photocopies (effectuées par Brigitte).", 
+            "8 courriers (rédigés par Albert) et 1'600 photocopies (effectuées par Brigitte)."
+        ],
+        "answer": 2,
+        "explain": (
+            "Avantage absolu pour Albert : 8 courriers max. ou 400 photocopies max. "
+            "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
+            "S’ils se spécialisent complètement et se répartissent les tâches efficacement : Albert = 8 courriers en 1h & Brigitte = 1'600 photocopies en 1h"),
+    "image":"QCM Microéconomie image_2_frontières_possibilités.png",
     }
+
+
+        
     ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
