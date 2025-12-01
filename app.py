@@ -407,11 +407,11 @@ QUESTIONS = [
     {
         "q": (
             "Mariah, responsable marketing d’une petite entreprise, dépose chaque matin sa fille à la crèche avant de prendre la route au volant de sa voiture pour se rendre à son bureau. "
-            "À propos de son salaire de réserve ω_res,  voici une liste d’affirmations : n\"
+            "À propos de son salaire de réserve ω_res, voici une liste d’affirmations : n\"
             "i. Si tarifs de la crèche ↑ al. ω_res ↓. "
             "ii. Si prix du carburant utilisé pour le déplacement ↑ al. ω_res ↓. "
             "iii. Si payement crédit hypothécaire est de 3'200 par mois al. ω_res ↑. "
-            "iv. Si héritage suite à un décès de 1'000'000 al. ω_res ↑."
+            "iv. Si héritage suite à un décès de 1'000'000 al. ω_res ↑.")
         ),
         "choices": [
             "Seules les propositions i & ii sont correctes.", 
