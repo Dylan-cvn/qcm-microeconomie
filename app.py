@@ -368,6 +368,21 @@ QUESTIONS = [
             "Le profit augmente, car Profit = Recette - Coûts. "
             " Si les coûts diminuent (loyer ↓), alors le profit ↑."),
         "highlight_color": "#ffc107", #jaune
+    },
+    {
+         "q": (
+             "..."
+        ),
+        "choices": [
+            "...", 
+            "...", 
+            "...", 
+            "..."
+        ],
+        "answer": 2,
+        "explain": (
+            "... "),
+        "highlight_color": "#ffc107", #jaune
     }
     ]
 
