@@ -406,7 +406,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Mariah, responsable marketing d’une petite entreprise, dépose chaque matin sa fille à la crèche avant de prendre la route au volant de sa voiture pour se rendre à son bureau. "
+            "Marianne, responsable marketing d’une petite entreprise, dépose chaque matin sa fille à la crèche avant de prendre la route au volant de sa voiture pour se rendre à son bureau. "
             "À propos de son salaire de réserve ω_res, voici une liste d’affirmations : \n"
             "i. Si tarifs de la crèche ↑ al. ω_res ↓. \n"
             "ii. Si prix du carburant utilisé pour le déplacement ↑ al. ω_res ↓. \n"
@@ -426,6 +426,39 @@ QUESTIONS = [
             "iii est faux car le payememt du crédit hypothécaire est une dépense fixe du ménage, qu’elle travaille ou non ∴ si ↑ al. ω_res ↓."
             "iv est vrai car l’héritage augmente fortement son revenu non salariale ∴ ω_res ↑."),
     },
+    {
+        "q": (
+            "Lily est régulièrement engagée comme consultante stratégique dans un cabinet renommé et elle bénéficie ainsi de la possibilité de choisir librement le nombre d’heures de travail qu’elle souhaite effectuer. "
+            "Grâce à son excellent travail et à son expérience, Lily parvient à négocier une augmentation de son salaire horaire. "
+            "Vous pouvez donc prévoir avec certitude que :"
+        ),
+        "choices": [
+            "Si l’effet de substitution domine l’effet de revenu, Lily choisira de travailler plus.", 
+            "Si l’effet de substitution domine l’effet de revenu, Lila choisira de travailler moins.", 
+            "Si l’effet de revenu domine l’effet de substitution, Lila choisira de travailler plus.", 
+            "Lila va travailler plus."
+        ],
+        "answer": 0,
+        "explain": (
+            "Une hausse du salaire horaire rend le loisir plus coûteux, si l’effet de substitution domine l’effet de revenu, Lily remplace du loisir par du travail et choisit donc de travailler davantage."),
+    },
+    {
+        "q": (
+            "Max, consultant freelance, peut décider lui-même du nombre d’heures qu’il alloue au marché du travail. "
+            "Suite à une augmentation de son salaire horaire, Max décide de travailler plus. "
+            "Que peut-on affirmer avec certitude? "
+        ),
+        "choices": [
+            "Max n’est pas rationnelle : si son salaire augmente il devrait logiquement travailler moins.", 
+            "Max décide de travailler plus car son revenu non salarial a diminué.", 
+            "Pour Max, l’effet de substitution domine l’effet de revenu.", 
+            "La valeur que Max accorde à son temps libre est supérieur à son salaire horaire."
+        ],
+        "answer": 2,
+        "explain": (
+            "Comme son salaire horaire augmente et qu’il décide de travailler plus, cela signifie que, pour lui, "
+            "la force qui pousse à remplacer du loisir par du travail (effet de substitution) est plus forte que celle qui pousse à consommer plus de loisir (effet de revenu)."),
+    }
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
