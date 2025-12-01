@@ -389,7 +389,7 @@ QUESTIONS = [
     },
     {
         "q": (
-             "Si Albert & Brigitte décident de serépartir les tâches efficacement et se spécialisent complètement, combien pourront-ils produire en une heure ?"
+             "Si Albert & Brigitte décident de se répartir les tâches efficacement et se spécialisent complètement, combien pourront-ils produire en une heure ?"
         ),
         "choices": [
             "20 courriers (rédigés par Albert & Brigitte).", 
