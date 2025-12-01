@@ -425,7 +425,7 @@ QUESTIONS = [
             "ii est faux car prix du carburant est un coût lié au travail (elle paie parce qu’elle travaille) ∴ si ↑ al. ω_res ↑. "
             "iii est faux car le payememt du crédit hypothécaire est une dépense fixe du ménage, qu’elle travaille ou non ∴ si ↑ al. ω_res ↓."
             "iv est vrai car l’héritage augmente fortement son revenu non salariale ∴ ω_res ↑."),
-    }
+    },
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
