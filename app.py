@@ -419,7 +419,7 @@ QUESTIONS = [
             "Seules les propositions iii & iv sont correctes.", 
             "Seule la proposition iv est correcte."
         ],
-        "answer": 3
+        "answer": 3,
         "explain": (
             "..."
             "..."),
