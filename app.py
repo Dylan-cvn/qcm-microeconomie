@@ -460,12 +460,11 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Voici une liste d’affirmations à propos du jeu du dictateur : \n"
+            "Voici une liste d’affirmations à propos du jeu du dictateur :\n"
             "i. Le jeu du dictateur permet aux chercheurs d’évaluer le degré d’altruisme du joueur dictateur.\n"
             "ii. Le jeu du dictateur est un jeu simultané. \n"
             "iii. Le joueur 1 offre toujours environ un cinquième de la somme de départ au joueur 2. \n"
             "iv. Un dictateur purement rationnel et égoïste offrira toujours une somme égale à zéro. "
-            "Laquelle des réponses suivantes est correcte ?"
         ),
         "choices": [
             "Seules les affirmations ii et iv sont correctes.", 
