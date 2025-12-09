@@ -478,8 +478,52 @@ QUESTIONS = [
             "Le jeu du dictateur est traité dans les jeux séquentiels (et non pas comme un jeu simultané). "
             "Le dictateur offre en moyenne un cinquième, mais avec une forte variance, donc le “toujours environ un cinquième” est faux. "
             "Pour un individu purement rationnel et égoïste : le dictateur garde tout, donc il offre zéro."),
-    }
-    
+    },
+    {
+        "q": (
+            "Voici une liste d’affirmations à propos du jeu de l'ultimatum :\n"
+            "i. Si le premier joueur est rationnel, il ne devrait rien partager.\n"
+            "ii. Si le second joueur est rationnel, il devrait accepter n’importe quelle offre supérieure à zéro. \n"
+            "iii. Des résultats empiriques montrent que plus le montant de la somme de départ est élevé, plus l’offre du premier joueur représente un faible pourcentage de cette somme. \n"
+            "iv. Des résultats empiriques montrent que plus le montant absolu (et non relatif) proposé par le premier joueur est élevé, plus il est probable que le second joueur l’accepte. "
+        ),
+        "choices": [
+            "Seules les affirmations i et iii sont correctes.", 
+            "Seules les affirmations i et iv sont correctes.", 
+            "Seules les affirmations i, ii et iii sont correctes.", 
+            "Seules les affirmations ii, iii et iv sont correctes."
+        ],
+        "answer": 3,
+        "explain": (
+            "Dans le jeu de l'ultimatum, le joueur 1 propose la plus petite somme possible à l’autre et pas forcément “rien”. "
+            "Dans le jeu de l'ultimatum, le joueur 2 rationnel accepte toute offre strictement positive. "
+            "Si la somme de départ ↑, le joueur 1 donne souvent un peu plus en montant, mais pas proportionnellement, donc l’offre représente un pourcentage plus faible. "
+            "Plus le joueur 1 propose un montant élevé, plus le joueur 2 a envie d’accepter."),
+    },
+    {
+        "q": (
+            "Deux entreprises, Nissan et Renault, décident de fusionner. "
+            "Elles doivent maintenant choisir le système d’exploitation qui va être utilisé par le groupe. Nissan utilisait Windows et Renault utilisait Mac. "
+            "Chacune des deux entreprises préférerait conserver son propre système d’exploitation."
+            "Voici une liste d’affirmations à propos de la situation :\n"
+            "i. La meilleure solution de Nissan est Windows si Renault choisit Windows, et Mac si Renault choisit Mac. \n"
+            "ii. Au moins une des deux entreprises possède une stratégie dominante. \n "
+            "iii. Il existe deux équilibres de Nash dans ce jeu. \n"
+            "iv. Le profil (Windows, Mac) est un équilibre de Nash."
+        ),
+        "choices": [
+            "Seules les affirmations i et iii sont correctes.", 
+            "Seules les affirmations i et ii sont correctes.", 
+            "Seules les affirmations ii et iii sont correctes.", 
+            "Seules les affirmations iii et iv sont correctes."
+        ],
+        "answer": 0,
+        "explain": (
+            "Si Renault choisit Windows, Nissan préfère Windows (2 > 0) mais si Renault choisit Mac, Nissan préfère Mac (1 > 0). "
+            "Dans cette situation, aucune stratégie dominante car chaque entreprise veut surtout s’aligner avec l’autre. "
+            "Les deux profils où chacun joue la meilleure réponse sont (Windows, Windows) et (Mac, Mac) ⇒ 2 équilibres de Nash en pur. "
+            "Le profil (Windows, Mac) n’est pas stable, chacun a intérêt à changer pour s’aligner."),
+    }  
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
