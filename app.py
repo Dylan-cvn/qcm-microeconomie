@@ -524,7 +524,20 @@ QUESTIONS = [
             "Les deux profils où chacun joue la meilleure réponse sont (Windows, Windows) et (Mac, Mac) ⇒ 2 équilibres de Nash en pur. "
             "Le profil (Windows, Mac) n’est pas stable, chacun a intérêt à changer pour s’aligner."),
     "image":"game_theory_matrix.png"
-    }  
+    },
+    {
+        "q": "Laquelle des propositions suivantes relève du champ d'étude de la microéconomie ?",
+        "choices": [
+            "En 2023, de nouveaux fabricants asiatiques sont entrés sur le marché des voiture sélectriques en France. Cela a provoqué une baisse moyenne des prix sur ce marché de 15%.",
+            "En 2023, le taux de chômage aux États-Unis a atteint son plus bas niveau en 20 ans (3.5%) grâce à une croissance soutenue des secteurs de la technologie et de la santé.",
+            "L’Union européenne a enregistré un excédent commercial de 250 milliards d’euros en 2022, principalement en raison d’une augmentation des exportations de machines et de produits chimiques vers l’Asie.",
+            "Aucune des réponses ci-dessus n’est du ressort de la microéconomie.",
+        ],
+        "answer": 0,
+        "explain": (
+            "Parce que (a) parle d’un marché précis (voitures électriques en France) et d’un effet sur les prix lié à l’entrée de nouveaux concurrents ∴ Microéconomie."),
+    }
+
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
