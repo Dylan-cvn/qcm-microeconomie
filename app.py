@@ -460,23 +460,25 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Voici une liste d’affirmations à propos du jeu du dictateur : "
+            "Voici une liste d’affirmations à propos du jeu du dictateur : \n"
             "i. Le jeu du dictateur permet aux chercheurs d’évaluer le degré d’altruisme du joueur dictateur.\n"
             "ii. Le jeu du dictateur est un jeu simultané. \n"
             "iii. Le joueur 1 offre toujours environ un cinquième de la somme de départ au joueur 2. \n"
-            "iv. Un dictateur purement rationnel et égoïste offrira toujours une somme égale à zéro \n"
+            "iv. Un dictateur purement rationnel et égoïste offrira toujours une somme égale à zéro. "
             "Laquelle des réponses suivantes est correcte ?"
         ),
         "choices": [
-            "Max n’est pas rationnelle : si son salaire augmente il devrait logiquement travailler moins.", 
-            "Max décide de travailler plus car son revenu non salarial a diminué.", 
-            "Pour Max, l’effet de substitution domine l’effet de revenu.", 
-            "La valeur que Max accorde à son temps libre est supérieur à son salaire horaire."
+            "Seules les affirmations ii et iv sont correctes.", 
+            "Seules les affirmations i et iv sont correctes.", 
+            "Seules les affirmations ii et iii sont correctes.", 
+            "Seules les affirmations i et iii sont correctes."
         ],
-        "answer": 2,
+        "answer": 1,
         "explain": (
-            "Comme son salaire horaire augmente et qu’il décide de travailler plus, cela signifie que, pour lui, "
-            "la force qui pousse à remplacer du loisir par du travail (effet de substitution) est plus forte que celle qui pousse à consommer plus de loisir (effet de revenu)."),
+            "Le jeu du dictateur sert à observer un comportement de don unilatéral et à discuter des motivations possibles comme l’altruisme ou l’équité. "
+            "Le jeu du dictateur est traité dans les jeux séquentiels (et non pas comme un jeu simultané). "
+            "Le dictateur offre en moyenne un cinquième, mais avec une forte variance, donc le “toujours environ un cinquième” est faux. "
+            "Pour un individu purement rationnel et égoïste : le dictateur garde tout, donc il offre zéro."),
     }
     
 ]
