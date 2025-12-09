@@ -445,7 +445,27 @@ QUESTIONS = [
         "q": (
             "Max, consultant freelance, peut décider lui-même du nombre d’heures qu’il alloue au marché du travail. "
             "Suite à une augmentation de son salaire horaire, Max décide de travailler plus. "
-            "Que peut-on affirmer avec certitude? "
+            "Que peut-on affirmer avec certitude ? "
+        ),
+        "choices": [
+            "Max n’est pas rationnelle : si son salaire augmente il devrait logiquement travailler moins.", 
+            "Max décide de travailler plus car son revenu non salarial a diminué.", 
+            "Pour Max, l’effet de substitution domine l’effet de revenu.", 
+            "La valeur que Max accorde à son temps libre est supérieur à son salaire horaire."
+        ],
+        "answer": 2,
+        "explain": (
+            "Comme son salaire horaire augmente et qu’il décide de travailler plus, cela signifie que, pour lui, "
+            "la force qui pousse à remplacer du loisir par du travail (effet de substitution) est plus forte que celle qui pousse à consommer plus de loisir (effet de revenu)."),
+    },
+    {
+        "q": (
+            "Voici une liste d’affirmations à propos du jeu du dictateur : "
+            "i. Le jeu du dictateur permet aux chercheurs d’évaluer le degré d’altruisme du joueur dictateur.\n"
+            "ii. Le jeu du dictateur est un jeu simultané. \n"
+            "iii. Le joueur 1 offre toujours environ un cinquième de la somme de départ au joueur 2. \n"
+            "iv. Un dictateur purement rationnel et égoïste offrira toujours une somme égale à zéro \n"
+            "Laquelle des réponses suivantes est correcte ?"
         ),
         "choices": [
             "Max n’est pas rationnelle : si son salaire augmente il devrait logiquement travailler moins.", 
@@ -458,6 +478,7 @@ QUESTIONS = [
             "Comme son salaire horaire augmente et qu’il décide de travailler plus, cela signifie que, pour lui, "
             "la force qui pousse à remplacer du loisir par du travail (effet de substitution) est plus forte que celle qui pousse à consommer plus de loisir (effet de revenu)."),
     }
+    
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
