@@ -523,6 +523,7 @@ QUESTIONS = [
             "Dans cette situation, aucune stratégie dominante car chaque entreprise veut surtout s’aligner avec l’autre. "
             "Les deux profils où chacun joue la meilleure réponse sont (Windows, Windows) et (Mac, Mac) ⇒ 2 équilibres de Nash en pur. "
             "Le profil (Windows, Mac) n’est pas stable, chacun a intérêt à changer pour s’aligner."),
+    "image":"game_theory_matrix.png"
     }  
 ]
 
