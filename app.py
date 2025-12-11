@@ -572,8 +572,8 @@ QUESTIONS = [
         ),
         "choices": [
             "Qᵈ = 75 - 1/15P",
-            "Qᵈ = 75 - 3P",
-            "Qᵈ = 75 − 5P",
+            "Qᵈ = 75 - 10P",
+            "Qᵈ = 75 − 1/10P",
             "Qᵈ = 75 − 15P",
         ],
         "answer": 3,
@@ -581,7 +581,86 @@ QUESTIONS = [
             "la droite passe par (𝑄 = 75 ; 𝑃 = 0) & (𝑄 = 0 ; 𝑃 = 5), ce qui donne Qᵈ = 75 − 15P"),
         "image": "demande_poires.png",
     },
-
+    {
+        "q": (
+            "La demande de mangues prend la forme suivante :\n"
+            "Qᵈ = 80 - 8P + 0.02R - 5P₀ + 6Pₐ"
+            "Où Qᵈ représente la quantité demandée de mangues (en kg), P le prix des mangues (en CHF/kg), R le revenu des consommateurs (en CHF), P₀ le prix des oranges & "
+            "Pₐ le prix des ananas (en CHF/kg).\n"
+            "Que peut-on conclure avec certitude ?"
+        ),
+        "choices": [
+            "Les oranges et les ananas sont des biens complémentaires.", 
+            "Les mangues et les ananas sont des biens complémentaires.", 
+            "Les mangues et les oranges sont des biens complémentaires.", 
+            "La loi de la demande n’est pas respectée car la relation entre Pₐ & Qᵈ est positive."
+        ],
+        "answer": 2,
+        "explain": (
+            "Le coefficient de P₀ est négatif (–5), donc quand le prix des oranges augmente la demande de mangues diminue, ce qui correspond à des biens complémentaires. "
+            "Deux biens sont substituables quand une hausse du prix de l’un fait augmenter la demande de l’autre (p.ex. mangue et ananas). "
+            "Pour oranges & ananas, l’énoncé ne permet pas de conclure (ils pourraient être substituts, complémentaires ou indépendants)."),
+    },
+    {
+        "q": (
+            "Voici un tableau simplifié d’une étudesur l’élasticité-prix de la demande pour les vins suisses. "
+            " L’étude différencie l’élasticité-prix en fonction de la région de production et du type de vin. \n"
+            "Sur de ce tableau, laquelle des propositions suivantes est fausse ?"
+        ),
+        "choices": [
+            "En Suisse, au niveau global (soit pour toutes les régions et tous les types de vin), la demande de vin diminuera de 4.02% si le prix augmente de 2%.", 
+            "Si le prix des vins rosés du canton de Genève augmente de 1%, la quantité demandée de ces vins diminuera de 2.56%", 
+            "La demande pour les vins vaudois est dans l’ensemble moins élastique que celle pour les vins valaisans.", 
+            "La demande pour les vins rouges de la région des Trois-Lacs est moins élastique que celle pour les vins rouges genevois."
+        ],
+        "answer": 3,
+        "explain": (
+            "Pour les vins rouges, l’élasticité est |-2.11| (Trois-Lacs) contre |-1.14| (Genève). "
+            "En valeur absolue 2.11 > 1.14 ∴ la demande est plus élastique aux Trois-Lacs, et non moins élastique."),
+    "image":"elasticite_vins_suisses.png",
+    },
+    {
+        "q": (
+            "La figure représente la contrainte budgétaire de John, qui ne consomme que les biens X & Y, dont les quantités sont respectivement dénotées Qₓ et Qᵧ. \n"
+            "Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "Le panier dans lequel se trouvent Qₓ1/2 unités de bien X et Qᵧ1/2 unités de bien Y est inaccessible pour John.", 
+            "Si John achète Qₓ1 unités du bien X, alors il ne pourra acheter aucune unité de bien Y.", 
+            "John peut acheter un panier dans lequel se trouve Qₓ1 unités de bien X et Qᵧ1 unités de bien Y.", 
+            "John va acheter un panier dans lequel se trouvent Qₓ1/2 unités de bien X et Qᵧ1/2 unités de bien Y."
+        ],
+        "answer": 1,
+        "explain": (
+            "Si John achète Qₓ1 unités du bien X, il est au point d’intersection de la droite budgétaire avec l’axe horizontal. "
+            "Tout son budget est utilisé pour X et il ne lui reste plus rien pour acheter Y ∴ Qᵧ1 = 0."),
+    "image":"contrainte_budgetaire.png",
+    },
+    {
+        "q": (
+            "Nikos et Saphia sont artisans potiers et confectionnent deux types de biens : des vases et des assiettes. "
+            "Leurs capacités journalières de production sont représentées dans le graphique. "
+            "Voici une liste d’affirmations à propos de la situation :\n"
+            "i. Pour Saphia, le CO de production d’un vase est de 1.2 assiettes. \n"
+            "ii. Nikos dispose d’un avantage absolu dans la production de vases. \n"
+            "iii. Nikos a un avantage comparatif dans la production de vases. \n"
+            "iv. Pour Saphia, produire 1 assiette et 8 vases est atteignable et efficient. \n"
+            "v.  Nikos possède un avantage comparatif dans la production d’assiettes."
+        ),
+        "choices": [
+            "Seuls les points ii et iii sont corrects.", 
+            "Seuls les points i et v sont corrects.", 
+            "Seuls les points iv et v sont corrects.", 
+            "Seuls les points i, iii et iv sont corrects"
+        ],
+        "answer": 1,
+        "explain": (
+            "Pour Saphia, sa FPP va de 12 assiettes à 10 vases ⇒ CO d'un vase = 12/10 = 1.2 assiettes ∴ i vrai. "
+            "Nikos a un CO d’une assiette plus faible (0.5 contre ≈0.83 pour Saphia) ⇒ avantage comparatif en assiettes ∴ v vrai. "
+            "ii faux car (Saphia, pas Nikos, produit le plus de vases). iii faux car Saphia a l’avantage comparatif en vases. "
+            "iv est faux car le panier 8 vases, 1 assiette est atteignable mais pas efficient : il est à l’intérieur de la FPP de Saphia."),
+    "image":"fpp_nikos_saphia.png"
+    },
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
