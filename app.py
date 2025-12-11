@@ -536,7 +536,51 @@ QUESTIONS = [
         "answer": 0,
         "explain": (
             "Parce que (a) parle d’un marché précis (voitures électriques en France) et d’un effet sur les prix lié à l’entrée de nouveaux concurrents ∴ Microéconomie."),
-    }
+    },
+    {
+        "q": "“Dans un circuit économique standard, les salaires sont des flux ... qui vont des ... aux ... et transitent par les marchés des ...”",
+        "choices": [
+            "monétaires / entreprises / ménages / facteurs de production.",
+            "monétaires / entreprises / ménages / biens et services.",
+            "réels / entreprises / ménages / facteurs de production.",
+            "réels / services de l’État / ménages / facteurs de production",
+        ],
+        "answer": 0,
+        "explain": (
+            "Les salaires sont de l’argent versé par les entreprises aux ménages en échange de leur travail, et cela se fait sur les marchés des facteurs de production. "
+            "Argent des ménages vers les entreprises ⇒ marché des biens et services (consommation). "
+            "Argent des entreprises vers les ménages ⇒ marché des facteurs de production (salaires, loyers, intérêts)."),
+    },
+    {
+        "q": "Laquelle des affirmations suivantes est positive, par opposition à normative ?",
+        "choices": [
+            "Il est souhaitable que la cafétéria propose des alternatives au lait de vache pour accompagner les boissons chaudes.",
+            "Il faut que les étudiants mangent sainement à midi afin de favoriser leur attention durant les cours de l’après-midi.",
+            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l’école.",
+            "La HEG devrait accueillir des food trucks à midi sur l’esplanade.",
+        ],
+        "answer": 2,
+        "explain": (
+            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l’école ⇒ "
+            "décrit un lien de cause à effet vérifiable (on peut observer si, quand le prix augmente, les ventes de café diminuent), sans exprimer de jugement de valeur."),
+    },
+    {
+        "q": (
+            "On considère la demande de poires représentée sur le graphique ci-dessous. "
+            "L’axe horizontal mesure la quantité de poires 𝑄 (en tonnes) et l’axe vertical le prix 𝑃 (en CHF/kg).\n"
+            "Laquelle des fonctions suivantes correspond à cette courbe de demande ?"
+        ),
+        "choices": [
+            "Qᵈ = 75 - 1/15P",
+            "Qᵈ = 75 - 3P",
+            "Qᵈ = 75 − 5P",
+            "Qᵈ = 75 − 15P",
+        ],
+        "answer": 3,
+        "explain": (
+            "la droite passe par (𝑄 = 75 ; 𝑃 = 0) & (𝑄 = 0 ; 𝑃 = 5), ce qui donne Qᵈ = 75 − 15P"),
+        "image": "demande_poires.png",
+    },
 
 ]
 
