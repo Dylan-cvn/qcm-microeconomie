@@ -584,7 +584,7 @@ QUESTIONS = [
     {
         "q": (
             "La demande de mangues prend la forme suivante :\n"
-            "Qᵈ = 80 - 8P + 0.02R - 5P₀ + 6Pₐ"
+            "Qᵈ = 80 - 8P + 0.02R - 5P₀ + 6Pₐ "
             "Où Qᵈ représente la quantité demandée de mangues (en kg), P le prix des mangues (en CHF/kg), R le revenu des consommateurs (en CHF), P₀ le prix des oranges & "
             "Pₐ le prix des ananas (en CHF/kg).\n"
             "Que peut-on conclure avec certitude ?"
@@ -661,6 +661,119 @@ QUESTIONS = [
             "iv est faux car le panier 8 vases, 1 assiette est atteignable mais pas efficient : il est à l’intérieur de la FPP de Saphia."),
     "image":"fpp_nikos_saphia.png"
     },
+    {
+        "q": (
+            "Considérez deux artisans A et B qui produisent deux biens : des confiseries et des pâtisseries. "
+            "En une journée de travail, l’artisan A peut produire 15 confiseries ou 20 pâtisseries,tandis que l’artisan B peut produire 15 confiseries ou 15 pâtisseries. \n"
+            "Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "L’artisan B possède un avantage absolu dans la production de confiseries.", 
+            "L’artisan B possède un avantage absolu dans la production de pâtisseries.", 
+            "L’artisan A possède un avantage comparatif dans la production de confiseries.", 
+            "L’artisan A possède un avantage comparatif dans la production de pâtisseries."
+        ],
+        "answer": 3,
+        "explain": (
+            "A peut produire 20 pâtisseries, B seulement 15 ∴ A a un avantage absolu en pâtisseries. "
+            "CO d’une pâtisserie pour A : 15/20 = 0.75 confiserie & CO d’une pâtisserie pour B : 15/15 = 1 confiserie. "
+            "Comme 0.75 < 1, A renonce à moins de confiseries pour produire une pâtisserie ∴ A a aussi un avantage comparatif en pâtisseries. "
+            "Un producteur a un avantage comparatif dans un bien si son CO pour produire ce bien est plus faible que celui des autres producteurs.")
+    },
+    {
+        "q": (
+            "Mireille est employée dans un magasin d’alimentation. Suite à une bonne récolte saisonnière, le patron du magasin décide d’augmenter le salaire horaire de Mireille."
+            "Mireille travaille à 80% et elle a la possibilité d’augmenter ou de diminuer ses heures de travail. \n"
+            "Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "Peu importe l’ampleur des effets de substitution et de revenu, Mireille va décider d’augmenter ses heures de travail.", 
+            "Peu importe l’ampleur des effets de substitution et de revenu, Mireille va décider de diminuer ses heures de travail.", 
+            "Si l’effet de substitution domine l’effet de revenu, Mireille va choisir de diminuer ses heures de travail.", 
+            "Si l’effet de substitution domine l’effet de revenu, Mireille va choisir d’augmenter ses heures de travail."
+        ],
+        "answer": 3,
+        "explain": (
+            "Quand le salaire horaire augmente, l’effet de substitution pousse à travailler plus (le loisir devient plus « cher ») & "
+            "l’effet de revenu pousse à travailler moins ∴ si effet de substitution > effet de revenu al. Mireille augmentera ses heures de travail. ")
+    },
+    {
+        "q": (
+            "Sonia est étudiante à l’université. Pour financer ses études, elle a un job d’étudiant et ses parents la soutiennent à hauteur de 30.- par jour. "
+            "Dans le cadre du modèle d’offre de travail dans lequel on représente la contrainte budgétaire (CB) avec le revenu sur l’ordonnée et le temps de travail sur l’abscisse. \n"
+            "Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le haut autour de son point de dotation.", 
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le bas autour de son point de dotation.", 
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB se déplacerait parallèlement vers le haut.", 
+            "Si les parents de Sonia lui accordaient une aide financière de 20.- par jour, sa CB se déplacerait parallèlement vers le haut."
+        ],
+        "answer": 2,
+        "explain": (
+            "Une aide financière plus élevée des parents est un revenu non lié au travail. Dans le modèle d’offre de travail, si le revenu ↑ (de 30 à 40 CHF/jour) "
+            "al. déplacement de la CB parallèlement vers le haut, sans changer sa pente (le salaire horaire).")
+    },
+    {
+        "q": (
+            "Sonia est étudiante à l’université. Pour financer ses études, elle a un job d’étudiant et ses parents la soutiennent à hauteur de 30.- par jour. "
+            "Dans le cadre du modèle d’offre de travail dans lequel on représente la contrainte budgétaire (CB) avec le revenu sur l’ordonnée et le temps de travail sur l’abscisse. \n"
+            "Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le haut autour de son point de dotation.", 
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le bas autour de son point de dotation.", 
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB se déplacerait parallèlement vers le haut.", 
+            "Si les parents de Sonia lui accordaient une aide financière de 20.- par jour, sa CB se déplacerait parallèlement vers le haut."
+        ],
+        "answer": 2,
+        "explain": (
+            "Une aide financière plus élevée des parents est un revenu non lié au travail. Dans le modèle d’offre de travail, si le revenu ↑ (de 30 à 40 CHF/jour) "
+            "al. déplacement de la CB parallèlement vers le haut, sans changer sa pente (le salaire horaire).")
+    },
+    {
+        "q": (
+            "Sur le marché des tomates, la fonction d’offre est la suivante :\n"
+            "Qᵒ = 220 - 70P - 12ω + 80T "
+            "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
+            "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
+            "Quel est le SP lorsque P = 7 CHF par kilo ?"
+        ),
+        "choices": [
+            "1'420", 
+            "1'715", 
+            "2'840", 
+            "3'430",
+        ],
+        "answer": 1,
+        "explain": (
+            "Qᵒ = 220 - 70P - 12ω + 80T = 220 - 70P - 12(25) + 80(1) = 220 + 70P - 300 + 80 = 70P. "
+            "Si P = 7 CHF/Kg al. Qᵒ = 70(7) = 490 Kg. "
+            "L’offre passe par l’origine ∴ SP : aire du triangle entre P = 7 & la courbe d’offre : "
+            "SP = (B × h)/2 = (490 × 7)/2 = 3'430/2 = 1'175."),
+    },
+    {
+        "q": (
+            "Sur le marché des tomates, la fonction d’offre est la suivante :\n"
+            "Qᵒ = 220 - 70P - 12ω + 80T "
+            "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
+            "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
+            "Comment peut-on qualifier l’offre de tomates vis-à-vis de son élasticité-prix ?"
+        ),
+        "choices": [
+            "L’offre est parfaitement inélastique.", 
+            "L’offre est parfaitement élastique.", 
+            "L’offre possède une élasticité-prix unitaire.", 
+            "L’offre est fortement élastique au prix.",
+        ],
+        "answer": 2,
+        "explain": (
+            "Qᵒ = 220 - 70P - 12ω + 80T = 220 - 70P - 12(25) + 80(1) = 220 + 70P - 300 + 80 = 70P. "
+            "Si P = 7 CHF/Kg al. Qᵒ = 70(7) = 490 Kg. "
+            "ε_offre = (dQᵒ/dP) × (P/Q) = (70P)' × (7/490) = 70 × (7/490) = 1 ∴ si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement)."),
+    },
+
+  
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
