@@ -900,7 +900,29 @@ QUESTIONS = [
             "Dans feuille, caillou, ciseaux, les deux joueurs jouent en même temps (jeu simultané) et, pour chaque action de l’adversaire, "
             "il existe toujours une autre action qui la bat. Aucune action n’est meilleure quelle que soit la réponse de l’autre, "
             "donc pas d’équilibre de Nash en stratégies pures, seulement en stratégie mixte (1/3 – 1/3 – 1/3)."),
+    },
+    {
+        "q": (
+            "Deux pays analysent leurs possibilités en matière de politiques commerciales. "
+            "Chaque pays hésite entre maintenir les taxes sur les importations en provenance de l’autre pays à leur niveau actuel (taxes faibles) ou les augmenter (taxes élevées). "
+            "Les différentes situations possibles sont présentées dans la matrice des gains. \n"
+            "Laquelle des affirmations suivantes est correcte ?"
+        ),
+        "choices": [
+            "Le pays 1 n’a pas de stratégie dominante.", 
+            "L’équilibre de Nash de ce jeu n’est pas optimal collectivement.", 
+            "Si le pays 2 choisit des taxes faibles, le pays 1 aura également intérêt à instaurer des taxes faibles.", 
+            "La situation dans laquelle les deux pays choisissent des taxes faibles est un équilibre de Nash.",
+        ],
+        "answer": 1,
+        "explain": (
+            "En comparant les gains de chaque pays, on voit que pour chacun la stratégie, « taxes élevées » est dominante (meilleur gain quel que soit le choix de l’autre), "
+            "donc l’unique équilibre de Nash est (taxes élevées, taxes élevées) avec gains (0;0). Or le profil (taxes faibles, taxes faibles) donnerait (200;200), "
+            "donc tout le monde serait mieux ⇒ l’équilibre de Nash n’est pas optimal collectivement."),
+        "image":"matrice_gains_taxes.png"
     }
+    
+    
     
     
         
