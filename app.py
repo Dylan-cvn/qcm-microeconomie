@@ -772,8 +772,82 @@ QUESTIONS = [
             "Si P = 7 CHF/Kg al. Qᵒ = 70(7) = 490 Kg. "
             "ε_offre = (dQᵒ/dP) × (P/Q) = (70P)' × (7/490) = 70 × (7/490) = 1 ∴ si |ε| = 1 al. demande proportionnelle ⇒ P↑ & Q↓(propotionnellement)."),
     },
-
-  
+    {
+        "q": (
+            "Une entreprise sur un marché de concurrence parfaite a pu déterminer que ses fonctions de coût total (CT) et de recette totale (RT) sont les suivantes : \n"
+            "CT(q) = 0.5q² + 4q + 3 & RT(q) = 10q "
+            "avec q le nombre d’unités produites par l’entreprise. Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "Si l’entreprise produit 3 unités, sa recette totale sera de 10.5", 
+            "Si l’entreprise produit 10 unités, ses coûts variables totaux se monteront à 140", 
+            "Si l’entreprise produit 10 unités, elle fera un profit de 7", 
+            "L’entreprise maximisera son profit en produisant 8 unités",
+        ],
+        "answer": 2,
+        "explain": (
+            "Si q = 10 al. CT(10) = 0.5(10²) + 4(10) + 3 = 93 & RT(10) = 10(10) = 100 ∴ "
+            "profit : π = RT - CT = 100 - 93 = 7"),
+    },
+    {
+        "q": (
+            "L’entreprise Swosh produit des chaussures sur un marché en situation de concurrence parfaite. "
+            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
+            "CT(q) = 1'500 + 10q"
+            "avec q le nombre de paires de chaussures produites par l’entreprise. \n"
+            "Que peut-on affirmer ?"
+        ),
+        "choices": [
+            "Le coût fixe est 150 fois plus important que le coût marginal, quelle que soit la quantité produite.", 
+            "Le coût variable moyen vaut 750, si la quantité produite est de 2.", 
+            "Le coût fixe moyen vaut 760, si la quantité produite vaut 2.", 
+            "Le coût marginal vaut 1500, quelle que soit la quantité produite.",
+        ],
+        "answer": 0,
+        "explain": (
+            "Sachant que CT = 1'500 + 10q al. CF = 1'500 (terme constant de CT) & CV = 10q. "
+            "Sachant Cm = (CT(q))' = (1'500 + 10q)' = 10 & CM = CT/q = (1'500 + 10q)/q = 1'500/q + 10 al. CFM = 1'500/q & CVM = 10. ∴ "
+            "Le rapport CF & Cm : CF/Cm = 1'500/10 = 150 ∴ CF est 150 fois > que Cm, quelle que soit la quantité produite."),
+    },
+    {
+        "q": (
+            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
+            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
+            "Quelle est la quantité d’équilibre sur ce marché (Q*) ?"
+        ),
+        "choices": [
+            "Q* = 20", 
+            "Q* = 24", 
+            "Q* = 32", 
+            "Q* = 36",
+        ],
+        "answer": 1,
+        "explain": (
+            "Si Qᵒ = Qᵈ ⇒ -24 + 6P = 40 - 2P ⇒ 6P + 2P = 40 + 24 ⇒ P* = 64/8 = 8 ∴ Q* = 40 - 2(8) = -24 + 6(8) = 24"),
+    },
+    {
+        "q": (
+            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
+            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
+            "Combien vaut l’élasticité-prix de la demande (ε_demande) à l’équilibre du marché ?"
+        ),
+        "choices": [
+            "ε_demande = -2", 
+            "ε_demande = -3/2", 
+            "ε_demande = -3", 
+            "ε_demande = -2/3",
+        ],
+        "answer": 3,
+        "explain": (
+            "Si Qᵒ = Qᵈ ⇒ -24 + 6P = 40 - 2P ⇒ 6P + 2P = 40 + 24 ⇒ P* = 64/8 = 8 ∴ Q* = 40 - 2(8) = -24 + 6(8) = 24"
+            "Pour ε_demande à l’équilibre du marché = (dQᵈ/dP) × (P*/Q*) = (40 - 2P)' × (P*/Q*) = -2 × (8/24) = -2/3 "),
+    },
+    
+    
+    
+        
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
