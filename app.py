@@ -920,15 +920,48 @@ QUESTIONS = [
             "donc l’unique équilibre de Nash est (taxes élevées, taxes élevées) avec gains (0;0). Or le profil (taxes faibles, taxes faibles) donnerait (200;200), "
             "donc tout le monde serait mieux ⇒ l’équilibre de Nash n’est pas optimal collectivement."),
         "image":"matrice_gains_taxes.png"
+    },
+    {
+        "q": (
+            "Achille et Rose discutent de leurs prochaines vacances d’été et hésitent entre partir à la mer ou à la montagne. "
+            "En relation avec ce jeu, laquelle des affirmations suivantes est fausse ?"
+        ),
+        "choices": [
+            "Il existe deux équilibres de Nash dans ce jeu.", 
+            "(Montagne ; Montagne) est un équilibre de Nash.", 
+            "Rose préfère partir en vacances avec Achille que partir seule.", 
+            "La stratégie dominante de Rose est de choisir d’aller à la Mer.",
+        ],
+        "answer": 3,
+        "explain": (
+            "Pour Rose : Si Achille va à la mer ⇒ Mer 100 & Montagne –5 ∴ elle préfère Mer. "
+            "Pour Rose : Si Achille va à la montagne ⇒ Mer 20 & Montagne 40 ∴ elle préfère Montagne. "
+            "Sa meilleure réponse dépend de ce que fait Achille : elle n’a pas de stratégie dominante al. la (d) est fausse."),
+        "image":"matrice_rose_achille.png"
+    },
+    {
+        "q": (
+            " Voici une liste d’affirmations à propos des jeux du dictateur et de l’ultimatum : "
+            "En relation avec ce jeu, laquelle des affirmations suivantes est fausse ?"
+        ),
+        "choices": [
+            "Il existe deux équilibres de Nash dans ce jeu.", 
+            "(Montagne ; Montagne) est un équilibre de Nash.", 
+            "Rose préfère partir en vacances avec Achille que partir seule.", 
+            "La stratégie dominante de Rose est de choisir d’aller à la Mer.",
+        ],
+        "answer": 3,
+        "explain": (
+            "Pour Rose : Si Achille va à la mer ⇒ Mer 100 & Montagne –5 ∴ elle préfère Mer. "
+            "Pour Rose : Si Achille va à la montagne ⇒ Mer 20 & Montagne 40 ∴ elle préfère Montagne. "
+            "Sa meilleure réponse dépend de ce que fait Achille : elle n’a pas de stratégie dominante al. la (d) est fausse."),
     }
-    
-    
-    
-    
         
     
     
     
+    
+      
         
 ]
 
