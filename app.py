@@ -841,9 +841,69 @@ QUESTIONS = [
         ],
         "answer": 3,
         "explain": (
-            "Si Qᵒ = Qᵈ ⇒ -24 + 6P = 40 - 2P ⇒ 6P + 2P = 40 + 24 ⇒ P* = 64/8 = 8 ∴ Q* = 40 - 2(8) = -24 + 6(8) = 24"
+            "Si Qᵒ = Qᵈ ⇒ -24 + 6P = 40 - 2P ⇒ 6P + 2P = 40 + 24 ⇒ P* = 64/8 = 8 ∴ Q* = 40 - 2(8) = -24 + 6(8) = 24. "
             "Pour ε_demande à l’équilibre du marché = (dQᵈ/dP) × (P*/Q*) = (40 - 2P)' × (P*/Q*) = -2 × (8/24) = -2/3 "),
     },
+    {
+        "q": (
+            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
+            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
+            "Combien vaut Combien valent le surplus des producteurs (SP) et le surplus des consommateurs (SC) à l’équilibre du marché ?"
+        ),
+        "choices": [
+            "SP = 48 ; SC = 48", 
+            "SP = 48 ; SC = 144", 
+            "SP = 96 ; SC = 288", 
+            "SP = 288 ; SC = 96",
+        ],
+        "answer": 1,
+        "explain": (
+            "Si Qᵒ = Qᵈ ⇒ -24 + 6P = 40 - 2P ⇒ 6P + 2P = 40 + 24 ⇒ P* = 64/8 = 8 ∴ Q* = 40 - 2(8) = -24 + 6(8) = 24. "
+            "Demande inverse : Qᵈ = 40 - 2P ⇒ P = 20 - 0.5Q ∴ si Q = 0 al. P_max = 20 - 0.5(0) = 20. "
+            "SC = (base × hauteur)/2 = (Q* × (P_max - P*))/2 = (24 × (20 - 8))/2 = 144. "
+            "Offre inverse : Qᵒ = 6P - 24 ⇒ P = 4 + Q/6 ∴ si Q = 0 al. P_min = 4 + 0/6 = 4. "
+            "SP = (base × hauteur)/2 = (Q* × (P* - P_min))/2 = (24 × (8 - 4))/2 = 48"),
+    },
+    {
+        "q": (
+            "Voici un court extrait d'un article : “Baisse de la demande, hausse des coûts de production, [...] les fromagers producteurs "
+            "d’Emmental font face à des difficultés inédites et cette situation pousse certains d’entre eux à arrêter leur activité.”"
+            "D’après ces informations, que peut-on conclure avec certitude sur l’évolution récente du prix et de la quantité échangée sur le marché de l’Emmental ?"
+        ),
+        "choices": [
+            "Le prix d’équilibre a diminué alors qu’il n’est pas possible de déduire avec certitude l’évolution de la quantité échangée.", 
+            "La quantité échangée a diminué alors qu’il n’est pas possible de déduire avec certitude l’évolution du prix d’équilibre.", 
+            "La quantité échangée et le prix d’équilibre ont augmenté.", 
+            "La quantité échangée et le prix d’équilibre ont diminué.",
+        ],
+        "answer": 1,
+        "explain": (
+            "Si la demande ↓ al. Q*↓ & P*↓ ⇒ la courbe de demande se déplace vers la gauche. "
+            "En revanche, si les coûts de production ↑ al. Q*↓ & P*↑ ⇒ la courbe d'offre se déplace vers la gauche. "
+            "Les deux effets vont dans le même sens sur la quantité (elle baisse forcément), "
+            "mais en sens opposé sur le prix (l’un ↑, l’autre ↓) ∴ "
+            "on sait avec certitude que la quantité échangée diminue, al. que l’évolution du prix d’équilibre est ambiguë. "),
+    },
+    {
+        "q": (
+            "Concernant le jeu “feuille, caillou, ciseaux”, laquelle des propositions suivantes est correcte ?"
+        ),
+        "choices": [
+            "Il s’agit d’un jeu séquentiel qui ne comporte pas d’équilibre de Nash en stratégies pures.", 
+            "Il s’agit d’un jeu simultané dans lequel chaque joueur possède une stratégie dominante.", 
+            "Il s’agit d’un jeu simultané qui ne comporte pas d’équilibre de Nash en stratégies pures.", 
+            "Il s’agit d’un jeu simultané qui comporte trois équilibres de Nash en stratégies pures.",
+        ],
+        "answer": 2,
+        "explain": (
+            "Dans feuille, caillou, ciseaux, les deux joueurs jouent en même temps (jeu simultané) et, pour chaque action de l’adversaire, "
+            "il existe toujours une autre action qui la bat. Aucune action n’est meilleure quelle que soit la réponse de l’autre, "
+            "donc pas d’équilibre de Nash en stratégies pures, seulement en stratégie mixte (1/3 – 1/3 – 1/3)."),
+    }
+    
+    
+        
     
     
     
