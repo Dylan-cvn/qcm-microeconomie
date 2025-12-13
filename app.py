@@ -584,7 +584,7 @@ QUESTIONS = [
     {
         "q": (
             "La demande de mangues prend la forme suivante :\n"
-            "Qᵈ = 80 - 8P + 0.02R - 5P₀ + 6Pₐ "
+            "Qᵈ = 80 - 8P + 0.02R - 5P₀ + 6Pₐ n\"
             "Où Qᵈ représente la quantité demandée de mangues (en kg), P le prix des mangues (en CHF/kg), R le revenu des consommateurs (en CHF), P₀ le prix des oranges & "
             "Pₐ le prix des ananas (en CHF/kg).\n"
             "Que peut-on conclure avec certitude ?"
