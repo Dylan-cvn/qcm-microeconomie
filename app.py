@@ -65,7 +65,7 @@ QUESTIONS = [
             "ε_demande = (dQᵈ/dP) × (P/Qᵈ) sachant (dQᵈ/dP) = -1 & Qᵈ = ? al. "
             "ε_demande = -1 × (P/Qᵈ) = -(P/(17 - P)).\n"
             "Condition d'élasticité unitaire ⇒ |ε_demande| = |-(P/(17 - P))| = |1| ∴ "
-            "P/(17 - P) = 1 ⇒ P = 17 - P ⇒ 2P = 17 ⇒ P = 8.5")
+            "P/(17 - P) = 1 ⇒ P = 17 - P ⇒ 2P = 17 ⇒ P = 8.5"),
     },
     {
         "q": (
@@ -176,7 +176,8 @@ QUESTIONS = [
         "q": (
             "Il existe une forte corrélation entre la probabilité d'observer une guerre civile dans un pays "
             "et le taux de croissance du PIB de ce pays.\n"
-            "Comment peut-on s'assurer qu'en plus de cette corrélation, il existe en fait une relation de causalité ?"),
+            "Comment peut-on s'assurer qu'en plus de cette corrélation, il existe en fait une relation de causalité ?"
+        ),
         "choices": [
             "Il faut s'assurer que la corrélation soit au moins de 0.9",
             "Il faut d'abord s'assurer qu'il n'existe pas d'autre facteur pouvant expliquer à la fois la guerre civile et le taux de croissance économique du pays.",
@@ -238,7 +239,7 @@ QUESTIONS = [
             "Ainsi, CVM_min = (dCVM/dx) = (d(2x - 3)/dx) = (2x - 3)' = 2 ⇒ Minimum du CVM & CVM croissant. "
             "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variable, "
             "c-à-d quand P > 0."),
-        "highlight_color": "#ffc107", #jaune
+        "highlight_color": "#ffc107",
     },
     {
         "q": "À propos des contrôles de prix, laquelle des affirmations suivantes est correcte ?",
@@ -306,26 +307,26 @@ QUESTIONS = [
         ],
         "answer": 3,
         "explain": (
-            "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀, c'est faux car à P₂, les producteurs offrent Q₂, les consommateurs n’achètent que Q₀ "
+            "L'introduction du prix plancher engendre une surproduction de Q₁ - Q₀, c'est faux car à P₂, les producteurs offrent Q₂, les consommateurs n'achètent que Q₀ "
             "donc la surproduction = Q₂ − Q₀, pas Q₁ − Q₀. "
             "Le coût supporté par l'Etat représente le prix payé × la quantité rachetée tandis que CED représente la perte sèche. "
             "P₂CEP₁ est la perte de surplus des consommateurs, et non pas l'augmentation de surplus des producteurs."),
-    "image":"qcm microéconomie image_1_prix_plancher.png"
+        "image": "qcm microéconomie image_1_prix_plancher.png",
     },
     {
         "q": (
-            " Soit les fonctions de demande et d’offre sur le marché des fraises sécrivent :\n"
+            " Soit les fonctions de demande et d'offre sur le marché des fraises sécrivent :\n"
             "Qᵈ = 60 - 4P\n"
             "Qᵒ = −2.5 + P\n"
             "Où Qᵈ représente la quantité demandée de fraises, Qᵒ la quantité offerte de fraises et P le prix du kilo de fraises. \n"
-            "Jugeant que l’équilibre du marché concurrentiel n’est pas adéquat, l’Etat introduit un prix plancher de 14 CHF par kilo et d’imposer des quotas de production pour éliminer de potentielles demande ou offre excédentaires. \n"
-            " Quelle sera la conséquence de l’introduction de ce prix plancher ?\n"
+            "Jugeant que l'équilibre du marché concurrentiel n'est pas adéquat, l'Etat introduit un prix plancher de 14 CHF par kilo et d'imposer des quotas de production pour éliminer de potentielles demande ou offre excédentaires. \n"
+            " Quelle sera la conséquence de l'introduction de ce prix plancher ?\n"
         ),
         "choices": [
-            "Une demande excédentaire de 7.5 sans la mise en place des quotas de production.", 
-            "Une perte sèche égale à 45.", 
-            "Une surproduction de 7.5 sans la mise en place des quotas de production.", 
-            "Une hausse du surplus des consommateurs."
+            "Une demande excédentaire de 7.5 sans la mise en place des quotas de production.",
+            "Une perte sèche égale à 45.",
+            "Une surproduction de 7.5 sans la mise en place des quotas de production.",
+            "Une hausse du surplus des consommateurs.",
         ],
         "answer": 2,
         "explain": (
@@ -333,221 +334,221 @@ QUESTIONS = [
             "Sachant que P̲ = 14 > 12.5, ∴ contraignant (au dessus du P_eq). "
             "Si P̲ = 14 al. Qᵈ(P̲) = 60 - 4P̲ = 4 & Qᵒ(P̲) = −2.5 + P̲ = 11.5. "
             "donc sans quota, on aura une Surproduction = Qᵒ − Qᵈ = 11.5 − 4 = 7.5. "
-            "Ainsi, sans quotas, l’introduction du prix plancher entraînerait bien une surproduction de 7.5."),
+            "Ainsi, sans quotas, l'introduction du prix plancher entraînerait bien une surproduction de 7.5."),
     },
     {
         "q": (
-            " Laquelle des affirmations suivantes est fausse lorsqu’on compare une situation de concurrence parfaite à un monopole ? "
+            " Laquelle des affirmations suivantes est fausse lorsqu'on compare une situation de concurrence parfaite à un monopole ? "
         ),
         "choices": [
-            "Contrairement à la concurrence parfaite, le monopoleur ne cherche pas à maximiser son profit.", 
-            "Le monopoleur cible les acheteurs ayant les consentements à payer les plus élevés.", 
-            "Imposer un prix plafond permet de limiter le pouvoir de marché d’un monopoleur.", 
-            "Les consommateurs sont perdants lorsqu’on passe d’un marché concurrentiel à un monopole."
+            "Contrairement à la concurrence parfaite, le monopoleur ne cherche pas à maximiser son profit.",
+            "Le monopoleur cible les acheteurs ayant les consentements à payer les plus élevés.",
+            "Imposer un prix plafond permet de limiter le pouvoir de marché d'un monopoleur.",
+            "Les consommateurs sont perdants lorsqu'on passe d'un marché concurrentiel à un monopole.",
         ],
         "answer": 0,
         "explain": (
             "En concurrence parfaite et en monopole, les entreprises maximisent toujours le profit. "
-            "La différence vient du fait que le monopoleur choisit P > CM, alors qu’en concurrence P = CM."),
+            "La différence vient du fait que le monopoleur choisit P > CM, alors qu'en concurrence P = CM."),
     },
-    { 
+    {
         "q": (
             " Une fabrique d'objets souvenirs travaille dans des locaux loués et le loyer diminue subitement. Si le marché est en concurrence parfaite et "
             "que sa capacité de production était déjà au maximum, quelle sera l'incidence de cette baisse de loyer sur le prix offert et le profit du producteur ?"
         ),
         "choices": [
-            "Le prix va diminuer et le profit augmenter.", 
-            "Le prix augmente et le profit aussi.", 
-            "Le prix reste constant mais le profit augmente.", 
-            "Aucune des questions précédentes."
+            "Le prix va diminuer et le profit augmenter.",
+            "Le prix augmente et le profit aussi.",
+            "Le prix reste constant mais le profit augmente.",
+            "Aucune des questions précédentes.",
         ],
         "answer": 2,
         "explain": (
             "Le prix reste identique (il dépend du marché, pas du loyer). "
             "Le profit augmente, car Profit = Recette - Coûts. "
             "Si les coûts diminuent (loyer ↓), alors le profit ↑."),
-        "highlight_color": "#ffc107", #jaune
+        "highlight_color": "#ffc107",
     },
     {
         "q": (
-             "Sur la base de cette représentation graphique, laquelle des propositions suivantes est fausse ?"
+            "Sur la base de cette représentation graphique, laquelle des propositions suivantes est fausse ?"
         ),
         "choices": [
-            "Brigitte possède un avantage absolu pour la rédaction de courriers.", 
-            "Brigitte possède un avantage absolu pour les photocopies.", 
-            "Brigitte possède un avantage comparatif pour la rédaction de courriers.", 
-            "Brigitte possède un avantage comparatif pour les photocopies."
+            "Brigitte possède un avantage absolu pour la rédaction de courriers.",
+            "Brigitte possède un avantage absolu pour les photocopies.",
+            "Brigitte possède un avantage comparatif pour la rédaction de courriers.",
+            "Brigitte possède un avantage comparatif pour les photocopies.",
         ],
         "answer": 2,
         "explain": (
             "Avantage absolu pour Albert : 8 courriers max. ou 400 photocopies max. "
             "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
             "Avantage comparatif (CO) pour Albert : 400/8 = 50 photocopies sacrifiées par courrier. "
-            "Avantage comparatif (CO) pour Brigitte : 1'600/10 = 160 photocopies sacrifiées par courrier ⇒ Albert a l’avantage comparatif pour les courriers & Brigitte pour les photocopies. "),
-    "image":"QCM Microéconomie image_2_frontières_possibilités.png",
+            "Avantage comparatif (CO) pour Brigitte : 1'600/10 = 160 photocopies sacrifiées par courrier ⇒ Albert a l'avantage comparatif pour les courriers & Brigitte pour les photocopies. "),
+        "image": "QCM Microéconomie image_2_frontières_possibilités.png",
     },
     {
         "q": (
-             "Si Albert & Brigitte décident de se répartir les tâches efficacement et se spécialisent complètement, combien pourront-ils produire en une heure ?"
+            "Si Albert & Brigitte décident de se répartir les tâches efficacement et se spécialisent complètement, combien pourront-ils produire en une heure ?"
         ),
         "choices": [
-            "20 courriers (rédigés par Albert & Brigitte).", 
-            "12 courriers (rédigés par Brigitte) et 400 photocopies (effectuées par Albert).", 
-            "9 courriers (rédigés par Albert & Brigitte) et 1'440 photocopies (effectuées par Brigitte).", 
-            "8 courriers (rédigés par Albert) et 1'600 photocopies (effectuées par Brigitte)."
+            "20 courriers (rédigés par Albert & Brigitte).",
+            "12 courriers (rédigés par Brigitte) et 400 photocopies (effectuées par Albert).",
+            "9 courriers (rédigés par Albert & Brigitte) et 1'440 photocopies (effectuées par Brigitte).",
+            "8 courriers (rédigés par Albert) et 1'600 photocopies (effectuées par Brigitte).",
         ],
         "answer": 3,
         "explain": (
             "Avantage absolu pour Albert : 8 courriers max. ou 400 photocopies max. "
             "Avantage absolu pour Brigitte : 10 courriers max. ou 1'600 photocopies max ∴ avantage absolu pour les deux tâches. "
-            "S’ils se spécialisent complètement et se répartissent les tâches efficacement : Albert = 8 courriers en 1h & Brigitte = 1'600 photocopies en 1h"),
-    "image":"QCM Microéconomie image_2_frontières_possibilités.png",
+            "S'ils se spécialisent complètement et se répartissent les tâches efficacement : Albert = 8 courriers en 1h & Brigitte = 1'600 photocopies en 1h"),
+        "image": "QCM Microéconomie image_2_frontières_possibilités.png",
     },
     {
         "q": (
-            "Marianne, responsable marketing d’une petite entreprise, dépose chaque matin sa fille à la crèche avant de prendre la route au volant de sa voiture pour se rendre à son bureau. "
-            "À propos de son salaire de réserve ω_res, voici une liste d’affirmations : \n"
+            "Marianne, responsable marketing d'une petite entreprise, dépose chaque matin sa fille à la crèche avant de prendre la route au volant de sa voiture pour se rendre à son bureau. "
+            "À propos de son salaire de réserve ω_res, voici une liste d'affirmations : \n"
             "i. Si tarifs de la crèche ↑ al. ω_res ↓. \n"
             "ii. Si prix du carburant utilisé pour le déplacement ↑ al. ω_res ↓. \n"
             "iii. Si payement crédit hypothécaire est de 3'200 par mois al. ω_res ↑. \n"
             "iv. Si héritage suite à un décès de 1'000'000 al. ω_res ↑. "
         ),
         "choices": [
-            "Seules les propositions i & ii sont correctes.", 
-            "Seules les propositions ii & iv sont correctes.", 
-            "Seules les propositions iii & iv sont correctes.", 
-            "Seule la proposition iv est correcte."
+            "Seules les propositions i & ii sont correctes.",
+            "Seules les propositions ii & iv sont correctes.",
+            "Seules les propositions iii & iv sont correctes.",
+            "Seule la proposition iv est correcte.",
         ],
         "answer": 3,
         "explain": (
-            "i est faux car tarifs de la crèche est un coût lié au travail (elle paie parce qu’elle travaille) ∴ si ↑ al. ω_res ↑. "
-            "ii est faux car prix du carburant est un coût lié au travail (elle paie parce qu’elle travaille) ∴ si ↑ al. ω_res ↑. "
-            "iii est faux car le payememt du crédit hypothécaire est une dépense fixe du ménage, qu’elle travaille ou non ∴ si ↑ al. ω_res ↓."
-            "iv est vrai car l’héritage augmente fortement son revenu non salariale ∴ ω_res ↑."),
+            "i est faux car tarifs de la crèche est un coût lié au travail (elle paie parce qu'elle travaille) ∴ si ↑ al. ω_res ↑. "
+            "ii est faux car prix du carburant est un coût lié au travail (elle paie parce qu'elle travaille) ∴ si ↑ al. ω_res ↑. "
+            "iii est faux car le payememt du crédit hypothécaire est une dépense fixe du ménage, qu'elle travaille ou non ∴ si ↑ al. ω_res ↓."
+            "iv est vrai car l'héritage augmente fortement son revenu non salariale ∴ ω_res ↑."),
     },
     {
         "q": (
-            "Lily est régulièrement engagée comme consultante stratégique dans un cabinet renommé et elle bénéficie ainsi de la possibilité de choisir librement le nombre d’heures de travail qu’elle souhaite effectuer. "
+            "Lily est régulièrement engagée comme consultante stratégique dans un cabinet renommé et elle bénéficie ainsi de la possibilité de choisir librement le nombre d'heures de travail qu'elle souhaite effectuer. "
             "Grâce à son excellent travail et à son expérience, Lily parvient à négocier une augmentation de son salaire horaire. "
             "Vous pouvez donc prévoir avec certitude que :"
         ),
         "choices": [
-            "Si l’effet de substitution domine l’effet de revenu, Lily choisira de travailler plus.", 
-            "Si l’effet de substitution domine l’effet de revenu, Lila choisira de travailler moins.", 
-            "Si l’effet de revenu domine l’effet de substitution, Lila choisira de travailler plus.", 
-            "Lila va travailler plus."
+            "Si l'effet de substitution domine l'effet de revenu, Lily choisira de travailler plus.",
+            "Si l'effet de substitution domine l'effet de revenu, Lila choisira de travailler moins.",
+            "Si l'effet de revenu domine l'effet de substitution, Lila choisira de travailler plus.",
+            "Lila va travailler plus.",
         ],
         "answer": 0,
         "explain": (
-            "Une hausse du salaire horaire rend le loisir plus coûteux, si l’effet de substitution domine l’effet de revenu, Lily remplace du loisir par du travail et choisit donc de travailler davantage."),
+            "Une hausse du salaire horaire rend le loisir plus coûteux, si l'effet de substitution domine l'effet de revenu, Lily remplace du loisir par du travail et choisit donc de travailler davantage."),
     },
     {
         "q": (
-            "Max, consultant freelance, peut décider lui-même du nombre d’heures qu’il alloue au marché du travail. "
+            "Max, consultant freelance, peut décider lui-même du nombre d'heures qu'il alloue au marché du travail. "
             "Suite à une augmentation de son salaire horaire, Max décide de travailler plus. "
             "Que peut-on affirmer avec certitude ? "
         ),
         "choices": [
-            "Max n’est pas rationnelle : si son salaire augmente il devrait logiquement travailler moins.", 
-            "Max décide de travailler plus car son revenu non salarial a diminué.", 
-            "Pour Max, l’effet de substitution domine l’effet de revenu.", 
-            "La valeur que Max accorde à son temps libre est supérieur à son salaire horaire."
+            "Max n'est pas rationnelle : si son salaire augmente il devrait logiquement travailler moins.",
+            "Max décide de travailler plus car son revenu non salarial a diminué.",
+            "Pour Max, l'effet de substitution domine l'effet de revenu.",
+            "La valeur que Max accorde à son temps libre est supérieur à son salaire horaire.",
         ],
         "answer": 2,
         "explain": (
-            "Comme son salaire horaire augmente et qu’il décide de travailler plus, cela signifie que, pour lui, "
+            "Comme son salaire horaire augmente et qu'il décide de travailler plus, cela signifie que, pour lui, "
             "la force qui pousse à remplacer du loisir par du travail (effet de substitution) est plus forte que celle qui pousse à consommer plus de loisir (effet de revenu)."),
     },
     {
         "q": (
-            "Voici une liste d’affirmations à propos du jeu du dictateur :\n"
-            "i. Le jeu du dictateur permet aux chercheurs d’évaluer le degré d’altruisme du joueur dictateur.\n"
+            "Voici une liste d'affirmations à propos du jeu du dictateur :\n"
+            "i. Le jeu du dictateur permet aux chercheurs d'évaluer le degré d'altruisme du joueur dictateur.\n"
             "ii. Le jeu du dictateur est un jeu simultané. \n"
             "iii. Le joueur 1 offre toujours environ un cinquième de la somme de départ au joueur 2. \n"
             "iv. Un dictateur purement rationnel et égoïste offrira toujours une somme égale à zéro. "
         ),
         "choices": [
-            "Seules les affirmations ii et iv sont correctes.", 
-            "Seules les affirmations i et iv sont correctes.", 
-            "Seules les affirmations ii et iii sont correctes.", 
-            "Seules les affirmations i et iii sont correctes."
+            "Seules les affirmations ii et iv sont correctes.",
+            "Seules les affirmations i et iv sont correctes.",
+            "Seules les affirmations ii et iii sont correctes.",
+            "Seules les affirmations i et iii sont correctes.",
         ],
         "answer": 1,
         "explain": (
-            "Le jeu du dictateur sert à observer un comportement de don unilatéral et à discuter des motivations possibles comme l’altruisme ou l’équité. "
+            "Le jeu du dictateur sert à observer un comportement de don unilatéral et à discuter des motivations possibles comme l'altruisme ou l'équité. "
             "Le jeu du dictateur est traité dans les jeux séquentiels (et non pas comme un jeu simultané). "
-            "Le dictateur offre en moyenne un cinquième, mais avec une forte variance, donc le “toujours environ un cinquième” est faux. "
+            "Le dictateur offre en moyenne un cinquième, mais avec une forte variance, donc le « toujours environ un cinquième » est faux. "
             "Pour un individu purement rationnel et égoïste : le dictateur garde tout, donc il offre zéro."),
     },
     {
         "q": (
-            "Voici une liste d’affirmations à propos du jeu de l'ultimatum :\n"
+            "Voici une liste d'affirmations à propos du jeu de l'ultimatum :\n"
             "i. Si le premier joueur est rationnel, il ne devrait rien partager.\n"
-            "ii. Si le second joueur est rationnel, il devrait accepter n’importe quelle offre supérieure à zéro. \n"
-            "iii. Des résultats empiriques montrent que plus le montant de la somme de départ est élevé, plus l’offre du premier joueur représente un faible pourcentage de cette somme. \n"
-            "iv. Des résultats empiriques montrent que plus le montant absolu (et non relatif) proposé par le premier joueur est élevé, plus il est probable que le second joueur l’accepte. "
+            "ii. Si le second joueur est rationnel, il devrait accepter n'importe quelle offre supérieure à zéro. \n"
+            "iii. Des résultats empiriques montrent que plus le montant de la somme de départ est élevé, plus l'offre du premier joueur représente un faible pourcentage de cette somme. \n"
+            "iv. Des résultats empiriques montrent que plus le montant absolu (et non relatif) proposé par le premier joueur est élevé, plus il est probable que le second joueur l'accepte. "
         ),
         "choices": [
-            "Seules les affirmations i et iii sont correctes.", 
-            "Seules les affirmations i et iv sont correctes.", 
-            "Seules les affirmations i, ii et iii sont correctes.", 
-            "Seules les affirmations ii, iii et iv sont correctes."
+            "Seules les affirmations i et iii sont correctes.",
+            "Seules les affirmations i et iv sont correctes.",
+            "Seules les affirmations i, ii et iii sont correctes.",
+            "Seules les affirmations ii, iii et iv sont correctes.",
         ],
         "answer": 3,
         "explain": (
-            "Dans le jeu de l'ultimatum, le joueur 1 propose la plus petite somme possible à l’autre et pas forcément “rien”. "
+            "Dans le jeu de l'ultimatum, le joueur 1 propose la plus petite somme possible à l'autre et pas forcément « rien ». "
             "Dans le jeu de l'ultimatum, le joueur 2 rationnel accepte toute offre strictement positive. "
-            "Si la somme de départ ↑, le joueur 1 donne souvent un peu plus en montant, mais pas proportionnellement, donc l’offre représente un pourcentage plus faible. "
-            "Plus le joueur 1 propose un montant élevé, plus le joueur 2 a envie d’accepter."),
+            "Si la somme de départ ↑, le joueur 1 donne souvent un peu plus en montant, mais pas proportionnellement, donc l'offre représente un pourcentage plus faible. "
+            "Plus le joueur 1 propose un montant élevé, plus le joueur 2 a envie d'accepter."),
     },
     {
         "q": (
             "Deux entreprises, Nissan et Renault, décident de fusionner. "
-            "Elles doivent maintenant choisir le système d’exploitation qui va être utilisé par le groupe. Nissan utilisait Windows et Renault utilisait Mac. "
-            "Chacune des deux entreprises préférerait conserver son propre système d’exploitation."
-            "Voici une liste d’affirmations à propos de la situation :\n"
+            "Elles doivent maintenant choisir le système d'exploitation qui va être utilisé par le groupe. Nissan utilisait Windows et Renault utilisait Mac. "
+            "Chacune des deux entreprises préférerait conserver son propre système d'exploitation."
+            "Voici une liste d'affirmations à propos de la situation :\n"
             "i. La meilleure solution de Nissan est Windows si Renault choisit Windows, et Mac si Renault choisit Mac. \n"
             "ii. Au moins une des deux entreprises possède une stratégie dominante. \n "
             "iii. Il existe deux équilibres de Nash dans ce jeu. \n"
             "iv. Le profil (Windows, Mac) est un équilibre de Nash."
         ),
         "choices": [
-            "Seules les affirmations i et iii sont correctes.", 
-            "Seules les affirmations i et ii sont correctes.", 
-            "Seules les affirmations ii et iii sont correctes.", 
-            "Seules les affirmations iii et iv sont correctes."
+            "Seules les affirmations i et iii sont correctes.",
+            "Seules les affirmations i et ii sont correctes.",
+            "Seules les affirmations ii et iii sont correctes.",
+            "Seules les affirmations iii et iv sont correctes.",
         ],
         "answer": 0,
         "explain": (
             "Si Renault choisit Windows, Nissan préfère Windows (2 > 0) mais si Renault choisit Mac, Nissan préfère Mac (1 > 0). "
-            "Dans cette situation, aucune stratégie dominante car chaque entreprise veut surtout s’aligner avec l’autre. "
+            "Dans cette situation, aucune stratégie dominante car chaque entreprise veut surtout s'aligner avec l'autre. "
             "Les deux profils où chacun joue la meilleure réponse sont (Windows, Windows) et (Mac, Mac) ⇒ 2 équilibres de Nash en pur. "
-            "Le profil (Windows, Mac) n’est pas stable, chacun a intérêt à changer pour s’aligner."),
-    "image":"game_theory_matrix.png"
+            "Le profil (Windows, Mac) n'est pas stable, chacun a intérêt à changer pour s'aligner."),
+        "image": "game_theory_matrix.png",
     },
     {
         "q": "Laquelle des propositions suivantes relève du champ d'étude de la microéconomie ?",
         "choices": [
             "En 2023, de nouveaux fabricants asiatiques sont entrés sur le marché des voiture sélectriques en France. Cela a provoqué une baisse moyenne des prix sur ce marché de 15%.",
             "En 2023, le taux de chômage aux États-Unis a atteint son plus bas niveau en 20 ans (3.5%) grâce à une croissance soutenue des secteurs de la technologie et de la santé.",
-            "L’Union européenne a enregistré un excédent commercial de 250 milliards d’euros en 2022, principalement en raison d’une augmentation des exportations de machines et de produits chimiques vers l’Asie.",
-            "Aucune des réponses ci-dessus n’est du ressort de la microéconomie.",
+            "L'Union européenne a enregistré un excédent commercial de 250 milliards d'euros en 2022, principalement en raison d'une augmentation des exportations de machines et de produits chimiques vers l'Asie.",
+            "Aucune des réponses ci-dessus n'est du ressort de la microéconomie.",
         ],
         "answer": 0,
         "explain": (
-            "Parce que (a) parle d’un marché précis (voitures électriques en France) et d’un effet sur les prix lié à l’entrée de nouveaux concurrents ∴ Microéconomie."),
+            "Parce que (a) parle d'un marché précis (voitures électriques en France) et d'un effet sur les prix lié à l'entrée de nouveaux concurrents ∴ Microéconomie."),
     },
     {
-        "q": "“Dans un circuit économique standard, les salaires sont des flux ... qui vont des ... aux ... et transitent par les marchés des ...”",
+        "q": "« Dans un circuit économique standard, les salaires sont des flux ... qui vont des ... aux ... et transitent par les marchés des ... »",
         "choices": [
             "monétaires / entreprises / ménages / facteurs de production.",
             "monétaires / entreprises / ménages / biens et services.",
             "réels / entreprises / ménages / facteurs de production.",
-            "réels / services de l’État / ménages / facteurs de production",
+            "réels / services de l'État / ménages / facteurs de production",
         ],
         "answer": 0,
         "explain": (
-            "Les salaires sont de l’argent versé par les entreprises aux ménages en échange de leur travail, et cela se fait sur les marchés des facteurs de production. "
+            "Les salaires sont de l'argent versé par les entreprises aux ménages en échange de leur travail, et cela se fait sur les marchés des facteurs de production. "
             "Argent des ménages vers les entreprises ⇒ marché des biens et services (consommation). "
             "Argent des entreprises vers les ménages ⇒ marché des facteurs de production (salaires, loyers, intérêts)."),
     },
@@ -555,19 +556,19 @@ QUESTIONS = [
         "q": "Laquelle des affirmations suivantes est positive, par opposition à normative ?",
         "choices": [
             "Il est souhaitable que la cafétéria propose des alternatives au lait de vache pour accompagner les boissons chaudes.",
-            "Il faut que les étudiants mangent sainement à midi afin de favoriser leur attention durant les cours de l’après-midi.",
-            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l’école.",
-            "La HEG devrait accueillir des food trucks à midi sur l’esplanade.",
+            "Il faut que les étudiants mangent sainement à midi afin de favoriser leur attention durant les cours de l'après-midi.",
+            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l'école.",
+            "La HEG devrait accueillir des food trucks à midi sur l'esplanade.",
         ],
         "answer": 2,
         "explain": (
-            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l’école ⇒ "
+            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l'école ⇒ "
             "décrit un lien de cause à effet vérifiable (on peut observer si, quand le prix augmente, les ventes de café diminuent), sans exprimer de jugement de valeur."),
     },
     {
         "q": (
             "On considère la demande de poires représentée sur le graphique ci-dessous. "
-            "L’axe horizontal mesure la quantité de poires 𝑄 (en tonnes) et l’axe vertical le prix 𝑃 (en CHF/kg).\n"
+            "L'axe horizontal mesure la quantité de poires 𝑄 (en tonnes) et l'axe vertical le prix 𝑃 (en CHF/kg).\n"
             "Laquelle des fonctions suivantes correspond à cette courbe de demande ?"
         ),
         "choices": [
@@ -590,34 +591,34 @@ QUESTIONS = [
             "Que peut-on conclure avec certitude ?"
         ),
         "choices": [
-            "Les oranges et les ananas sont des biens complémentaires.", 
-            "Les mangues et les ananas sont des biens complémentaires.", 
-            "Les mangues et les oranges sont des biens complémentaires.", 
-            "La loi de la demande n’est pas respectée car la relation entre Pₐ & Qᵈ est positive."
+            "Les oranges et les ananas sont des biens complémentaires.",
+            "Les mangues et les ananas sont des biens complémentaires.",
+            "Les mangues et les oranges sont des biens complémentaires.",
+            "La loi de la demande n'est pas respectée car la relation entre Pₐ & Qᵈ est positive.",
         ],
         "answer": 2,
         "explain": (
             "Le coefficient de P₀ est négatif (–5), donc quand le prix des oranges augmente la demande de mangues diminue, ce qui correspond à des biens complémentaires. "
-            "Deux biens sont substituables quand une hausse du prix de l’un fait augmenter la demande de l’autre (p.ex. mangue et ananas). "
-            "Pour oranges & ananas, l’énoncé ne permet pas de conclure (ils pourraient être substituts, complémentaires ou indépendants)."),
+            "Deux biens sont substituables quand une hausse du prix de l'un fait augmenter la demande de l'autre (p.ex. mangue et ananas). "
+            "Pour oranges & ananas, l'énoncé ne permet pas de conclure (ils pourraient être substituts, complémentaires ou indépendants)."),
     },
     {
         "q": (
-            "Voici un tableau simplifié d’une étudesur l’élasticité-prix de la demande pour les vins suisses. "
-            " L’étude différencie l’élasticité-prix en fonction de la région de production et du type de vin. \n"
+            "Voici un tableau simplifié d'une étudesur l'élasticité-prix de la demande pour les vins suisses. "
+            " L'étude différencie l'élasticité-prix en fonction de la région de production et du type de vin. \n"
             "Sur de ce tableau, laquelle des propositions suivantes est fausse ?"
         ),
         "choices": [
-            "En Suisse, au niveau global (soit pour toutes les régions et tous les types de vin), la demande de vin diminuera de 4.02% si le prix augmente de 2%.", 
-            "Si le prix des vins rosés du canton de Genève augmente de 1%, la quantité demandée de ces vins diminuera de 2.56%", 
-            "La demande pour les vins vaudois est dans l’ensemble moins élastique que celle pour les vins valaisans.", 
-            "La demande pour les vins rouges de la région des Trois-Lacs est moins élastique que celle pour les vins rouges genevois."
+            "En Suisse, au niveau global (soit pour toutes les régions et tous les types de vin), la demande de vin diminuera de 4.02% si le prix augmente de 2%.",
+            "Si le prix des vins rosés du canton de Genève augmente de 1%, la quantité demandée de ces vins diminuera de 2.56%",
+            "La demande pour les vins vaudois est dans l'ensemble moins élastique que celle pour les vins valaisans.",
+            "La demande pour les vins rouges de la région des Trois-Lacs est moins élastique que celle pour les vins rouges genevois.",
         ],
         "answer": 3,
         "explain": (
-            "Pour les vins rouges, l’élasticité est |-2.11| (Trois-Lacs) contre |-1.14| (Genève). "
+            "Pour les vins rouges, l'élasticité est |-2.11| (Trois-Lacs) contre |-1.14| (Genève). "
             "En valeur absolue 2.11 > 1.14 ∴ la demande est plus élastique aux Trois-Lacs, et non moins élastique."),
-    "image":"elasticite_vins_suisses.png",
+        "image": "elasticite_vins_suisses.png",
     },
     {
         "q": (
@@ -625,146 +626,146 @@ QUESTIONS = [
             "Que peut-on affirmer ?"
         ),
         "choices": [
-            "Le panier dans lequel se trouvent Qₓ1/2 unités de bien X et Qᵧ1/2 unités de bien Y est inaccessible pour John.", 
-            "Si John achète Qₓ1 unités du bien X, alors il ne pourra acheter aucune unité de bien Y.", 
-            "John peut acheter un panier dans lequel se trouve Qₓ1 unités de bien X et Qᵧ1 unités de bien Y.", 
-            "John va acheter un panier dans lequel se trouvent Qₓ1/2 unités de bien X et Qᵧ1/2 unités de bien Y."
+            "Le panier dans lequel se trouvent Qₓ1/2 unités de bien X et Qᵧ1/2 unités de bien Y est inaccessible pour John.",
+            "Si John achète Qₓ1 unités du bien X, alors il ne pourra acheter aucune unité de bien Y.",
+            "John peut acheter un panier dans lequel se trouve Qₓ1 unités de bien X et Qᵧ1 unités de bien Y.",
+            "John va acheter un panier dans lequel se trouvent Qₓ1/2 unités de bien X et Qᵧ1/2 unités de bien Y.",
         ],
         "answer": 1,
         "explain": (
-            "Si John achète Qₓ1 unités du bien X, il est au point d’intersection de la droite budgétaire avec l’axe horizontal. "
+            "Si John achète Qₓ1 unités du bien X, il est au point d'intersection de la droite budgétaire avec l'axe horizontal. "
             "Tout son budget est utilisé pour X et il ne lui reste plus rien pour acheter Y ∴ Qᵧ1 = 0."),
-    "image":"contrainte_budgetaire.png",
+        "image": "contrainte_budgetaire.png",
     },
     {
         "q": (
             "Nikos et Saphia sont artisans potiers et confectionnent deux types de biens : des vases et des assiettes. "
             "Leurs capacités journalières de production sont représentées dans le graphique. "
-            "Voici une liste d’affirmations à propos de la situation :\n"
-            "i. Pour Saphia, le CO de production d’un vase est de 1.2 assiettes. \n"
-            "ii. Nikos dispose d’un avantage absolu dans la production de vases. \n"
+            "Voici une liste d'affirmations à propos de la situation :\n"
+            "i. Pour Saphia, le CO de production d'un vase est de 1.2 assiettes. \n"
+            "ii. Nikos dispose d'un avantage absolu dans la production de vases. \n"
             "iii. Nikos a un avantage comparatif dans la production de vases. \n"
             "iv. Pour Saphia, produire 1 assiette et 8 vases est atteignable et efficient. \n"
-            "v.  Nikos possède un avantage comparatif dans la production d’assiettes."
+            "v.  Nikos possède un avantage comparatif dans la production d'assiettes."
         ),
         "choices": [
-            "Seuls les points ii et iii sont corrects.", 
-            "Seuls les points i et v sont corrects.", 
-            "Seuls les points iv et v sont corrects.", 
-            "Seuls les points i, iii et iv sont corrects"
+            "Seuls les points ii et iii sont corrects.",
+            "Seuls les points i et v sont corrects.",
+            "Seuls les points iv et v sont corrects.",
+            "Seuls les points i, iii et iv sont corrects",
         ],
         "answer": 1,
         "explain": (
             "Pour Saphia, sa FPP va de 12 assiettes à 10 vases ⇒ CO d'un vase = 12/10 = 1.2 assiettes ∴ i vrai. "
-            "Nikos a un CO d’une assiette plus faible (0.5 contre ≈0.83 pour Saphia) ⇒ avantage comparatif en assiettes ∴ v vrai. "
-            "ii faux car (Saphia, pas Nikos, produit le plus de vases). iii faux car Saphia a l’avantage comparatif en vases. "
-            "iv est faux car le panier 8 vases, 1 assiette est atteignable mais pas efficient : il est à l’intérieur de la FPP de Saphia."),
-    "image":"fpp_nikos_saphia.png"
+            "Nikos a un CO d'une assiette plus faible (0.5 contre ≈0.83 pour Saphia) ⇒ avantage comparatif en assiettes ∴ v vrai. "
+            "ii faux car (Saphia, pas Nikos, produit le plus de vases). iii faux car Saphia a l'avantage comparatif en vases. "
+            "iv est faux car le panier 8 vases, 1 assiette est atteignable mais pas efficient : il est à l'intérieur de la FPP de Saphia."),
+        "image": "fpp_nikos_saphia.png",
     },
     {
         "q": (
             "Considérez deux artisans A et B qui produisent deux biens : des confiseries et des pâtisseries. "
-            "En une journée de travail, l’artisan A peut produire 15 confiseries ou 20 pâtisseries,tandis que l’artisan B peut produire 15 confiseries ou 15 pâtisseries. \n"
+            "En une journée de travail, l'artisan A peut produire 15 confiseries ou 20 pâtisseries,tandis que l'artisan B peut produire 15 confiseries ou 15 pâtisseries. \n"
             "Que peut-on affirmer ?"
         ),
         "choices": [
-            "L’artisan B possède un avantage absolu dans la production de confiseries.", 
-            "L’artisan B possède un avantage absolu dans la production de pâtisseries.", 
-            "L’artisan A possède un avantage comparatif dans la production de confiseries.", 
-            "L’artisan A possède un avantage comparatif dans la production de pâtisseries."
+            "L'artisan B possède un avantage absolu dans la production de confiseries.",
+            "L'artisan B possède un avantage absolu dans la production de pâtisseries.",
+            "L'artisan A possède un avantage comparatif dans la production de confiseries.",
+            "L'artisan A possède un avantage comparatif dans la production de pâtisseries.",
         ],
         "answer": 3,
         "explain": (
             "A peut produire 20 pâtisseries, B seulement 15 ∴ A a un avantage absolu en pâtisseries. "
-            "CO d’une pâtisserie pour A : 15/20 = 0.75 confiserie & CO d’une pâtisserie pour B : 15/15 = 1 confiserie. "
+            "CO d'une pâtisserie pour A : 15/20 = 0.75 confiserie & CO d'une pâtisserie pour B : 15/15 = 1 confiserie. "
             "Comme 0.75 < 1, A renonce à moins de confiseries pour produire une pâtisserie ∴ A a aussi un avantage comparatif en pâtisseries. "
-            "Un producteur a un avantage comparatif dans un bien si son CO pour produire ce bien est plus faible que celui des autres producteurs.")
+            "Un producteur a un avantage comparatif dans un bien si son CO pour produire ce bien est plus faible que celui des autres producteurs."),
     },
     {
         "q": (
-            "Mireille est employée dans un magasin d’alimentation. Suite à une bonne récolte saisonnière, le patron du magasin décide d’augmenter le salaire horaire de Mireille."
-            "Mireille travaille à 80% et elle a la possibilité d’augmenter ou de diminuer ses heures de travail. \n"
+            "Mireille est employée dans un magasin d'alimentation. Suite à une bonne récolte saisonnière, le patron du magasin décide d'augmenter le salaire horaire de Mireille."
+            "Mireille travaille à 80% et elle a la possibilité d'augmenter ou de diminuer ses heures de travail. \n"
             "Que peut-on affirmer ?"
         ),
         "choices": [
-            "Peu importe l’ampleur des effets de substitution et de revenu, Mireille va décider d’augmenter ses heures de travail.", 
-            "Peu importe l’ampleur des effets de substitution et de revenu, Mireille va décider de diminuer ses heures de travail.", 
-            "Si l’effet de substitution domine l’effet de revenu, Mireille va choisir de diminuer ses heures de travail.", 
-            "Si l’effet de substitution domine l’effet de revenu, Mireille va choisir d’augmenter ses heures de travail."
+            "Peu importe l'ampleur des effets de substitution et de revenu, Mireille va décider d'augmenter ses heures de travail.",
+            "Peu importe l'ampleur des effets de substitution et de revenu, Mireille va décider de diminuer ses heures de travail.",
+            "Si l'effet de substitution domine l'effet de revenu, Mireille va choisir de diminuer ses heures de travail.",
+            "Si l'effet de substitution domine l'effet de revenu, Mireille va choisir d'augmenter ses heures de travail.",
         ],
         "answer": 3,
         "explain": (
-            "Quand le salaire horaire augmente, l’effet de substitution pousse à travailler plus (le loisir devient plus « cher ») & "
-            "l’effet de revenu pousse à travailler moins ∴ si effet de substitution > effet de revenu al. Mireille augmentera ses heures de travail. ")
+            "Quand le salaire horaire augmente, l'effet de substitution pousse à travailler plus (le loisir devient plus « cher ») & "
+            "l'effet de revenu pousse à travailler moins ∴ si effet de substitution > effet de revenu al. Mireille augmentera ses heures de travail. "),
     },
     {
         "q": (
-            "Sonia est étudiante à l’université. Pour financer ses études, elle a un job d’étudiant et ses parents la soutiennent à hauteur de 30.- par jour. "
-            "Dans le cadre du modèle d’offre de travail dans lequel on représente la contrainte budgétaire (CB) avec le revenu sur l’ordonnée et le temps de travail sur l’abscisse. \n"
+            "Sonia est étudiante à l'université. Pour financer ses études, elle a un job d'étudiant et ses parents la soutiennent à hauteur de 30.- par jour. "
+            "Dans le cadre du modèle d'offre de travail dans lequel on représente la contrainte budgétaire (CB) avec le revenu sur l'ordonnée et le temps de travail sur l'abscisse. \n"
             "Que peut-on affirmer ?"
         ),
         "choices": [
-            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le haut autour de son point de dotation.", 
-            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le bas autour de son point de dotation.", 
-            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB se déplacerait parallèlement vers le haut.", 
-            "Si les parents de Sonia lui accordaient une aide financière de 20.- par jour, sa CB se déplacerait parallèlement vers le haut."
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le haut autour de son point de dotation.",
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le bas autour de son point de dotation.",
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB se déplacerait parallèlement vers le haut.",
+            "Si les parents de Sonia lui accordaient une aide financière de 20.- par jour, sa CB se déplacerait parallèlement vers le haut.",
         ],
         "answer": 2,
         "explain": (
-            "Une aide financière plus élevée des parents est un revenu non lié au travail. Dans le modèle d’offre de travail, si le revenu ↑ (de 30 à 40 CHF/jour) "
-            "al. déplacement de la CB parallèlement vers le haut, sans changer sa pente (le salaire horaire).")
+            "Une aide financière plus élevée des parents est un revenu non lié au travail. Dans le modèle d'offre de travail, si le revenu ↑ (de 30 à 40 CHF/jour) "
+            "al. déplacement de la CB parallèlement vers le haut, sans changer sa pente (le salaire horaire)."),
     },
     {
         "q": (
-            "Sonia est étudiante à l’université. Pour financer ses études, elle a un job d’étudiant et ses parents la soutiennent à hauteur de 30.- par jour. "
-            "Dans le cadre du modèle d’offre de travail dans lequel on représente la contrainte budgétaire (CB) avec le revenu sur l’ordonnée et le temps de travail sur l’abscisse. \n"
+            "Sonia est étudiante à l'université. Pour financer ses études, elle a un job d'étudiant et ses parents la soutiennent à hauteur de 30.- par jour. "
+            "Dans le cadre du modèle d'offre de travail dans lequel on représente la contrainte budgétaire (CB) avec le revenu sur l'ordonnée et le temps de travail sur l'abscisse. \n"
             "Que peut-on affirmer ?"
         ),
         "choices": [
-            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le haut autour de son point de dotation.", 
-            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le bas autour de son point de dotation.", 
-            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB se déplacerait parallèlement vers le haut.", 
-            "Si les parents de Sonia lui accordaient une aide financière de 20.- par jour, sa CB se déplacerait parallèlement vers le haut."
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le haut autour de son point de dotation.",
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB pivoterait vers le bas autour de son point de dotation.",
+            "Si les parents de Sonia lui accordaient une aide financière de 40.- par jour, sa CB se déplacerait parallèlement vers le haut.",
+            "Si les parents de Sonia lui accordaient une aide financière de 20.- par jour, sa CB se déplacerait parallèlement vers le haut.",
         ],
         "answer": 2,
         "explain": (
-            "Une aide financière plus élevée des parents est un revenu non lié au travail. Dans le modèle d’offre de travail, si le revenu ↑ (de 30 à 40 CHF/jour) "
-            "al. déplacement de la CB parallèlement vers le haut, sans changer sa pente (le salaire horaire).")
+            "Une aide financière plus élevée des parents est un revenu non lié au travail. Dans le modèle d'offre de travail, si le revenu ↑ (de 30 à 40 CHF/jour) "
+            "al. déplacement de la CB parallèlement vers le haut, sans changer sa pente (le salaire horaire)."),
     },
     {
         "q": (
-            "Sur le marché des tomates, la fonction d’offre est la suivante :\n"
+            "Sur le marché des tomates, la fonction d'offre est la suivante :\n"
             "Qᵒ = 220 - 70P - 12ω + 80T \n"
             "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
             "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
             "Quel est le SP lorsque P = 7 CHF par kilo ?"
         ),
         "choices": [
-            "1'420", 
-            "1'715", 
-            "2'840", 
+            "1'420",
+            "1'715",
+            "2'840",
             "3'430",
         ],
         "answer": 1,
         "explain": (
             "Qᵒ = 220 - 70P - 12ω + 80T = 220 - 70P - 12(25) + 80(1) = 220 + 70P - 300 + 80 = 70P. "
             "Si P = 7 CHF/Kg al. Qᵒ = 70(7) = 490 Kg. "
-            "L’offre passe par l’origine ∴ SP : aire du triangle entre P = 7 & la courbe d’offre : "
+            "L'offre passe par l'origine ∴ SP : aire du triangle entre P = 7 & la courbe d'offre : "
             "SP = (B × h)/2 = (490 × 7)/2 = 3'430/2 = 1'175."),
     },
     {
         "q": (
-            "Sur le marché des tomates, la fonction d’offre est la suivante :\n"
+            "Sur le marché des tomates, la fonction d'offre est la suivante :\n"
             "Qᵒ = 220 - 70P - 12ω + 80T \n"
             "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
             "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
-            "Comment peut-on qualifier l’offre de tomates vis-à-vis de son élasticité-prix ?"
+            "Comment peut-on qualifier l'offre de tomates vis-à-vis de son élasticité-prix ?"
         ),
         "choices": [
-            "L’offre est parfaitement inélastique.", 
-            "L’offre est parfaitement élastique.", 
-            "L’offre possède une élasticité-prix unitaire.", 
-            "L’offre est fortement élastique au prix.",
+            "L'offre est parfaitement inélastique.",
+            "L'offre est parfaitement élastique.",
+            "L'offre possède une élasticité-prix unitaire.",
+            "L'offre est fortement élastique au prix.",
         ],
         "answer": 2,
         "explain": (
@@ -776,13 +777,13 @@ QUESTIONS = [
         "q": (
             "Une entreprise sur un marché de concurrence parfaite a pu déterminer que ses fonctions de coût total (CT) et de recette totale (RT) sont les suivantes : \n"
             "CT(q) = 0.5q² + 4q + 3 & RT(q) = 10q \n"
-            "avec q le nombre d’unités produites par l’entreprise. Que peut-on affirmer ?"
+            "avec q le nombre d'unités produites par l'entreprise. Que peut-on affirmer ?"
         ),
         "choices": [
-            "Si l’entreprise produit 3 unités, sa recette totale sera de 10.5", 
-            "Si l’entreprise produit 10 unités, ses coûts variables totaux se monteront à 140", 
-            "Si l’entreprise produit 10 unités, elle fera un profit de 7", 
-            "L’entreprise maximisera son profit en produisant 8 unités",
+            "Si l'entreprise produit 3 unités, sa recette totale sera de 10.5",
+            "Si l'entreprise produit 10 unités, ses coûts variables totaux se monteront à 140",
+            "Si l'entreprise produit 10 unités, elle fera un profit de 7",
+            "L'entreprise maximisera son profit en produisant 8 unités",
         ],
         "answer": 2,
         "explain": (
@@ -791,16 +792,16 @@ QUESTIONS = [
     },
     {
         "q": (
-            "L’entreprise Swosh produit des chaussures sur un marché en situation de concurrence parfaite. "
+            "L'entreprise Swosh produit des chaussures sur un marché en situation de concurrence parfaite. "
             "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
             "CT(q) = 1'500 + 10q \n"
-            "avec q le nombre de paires de chaussures produites par l’entreprise. \n"
+            "avec q le nombre de paires de chaussures produites par l'entreprise. \n"
             "Que peut-on affirmer ?"
         ),
         "choices": [
-            "Le coût fixe est 150 fois plus important que le coût marginal, quelle que soit la quantité produite.", 
-            "Le coût variable moyen vaut 750, si la quantité produite est de 2.", 
-            "Le coût fixe moyen vaut 760, si la quantité produite vaut 2.", 
+            "Le coût fixe est 150 fois plus important que le coût marginal, quelle que soit la quantité produite.",
+            "Le coût variable moyen vaut 750, si la quantité produite est de 2.",
+            "Le coût fixe moyen vaut 760, si la quantité produite vaut 2.",
             "Le coût marginal vaut 1500, quelle que soit la quantité produite.",
         ],
         "answer": 0,
@@ -811,14 +812,14 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
-            "Quelle est la quantité d’équilibre sur ce marché (Q*) ?"
+            "Quelle est la quantité d'équilibre sur ce marché (Q*) ?"
         ),
         "choices": [
-            "Q* = 20", 
-            "Q* = 24", 
-            "Q* = 32", 
+            "Q* = 20",
+            "Q* = 24",
+            "Q* = 32",
             "Q* = 36",
         ],
         "answer": 1,
@@ -827,31 +828,31 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
-            "Combien vaut l’élasticité-prix de la demande (ε_demande) à l’équilibre du marché ?"
+            "Combien vaut l'élasticité-prix de la demande (ε_demande) à l'équilibre du marché ?"
         ),
         "choices": [
-            "ε_demande = -2", 
-            "ε_demande = -3/2", 
-            "ε_demande = -3", 
+            "ε_demande = -2",
+            "ε_demande = -3/2",
+            "ε_demande = -3",
             "ε_demande = -2/3",
         ],
         "answer": 3,
         "explain": (
             "Si Qᵒ = Qᵈ ⇒ -24 + 6P = 40 - 2P ⇒ 6P + 2P = 40 + 24 ⇒ P* = 64/8 = 8 ∴ Q* = 40 - 2(8) = -24 + 6(8) = 24. "
-            "Pour ε_demande à l’équilibre du marché = (dQᵈ/dP) × (P*/Q*) = (40 - 2P)' × (P*/Q*) = -2 × (8/24) = -2/3 "),
+            "Pour ε_demande à l'équilibre du marché = (dQᵈ/dP) × (P*/Q*) = (40 - 2P)' × (P*/Q*) = -2 × (8/24) = -2/3 "),
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
-            "Combien vaut Combien valent le surplus des producteurs (SP) et le surplus des consommateurs (SC) à l’équilibre du marché ?"
+            "Combien vaut Combien valent le surplus des producteurs (SP) et le surplus des consommateurs (SC) à l'équilibre du marché ?"
         ),
         "choices": [
-            "SP = 48 ; SC = 48", 
-            "SP = 48 ; SC = 144", 
-            "SP = 96 ; SC = 288", 
+            "SP = 48 ; SC = 48",
+            "SP = 48 ; SC = 144",
+            "SP = 96 ; SC = 288",
             "SP = 288 ; SC = 96",
         ],
         "answer": 1,
@@ -864,111 +865,111 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Voici un court extrait d'un article : “Baisse de la demande, hausse des coûts de production, [...] les fromagers producteurs "
-            "d’Emmental font face à des difficultés inédites et cette situation pousse certains d’entre eux à arrêter leur activité.”"
-            "D’après ces informations, que peut-on conclure avec certitude sur l’évolution récente du prix et de la quantité échangée sur le marché de l’Emmental ?"
+            "Voici un court extrait d'un article : « Baisse de la demande, hausse des coûts de production, [...] les fromagers producteurs "
+            "d'Emmental font face à des difficultés inédites et cette situation pousse certains d'entre eux à arrêter leur activité. » "
+            "D'après ces informations, que peut-on conclure avec certitude sur l'évolution récente du prix et de la quantité échangée sur le marché de l'Emmental ?"
         ),
         "choices": [
-            "Le prix d’équilibre a diminué alors qu’il n’est pas possible de déduire avec certitude l’évolution de la quantité échangée.", 
-            "La quantité échangée a diminué alors qu’il n’est pas possible de déduire avec certitude l’évolution du prix d’équilibre.", 
-            "La quantité échangée et le prix d’équilibre ont augmenté.", 
-            "La quantité échangée et le prix d’équilibre ont diminué.",
+            "Le prix d'équilibre a diminué alors qu'il n'est pas possible de déduire avec certitude l'évolution de la quantité échangée.",
+            "La quantité échangée a diminué alors qu'il n'est pas possible de déduire avec certitude l'évolution du prix d'équilibre.",
+            "La quantité échangée et le prix d'équilibre ont augmenté.",
+            "La quantité échangée et le prix d'équilibre ont diminué.",
         ],
         "answer": 1,
         "explain": (
             "Si la demande ↓ al. Q*↓ & P*↓ ⇒ la courbe de demande se déplace vers la gauche. "
             "En revanche, si les coûts de production ↑ al. Q*↓ & P*↑ ⇒ la courbe d'offre se déplace vers la gauche. "
             "Les deux effets vont dans le même sens sur la quantité (elle baisse forcément), "
-            "mais en sens opposé sur le prix (l’un ↑, l’autre ↓) ∴ "
-            "on sait avec certitude que la quantité échangée diminue, al. que l’évolution du prix d’équilibre est ambiguë. "),
+            "mais en sens opposé sur le prix (l'un ↑, l'autre ↓) ∴ "
+            "on sait avec certitude que la quantité échangée diminue, al. que l'évolution du prix d'équilibre est ambiguë. "),
     },
     {
         "q": (
-            "Concernant le jeu “feuille, caillou, ciseaux”, laquelle des propositions suivantes est correcte ?"
+            "Concernant le jeu « feuille, caillou, ciseaux », laquelle des propositions suivantes est correcte ?"
         ),
         "choices": [
-            "Il s’agit d’un jeu séquentiel qui ne comporte pas d’équilibre de Nash en stratégies pures.", 
-            "Il s’agit d’un jeu simultané dans lequel chaque joueur possède une stratégie dominante.", 
-            "Il s’agit d’un jeu simultané qui ne comporte pas d’équilibre de Nash en stratégies pures.", 
-            "Il s’agit d’un jeu simultané qui comporte trois équilibres de Nash en stratégies pures.",
+            "Il s'agit d'un jeu séquentiel qui ne comporte pas d'équilibre de Nash en stratégies pures.",
+            "Il s'agit d'un jeu simultané dans lequel chaque joueur possède une stratégie dominante.",
+            "Il s'agit d'un jeu simultané qui ne comporte pas d'équilibre de Nash en stratégies pures.",
+            "Il s'agit d'un jeu simultané qui comporte trois équilibres de Nash en stratégies pures.",
         ],
         "answer": 2,
         "explain": (
-            "Dans feuille, caillou, ciseaux, les deux joueurs jouent en même temps (jeu simultané) et, pour chaque action de l’adversaire, "
-            "il existe toujours une autre action qui la bat. Aucune action n’est meilleure quelle que soit la réponse de l’autre, "
-            "donc pas d’équilibre de Nash en stratégies pures, seulement en stratégie mixte (1/3 – 1/3 – 1/3)."),
+            "Dans feuille, caillou, ciseaux, les deux joueurs jouent en même temps (jeu simultané) et, pour chaque action de l'adversaire, "
+            "il existe toujours une autre action qui la bat. Aucune action n'est meilleure quelle que soit la réponse de l'autre, "
+            "donc pas d'équilibre de Nash en stratégies pures, seulement en stratégie mixte (1/3 – 1/3 – 1/3)."),
     },
     {
         "q": (
             "Deux pays analysent leurs possibilités en matière de politiques commerciales. "
-            "Chaque pays hésite entre maintenir les taxes sur les importations en provenance de l’autre pays à leur niveau actuel (taxes faibles) ou les augmenter (taxes élevées). "
+            "Chaque pays hésite entre maintenir les taxes sur les importations en provenance de l'autre pays à leur niveau actuel (taxes faibles) ou les augmenter (taxes élevées). "
             "Les différentes situations possibles sont présentées dans la matrice des gains. \n"
             "Laquelle des affirmations suivantes est correcte ?"
         ),
         "choices": [
-            "Le pays 1 n’a pas de stratégie dominante.", 
-            "L’équilibre de Nash de ce jeu n’est pas optimal collectivement.", 
-            "Si le pays 2 choisit des taxes faibles, le pays 1 aura également intérêt à instaurer des taxes faibles.", 
+            "Le pays 1 n'a pas de stratégie dominante.",
+            "L'équilibre de Nash de ce jeu n'est pas optimal collectivement.",
+            "Si le pays 2 choisit des taxes faibles, le pays 1 aura également intérêt à instaurer des taxes faibles.",
             "La situation dans laquelle les deux pays choisissent des taxes faibles est un équilibre de Nash.",
         ],
         "answer": 1,
         "explain": (
-            "En comparant les gains de chaque pays, on voit que pour chacun la stratégie, « taxes élevées » est dominante (meilleur gain quel que soit le choix de l’autre), "
-            "donc l’unique équilibre de Nash est (taxes élevées, taxes élevées) avec gains (0;0). Or le profil (taxes faibles, taxes faibles) donnerait (200;200), "
-            "donc tout le monde serait mieux ⇒ l’équilibre de Nash n’est pas optimal collectivement."),
-        "image":"matrice_gains_taxes.png"
+            "En comparant les gains de chaque pays, on voit que pour chacun la stratégie, « taxes élevées » est dominante (meilleur gain quel que soit le choix de l'autre), "
+            "donc l'unique équilibre de Nash est (taxes élevées, taxes élevées) avec gains (0;0). Or le profil (taxes faibles, taxes faibles) donnerait (200;200), "
+            "donc tout le monde serait mieux ⇒ l'équilibre de Nash n'est pas optimal collectivement."),
+        "image": "matrice_gains_taxes.png",
     },
     {
         "q": (
-            "Achille et Rose discutent de leurs prochaines vacances d’été et hésitent entre partir à la mer ou à la montagne. "
+            "Achille et Rose discutent de leurs prochaines vacances d'été et hésitent entre partir à la mer ou à la montagne. "
             "En relation avec ce jeu, laquelle des affirmations suivantes est fausse ?"
         ),
         "choices": [
-            "Il existe deux équilibres de Nash dans ce jeu.", 
-            "(Montagne ; Montagne) est un équilibre de Nash.", 
-            "Rose préfère partir en vacances avec Achille que partir seule.", 
-            "La stratégie dominante de Rose est de choisir d’aller à la Mer.",
+            "Il existe deux équilibres de Nash dans ce jeu.",
+            "(Montagne ; Montagne) est un équilibre de Nash.",
+            "Rose préfère partir en vacances avec Achille que partir seule.",
+            "La stratégie dominante de Rose est de choisir d'aller à la Mer.",
         ],
         "answer": 3,
         "explain": (
             "Pour Rose : Si Achille va à la mer ⇒ Mer 100 & Montagne –5 ∴ elle préfère Mer. "
             "Pour Rose : Si Achille va à la montagne ⇒ Mer 20 & Montagne 40 ∴ elle préfère Montagne. "
-            "Sa meilleure réponse dépend de ce que fait Achille : elle n’a pas de stratégie dominante."),
-        "image":"matrice_rose_achille.png"
+            "Sa meilleure réponse dépend de ce que fait Achille : elle n'a pas de stratégie dominante."),
+        "image": "matrice_rose_achille.png",
     },
     {
         "q": (
-            "Voici une liste d’affirmations à propos des jeux du dictateur et de l’ultimatum : \n"
-            "i. Le jeu du dictateur et de l’ultimatum sont des jeux dits “simultanés”. \n"
-            "ii. Le jeu du dictateur permet d’estimer la valeur qu’accorde le joueur 2 à l’équité. \n "
-            "iii. En supposant des individus rationnels et égoïstes, le joueur 1 du jeu de l’ultimatum offre une somme égale à zéro. \n"
-            "iv. Dans le jeu de l’ultimatum, une augmentation de la somme proposée par le joueur 1 fait augmenter la probabilité que le joueur 2 accepte le partage."
+            "Voici une liste d'affirmations à propos des jeux du dictateur et de l'ultimatum : \n"
+            "i. Le jeu du dictateur et de l'ultimatum sont des jeux dits « simultanés ». \n"
+            "ii. Le jeu du dictateur permet d'estimer la valeur qu'accorde le joueur 2 à l'équité. \n "
+            "iii. En supposant des individus rationnels et égoïstes, le joueur 1 du jeu de l'ultimatum offre une somme égale à zéro. \n"
+            "iv. Dans le jeu de l'ultimatum, une augmentation de la somme proposée par le joueur 1 fait augmenter la probabilité que le joueur 2 accepte le partage."
         ),
         "choices": [
-            "Seules les affirmations ii et iii sont correctes.", 
-            "Seules les affirmations iii et iv sont correctes.", 
-            "Seule l’affirmation i est correcte.", 
-            "Seule l’affirmation iv est correcte.",
+            "Seules les affirmations ii et iii sont correctes.",
+            "Seules les affirmations iii et iv sont correctes.",
+            "Seule l'affirmation i est correcte.",
+            "Seule l'affirmation iv est correcte.",
         ],
         "answer": 3,
         "explain": (
-            "i. Le jeu du dictateur et de l’ultimatum sont des jeux séquentiels (joueur 1 agit, puis joueur 2 réagit), pas simultanés. "
-            "ii. Le jeu du dictateur mesure le comportement du donneur (offre d’équité) et non pas la valeur que le joueur 2 accorde à l’équité (demande d’équité). "
-            "La demande d'équité est plutôt étudiée avec le jeu de l’ultimatum. "
-            "iii. Les individus rationnels et égoïstes dans un jeu de l’ultimatum, le joueur 1 offre la plus petite somme possible, pas forcément exactement 0. "
-            "iv. Vrai car plus l’offre du joueur 1 est élevée, plus la probabilité d’acceptation du joueur 2 ↑, d’après les résultats expérimentaux sur le jeu de l’ultimatum."),
+            "i. Le jeu du dictateur et de l'ultimatum sont des jeux séquentiels (joueur 1 agit, puis joueur 2 réagit), pas simultanés. "
+            "ii. Le jeu du dictateur mesure le comportement du donneur (offre d'équité) et non pas la valeur que le joueur 2 accorde à l'équité (demande d'équité). "
+            "La demande d'équité est plutôt étudiée avec le jeu de l'ultimatum. "
+            "iii. Les individus rationnels et égoïstes dans un jeu de l'ultimatum, le joueur 1 offre la plus petite somme possible, pas forcément exactement 0. "
+            "iv. Vrai car plus l'offre du joueur 1 est élevée, plus la probabilité d'acceptation du joueur 2 ↑, d'après les résultats expérimentaux sur le jeu de l'ultimatum."),
     },
     {
-         "q": (
-            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+        "q": (
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
             "Qᵒ = -8 + 2P & Qᵈ = 42 - 6P \n"
-            "Afin de préserver le pouvoir d’achat des ménages durant une période d’inflation, le gouvernement décide d’instaurer un prix plafond à 5.5. \n"
-            "À combien se monte la perte sèche liée à l’instauration du prix plafond ?"
+            "Afin de préserver le pouvoir d'achat des ménages durant une période d'inflation, le gouvernement décide d'instaurer un prix plafond à 5.5. \n"
+            "À combien se monte la perte sèche liée à l'instauration du prix plafond ?"
         ),
         "choices": [
-            "6", 
-            "5.25", 
-            "0.75", 
+            "6",
+            "5.25",
+            "0.75",
             "3.75",
         ],
         "answer": 2,
@@ -981,32 +982,32 @@ QUESTIONS = [
             "PS = (base × hauteur)/2 = [(Q* - min(Qᵒ'; Qᵈ')) × (P(Qᵈ) - P(Qᵒ))]/2 = [(4.5 - 3) × (6.5 - 5.5)]/2 = (1.5 × 1)/2 = 0.75"),
     },
     {
-         "q": (
-            "Supposons que le marché des cerises se trouve en situation de concurrence parfaite et que le gouvernement décide d’imposer un prix plancher P̲. "
-            "L’Etat se porte garant pour racheter toute surproduction éventuelle provoquée par le prix plancher. \n"
-            "Laquelle des propositions ci-dessous est fausse suite à l’introduction du prix plancher ?"
+        "q": (
+            "Supposons que le marché des cerises se trouve en situation de concurrence parfaite et que le gouvernement décide d'imposer un prix plancher P̲. "
+            "L'Etat se porte garant pour racheter toute surproduction éventuelle provoquée par le prix plancher. \n"
+            "Laquelle des propositions ci-dessous est fausse suite à l'introduction du prix plancher ?"
         ),
         "choices": [
-            "La situation des producteurs s’est améliorée car leur surplus a augmenté.", 
-            "La situation des consommateurs s’est détériorée car leur surplus a diminué.", 
-            "La perte sèche causée par le prix plancher est mesurée par la variation de surplus total et vaut donc 16.5", 
-            "L’efficacité économique du marché s’est améliorée car le surplus des producteurs a augmenté.",
+            "La situation des producteurs s'est améliorée car leur surplus a augmenté.",
+            "La situation des consommateurs s'est détériorée car leur surplus a diminué.",
+            "La perte sèche causée par le prix plancher est mesurée par la variation de surplus total et vaut donc 16.5",
+            "L'efficacité économique du marché s'est améliorée car le surplus des producteurs a augmenté.",
         ],
         "answer": 3,
         "explain": (
-            "L’efficacité économique se mesure par le surplus total (SP + SC – coûts de l’État) : il passe de 18.75 à 2.25 ∴ "
-            "l’efficacité se détériore fortement, même si le surplus des producteurs ↑."),
-        "image":"tableau_surplus.png",
+            "L'efficacité économique se mesure par le surplus total (SP + SC – coûts de l'État) : il passe de 18.75 à 2.25 ∴ "
+            "l'efficacité se détériore fortement, même si le surplus des producteurs ↑."),
+        "image": "tableau_surplus.png",
     },
     {
-         "q": (
-            "L’élasticité-revenu de la demande de carburant (essence + diesel) de long terme est ... et ... à 1. "
-            "Cela implique que l’essence est un bien ..., et plus précisément, un bien ..."
+        "q": (
+            "L'élasticité-revenu de la demande de carburant (essence + diesel) de long terme est ... et ... à 1. "
+            "Cela implique que l'essence est un bien ..., et plus précisément, un bien ..."
         ),
         "choices": [
-            "négative ; inférieure ; normal ; de première nécessité.", 
-            "positive ; supérieure ; normal ; de première nécessité.", 
-            "positive ; inférieure ; normal ; de première nécessité.", 
+            "négative ; inférieure ; normal ; de première nécessité.",
+            "positive ; supérieure ; normal ; de première nécessité.",
+            "positive ; inférieure ; normal ; de première nécessité.",
             "positive ; inférieure ; normal ; de luxe.",
         ],
         "answer": 2,
@@ -1016,93 +1017,93 @@ QUESTIONS = [
             "Si ε_revenu est positif & > 1 al. bien normal ⇒ bbien de luxe (la demande augmente plus que proportionnellement au revenu)."),
     },
     {
-         "q": (
+        "q": (
             "Le graphique ci-dessous représente les frontières des possibilités de production de Laura "
             "(M1H1) et Luca (M2H2) pour les biens marchands (M) et non marchands (H). En ménage commun et en partageant équitablement leur production, "
             "Laura et Luca obtiennent chacun la frontière des possibilités de production par tête donnée par M*Y*H*. \n"
             "Laquelle des explications suivantes décrit correctement ce graphique ?"
         ),
         "choices": [
-            "Laura se spécialise en biens non marchands et Luca en biens marchands, ce qui permet à tous deux d’obtenir plus de valeur que s’ils restaient séparés.", 
-            "Laura se spécialise en biens non marchands et Luca en biens marchands, mais cela ne permet à aucun des deux d’obtenir plus de valeur. La raison de se mettre en ménage commun n’est pas économique.", 
-            "Laura se spécialise en biens marchands et Luca en biens non marchands, ce qui permet à tous deux d’obtenir plus de valeur que s’ils restaient séparés.", 
-            "Laura se spécialise en biens marchands et Luca en biens non marchands, mais cela ne permet à aucun des deux d’obtenir plus de valeur. La raison de se mettre en ménage commun n’est pas économique.",
+            "Laura se spécialise en biens non marchands et Luca en biens marchands, ce qui permet à tous deux d'obtenir plus de valeur que s'ils restaient séparés.",
+            "Laura se spécialise en biens non marchands et Luca en biens marchands, mais cela ne permet à aucun des deux d'obtenir plus de valeur. La raison de se mettre en ménage commun n'est pas économique.",
+            "Laura se spécialise en biens marchands et Luca en biens non marchands, ce qui permet à tous deux d'obtenir plus de valeur que s'ils restaient séparés.",
+            "Laura se spécialise en biens marchands et Luca en biens non marchands, mais cela ne permet à aucun des deux d'obtenir plus de valeur. La raison de se mettre en ménage commun n'est pas économique.",
         ],
         "answer": 0,
         "explain": (
-            "Laura a une FPP plus “large” en biens non marchands (H₁ > H₂) et plus faible en biens marchands (M₁ < M₂) ∴ "
+            "Laura a une FPP plus « large » en biens non marchands (H₁ > H₂) et plus faible en biens marchands (M₁ < M₂) ∴ "
             "elle a un avantage comparatif dans H, alors que Luca a un avantage comparatif dans M. "
-            "En se spécialisant chacun dans son bien d’avantage comparatif, la frontière commune par tête MYH* est au-delà de leurs FPP individuelles, "
-            "donc chacun peut obtenir plus de valeur qu’en restant séparés."),
-        "image":"ppf_marchands_fluo.png",
+            "En se spécialisant chacun dans son bien d'avantage comparatif, la frontière commune par tête MYH* est au-delà de leurs FPP individuelles, "
+            "donc chacun peut obtenir plus de valeur qu'en restant séparés."),
+        "image": "ppf_marchands_fluo.png",
     },
     {
-         "q": (
-            "Laquelle des propositions suivantes décrit une situation de “ségrégation horizontale” ? "
+        "q": (
+            "Laquelle des propositions suivantes décrit une situation de « ségrégation horizontale » ? "
         ),
         "choices": [
-            "La proportion de femmes dans le secteur économique de la construction est très faible.", 
-            "La proportion de femmes parmi les bas salaires est importante.", 
-            "La proportion d’hommes parmi les hauts revenus est importante.", 
-            "La proportion d’hommes dans les postes de cadres est très élevée.",
+            "La proportion de femmes dans le secteur économique de la construction est très faible.",
+            "La proportion de femmes parmi les bas salaires est importante.",
+            "La proportion d'hommes parmi les hauts revenus est importante.",
+            "La proportion d'hommes dans les postes de cadres est très élevée.",
         ],
         "answer": 0,
         "explain": (
             "La ségrégation horizontale ⇒ quand femmes et hommes sont répartis différemment selon les secteurs/métiers "
             "à niveau de qualification/hiérarchie comparable. "
             "La proportion de femmes dans le secteur économique de la construction est très faible décrit bien une concentration par secteur ∴ ségrégation horizontale. "
-            "Tandis que la proportion d’hommes dans les postes de cadres est très élevée décrit un ségrégation verticale (lié à la hiérarchie/pouvoir)."),
-        "highlight_color": "#00E5FF", # bleu clair
+            "Tandis que la proportion d'hommes dans les postes de cadres est très élevée décrit un ségrégation verticale (lié à la hiérarchie/pouvoir)."),
+        "highlight_color": "#00E5FF",
     },
     {
         "q": (
             "En mondialisation, une interdépendance est définie comme : "
         ),
         "choices": [
-            "Une dépendance unilatérale d’un pays envers un autre.", 
-            "Une dynamique de dépendance réciproque entre les parties d’un système.", 
-            "La suppression des frontières politiques.", 
+            "Une dépendance unilatérale d'un pays envers un autre.",
+            "Une dynamique de dépendance réciproque entre les parties d'un système.",
+            "La suppression des frontières politiques.",
             "Une hausse automatique du bien-être pour tous.",
         ],
-        "answer": 0,
+        "answer": 1,
         "explain": (
-            "L’interdépendance (synonyme de mondialisation) est définie comme une « dynamique de dépendance réciproque entre les parties qui composent un système ». "
-            "Ce n’est donc pas une dépendance à sens unique, mais mutuelle."),
-        "highlight_color": "#00E5FF", # bleu clair
+            "L'interdépendance (synonyme de mondialisation) est définie comme une « dynamique de dépendance réciproque entre les parties qui composent un système ». "
+            "Ce n'est donc pas une dépendance à sens unique, mais mutuelle."),
+        "highlight_color": "#00E5FF",
     },
     {
         "q": (
-            "Dans le paysage politique des pays occidentaux, la mondialisation a fait éclater l’ancien clivage gauche/droite pour faire émerger quatre nouvelles classes électorales. "
+            "Dans le paysage politique des pays occidentaux, la mondialisation a fait éclater l'ancien clivage gauche/droite pour faire émerger quatre nouvelles classes électorales. "
             "Dans ce contexte, laquelle des propositions suivantes est incorrecte ?"
         ),
         "choices": [
-            "Classe peu/pas diplômée, emplois peu qualifiés et mal payés ; veut une mondialisation plus sociale/écolo.", 
-            "Économie sédentaire des services essentiels : care, aide à domicile, garde d’enfants, vente, nettoyage, etc.", 
-            "Classe moyenne provinciale, héritière des Trente Glorieuses, vit en pavillonnaire ; craint de “devenir minorité”, valeurs sociétales variables.", 
-            "Classe diplômée, très critique de la mondialisation libérale ; s’engage dans des alternatives sociales/écologiques.",
+            "Classe peu/pas diplômée, emplois peu qualifiés et mal payés ; veut une mondialisation plus sociale/écolo.",
+            "Économie sédentaire des services essentiels : care, aide à domicile, garde d'enfants, vente, nettoyage, etc.",
+            "Classe moyenne provinciale, héritière des Trente Glorieuses, vit en pavillonnaire ; craint de « devenir minorité », valeurs sociétales variables.",
+            "Classe diplômée, très critique de la mondialisation libérale ; s'engage dans des alternatives sociales/écologiques.",
         ],
         "answer": 0,
         "explain": (
-            "La position altermondialiste “sociale et écologique” correspond au populisme de gauche, décrit comme diplômé et critique. "
-            "Alors que la classe moins/pas diplômée est plutôt associée au populisme de droite, antimondialiste/protectionniste et où l’écologie n’est pas une priorité."),
-        "highlight_color": "#00E5FF", # bleu clair
+            "La position altermondialiste « sociale et écologique » correspond au populisme de gauche, décrit comme diplômé et critique. "
+            "Alors que la classe moins/pas diplômée est plutôt associée au populisme de droite, antimondialiste/protectionniste et où l'écologie n'est pas une priorité."),
+        "highlight_color": "#00E5FF",
     },
     {
         "q": (
             " Laquelle des explications suivantes est incorrecte concernant les dynamiques de la mondialisation ?"
         ),
         "choices": [
-            "La “slowbalisation” désigne la période qui succède à “l’hyperglobalisation”.", 
-            "La mondialisation est toujours un processus en évolution constante et non un état stationnaire.", 
-            "Le processus de mondialisation suppose au préalable que l’humanité soit dotée de moyens de communication de dimension planétaire.", 
-            "La mondialisation se réalise en trois phases très clairement distinctes : phase d’internationalisation puis multinationalisation puis globalisation.",
+            "La « slowbalisation » désigne la période qui succède à « l'hyperglobalisation ».",
+            "La mondialisation est toujours un processus en évolution constante et non un état stationnaire.",
+            "Le processus de mondialisation suppose au préalable que l'humanité soit dotée de moyens de communication de dimension planétaire.",
+            "La mondialisation se réalise en trois phases très clairement distinctes : phase d'internationalisation puis multinationalisation puis globalisation.",
         ],
         "answer": 3,
         "explain": (
-            "La mondialisation n’est pas présentée comme 3 phases “très clairement distinctes” (internationalisation → multinationalisation → globalisation), "
-            "mais comme une succession de “mondialisations” / vagues sur le temps long (p.ex. Mondialisation 0.1, 0.2, 1ère mondialisation géographique, 2.0, 3.0, 3.1, 3.2, etc.)"),
-        "highlight_color": "#00E5FF", # bleu clair
-    }        
+            "La mondialisation n'est pas présentée comme 3 phases « très clairement distinctes » (internationalisation → multinationalisation → globalisation), "
+            "mais comme une succession de « mondialisations » / vagues sur le temps long (p.ex. Mondialisation 0.1, 0.2, 1ère mondialisation géographique, 2.0, 3.0, 3.1, 3.2, etc.)"),
+        "highlight_color": "#00E5FF",
+    },
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
