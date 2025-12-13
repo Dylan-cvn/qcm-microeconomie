@@ -998,6 +998,66 @@ QUESTIONS = [
             "l’efficacité se détériore fortement, même si le surplus des producteurs ↑."),
         "image":"tableau_surplus.png",
     },
+    {
+         "q": (
+            "L’élasticité-revenu de la demande de carburant (essence + diesel) de long terme est ... et ... à 1. "
+            "Cela implique que l’essence est un bien ..., et plus précisément, un bien ..."
+        ),
+        "choices": [
+            "négative ; inférieure ; normal ; de première nécessité.", 
+            "positive ; supérieure ; normal ; de première nécessité.", 
+            "positive ; inférieure ; normal ; de première nécessité.", 
+            "positive ; inférieure ; normal ; de luxe.",
+        ],
+        "answer": 2,
+        "explain": (
+            "Si ε_revenu est positif & < 1 al. bien normal ⇒ bien de première nécessité (la demande augmente avec le revenu, mais moins que proportionnellement). "
+            "Si ε_revenu est positif & = 1 al. bien normal ⇒ bien élasticité-revenu unitaire (la demande augmente al. le revenu augmente de 1 %). "
+            "Si ε_revenu est positif & > 1 al. bien normal ⇒ bbien de luxe (la demande augmente plus que proportionnellement au revenu)."),
+    },
+    {
+         "q": (
+            "Le graphique ci-dessous représente les frontières des possibilités de production de Laura "
+            "(M1H1) et Luca (M2H2) pour les biens marchands (M) et non marchands (H). En ménage commun et en partageant équitablement leur production, "
+            "Laura et Luca obtiennent chacun la frontière des possibilités de production par tête donnée par M*Y*H*. \n"
+            "Laquelle des explications suivantes décrit correctement ce graphique ?"
+        ),
+        "choices": [
+            "Laura se spécialise en biens non marchands et Luca en biens marchands, ce qui permet à tous deux d’obtenir plus de valeur que s’ils restaient séparés.", 
+            "Laura se spécialise en biens non marchands et Luca en biens marchands, mais cela ne permet à aucun des deux d’obtenir plus de valeur. La raison de se mettre en ménage commun n’est pas économique.", 
+            "Laura se spécialise en biens marchands et Luca en biens non marchands, ce qui permet à tous deux d’obtenir plus de valeur que s’ils restaient séparés.", 
+            "Laura se spécialise en biens marchands et Luca en biens non marchands, mais cela ne permet à aucun des deux d’obtenir plus de valeur. La raison de se mettre en ménage commun n’est pas économique.",
+        ],
+        "answer": 0,
+        "explain": (
+            "Laura a une FPP plus “large” en biens non marchands (H₁ > H₂) et plus faible en biens marchands (M₁ < M₂) ∴ "
+            "elle a un avantage comparatif dans H, alors que Luca a un avantage comparatif dans M. "
+            "En se spécialisant chacun dans son bien d’avantage comparatif, la frontière commune par tête MYH* est au-delà de leurs FPP individuelles, "
+            "donc chacun peut obtenir plus de valeur qu’en restant séparés."),
+        "image":"ppf_marchands_fluo.png",
+    },
+    {
+         "q": (
+            "Laquelle des propositions suivantes décrit une situation de “ségrégation horizontale” ? "
+        ),
+        "choices": [
+            "La proportion de femmes dans le secteur économique de la construction est très faible.", 
+            "La proportion de femmes parmi les bas salaires est importante.", 
+            "La proportion d’hommes parmi les hauts revenus est importante.", 
+            "La proportion d’hommes dans les postes de cadres est très élevée.",
+        ],
+        "answer": 0,
+        "explain": (
+            "La ségrégation horizontale ⇒ quand femmes et hommes sont répartis différemment selon les secteurs/métiers "
+            "à niveau de qualification/hiérarchie comparable. "
+            "La proportion de femmes dans le secteur économique de la construction est très faible décrit bien une concentration par secteur ∴ ségrégation horizontale. "
+            "Tandis que la proportion d’hommes dans les postes de cadres est très élevée décrit un ségrégation verticale (lié à la hiérarchie/pouvoir)."),
+        "highlight_color": "#00E5FF", # bleu clair
+    },
+    
+        
+    
+        
     
     
         
