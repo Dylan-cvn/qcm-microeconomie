@@ -1054,19 +1054,55 @@ QUESTIONS = [
             "Tandis que la proportion d’hommes dans les postes de cadres est très élevée décrit un ségrégation verticale (lié à la hiérarchie/pouvoir)."),
         "highlight_color": "#00E5FF", # bleu clair
     },
-    
-        
-    
-        
-    
-    
-        
-    
-    
-    
-    
-      
-        
+    {
+        "q": (
+            "En mondialisation, une interdépendance est définie comme : "
+        ),
+        "choices": [
+            "Une dépendance unilatérale d’un pays envers un autre.", 
+            "Une dynamique de dépendance réciproque entre les parties d’un système.", 
+            "La suppression des frontières politiques.", 
+            "Une hausse automatique du bien-être pour tous.",
+        ],
+        "answer": 0,
+        "explain": (
+            "L’interdépendance (synonyme de mondialisation) est définie comme une « dynamique de dépendance réciproque entre les parties qui composent un système ». "
+            "Ce n’est donc pas une dépendance à sens unique, mais mutuelle."),
+        "highlight_color": "#00E5FF", # bleu clair
+    },
+    {
+        "q": (
+            "Dans le paysage politique des pays occidentaux, la mondialisation a fait éclater l’ancien clivage gauche/droite pour faire émerger quatre nouvelles classes électorales. "
+            "Dans ce contexte, laquelle des propositions suivantes est incorrecte ?"
+        ),
+        "choices": [
+            "Classe peu/pas diplômée, emplois peu qualifiés et mal payés ; veut une mondialisation plus sociale/écolo.", 
+            "Économie sédentaire des services essentiels : care, aide à domicile, garde d’enfants, vente, nettoyage, etc.", 
+            "Classe moyenne provinciale, héritière des Trente Glorieuses, vit en pavillonnaire ; craint de “devenir minorité”, valeurs sociétales variables.", 
+            "Classe diplômée, très critique de la mondialisation libérale ; s’engage dans des alternatives sociales/écologiques.",
+        ],
+        "answer": 0,
+        "explain": (
+            "La position altermondialiste “sociale et écologique” correspond au populisme de gauche, décrit comme diplômé et critique. "
+            "Alors que la classe moins/pas diplômée est plutôt associée au populisme de droite, antimondialiste/protectionniste et où l’écologie n’est pas une priorité."),
+        "highlight_color": "#00E5FF", # bleu clair
+    },
+    {
+        "q": (
+            " Laquelle des explications suivantes est incorrecte concernant les dynamiques de la mondialisation ?"
+        ),
+        "choices": [
+            "La “slowbalisation” désigne la période qui succède à “l’hyperglobalisation”.", 
+            "La mondialisation est toujours un processus en évolution constante et non un état stationnaire.", 
+            "Le processus de mondialisation suppose au préalable que l’humanité soit dotée de moyens de communication de dimension planétaire.", 
+            "La mondialisation se réalise en trois phases très clairement distinctes : phase d’internationalisation puis multinationalisation puis globalisation.",
+        ],
+        "answer": 3,
+        "explain": (
+            "La mondialisation n’est pas présentée comme 3 phases “très clairement distinctes” (internationalisation → multinationalisation → globalisation), "
+            "mais comme une succession de “mondialisations” / vagues sur le temps long (p.ex. Mondialisation 0.1, 0.2, 1ère mondialisation géographique, 2.0, 3.0, 3.1, 3.2, etc.)"),
+        "highlight_color": "#00E5FF", # bleu clair
+    }        
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
