@@ -734,7 +734,7 @@ QUESTIONS = [
     {
         "q": (
             "Sur le marché des tomates, la fonction d’offre est la suivante :\n"
-            "Qᵒ = 220 - 70P - 12ω + 80T "
+            "Qᵒ = 220 - 70P - 12ω + 80T \n"
             "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
             "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
             "Quel est le SP lorsque P = 7 CHF par kilo ?"
@@ -755,7 +755,7 @@ QUESTIONS = [
     {
         "q": (
             "Sur le marché des tomates, la fonction d’offre est la suivante :\n"
-            "Qᵒ = 220 - 70P - 12ω + 80T "
+            "Qᵒ = 220 - 70P - 12ω + 80T \n"
             "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
             "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
             "Comment peut-on qualifier l’offre de tomates vis-à-vis de son élasticité-prix ?"
@@ -775,7 +775,7 @@ QUESTIONS = [
     {
         "q": (
             "Une entreprise sur un marché de concurrence parfaite a pu déterminer que ses fonctions de coût total (CT) et de recette totale (RT) sont les suivantes : \n"
-            "CT(q) = 0.5q² + 4q + 3 & RT(q) = 10q "
+            "CT(q) = 0.5q² + 4q + 3 & RT(q) = 10q \n"
             "avec q le nombre d’unités produites par l’entreprise. Que peut-on affirmer ?"
         ),
         "choices": [
@@ -793,7 +793,7 @@ QUESTIONS = [
         "q": (
             "L’entreprise Swosh produit des chaussures sur un marché en situation de concurrence parfaite. "
             "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
-            "CT(q) = 1'500 + 10q"
+            "CT(q) = 1'500 + 10q \n"
             "avec q le nombre de paires de chaussures produites par l’entreprise. \n"
             "Que peut-on affirmer ?"
         ),
@@ -812,7 +812,7 @@ QUESTIONS = [
     {
         "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
+            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
             "Quelle est la quantité d’équilibre sur ce marché (Q*) ?"
         ),
         "choices": [
@@ -828,7 +828,7 @@ QUESTIONS = [
     {
         "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
+            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
             "Combien vaut l’élasticité-prix de la demande (ε_demande) à l’équilibre du marché ?"
         ),
         "choices": [
@@ -845,7 +845,7 @@ QUESTIONS = [
     {
         "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
+            "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
             "Combien vaut Combien valent le surplus des producteurs (SP) et le surplus des consommateurs (SC) à l’équilibre du marché ?"
         ),
         "choices": [
@@ -961,7 +961,7 @@ QUESTIONS = [
     {
          "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Qᵒ = -8 + 2P & Qᵈ = 42 - 6P "
+            "Qᵒ = -8 + 2P & Qᵈ = 42 - 6P \n"
             "Afin de préserver le pouvoir d’achat des ménages durant une période d’inflation, le gouvernement décide d’instaurer un prix plafond à 5.5. \n"
             "À combien se monte la perte sèche liée à l’instauration du prix plafond ?"
         ),
