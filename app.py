@@ -812,7 +812,6 @@ QUESTIONS = [
     {
         "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
             "Quelle est la quantité d’équilibre sur ce marché (Q*) ?"
         ),
@@ -829,7 +828,6 @@ QUESTIONS = [
     {
         "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
             "Combien vaut l’élasticité-prix de la demande (ε_demande) à l’équilibre du marché ?"
         ),
@@ -847,7 +845,6 @@ QUESTIONS = [
     {
         "q": (
             "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
-            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P "
             "Combien vaut Combien valent le surplus des producteurs (SP) et le surplus des consommateurs (SC) à l’équilibre du marché ?"
         ),
@@ -936,26 +933,73 @@ QUESTIONS = [
         "explain": (
             "Pour Rose : Si Achille va à la mer ⇒ Mer 100 & Montagne –5 ∴ elle préfère Mer. "
             "Pour Rose : Si Achille va à la montagne ⇒ Mer 20 & Montagne 40 ∴ elle préfère Montagne. "
-            "Sa meilleure réponse dépend de ce que fait Achille : elle n’a pas de stratégie dominante al. la (d) est fausse."),
+            "Sa meilleure réponse dépend de ce que fait Achille : elle n’a pas de stratégie dominante."),
         "image":"matrice_rose_achille.png"
     },
     {
         "q": (
-            " Voici une liste d’affirmations à propos des jeux du dictateur et de l’ultimatum : "
-            "En relation avec ce jeu, laquelle des affirmations suivantes est fausse ?"
+            "Voici une liste d’affirmations à propos des jeux du dictateur et de l’ultimatum : \n"
+            "i. Le jeu du dictateur et de l’ultimatum sont des jeux dits “simultanés”. \n"
+            "ii. Le jeu du dictateur permet d’estimer la valeur qu’accorde le joueur 2 à l’équité. \n "
+            "iii. En supposant des individus rationnels et égoïstes, le joueur 1 du jeu de l’ultimatum offre une somme égale à zéro. \n"
+            "iv. Dans le jeu de l’ultimatum, une augmentation de la somme proposée par le joueur 1 fait augmenter la probabilité que le joueur 2 accepte le partage."
         ),
         "choices": [
-            "Il existe deux équilibres de Nash dans ce jeu.", 
-            "(Montagne ; Montagne) est un équilibre de Nash.", 
-            "Rose préfère partir en vacances avec Achille que partir seule.", 
-            "La stratégie dominante de Rose est de choisir d’aller à la Mer.",
+            "Seules les affirmations ii et iii sont correctes.", 
+            "Seules les affirmations iii et iv sont correctes.", 
+            "Seule l’affirmation i est correcte.", 
+            "Seule l’affirmation iv est correcte.",
         ],
         "answer": 3,
         "explain": (
-            "Pour Rose : Si Achille va à la mer ⇒ Mer 100 & Montagne –5 ∴ elle préfère Mer. "
-            "Pour Rose : Si Achille va à la montagne ⇒ Mer 20 & Montagne 40 ∴ elle préfère Montagne. "
-            "Sa meilleure réponse dépend de ce que fait Achille : elle n’a pas de stratégie dominante al. la (d) est fausse."),
-    }
+            "i. Le jeu du dictateur et de l’ultimatum sont des jeux séquentiels (joueur 1 agit, puis joueur 2 réagit), pas simultanés. "
+            "ii. Le jeu du dictateur mesure le comportement du donneur (offre d’équité) et non pas la valeur que le joueur 2 accorde à l’équité (demande d’équité). "
+            "La demande d'équité est plutôt étudiée avec le jeu de l’ultimatum. "
+            "iii. Les individus rationnels et égoïstes dans un jeu de l’ultimatum, le joueur 1 offre la plus petite somme possible, pas forcément exactement 0. "
+            "iv. Vrai car plus l’offre du joueur 1 est élevée, plus la probabilité d’acceptation du joueur 2 ↑, d’après les résultats expérimentaux sur le jeu de l’ultimatum."),
+    },
+    {
+         "q": (
+            "Sur un marché de concurrence parfaite, l’offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Qᵒ = -8 + 2P & Qᵈ = 42 - 6P "
+            "Afin de préserver le pouvoir d’achat des ménages durant une période d’inflation, le gouvernement décide d’instaurer un prix plafond à 5.5. \n"
+            "À combien se monte la perte sèche liée à l’instauration du prix plafond ?"
+        ),
+        "choices": [
+            "6", 
+            "5.25", 
+            "0.75", 
+            "3.75",
+        ],
+        "answer": 2,
+        "explain": (
+            "Si Qᵒ = Qᵈ ⇒ -8 + 2P = 42 - 6P ⇒ 2P + 6P = 42 + 8 ⇒ P* = 50/8 = 6.25 ∴ Q* = -8 + 2(6.25) = 42 - 6(6.25) = 4.5. "
+            "Avec prix plafond P̅ = 5.5 al. Qᵒ' = -8 + 2(5.5) = 3 & Qᵈ' = 42 - 6(5.5) = 9. "
+            "Offre inverse : Qᵒ = -8 + 2P ⇒ 2P = Q + 8 ⇒ P(Qᵒ) = Q/2 + 8/2 = 4 + Q/2. "
+            "Demande inverse : Qᵈ = 42 - 6P ⇒ 6P = 42 - Q ⇒ P(Qᵈ) = 42/6 - Q/6 = 7 - Q/6. "
+            "Quantité échangée min(Qᵒ'; Qᵈ') = 3 ∴ A Q = 3 al. P(Qᵒ) = 4 + 3/2 = 5.5 & P(Qᵈ) = 7 - 3/6 = 6.5. "
+            "PS = (base × hauteur)/2 = [(Q* - min(Qᵒ'; Qᵈ')) × (P(Qᵈ) - P(Qᵒ))]/2 = [(4.5 - 3) × (6.5 - 5.5)]/2 = (1.5 × 1)/2 = 0.75"),
+    },
+    {
+         "q": (
+            "Supposons que le marché des cerises se trouve en situation de concurrence parfaite et que le gouvernement décide d’imposer un prix plancher P̲. "
+            "L’Etat se porte garant pour racheter toute surproduction éventuelle provoquée par le prix plancher. \n"
+            "Laquelle des propositions ci-dessous est fausse suite à l’introduction du prix plancher ?"
+        ),
+        "choices": [
+            "La situation des producteurs s’est améliorée car leur surplus a augmenté.", 
+            "La situation des consommateurs s’est détériorée car leur surplus a diminué.", 
+            "La perte sèche causée par le prix plancher est mesurée par la variation de surplus total et vaut donc 16.5", 
+            "L’efficacité économique du marché s’est améliorée car le surplus des producteurs a augmenté.",
+        ],
+        "answer": 3,
+        "explain": (
+            "L’efficacité économique se mesure par le surplus total (SP + SC – coûts de l’État) : il passe de 18.75 à 2.25 ∴ "
+            "l’efficacité se détériore fortement, même si le surplus des producteurs ↑."),
+        "image":"tableau_surplus.png",
+    },
+    
+    
         
     
     
