@@ -3,6 +3,7 @@ import random
 from datetime import datetime, timedelta
 from pathlib import Path
 import pandas as pd
+import requests
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
@@ -1116,27 +1117,106 @@ RESULTS_FILE = "results.csv" # Fichier de résultats
 # FONCTIONS DE GESTION DES RÉSULTATS
 #-------------------------------------------------------------------------------------------------------------------------------------------
 
+# ===========================================================================
+# FONCTIONS JSONBIN
+# ===========================================================================
+
+BIN_ID = None
+
+def get_jsonbin_headers():
+    api_key = st.secrets.get("JSONBIN_API_KEY", "")
+    return {
+        "X-Master-Key": api_key,
+        "Content-Type": "application/json"
+    }
+
+def get_or_create_bin():
+    global BIN_ID
+    if BIN_ID:
+        return BIN_ID
+    stored_bin_id = st.secrets.get("JSONBIN_BIN_ID", "")
+    if stored_bin_id:
+        BIN_ID = stored_bin_id
+        return BIN_ID
+    try:
+        headers = get_jsonbin_headers()
+        headers["X-Bin-Name"] = "qcm_results"
+        response = requests.post(
+            "https://api.jsonbin.io/v3/b",
+            json={"responses": []},
+            headers=headers
+        )
+        if response.status_code == 200:
+            data = response.json()
+            BIN_ID = data["metadata"]["id"]
+            st.warning(f"📝 Nouveau Bin créé ! Ajoute ceci dans tes Secrets Streamlit :\nJSONBIN_BIN_ID = \"{BIN_ID}\"")
+            return BIN_ID
+    except Exception as e:
+        pass
+    return None
+
+def get_all_results():
+    try:
+        bin_id = get_or_create_bin()
+        if not bin_id:
+            return pd.DataFrame()
+        headers = get_jsonbin_headers()
+        response = requests.get(
+            f"https://api.jsonbin.io/v3/b/{bin_id}/latest",
+            headers=headers
+        )
+        if response.status_code == 200:
+            data = response.json()
+            responses = data.get("record", {}).get("responses", [])
+            if responses:
+                return pd.DataFrame(responses)
+        return pd.DataFrame()
+    except Exception as e:
+        return pd.DataFrame()
+
+def save_all_results(df):
+    try:
+        bin_id = get_or_create_bin()
+        if not bin_id:
+            return False
+        headers = get_jsonbin_headers()
+        if df.empty:
+            data = {"responses": []}
+        else:
+            data = {"responses": df.to_dict('records')}
+        response = requests.put(
+            f"https://api.jsonbin.io/v3/b/{bin_id}",
+            json=data,
+            headers=headers
+        )
+        return response.status_code == 200
+    except Exception as e:
+        return False
+
 def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
-    """Enregistre une réponse dans un fichier CSV."""
     name = user_name.strip() or "Anonyme"
     q = QUESTIONS[q_index]
-
-    row = {
-        "timestamp": datetime.now().isoformat(),  # Format ISO8601
+    new_row = {
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "user": name,
         "question_index": q_index,
-        "question": q["q"].replace("\n", " "),
+        "question": q["q"].replace("\n", " ")[:80],
         "selected_index": selected,
         "selected_choice": q["choices"][selected],
         "correct_index": q["answer"],
         "correct_choice": q["choices"][q["answer"]],
-        "is_correct": int(bool(correct)),
+        "is_correct": 1 if correct else 0
     }
-
-    df = pd.DataFrame([row])
-    file_exists = Path(RESULTS_FILE).exists()
-    df.to_csv(RESULTS_FILE, mode="a", header=not file_exists, index=False)
-
+    try:
+        df = get_all_results()
+        new_df = pd.DataFrame([new_row])
+        if df.empty:
+            df = new_df
+        else:
+            df = pd.concat([df, new_df], ignore_index=True)
+        save_all_results(df)
+    except Exception as e:
+        pass
 
 # Sidebar
 with st.sidebar:
@@ -1145,7 +1225,6 @@ with st.sidebar:
     shuffle_q = st.checkbox("Mélanger les questions (au démarrage)", value=True)
     show_explain = st.checkbox("Afficher l'explication après validation", value=True)
     st.caption("Partagez simplement l'URL publique de cette page.")
-
     admin_password = st.text_input("Mdp", type="password")
     ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD", "Testz")
     is_admin = admin_password == ADMIN_PASSWORD
@@ -1358,125 +1437,65 @@ if st.session_state.just_validated:
 st.markdown("---")
 st.markdown("### Mode analyse")
 
-# 🔒 Section réservée au développeur
 if not is_admin:
-    st.info("🔒 Section dev.")
+    st.info("🔒 Section réservée à l'administrateur.")
 else:
-    results_path = Path(RESULTS_FILE)
-
-    if not results_path.exists():
+    if st.button("🔄 Rafraîchir les données"):
+        st.rerun()
+    
+    with st.spinner("Chargement..."):
+        df = get_all_results()
+    
+    if df.empty:
         st.info("Aucune réponse enregistrée pour l'instant.")
     else:
-        try:
-            # Vérifier si le fichier n'est pas vide
-            if results_path.stat().st_size == 0:
-                st.warning("Le fichier de résultats existe mais est vide.")
-                df = pd.DataFrame()
-            else:
-                # 📥 Chargement des données
-                df = pd.read_csv(results_path)
-                
-                # Nettoyage automatique des données de plus de 24h
-                if not df.empty and 'timestamp' in df.columns:
-                    # Conversion sécurisée des dates
-                    df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
-                    
-                    # Filtrer pour garder seulement les dernières 24h
-                    cutoff_time = datetime.now() - timedelta(hours=24)
-                    df_clean = df[df['timestamp'] >= cutoff_time].copy()
-                    
-                    # Si des données ont été supprimées, mettre à jour le fichier
-                    if len(df_clean) < len(df):
-                        deleted_count = len(df) - len(df_clean)
-                        st.info(f"🔧 {deleted_count} entrées de plus de 24h ont été automatiquement supprimées.")
-                        
-                        # Sauvegarder les données nettoyées
-                        df_clean.to_csv(results_path, index=False)
-                        df = df_clean
-                    
-                    # Réinitialiser l'index après nettoyage
-                    df = df.reset_index(drop=True)
-                
-        except Exception as e:
-            st.error(f"Erreur lors du chargement : {e}")
-            # Option pour réinitialiser le fichier
-            if st.button("🔄 Réinitialiser le fichier de résultats"):
-                try:
-                    results_path.unlink()
-                    st.success("Fichier réinitialisé. Les nouvelles données seront enregistrées normalement.")
-                    st.rerun()
-                except Exception as delete_error:
-                    st.error(f"Erreur lors de la réinitialisation : {delete_error}")
-            df = pd.DataFrame()
-
-        if df.empty:
-            st.info("Aucune donnée à afficher (ou toutes les données étaient de plus de 24h).")
-        else:
-            # Afficher les statistiques de base
-            st.subheader("📊 Statistiques générales")
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                total_reponses = len(df)
-                st.metric("Total réponses", total_reponses)
-            
-            with col2:
-                if 'is_correct' in df.columns:
-                    taux_reussite = (df['is_correct'].sum() / len(df)) * 100
-                    st.metric("Taux de réussite", f"{taux_reussite:.1f}%")
-            
-            with col3:
-                if 'timestamp' in df.columns and not df.empty:
-                    # Convertir le timestamp en format lisible
-                    derniere_activite = df['timestamp'].max()
-                    if pd.notna(derniere_activite):
-                        # Formater la date pour l'affichage
-                        derniere_activite_str = derniere_activite.strftime("%d/%m/%Y %H:%M")
-                        st.metric("Dernière activité", derniere_activite_str)
-                    else:
-                        st.metric("Dernière activité", "N/A")
-                else:
-                    st.metric("Dernière activité", "N/A")
-
-            # 📋 Tableau des réponses
-            st.subheader("📋 Toutes les réponses (24h max)")
-            st.dataframe(df)
-
-            # 📥 Téléchargement
-            csv_all = df.to_csv(index=False).encode("utf-8")
-            st.download_button(
-                label="📥 Télécharger toutes les réponses (CSV)",
-                data=csv_all,
-                file_name="results_qcm_microeconomie.csv",
-                mime="text/csv",
-            )
-
-            # 🗑️ Option de nettoyage manuel
-            st.subheader("🔧 Maintenance")
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                if st.button("🗑️ Nettoyer maintenant", help="Supprime toutes les données de plus de 24h"):
-                    try:
-                        if not df.empty and 'timestamp' in df.columns:
-                            cutoff_time = datetime.now() - timedelta(hours=24)
-                            df_clean = df[df['timestamp'] >= cutoff_time].copy()
-                            deleted_count = len(df) - len(df_clean)
-                            
-                            if deleted_count > 0:
-                                df_clean.to_csv(results_path, index=False)
-                                st.success(f"{deleted_count} entrées supprimées !")
-                                st.rerun()
-                            else:
-                                st.info("Aucune donnée à nettoyer (toutes sont récentes).")
-                    except Exception as clean_error:
-                        st.error(f"Erreur lors du nettoyage : {clean_error}")
-            
-            with col2:
-                if st.button("⚠️ Tout supprimer", help="Supprime TOUTES les données (irréversible)"):
-                    try:
-                        results_path.unlink()
-                        st.success("Toutes les données ont été supprimées !")
-                        st.rerun()
-                    except Exception as delete_error:
-                        st.error(f"Erreur lors de la suppression : {delete_error}")
+        if 'timestamp' in df.columns:
+            df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+        
+        st.subheader("📊 Statistiques générales")
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            st.metric("Total réponses", len(df))
+        with col2:
+            if 'is_correct' in df.columns:
+                df['is_correct'] = pd.to_numeric(df['is_correct'], errors='coerce')
+                taux = (df['is_correct'].sum() / len(df)) * 100
+                st.metric("Taux de réussite", f"{taux:.1f}%")
+        with col3:
+            if 'user' in df.columns:
+                st.metric("Nb étudiants", df['user'].nunique())
+        with col4:
+            if 'timestamp' in df.columns and not df.empty:
+                derniere = df['timestamp'].max()
+                if pd.notna(derniere):
+                    st.metric("Dernière activité", derniere.strftime("%d/%m %H:%M"))
+        
+        st.subheader("👥 Résultats par étudiant")
+        if 'user' in df.columns and 'is_correct' in df.columns:
+            df['is_correct'] = pd.to_numeric(df['is_correct'], errors='coerce')
+            stats_user = df.groupby('user').agg(
+                nb_reponses=('is_correct', 'count'),
+                nb_correct=('is_correct', 'sum'),
+            ).reset_index()
+            stats_user['nb_correct'] = stats_user['nb_correct'].astype(int)
+            stats_user['taux_reussite'] = ((stats_user['nb_correct'] / stats_user['nb_reponses']) * 100).round(1).astype(str) + '%'
+            stats_user.columns = ['Étudiant', 'Nb réponses', 'Nb correct', 'Taux réussite']
+            st.dataframe(stats_user, use_container_width=True)
+        
+        st.subheader("📋 Toutes les réponses")
+        st.dataframe(df, use_container_width=True)
+        
+        csv_data = df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="📥 Télécharger (CSV)",
+            data=csv_data,
+            file_name="resultats_qcm.csv",
+            mime="text/csv",
+        )
+        
+        st.subheader("⚠️ Zone danger")
+        if st.button("🗑️ Tout supprimer"):
+            save_all_results(pd.DataFrame())
+            st.success("✅ Données supprimées !")
+            st.rerun()
