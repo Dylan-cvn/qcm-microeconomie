@@ -16,12 +16,12 @@ if "intro_vue" not in st.session_state:
     st.session_state.intro_vue = False
 
 if not st.session_state.intro_vue:
-    st.title("🎓 Bienvenue dans le QCM Microéconomie")
+    st.title("QCM Microéconomie")
     
     video_file = open("Une_vido_futuriste_202512222049_w4k58.mp4", "rb")
     st.video(video_file)
     
-    if st.button("🚀 Commencer le QCM", type="primary", use_container_width=True):
+    if st.button("Commencer le QCM", type="primary", use_container_width=True):
         st.session_state.intro_vue = True
         st.rerun()
     
