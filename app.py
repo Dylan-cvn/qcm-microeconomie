@@ -736,9 +736,9 @@ QUESTIONS = [
     {
         "q": (
             "Sur le marché des tomates, la fonction d'offre est la suivante :\n\n"
-            r"$Q^o = 220 - 70P - 12\omega + 80T$" "\n\n"
-            r"Où $Q^o$ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), $\omega$ le salaire horaire des travailleurs (en CHF) & "
-            r"T un indicateur relatif à la technologie utilisée. Si $\omega$ = 25 & T = 1." "\n"
+            "$$Q^o = 220 - 70P - 12\\omega + 80T$$\n\n"
+            "Où Q^o représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
+            "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n\n"
             "Quel est le SP lorsque P = 7 CHF par kilo ?"
         ),
         "choices": [
