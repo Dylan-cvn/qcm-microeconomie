@@ -30,8 +30,8 @@ st.markdown("""
     text-shadow: none !important;
 }
 
-/* Seulement "Votre nom" en néon vert */
-[data-testid="stSidebar"] > div > div:first-child .stTextInput label {
+/* Label "Votre nom" en néon vert */
+[data-testid="stSidebar"] .stTextInput:first-of-type label {
     color: #1BFD9C !important;
     text-shadow: 0 0 5px #1BFD9C;
 }
@@ -45,26 +45,21 @@ st.markdown("""
     text-shadow: 0 0 5px #1BFD9C;
 }
 
+/* Label "Mdp" en blanc */
+[data-testid="stSidebar"] .stTextInput:last-of-type label {
+    color: #FFFFFF !important;
+    text-shadow: none !important;
+}
+
 /* Champ "Mdp" en style normal (blanc/gris) */
-[data-testid="stSidebar"] input[type="password"],
-[data-testid="stSidebar"] .stTextInput:last-of-type input {
+[data-testid="stSidebar"] .stTextInput:last-of-type input,
+[data-testid="stSidebar"] input[type="password"] {
     font-family: inherit !important;
     color: #FFFFFF !important;
     background-color: transparent !important;
     border: 1px solid #555555 !important;
     text-shadow: none !important;
     box-shadow: none !important;
-}
-
-/* Label Mdp en blanc */
-[data-testid="stSidebar"] .stTextInput:last-of-type label {
-    color: #FFFFFF !important;
-    text-shadow: none !important;
-}
-
-/* Placeholder en vert pour "Votre nom" */
-[data-testid="stSidebar"] .stTextInput:first-of-type input::placeholder {
-    color: rgba(27, 253, 156, 0.5) !important;
 }
 
 /* Checkboxes en vert néon */
