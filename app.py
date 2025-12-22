@@ -24,13 +24,14 @@ st.markdown("""
     font-family: 'Orbitron', sans-serif !important;
 }
 
-/* Labels en blanc par défaut */
+/* Tous les labels en blanc par défaut */
 [data-testid="stSidebar"] label {
     color: #FFFFFF !important;
+    text-shadow: none !important;
 }
 
 /* Seulement "Votre nom" en néon vert */
-[data-testid="stSidebar"] .stTextInput:first-of-type label {
+[data-testid="stSidebar"] > div > div:first-child .stTextInput label {
     color: #1BFD9C !important;
     text-shadow: 0 0 5px #1BFD9C;
 }
@@ -45,11 +46,19 @@ st.markdown("""
 }
 
 /* Champ "Mdp" en style normal (blanc/gris) */
-[data-testid="stSidebar"] input[type="password"] {
+[data-testid="stSidebar"] input[type="password"],
+[data-testid="stSidebar"] .stTextInput:last-of-type input {
     font-family: inherit !important;
     color: #FFFFFF !important;
     background-color: transparent !important;
     border: 1px solid #555555 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Label Mdp en blanc */
+[data-testid="stSidebar"] .stTextInput:last-of-type label {
+    color: #FFFFFF !important;
     text-shadow: none !important;
 }
 
