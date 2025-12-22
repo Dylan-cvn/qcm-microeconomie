@@ -16,8 +16,7 @@ if "intro_vue" not in st.session_state:
     st.session_state.intro_vue = False
 
 if not st.session_state.intro_vue:
-    st.title("Entrainement examen")
-    
+
     video_file = open("Une_vido_futuriste_202512222049_w4k58.mp4", "rb")
     st.video(video_file)
     
