@@ -8,6 +8,25 @@ import requests
 # Configuration de la page Streamlit
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
+# ============================================
+# SECTION INTRODUCTION VIDÉO (INSÉRER ICI)
+# ============================================
+
+if "intro_vue" not in st.session_state:
+    st.session_state.intro_vue = False
+
+if not st.session_state.intro_vue:
+    st.title("🎓 Bienvenue dans le QCM Microéconomie")
+    
+    video_file = open("Une_vido_futuriste_202512222049_w4k58.mp4", "rb")
+    st.video(video_file)
+    
+    if st.button("🚀 Commencer le QCM", type="primary", use_container_width=True):
+        st.session_state.intro_vue = True
+        st.rerun()
+    
+    st.stop()
+
 # Données du Quiz
 QUESTIONS = [
     {
