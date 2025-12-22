@@ -24,15 +24,19 @@ st.markdown("""
     font-family: 'Orbitron', sans-serif !important;
 }
 
-/* Labels en néon vert */
+/* Labels en blanc par défaut */
 [data-testid="stSidebar"] label {
+    color: #FFFFFF !important;
+}
+
+/* Seulement "Votre nom" en néon vert */
+[data-testid="stSidebar"] .stTextInput:first-of-type label {
     color: #1BFD9C !important;
     text-shadow: 0 0 5px #1BFD9C;
 }
 
-/* Champ de texte avec police rétro néon */
-[data-testid="stSidebar"] input[type="text"],
-[data-testid="stSidebar"] input[type="password"] {
+/* Champ "Votre nom" avec style néon vert */
+[data-testid="stSidebar"] .stTextInput:first-of-type input {
     font-family: 'Orbitron', sans-serif !important;
     color: #1BFD9C !important;
     background-color: rgba(27, 253, 156, 0.1) !important;
@@ -40,8 +44,17 @@ st.markdown("""
     text-shadow: 0 0 5px #1BFD9C;
 }
 
-/* Placeholder en vert plus doux */
-[data-testid="stSidebar"] input::placeholder {
+/* Champ "Mdp" en style normal (blanc/gris) */
+[data-testid="stSidebar"] input[type="password"] {
+    font-family: inherit !important;
+    color: #FFFFFF !important;
+    background-color: transparent !important;
+    border: 1px solid #555555 !important;
+    text-shadow: none !important;
+}
+
+/* Placeholder en vert pour "Votre nom" */
+[data-testid="stSidebar"] .stTextInput:first-of-type input::placeholder {
     color: rgba(27, 253, 156, 0.5) !important;
 }
 
