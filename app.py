@@ -1312,36 +1312,81 @@ def render_single(q_index):
     q = QUESTIONS[q_index]
     highlight_color = q.get("highlight_color")
 
-    # Afficher l'énoncé
-    lines = [s for s in q["q"].split("\n") if s.strip()]
-    if lines:
-        if highlight_color:
-            st.markdown(
-                f"<h3 style='color:{highlight_color};margin-bottom:0.3rem;'>{lines[0]}</h3>",
-                unsafe_allow_html=True,
-            )
-        else:
-            st.subheader(lines[0])
+    # Séparer le titre (première ligne) du reste
+    lines = q["q"].split("\n")
+    titre = lines[0] if lines else ""
+    reste = "\n".join(lines[1:]) if len(lines) > 1 else ""
 
-        for line in lines[1:]:
-            has_math = any(token in line for token in ("=", "^", "\\frac", "\\cdot", "\\times"))
-            if highlight_color and has_math:
-                st.markdown(
-                    f"$$\\color{{{highlight_color}}}{{{line}}}$$",
-                    unsafe_allow_html=True,
-                )
-            elif highlight_color:
-                st.markdown(
-                    f"<span style='color:{highlight_color};'>{line}</span>",
-                    unsafe_allow_html=True,
-                )
-            elif has_math:
-                try:
-                    st.latex(line)
-                except Exception:
-                    st.markdown(line)
-            else:
-                st.markdown(line)
+    # Afficher le titre
+    if highlight_color:
+        st.markdown(f"<h3 style='color:{highlight_color};'>{titre}</h3>", unsafe_allow_html=True)
+    else:
+        st.subheader(titre)
+    
+    # Afficher le reste en plus petit (le \n sera respecté)
+    if reste.strip():
+        if highlight_color:
+            st.markdown(f"<div style='color:{highlight_color}; font-size:0.9em; white-space:pre-line;'>{reste}</div>", unsafe_allow_html=True)
+        else:
+            st.markdown(f"<div style='color:#aaa; font-size:0.9em; white-space:pre-line;'>{reste}</div>", unsafe_allow_html=True)
+
+    # Afficher l'image si elle existe
+    if q.get("image"):
+        try:
+            st.image(q["image"], use_container_width=True, caption="Graphique de référence")
+        except Exception as e:
+            st.warning(f"⚠️ Impossible de charger l'image : {e}")
+    
+    # Choix
+    key_radio = f"choice_{q_index}"
+    if key_radio not in st.session_state:
+        st.session_state[key_radio] = st.session_state.answers.get(q_index, None)
+
+    selected = st.radio(
+        "Choisissez une réponse :",
+        options=list(range(len(q["choices"]))),
+        format_func=lambda i: q["choices"][i],
+        key=key_radio,
+    )
+    st.session_state.answers[q_index] = selected
+
+    # Bouton de validation
+    validate = st.button("✅ Valider", key=f"validate_{q_index}")
+    if validate:
+        if selected is None:
+            st.warning("⚠️ Veuillez sélectionner une réponse avant de valider.")
+            return None
+
+        correct = selected == q["answer"]
+        st.session_state.just_validated = True
+        st.session_state.last_result = correct
+
+        # Enregistrer la réponse
+        log_answer(user_name, q_index, correct, selected)
+
+        # Mise à jour de la maîtrise
+        if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
+            st.session_state.mastery[q_index] += 1
+
+        if correct:
+            st.success("✔️ Bonne réponse !")
+        else:
+            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
+        if show_explain and q.get("explain"):
+            st.info(f"💡 Explication : {q['explain']}")
+        return correct
+
+    # Réaffichage après validation
+    if st.session_state.just_validated:
+        correct = st.session_state.last_result
+        if correct:
+            st.success("✔️ Bonne réponse !")
+        else:
+            st.error(f"❌ Mauvaise réponse. Réponse attendue : {q['choices'][q['answer']]}")
+        if show_explain and q.get("explain"):
+            st.info(f"💡 Explication : {q['explain']}")
+
+    return None
 
     # Afficher l'image si elle existe
     if q.get("image"):
