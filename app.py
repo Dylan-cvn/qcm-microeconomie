@@ -24,7 +24,7 @@ if not st.session_state.intro_vue:
     <style>
     /* Style du bouton Uiverse appliqué au bouton Streamlit */
     div.stButton > button {
-        --green: #1BFD9C;
+        --green: #00D4FF;
         font-size: 18px !important;
         padding: 0.7em 2.7em !important;
         letter-spacing: 0.06em;
