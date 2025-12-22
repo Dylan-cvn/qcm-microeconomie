@@ -9,6 +9,62 @@ import requests
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
 # ============================================
+# STYLE NÉON VERT POUR LA SIDEBAR
+# ============================================
+st.markdown("""
+<style>
+/* Import police rétro */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Titre "Paramètres" en néon vert */
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] .stMarkdown h2 {
+    color: #1BFD9C !important;
+    text-shadow: 0 0 10px #1BFD9C, 0 0 20px #1BFD9C, 0 0 30px #1BFD9C;
+    font-family: 'Orbitron', sans-serif !important;
+}
+
+/* Labels en néon vert */
+[data-testid="stSidebar"] label {
+    color: #1BFD9C !important;
+    text-shadow: 0 0 5px #1BFD9C;
+}
+
+/* Champ de texte avec police rétro néon */
+[data-testid="stSidebar"] input[type="text"],
+[data-testid="stSidebar"] input[type="password"] {
+    font-family: 'Orbitron', sans-serif !important;
+    color: #1BFD9C !important;
+    background-color: rgba(27, 253, 156, 0.1) !important;
+    border: 1px solid #1BFD9C !important;
+    text-shadow: 0 0 5px #1BFD9C;
+}
+
+/* Placeholder en vert plus doux */
+[data-testid="stSidebar"] input::placeholder {
+    color: rgba(27, 253, 156, 0.5) !important;
+}
+
+/* Checkboxes en vert néon */
+[data-testid="stSidebar"] .stCheckbox span {
+    color: #1BFD9C !important;
+}
+
+/* Texte caption en vert */
+[data-testid="stSidebar"] .stCaption {
+    color: rgba(27, 253, 156, 0.7) !important;
+}
+
+/* Bordure sidebar avec effet néon */
+[data-testid="stSidebar"] {
+    border-right: 1px solid #1BFD9C;
+    box-shadow: inset -5px 0 15px rgba(27, 253, 156, 0.1);
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ============================================
 # SECTION INTRODUCTION VIDÉO (INSÉRER ICI)
 # ============================================
 
