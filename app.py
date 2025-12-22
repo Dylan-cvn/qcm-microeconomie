@@ -16,12 +16,11 @@ st.markdown("""
 /* Import police rétro */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-/* Titre "Paramètres" en néon vert */
+/* Titre "Paramètres" en blanc */
 [data-testid="stSidebar"] h1, 
 [data-testid="stSidebar"] h2,
 [data-testid="stSidebar"] .stMarkdown h2 {
-    color: #1BFD9C !important;
-    text-shadow: 0 0 10px #1BFD9C, 0 0 20px #1BFD9C, 0 0 30px #1BFD9C;
+    color: #FFFFFF !important;
     font-family: 'Orbitron', sans-serif !important;
 }
 
