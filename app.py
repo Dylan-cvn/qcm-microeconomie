@@ -133,6 +133,128 @@ def show_loading_screen():
     import time
     time.sleep(20)
 
+# ============================================
+# EFFET MATRIX POUR LA DERNIÈRE QUESTION
+# ============================================
+
+def show_matrix_background():
+    """Affiche l'effet Matrix en arrière-plan"""
+    matrix_html = """
+    <style>
+    .matrix-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .matrix-column {
+        position: absolute;
+        top: -100%;
+        width: 20px;
+        height: 100%;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: bold;
+        animation: fall linear infinite;
+        white-space: nowrap;
+    }
+
+    .matrix-column::before {
+        content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(
+            to bottom,
+            #ffffff 0%,
+            #ffffff 5%,
+            #00ff41 10%,
+            #00ff41 20%,
+            #00dd33 30%,
+            #00bb22 40%,
+            #009911 50%,
+            #007700 60%,
+            #005500 70%,
+            #003300 80%,
+            rgba(0, 255, 65, 0.5) 90%,
+            transparent 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        writing-mode: vertical-lr;
+        letter-spacing: 1px;
+    }
+
+    .matrix-column:nth-child(1) { left: 0%; animation-delay: -2.5s; animation-duration: 3s; }
+    .matrix-column:nth-child(2) { left: 5%; animation-delay: -3.2s; animation-duration: 4s; }
+    .matrix-column:nth-child(3) { left: 10%; animation-delay: -1.8s; animation-duration: 2.5s; }
+    .matrix-column:nth-child(4) { left: 15%; animation-delay: -2.9s; animation-duration: 3.5s; }
+    .matrix-column:nth-child(5) { left: 20%; animation-delay: -1.5s; animation-duration: 3s; }
+    .matrix-column:nth-child(6) { left: 25%; animation-delay: -3.8s; animation-duration: 4.5s; }
+    .matrix-column:nth-child(7) { left: 30%; animation-delay: -2.1s; animation-duration: 2.8s; }
+    .matrix-column:nth-child(8) { left: 35%; animation-delay: -2.7s; animation-duration: 3.2s; }
+    .matrix-column:nth-child(9) { left: 40%; animation-delay: -3.4s; animation-duration: 3.8s; }
+    .matrix-column:nth-child(10) { left: 45%; animation-delay: -1.9s; animation-duration: 2.7s; }
+    .matrix-column:nth-child(11) { left: 50%; animation-delay: -3.6s; animation-duration: 4.2s; }
+    .matrix-column:nth-child(12) { left: 55%; animation-delay: -2.3s; animation-duration: 3.1s; }
+    .matrix-column:nth-child(13) { left: 60%; animation-delay: -3.1s; animation-duration: 3.6s; }
+    .matrix-column:nth-child(14) { left: 65%; animation-delay: -2.6s; animation-duration: 2.9s; }
+    .matrix-column:nth-child(15) { left: 70%; animation-delay: -3.7s; animation-duration: 4.1s; }
+    .matrix-column:nth-child(16) { left: 75%; animation-delay: -2.8s; animation-duration: 3.3s; }
+    .matrix-column:nth-child(17) { left: 80%; animation-delay: -3.3s; animation-duration: 3.7s; }
+    .matrix-column:nth-child(18) { left: 85%; animation-delay: -2.2s; animation-duration: 2.6s; }
+    .matrix-column:nth-child(19) { left: 90%; animation-delay: -3.9s; animation-duration: 4.3s; }
+    .matrix-column:nth-child(20) { left: 95%; animation-delay: -2.4s; animation-duration: 3.4s; }
+
+    .matrix-column:nth-child(odd)::before {
+        content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン123456789";
+    }
+    .matrix-column:nth-child(even)::before {
+        content: "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-10%); opacity: 1; }
+        100% { transform: translateY(200%); opacity: 0; }
+    }
+    
+    .stApp { background: transparent !important; }
+    .stApp > header { background: transparent !important; }
+    section[data-testid="stSidebar"] { background: rgba(0, 0, 0, 0.9) !important; }
+    .block-container { background: rgba(0, 0, 0, 0.85) !important; border-radius: 10px; padding: 20px !important; }
+    </style>
+    
+    <div class="matrix-container">
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+        <div class="matrix-column"></div>
+    </div>
+    """
+    st.markdown(matrix_html, unsafe_allow_html=True)
+
 # Configuration de la page Streamlit
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
@@ -1741,6 +1863,15 @@ progress_bar_slot = st.empty()
 progress_text_slot = st.empty()
 
 q_idx = st.session_state.current
+
+# Vérifier si c'est la dernière question
+mastered_count = sum(1 for v in st.session_state.mastery.values() if v >= TARGET_MASTERY)
+is_last_question = (mastered_count == len(QUESTIONS) - 1)
+
+# Afficher l'effet Matrix si c'est la dernière question
+if is_last_question:
+    show_matrix_background()
+
 _ = render_single(q_idx)
 
 mastered_count = sum(1 for v in st.session_state.mastery.values() if v >= TARGET_MASTERY)
