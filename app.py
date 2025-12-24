@@ -894,8 +894,8 @@ QUESTIONS = [
     {
         "q": (
             "Nikos et Saphia sont artisans potiers et confectionnent deux types de biens : des vases et des assiettes. "
-            "Leurs capacités journalières de production sont représentées dans le graphique. "
-            "Voici une liste d'affirmations à propos de la situation :\n"
+            "Leurs capacités journalières de production sont représentées dans le graphique. \n"
+            "Voici une liste d'affirmations à propos de la situation : \n"
             "i. Pour Saphia, le CO de production d'un vase est de 1.2 assiettes. \n"
             "ii. Nikos dispose d'un avantage absolu dans la production de vases. \n"
             "iii. Nikos a un avantage comparatif dans la production de vases. \n"
@@ -1120,7 +1120,7 @@ QUESTIONS = [
     {
         "q": (
             "Voici un court extrait d'un article : « Baisse de la demande, hausse des coûts de production, [...] les fromagers producteurs "
-            "d'Emmental font face à des difficultés inédites et cette situation pousse certains d'entre eux à arrêter leur activité. » "
+            "d'Emmental font face à des difficultés inédites et cette situation pousse certains d'entre eux à arrêter leur activité. » \n"
             "D'après ces informations, que peut-on conclure avec certitude sur l'évolution récente du prix et de la quantité échangée sur le marché de l'Emmental ?"
         ),
         "choices": [
