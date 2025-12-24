@@ -1451,7 +1451,9 @@ def save_all_results(df):
 def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
     name = user_name.strip() or "Anonyme"
     q = QUESTIONS[q_index]
+
     new_row = {
+        "row_type": "answer",
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "user": name,
         "question_index": q_index,
@@ -1462,16 +1464,31 @@ def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> No
         "correct_choice": q["choices"][q["answer"]],
         "is_correct": 1 if correct else 0
     }
+
     try:
         df = get_all_results()
+
+        # compat si anciennes données sans row_type
+        if not df.empty and "row_type" not in df.columns:
+            df["row_type"] = "answer"
+
+        # ✅ Si déjà une réponse enregistrée pour ce user + cette question : on n'ajoute rien
+        if not df.empty:
+            already = (
+                (df["row_type"] == "answer")
+                & (df["user"] == name)
+                & (df["question_index"] == q_index)
+            )
+            if already.any():
+                return
+
         new_df = pd.DataFrame([new_row])
-        if df.empty:
-            df = new_df
-        else:
-            df = pd.concat([df, new_df], ignore_index=True)
+        df = new_df if df.empty else pd.concat([df, new_df], ignore_index=True)
         save_all_results(df)
-    except Exception as e:
+
+    except Exception:
         pass
+
 
 # Sidebar
 with st.sidebar:
