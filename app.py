@@ -297,8 +297,8 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction de demande s'écrit :\n"
-            "Qᵈ = 17 - P\n"
+            "La fonction de demande s'écrit : "
+            "Qᵈ = 17 - P \n"
             "Si le prix est 3, quelle sera l'élasticité prix de la demande ?\n"
             "(arrondissez le résultat au dixième)"
         ),
