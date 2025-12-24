@@ -265,9 +265,9 @@ if not st.session_state.intro_vue:
 QUESTIONS = [
     {
         "q": (
-            "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+            "Roger hésite entre prendre des cours de tennis ou des cours de football. "
             "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
-            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800. \n"
             "Pour Roger, quel est le coût d'opportunité des cours de tennis ?"
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
@@ -276,9 +276,9 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Roger hésite entre prendre des cours de tennis ou des cours de football.\n"
+            "Roger hésite entre prendre des cours de tennis ou des cours de football. "
             "Il sait que le tennis lui permettra de gagner 10'000 pour un coût de 7'000, "
-            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800.\n"
+            "tandis que le football lui permettra de gagner 12'000 pour un coût de 800. \n"
             "Pour Roger, quel est le coût d'opportunité des cours de football ?"
         ),
         "choices": ["11'200", "10'200", "8'200", "3'000"],
@@ -287,8 +287,8 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction de demande s'écrit :\n"
-            "Qᵈ = 17 - P\n"
+            "La fonction de demande s'écrit : "
+            "Qᵈ = 17 - P \n"
             "À quel prix maximal les consommateurs seraient-ils disposés à acheter 3 unités ?"
         ),
         "choices": ["18", "16", "14", "12"],
@@ -299,7 +299,7 @@ QUESTIONS = [
         "q": (
             "La fonction de demande s'écrit : "
             "Qᵈ = 17 - P \n"
-            "Si le prix est 3, quelle sera l'élasticité prix de la demande ?\n"
+            "Si le prix est 3, quelle sera l'élasticité prix de la demande ? \n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["-4.7", "-3", "-0.2", "-0.1"],
@@ -323,8 +323,8 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction d'offre s'écrit :\n"
-            "Qᵒ = -63 + 9P\n"
+            "La fonction d'offre s'écrit : "
+            "Qᵒ = -63 + 9P \n"
             "Si le prix est 18, quelle sera la quantité offerte ?"
         ),
         "choices": ["117", "99", "81", "18"],
@@ -333,9 +333,9 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction d'offre s'écrit :\n"
-            "Qᵒ = -63 + 9P\n"
-            "À quel prix minimal les producteurs seraient-ils disposés à vendre 25 unités ?\n"
+            "La fonction d'offre s'écrit : "
+            "Qᵒ = -63 + 9P \n"
+            "À quel prix minimal les producteurs seraient-ils disposés à vendre 25 unités ? \n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["10.5", "9.8", "8.2", "7"],
@@ -344,9 +344,9 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction d'offre s'écrit :\n"
-            "Qᵒ = -63 + 9P\n"
-            "Si le prix est 18, quelle sera l'élasticité prix de l'offre ?\n"
+            "La fonction d'offre s'écrit : "
+            "Qᵒ = -63 + 9P \n"
+            "Si le prix est 18, quelle sera l'élasticité prix de l'offre ? \n"
             "(arrondissez le résultat au dixième)"
         ),
         "choices": ["2", "1.8", "1.6", "1"],
@@ -475,8 +475,8 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction des coûts d'une entreprise en concurrence parfaite s'écrit :\n"
-            "C(x) = 2x^2 - 3x + 50\n"
+            "La fonction des coûts d'une entreprise en concurrence parfaite s'écrit : "
+            "C(x) = 2x² - 3x + 50 \n"
             "Trouver la fonction d'offre individuelle, à court terme, de cette entreprise."
         ),
         "choices": [
@@ -513,8 +513,9 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Le marcher immobilier est en situation de concurrence parfaite avec une multitude d'acteurs côté bailleurs et locataires. \n"
-            "Le maire décide de mettre un loyer plafond. Que peut-on affirmer avec certitude concernant cette mesure?"
+            "Le marcher immobilier est en situation de concurrence parfaite avec une multitude d'acteurs côté bailleurs et locataires. "
+            "Le maire décide de mettre un loyer plafond. \n"
+            "Que peut-on affirmer avec certitude concernant cette mesure ? "
         ),
         "choices": [
             "Le prix plafond créera une offre excédentaire sur le marché immobilier.",
@@ -530,8 +531,9 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Le marcher immobilier est en situation de concurrence parfaite avec une multitude d'acteurs côté bailleurs et locataires. \n"
-            "Le maire décide de mettre un loyer plafond contraingant. Laquelle des affirmations est fausse avec certitude suite à l'introduction de cette mesure ?"
+            "Le marcher immobilier est en situation de concurrence parfaite avec une multitude d'acteurs côté bailleurs et locataires. "
+            "Le maire décide de mettre un loyer plafond contraingant. \n"
+            "Laquelle des affirmations est fausse avec certitude suite à l'introduction de cette mesure ?"
         ),
         "choices": [
             "Le surplus des locataires qui payent le prix plafond augmente.",
@@ -569,12 +571,12 @@ QUESTIONS = [
     },
     {
         "q": (
-            " Soit les fonctions de demande et d'offre sur le marché des fraises sécrivent :\n"
-            "Qᵈ = 60 - 4P\n"
-            "Qᵒ = −2.5 + P\n"
+            " Soit les fonctions de demande et d'offre sur le marché des fraises sécrivent : "
+            "Qᵈ = 60 - 4P & "
+            "Qᵒ = −2.5 + P \n"
             "Où Qᵈ représente la quantité demandée de fraises, Qᵒ la quantité offerte de fraises et P le prix du kilo de fraises. \n"
             "Jugeant que l'équilibre du marché concurrentiel n'est pas adéquat, l'Etat introduit un prix plancher de 14 CHF par kilo et d'imposer des quotas de production pour éliminer de potentielles demande ou offre excédentaires. \n"
-            " Quelle sera la conséquence de l'introduction de ce prix plancher ?\n"
+            "Quelle sera la conséquence de l'introduction de ce prix plancher ?\n"
         ),
         "choices": [
             "Une demande excédentaire de 7.5 sans la mise en place des quotas de production.",
@@ -683,7 +685,7 @@ QUESTIONS = [
     {
         "q": (
             "Lily est régulièrement engagée comme consultante stratégique dans un cabinet renommé et elle bénéficie ainsi de la possibilité de choisir librement le nombre d'heures de travail qu'elle souhaite effectuer. "
-            "Grâce à son excellent travail et à son expérience, Lily parvient à négocier une augmentation de son salaire horaire. "
+            "Grâce à son excellent travail et à son expérience, Lily parvient à négocier une augmentation de son salaire horaire. \n"
             "Vous pouvez donc prévoir avec certitude que :"
         ),
         "choices": [
@@ -699,7 +701,7 @@ QUESTIONS = [
     {
         "q": (
             "Max, consultant freelance, peut décider lui-même du nombre d'heures qu'il alloue au marché du travail. "
-            "Suite à une augmentation de son salaire horaire, Max décide de travailler plus. "
+            "Suite à une augmentation de son salaire horaire, Max décide de travailler plus. \n"
             "Que peut-on affirmer avec certitude ? "
         ),
         "choices": [
@@ -715,7 +717,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Voici une liste d'affirmations à propos du jeu du dictateur :\n"
+            "Voici une liste d'affirmations à propos du jeu du dictateur : \n"
             "i. Le jeu du dictateur permet aux chercheurs d'évaluer le degré d'altruisme du joueur dictateur.\n"
             "ii. Le jeu du dictateur est un jeu simultané. \n"
             "iii. Le joueur 1 offre toujours environ un cinquième de la somme de départ au joueur 2. \n"
@@ -759,8 +761,8 @@ QUESTIONS = [
         "q": (
             "Deux entreprises, Nissan et Renault, décident de fusionner. "
             "Elles doivent maintenant choisir le système d'exploitation qui va être utilisé par le groupe. Nissan utilisait Windows et Renault utilisait Mac. "
-            "Chacune des deux entreprises préférerait conserver son propre système d'exploitation."
-            "Voici une liste d'affirmations à propos de la situation :\n"
+            "Chacune des deux entreprises préférerait conserver son propre système d'exploitation. \n"
+            "Voici une liste d'affirmations à propos de la situation : \n"
             "i. La meilleure solution de Nissan est Windows si Renault choisit Windows, et Mac si Renault choisit Mac. \n"
             "ii. Au moins une des deux entreprises possède une stratégie dominante. \n "
             "iii. Il existe deux équilibres de Nash dans ce jeu. \n"
@@ -822,7 +824,7 @@ QUESTIONS = [
     {
         "q": (
             "On considère la demande de poires représentée sur le graphique ci-dessous. "
-            "L'axe horizontal mesure la quantité de poires 𝑄 (en tonnes) et l'axe vertical le prix 𝑃 (en CHF/kg).\n"
+            "L'axe horizontal mesure la quantité de poires 𝑄 (en tonnes) et l'axe vertical le prix 𝑃 (en CHF/kg). \n"
             "Laquelle des fonctions suivantes correspond à cette courbe de demande ?"
         ),
         "choices": [
@@ -838,10 +840,10 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La demande de mangues prend la forme suivante :\n"
+            "La demande de mangues prend la forme suivante : "
             "Qᵈ = 80 - 8P + 0.02R - 5P₀ + 6Pₐ \n"
             "Où Qᵈ représente la quantité demandée de mangues (en kg), P le prix des mangues (en CHF/kg), R le revenu des consommateurs (en CHF), P₀ le prix des oranges & "
-            "Pₐ le prix des ananas (en CHF/kg).\n"
+            "Pₐ le prix des ananas (en CHF/kg). \n"
             "Que peut-on conclure avec certitude ?"
         ),
         "choices": [
@@ -859,7 +861,7 @@ QUESTIONS = [
     {
         "q": (
             "Voici un tableau simplifié d'une étudesur l'élasticité-prix de la demande pour les vins suisses. "
-            " L'étude différencie l'élasticité-prix en fonction de la région de production et du type de vin. \n"
+            "L'étude différencie l'élasticité-prix en fonction de la région de production et du type de vin. \n"
             "Sur de ce tableau, laquelle des propositions suivantes est fausse ?"
         ),
         "choices": [
@@ -988,7 +990,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur le marché des tomates, la fonction d'offre est la suivante : \n"
+            "Sur le marché des tomates, la fonction d'offre est la suivante : "
             "Qᵒ = 220 − 70P − 12ω + 80T \n"
             "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
             "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1. \n"
@@ -1009,7 +1011,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur le marché des tomates, la fonction d'offre est la suivante :\n"
+            "Sur le marché des tomates, la fonction d'offre est la suivante : "
             "Qᵒ = 220 - 70P - 12ω + 80T \n"
             "Où Qᵒ représente la quantité offerte de tomates (en kilos), P le prix des tomates (en CHF par kilo), ω le salaire horaire des travailleurs (en CHF) & "
             "T un indicateur relatif à la technologie utilisée. Si ω = 25 & T = 1.\n "
@@ -1029,7 +1031,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Une entreprise sur un marché de concurrence parfaite a pu déterminer que ses fonctions de coût total (CT) et de recette totale (RT) sont les suivantes : \n"
+            "Une entreprise sur un marché de concurrence parfaite a pu déterminer que ses fonctions de coût total (CT) et de recette totale (RT) sont les suivantes : "
             "CT(q) = 0.5q² + 4q + 3 & RT(q) = 10q \n"
             "avec q le nombre d'unités produites par l'entreprise. Que peut-on affirmer ?"
         ),
@@ -1066,7 +1068,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : "
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
             "Quelle est la quantité d'équilibre sur ce marché (Q*) ?"
         ),
@@ -1082,7 +1084,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : "
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
             "Combien vaut l'élasticité-prix de la demande (ε_demande) à l'équilibre du marché ?"
         ),
@@ -1099,7 +1101,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : "
             "Qᵒ = -24 + 6P & Qᵈ = 40 - 2P \n"
             "Combien vaut Combien valent le surplus des producteurs (SP) et le surplus des consommateurs (SC) à l'équilibre du marché ?"
         ),
@@ -1175,7 +1177,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Achille et Rose discutent de leurs prochaines vacances d'été et hésitent entre partir à la mer ou à la montagne. "
+            "Achille et Rose discutent de leurs prochaines vacances d'été et hésitent entre partir à la mer ou à la montagne. \n"
             "En relation avec ce jeu, laquelle des affirmations suivantes est fausse ?"
         ),
         "choices": [
@@ -1215,7 +1217,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : \n"
+            "Sur un marché de concurrence parfaite, l'offre et la demande sont représentées par les fonctions suivantes : "
             "Qᵒ = -8 + 2P & Qᵈ = 42 - 6P \n"
             "Afin de préserver le pouvoir d'achat des ménages durant une période d'inflation, le gouvernement décide d'instaurer un prix plafond à 5.5. \n"
             "À combien se monte la perte sèche liée à l'instauration du prix plafond ?"
