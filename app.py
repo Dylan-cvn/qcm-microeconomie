@@ -1047,9 +1047,9 @@ QUESTIONS = [
     {
         "q": (
             "L'entreprise Swosh produit des chaussures sur un marché en situation de concurrence parfaite. "
-            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : \n"
-            "CT(q) = 1'500 + 10q \n"
-            "avec q le nombre de paires de chaussures produites par l'entreprise. \n"
+            "Les coûts totaux de cette entreprise sont donnés par la fonction suivante : "
+            "CT(q) = 1'500 + 10q "
+            "(avec q le nombre de paires de chaussures produites par l'entreprise). \n"
             "Que peut-on affirmer ?"
         ),
         "choices": [
