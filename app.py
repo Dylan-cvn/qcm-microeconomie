@@ -308,8 +308,8 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La fonction de demande s'écrit :\n"
-            "Qᵈ = 17 - P\n"
+            "La fonction de demande s'écrit : "
+            "Qᵈ = 17 - P \n"
             "Pour quel prix l'élasticité prix de cette demande est-elle unitaire ?\n"
             "(arrondissez le résultat au dixième)"
         ),
