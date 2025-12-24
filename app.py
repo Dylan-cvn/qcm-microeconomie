@@ -937,7 +937,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Mireille est employée dans un magasin d'alimentation. Suite à une bonne récolte saisonnière, le patron du magasin décide d'augmenter le salaire horaire de Mireille."
+            "Mireille est employée dans un magasin d'alimentation. Suite à une bonne récolte saisonnière, le patron du magasin décide d'augmenter le salaire horaire de Mireille. "
             "Mireille travaille à 80% et elle a la possibilité d'augmenter ou de diminuer ses heures de travail. \n"
             "Que peut-on affirmer ?"
         ),
