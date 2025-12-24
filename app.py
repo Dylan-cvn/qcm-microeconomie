@@ -1275,7 +1275,7 @@ QUESTIONS = [
     {
         "q": (
             "Le graphique ci-dessous représente les frontières des possibilités de production de Laura "
-            "(M1H1) et Luca (M2H2) pour les biens marchands (M) et non marchands (H). En ménage commun et en partageant équitablement leur production, "
+            "(M₁H₁) et Luca (M₂H₂) pour les biens marchands (M) et non marchands (H). En ménage commun et en partageant équitablement leur production, "
             "Laura et Luca obtiennent chacun la frontière des possibilités de production par tête donnée par M*Y*H*. \n"
             "Laquelle des explications suivantes décrit correctement ce graphique ?"
         ),
