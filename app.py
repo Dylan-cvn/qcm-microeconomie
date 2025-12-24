@@ -328,36 +328,6 @@ st.markdown("""
     box-shadow: inset -5px 0 15px rgba(27, 253, 156, 0.1);
 }
 
-/* Radio buttons néon bleu cyberpunk */
-div[data-testid="stRadio"] > div {
-    gap: 10px !important;
-}
-
-div[data-testid="stRadio"] label {
-    display: flex !important;
-    align-items: center !important;
-    cursor: pointer !important;
-}
-
-div[data-testid="stRadio"] label > div:first-child {
-    width: 20px !important;
-    height: 20px !important;
-    border: 2px solid #30cfd0 !important;
-    border-radius: 5px !important;
-    background-color: transparent !important;
-    position: relative !important;
-    margin-right: 10px !important;
-}
-
-div[data-testid="stRadio"] input:checked + div {
-    border-color: #30cfd0 !important;
-    background-color: #30cfd0 !important;
-}
-
-div[data-testid="stRadio"] label span {
-    color: #fff !important;
-    font-size: 16px !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
