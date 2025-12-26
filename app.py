@@ -5,6 +5,18 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+# ============================================
+# LISTE DES NOMS BANNIS
+# ============================================
+BANNED_NAMES = ["mélissa", "melissa", "mel", "kevin", "kev"]
+
+def is_name_banned(name):
+    """Vérifie si le nom est dans la liste des noms bannis (insensible à la casse)"""
+    if not name:
+        return False
+    return name.strip().lower() in BANNED_NAMES
+# ============================================
+
 def show_loading_screen():
     """Affiche l'écran de chargement avec animation SVG pendant 20 secondes"""
     
@@ -1663,6 +1675,10 @@ if not user_name.strip():
     st.info("👈 Ouvrez le menu latéral et remplissez le champ 'Votre nom'")
     st.stop()  # Arrête l'exécution du reste du code
 
+# Vérification des noms bannis
+if is_name_banned(user_name):
+    st.error("💀 Interdit par décision du Conseil (moi), mais tu peux toujours contourner avec un mensonge ;)")
+    st.stop()
 
 def _choose_next(exclude_idx=None):
     remaining = [i for i in st.session_state.order if st.session_state.mastery[i] < TARGET_MASTERY]
