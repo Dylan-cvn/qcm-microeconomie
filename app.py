@@ -1677,7 +1677,7 @@ if not user_name.strip():
 
 # Vérification des noms bannis
 if is_name_banned(user_name):
-    st.error("💀 Interdit par décision du Conseil (moi), mais tu peux toujours contourner avec un mensonge ;)")
+    st.error("💀 Interdit par décision du Conseil (moi)")
     st.stop()
 
 def _choose_next(exclude_idx=None):
