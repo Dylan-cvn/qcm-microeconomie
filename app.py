@@ -8,7 +8,7 @@ import requests
 # ============================================
 # LISTE DES NOMS BANNIS
 # ============================================
-BANNED_NAMES = ["mélissa", "melissa", "mel", "kevin", "kev"]
+BANNED_NAMES = ["0"]
 
 def is_name_banned(name):
     """Vérifie si le nom est dans la liste des noms bannis (insensible à la casse)"""
