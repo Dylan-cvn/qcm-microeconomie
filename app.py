@@ -1481,7 +1481,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            " Laquelle des explications suivantes est incorrecte concernant les dynamiques de la mondialisation ?"
+            "Laquelle des explications suivantes est incorrecte concernant les dynamiques de la mondialisation ?"
         ),
         "choices": [
             "La « slowbalisation » désigne la période qui succède à « l'hyperglobalisation ».",
@@ -1494,6 +1494,22 @@ QUESTIONS = [
             "La mondialisation n'est pas présentée comme 3 phases « très clairement distinctes » (internationalisation → multinationalisation → globalisation), "
             "mais comme une succession de « mondialisations » / vagues sur le temps long (p.ex. Mondialisation 0.1, 0.2, 1ère mondialisation géographique, 2.0, 3.0, 3.1, 3.2, etc.)"),
         "highlight_color": "#00E5FF",
+    },
+    {
+        "q": (
+        "Dans le dilemme du prisonnier, Jean et Paul ont le choix entre Dénoncer ou Se taire."
+        ),
+        "choices": [
+            "L’équilibre de Nash est (Se taire ; Se taire) car c’est une stratégie dominante pour les deux.",
+            "L’équilibre de Nash est (Dénoncer ; Dénoncer) car c'est une stratégie dominante pour les deux.",
+            "Il existe deux équilibres de Nash : (Se taire ; Se taire) et (Dénoncer ; Dénoncer).",
+            "(Dénoncer ; Dénoncer) est optimal collectivement.",
+        ],
+        "answer": 1,
+        "explain": (
+            "Dans le dilemme du prisonnier, chacun a intérêt à dénoncer, peu importe ce que fait l’autre. "
+            "Donc 'Dénoncer' est une stratégie dominante pour les deux, et l’équilibre de Nash est (Dénoncer ; Dénoncer). "
+            "Si les deux se taisent, ce serait mieux pour eux ensemble, mais chacun aurait envie de trahir (dénoncer) pour gagner plus."),
     },
 ]
 
