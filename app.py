@@ -1511,6 +1511,25 @@ QUESTIONS = [
             "Donc 'Dénoncer' est une stratégie dominante pour les deux, et l’équilibre de Nash est (Dénoncer ; Dénoncer). "
             "Si les deux se taisent, ce serait mieux pour eux ensemble, mais chacun aurait envie de trahir (dénoncer) pour gagner plus."),
     },
+    {
+        "q": (
+        "Dans le jeu de l’ultimatum : \n"
+        "i. Le joueur 1 propose un partage d’une somme. \n"
+        "ii. Le joueur 2 accepte (partage appliqué) ou refuse (les deux obtiennent 0). \n"
+        "Sous l’hypothèse d’agents rationnels et égoïstes, que prévoit la théorie ? "
+        ),
+        "choices": [
+            "J1 propose environ 50% & J2 accepte toujours.",
+            "J1 propose 0 & J2 accepte 0",
+            "J1 propose la plus petite somme possible & J2 accepte toute offre strictement positive.",
+            "J1 propose 30% & J2 refuse si l’offre est inférieure à 20%.",
+        ],
+        "answer": 2,
+        "explain": (
+            "Si les joueurs sont rationnels et égoïstes : "
+            "J2 préfère un petit gain plutôt que 0, donc il accepte toute offre > 0. "
+            "Sachant cela, J1 maximise son gain en proposant le minimum possible tout en restant acceptable. "),
+    },
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
