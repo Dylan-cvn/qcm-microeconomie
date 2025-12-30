@@ -1530,6 +1530,28 @@ QUESTIONS = [
             "J2 préfère un petit gain plutôt que 0, donc il accepte toute offre > 0. "
             "Sachant cela, J1 maximise son gain en proposant le minimum possible tout en restant acceptable. "),
     },
+    {
+        "q": (
+            "Quelle affirmation est correcte concernant l’équilibre de Nash ?"
+        ),
+        "choices": [
+            "Il existe deux équilibres de Nash en stratégies pures : (U,L) et (D,R)",
+            "Il existe un unique équilibre de Nash en stratégies pures : (D,L)",
+            "Il n’existe pas d’équilibre de Nash en stratégies pures. L’équilibre mixte est : A joue U avec 1/4 (sinon D) et B joue L avec 1/2 (sinon R).",
+            "Il n’existe pas d’équilibre de Nash en stratégies pures. L’équilibre mixte est : A joue U avec 1/2 et B joue L avec 1/4.",
+        ],
+        "answer": 2,
+        "explain": (
+            "Si B joue L, A préfère U (3 > 1). Si B joue R, A préfère D (2 > 0). "
+            "Si A joue U, B préfère R (2 > -1). Si A joue D, B préfère L (1 > 0) ∴ "
+            "aucune case n’est une meilleure réponse pour les deux ⇒ pas d’EN en pur. "
+            "En mixte, on rend l’autre indifférent : "
+            "Pour A : 3q = 2 - q ⇒ q = 1/2. "
+            "Pour B : 1 - 2p = 2p ⇒ p = 1/4. "
+            "Donc A joue U avec 1/4 et B joue L avec 1/2."),
+        "image": "game_theory_matrix (1).png",
+    },
+      
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
