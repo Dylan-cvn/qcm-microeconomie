@@ -1573,18 +1573,31 @@ QUESTIONS = [
         ),
         "choices": [
             "Le niveau de revenu moyen (en dollars) de chaque pays, classé du plus pauvre au plus riche",
-            "La croissance du revenu selon le rang dans la distribution mondiale : forte hausse au milieu, creux vers 70–90, et forte hausse pour le top 1%",
+            "La croissance du revenu selon le rang de la distribution mondiale : forte hausse au milieu, creux vers 70–90, et forte hausse pour le top 1%",
             "La part des échanges internationaux dans le PIB mondial (mondialisation commerciale)",
             "La croissance du revenu uniquement dans les pays occidentaux, par catégories socioprofessionnelles",
         ],
-        "answer": 2,
+        "answer": 1,
         "explain": (
-            "La courbe de l’éléphant montre l'évolution des revenus pour les gens classés du plus pauvre au plus riche dans le monde, "
+            "La courbe de l’éléphant montre la croissance des revenus pour les gens classés du plus pauvre au plus riche dans le monde, "
             "et ça donne cette forme éléphant (gros gain au milieu, creux, puis trompe en haut)."),
         "highlight_color": "#00E5FF",
     },
-    
-            
+    {
+        "q": (
+            "Dans les trois niveaux de gouvernance de la mondialisation, à quoi correspond le niveau « solide » ?"
+        ),
+        "choices": [
+            "Aux organisations internationales comme l’OMC, qui fonctionnent de manière horizontale dans la gouvernance.",
+            "À l’Union européenne, où les États membres acceptent des abandons de souveraineté.",
+            "Au niveau national (les États), détenteur du hard power et chargé de faire respecter la loi.",
+            "Aux ONG et entreprises privées qui remplacent l’État dans la gouvernance.",
+        ],
+        "answer": 2,
+        "explain": (
+            "Le niveau solide correspond aux États, le niveau gazeux aux organisations internationales et le niveau liquide à l'Union européenne."),
+        "highlight_color": "#00E5FF",
+    },       
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
