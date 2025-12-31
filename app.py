@@ -1569,8 +1569,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "La courbe de l’éléphant représente principalement : "
-        ),
+            "La courbe de l’éléphant représente principalement : "),
         "choices": [
             "Le niveau de revenu moyen (en dollars) de chaque pays, classé du plus pauvre au plus riche",
             "La croissance du revenu selon le rang de la distribution mondiale : forte hausse au milieu, creux vers 70–90, et forte hausse pour le top 1%",
@@ -1585,8 +1584,7 @@ QUESTIONS = [
     },
     {
         "q": (
-            "Dans les trois niveaux de gouvernance de la mondialisation, à quoi correspond le niveau « solide » ?"
-        ),
+            "Dans les trois niveaux de gouvernance de la mondialisation, à quoi correspond le niveau « solide » ?"),
         "choices": [
             "Aux organisations internationales comme l’OMC, qui fonctionnent de manière horizontale dans la gouvernance.",
             "À l’Union européenne, où les États membres acceptent des abandons de souveraineté.",
