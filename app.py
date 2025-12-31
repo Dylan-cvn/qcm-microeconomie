@@ -1568,7 +1568,7 @@ QUESTIONS = [
             "l’hyperglobalisation correspond à ~1986–2007 & la slowbalisation à ~2008–2021 (avec ensuite une reprise post-COVID)"),
         "highlight_color": "#00E5FF",
     },
-      
+            
 ]
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
