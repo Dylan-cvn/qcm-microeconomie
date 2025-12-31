@@ -1551,6 +1551,23 @@ QUESTIONS = [
             "Donc A joue U avec 1/4 et B joue L avec 1/2."),
         "image": "game_theory_matrix (1).png",
     },
+    {
+        "q": (
+            "Concernant les dynamiques récentes de la mondialisation commerciale (« mondialisation 3.1 »), "
+            "laquelle des affirmations suivantes est incorrecte ?"
+        ),
+        "choices": [
+            "La période d’« hyperglobalisation » correspond (environ) à 1986–2007.",
+            "La période de « slowbalisation » correspond (environ) à 2008–2021.",
+            "La « slowbalisation » désigne la période qui succède à l’hyperglobalisation (1986–2007).",
+            "Après la période 2008–2021, on observe une reprise post-COVID de la mondialisation 3.1.",
+        ],
+        "answer": 2,
+        "explain": (
+            "La proposition 3 est fausse car elle inverse les périodes : "
+            "l’hyperglobalisation correspond à ~1986–2007 & la slowbalisation à ~2008–2021 (avec ensuite une reprise post-COVID)"),
+        "highlight_color": "#00E5FF",
+    },
       
 ]
 
