@@ -1557,17 +1557,33 @@ QUESTIONS = [
             "laquelle des affirmations suivantes est incorrecte ?"
         ),
         "choices": [
-            "La période d’« hyperglobalisation » correspond (environ) à 1986–2007.",
-            "La période de « slowbalisation » correspond (environ) à 2008–2021.",
-            "La « slowbalisation » désigne la période qui succède à l’hyperglobalisation (1986–2007).",
+            "La période d’hyperglobalisation correspond à 1986–2007.",
+            "La période de slowbalisation correspond à 2008–2021.",
+            "La slowbalisation désigne la période qui précède l’hyperglobalisation.",
             "Après la période 2008–2021, on observe une reprise post-COVID de la mondialisation 3.1.",
         ],
         "answer": 2,
         "explain": (
-            "La proposition 3 est fausse car elle inverse les périodes : "
-            "l’hyperglobalisation correspond à ~1986–2007 & la slowbalisation à ~2008–2021 (avec ensuite une reprise post-COVID)"),
+            "La slowbalisation (2008–2021) désigne la période qui succède l’hyperglobalisation (1986–2007) et non pas qui la précède."),
         "highlight_color": "#00E5FF",
     },
+    {
+        "q": (
+            "La courbe de l’éléphant représente principalement : "
+        ),
+        "choices": [
+            "Le niveau de revenu moyen (en dollars) de chaque pays, classé du plus pauvre au plus riche",
+            "La croissance du revenu selon le rang dans la distribution mondiale : forte hausse au milieu, creux vers 70–90, et forte hausse pour le top 1%",
+            "La part des échanges internationaux dans le PIB mondial (mondialisation commerciale)",
+            "La croissance du revenu uniquement dans les pays occidentaux, par catégories socioprofessionnelles",
+        ],
+        "answer": 2,
+        "explain": (
+            "La courbe de l’éléphant montre l'évolution des revenus pour les gens classés du plus pauvre au plus riche dans le monde, "
+            "et ça donne cette forme éléphant (gros gain au milieu, creux, puis trompe en haut)."),
+        "highlight_color": "#00E5FF",
+    },
+    
             
 ]
 
