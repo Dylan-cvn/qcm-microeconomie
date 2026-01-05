@@ -1555,14 +1555,22 @@ def save_all_results(df):
     except Exception as e:
         return False
 
-def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> None:
-    name = user_name.strip() or "Anonyme"
+def log_answer_local(q_index: int, correct: bool, selected: int) -> None:
+    """Stocke la réponse localement dans session_state"""
+    if "pending_answers" not in st.session_state:
+        st.session_state.pending_answers = []
+    
     q = QUESTIONS[q_index]
-
-    new_row = {
+    
+    # Vérifier si cette question a déjà été enregistrée
+    already_logged = any(a["question_index"] == q_index for a in st.session_state.pending_answers)
+    if already_logged:
+        return
+    
+    st.session_state.pending_answers.append({
         "row_type": "answer",
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "user": name,
+        "user": user_name.strip() or "Anonyme",
         "question_index": q_index,
         "question": q["q"].replace("\n", " ")[:80],
         "selected_index": selected,
@@ -1570,29 +1578,26 @@ def log_answer(user_name: str, q_index: int, correct: bool, selected: int) -> No
         "correct_index": q["answer"],
         "correct_choice": q["choices"][q["answer"]],
         "is_correct": 1 if correct else 0
-    }
+    })
 
+
+def save_all_pending_answers() -> None:
+    """Envoie toutes les réponses stockées vers JSONBin (appelé à la fin du quiz)"""
+    if "pending_answers" not in st.session_state or not st.session_state.pending_answers:
+        return
+    
     try:
         df = get_all_results()
-
-        # compat si anciennes données sans row_type
+        
         if not df.empty and "row_type" not in df.columns:
             df["row_type"] = "answer"
-
-        # ✅ Si déjà une réponse enregistrée pour ce user + cette question : on n'ajoute rien
-        if not df.empty:
-            already = (
-                (df["row_type"] == "answer")
-                & (df["user"] == name)
-                & (df["question_index"] == q_index)
-            )
-            if already.any():
-                return
-
-        new_df = pd.DataFrame([new_row])
+        
+        new_df = pd.DataFrame(st.session_state.pending_answers)
         df = new_df if df.empty else pd.concat([df, new_df], ignore_index=True)
         save_all_results(df)
-
+        
+        # Vider les réponses en attente
+        st.session_state.pending_answers = []
     except Exception:
         pass
 
@@ -1665,6 +1670,7 @@ def _advance_to_next():
     next_idx = _choose_next(exclude_idx=st.session_state.current)
 
     if next_idx is None:
+        save_all_pending_answers()
         st.balloons()
         st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")
         stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -1741,8 +1747,8 @@ def render_single(q_index):
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # Enregistrer la réponse
-        log_answer(user_name, q_index, correct, selected)
+        # Enregistrer la réponse localement
+        log_answer_local(q_index, correct, selected)
 
         # Mise à jour de la maîtrise
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
