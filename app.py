@@ -1774,26 +1774,6 @@ def render_single(q_index):
 
     return None
 
-    # Afficher l'image si elle existe
-    if q.get("image"):
-        try:
-            st.image(q["image"], use_container_width=True, caption="Graphique de référence")
-        except Exception as e:
-            st.warning(f"⚠️ Impossible de charger l'image : {e}")
-    
-    # Choix
-    key_radio = f"choice_{q_index}"
-    if key_radio not in st.session_state:
-        st.session_state[key_radio] = st.session_state.answers.get(q_index, None)
-
-    selected = st.radio(
-        "Choisissez une réponse :",
-        options=list(range(4)),
-        format_func=lambda i: q["choices"][i],
-        key=key_radio,
-    )
-    st.session_state.answers[q_index] = selected
-
     # Bouton de validation
     validate = st.button("✅ Valider", key=f"validate_{q_index}")
     if validate:
