@@ -1825,13 +1825,8 @@ progress_text_slot = st.empty()
 
 q_idx = st.session_state.current
 
-# Vérifier si c'est la dernière question
-mastered_count = sum(1 for v in st.session_state.mastery.values() if v >= TARGET_MASTERY)
-is_last_question = (mastered_count == len(QUESTIONS) - 1)
-
-# Afficher l'effet Matrix si c'est la dernière question
-if is_last_question:
-    show_matrix_background()
+# Afficher l'effet Matrix pour toutes les questions
+show_matrix_background()
 
 _ = render_single(q_idx)
 
