@@ -947,14 +947,14 @@ QUESTIONS = [
         "q": "Laquelle des affirmations suivantes est positive, par opposition à normative ?",
         "choices": [
             "Il est souhaitable que la cafétéria propose des alternatives au lait de vache pour accompagner les boissons chaudes.",
-            "Il faut que les étudiants mangent sainement à midi afin de favoriser leur attention durant les cours de l'après-midi.",
+            "Lorsque le prix du café augmente, le nombre de cafés vendus diminue.",
             "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l'école.",
             "La HEG devrait accueillir des food trucks à midi sur l'esplanade.",
         ],
-        "answer": 2,
+        "answer": 1,
         "explain": (
-            "La cafétéria de la HEG doit proposer des menus à 5 CHF aux étudiants de l'école ⇒ "
-            "décrit un lien de cause à effet vérifiable (on peut observer si, quand le prix augmente, les ventes de café diminuent), sans exprimer de jugement de valeur."),
+            "Lorsque le prix du café augmente, le nombre de cafés vendus diminue. ⇒ "
+            "Règle clé : Positive = est / quand X augmente, Y diminue (descriptif, testable) & Normative = doit / devrait / souhaitable (jugement, opinion)"),
     },
     {
         "q": (
