@@ -96,10 +96,10 @@ def show_matrix_background():
     .matrix-column:nth-child(20) { left: 95%; animation-delay: -2.4s; animation-duration: 10.2s; }
 
     .matrix-column:nth-child(odd)::before {
-        content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン123456789";
+        content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
     }
     .matrix-column:nth-child(even)::before {
-        content: "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        content: "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッ";
     }
 
     @keyframes fall {
