@@ -48,7 +48,7 @@ def show_matrix_background():
     }
 
     .matrix-column::before {
-        content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
         position: absolute;
         top: 0;
         left: 0;
