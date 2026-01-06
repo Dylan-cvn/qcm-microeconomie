@@ -99,7 +99,7 @@ def show_matrix_background():
         content: "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
     }
     .matrix-column:nth-child(even)::before {
-        content: "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッ";
+        content: "ガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポヴァィゥェォャュョッDylan";
     }
 
     @keyframes fall {
