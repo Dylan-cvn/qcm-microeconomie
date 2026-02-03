@@ -414,7 +414,6 @@ QUESTIONS = [
         "explain": (
             "En concurrence parfaite, le prix du marché (P) = au coût marginal (Cm) = à la recette marginal (Rm). "
             "Le producteur étant preneur de prix en concurrence parfaite veut maximiser son profit."),
-        "highlight_color": "#ffc107",
     },
     {
         "q": (
@@ -436,7 +435,6 @@ QUESTIONS = [
             "Ainsi, CVM_min = (dCVM/dx) = (d(2x - 3)/dx) = (2x - 3)' = 2 ⇒ Minimum du CVM & CVM croissant. "
             "L'entreprise produit pour les prix au-dessus du point où elle couvre son coût variable, "
             "c-à-d quand P > 0."),
-        "highlight_color": "#ffc107",
     },
     {
         "q": "À propos des contrôles de prix, laquelle des affirmations suivantes est correcte ?",
@@ -566,7 +564,6 @@ QUESTIONS = [
             "Le prix reste identique (il dépend du marché, pas du loyer). "
             "Le profit augmente, car Profit = Recette - Coûts. "
             "Si les coûts diminuent (loyer ↓), alors le profit ↑."),
-        "highlight_color": "#ffc107",
     },
     {
         "q": (
