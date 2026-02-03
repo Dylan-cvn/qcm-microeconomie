@@ -1492,49 +1492,27 @@ def save_all_results(df):
     except Exception as e:
         return False
 
-def log_answer_local(q_index: int, correct: bool, selected: int) -> None:
-    """Stocke la réponse localement dans session_state"""
-    if "pending_answers" not in st.session_state:
-        st.session_state.pending_answers = []
+def log_user_start() -> None:
+    """Enregistre uniquement le nom de l'utilisateur au début du quiz"""
+    if "user_logged" not in st.session_state:
+        st.session_state.user_logged = False
     
-    q = QUESTIONS[q_index]
-    
-    # Vérifier si cette question a déjà été enregistrée
-    already_logged = any(a["question_index"] == q_index for a in st.session_state.pending_answers)
-    if already_logged:
-        return
-    
-    st.session_state.pending_answers.append({
-        "row_type": "answer",
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "user": user_name.strip() or "Anonyme",
-        "question_index": q_index,
-        "question": q["q"].replace("\n", " ")[:80],
-        "selected_index": selected,
-        "selected_choice": q["choices"][selected],
-        "correct_index": q["answer"],
-        "correct_choice": q["choices"][q["answer"]],
-        "is_correct": 1 if correct else 0
-    })
-
-
-def save_all_pending_answers() -> None:
-    """Envoie toutes les réponses stockées vers JSONBin (appelé à la fin du quiz)"""
-    if "pending_answers" not in st.session_state or not st.session_state.pending_answers:
+    if st.session_state.user_logged:
         return
     
     try:
         df = get_all_results()
         
-        if not df.empty and "row_type" not in df.columns:
-            df["row_type"] = "answer"
+        new_entry = {
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "user": user_name.strip() or "Anonyme"
+        }
         
-        new_df = pd.DataFrame(st.session_state.pending_answers)
+        new_df = pd.DataFrame([new_entry])
         df = new_df if df.empty else pd.concat([df, new_df], ignore_index=True)
         save_all_results(df)
         
-        # Vider les réponses en attente
-        st.session_state.pending_answers = []
+        st.session_state.user_logged = True
     except Exception:
         pass
 
@@ -1578,16 +1556,15 @@ if ("init" not in st.session_state) or (st.session_state.get("n_questions") != l
 
 st.title("🎈Révision examen : Microéconomie I")
 st.caption("Mode **apprentissage** : répéter les erreurs jusqu'à maîtriser le sujet.")
+
 # Vérification du nom obligatoire
 if not user_name.strip():
     st.warning("⚠️ Veuillez entrer votre nom dans la barre latérale pour commencer le QCM.")
     st.info("👈 Ouvrez le menu latéral et remplissez le champ 'Votre nom'")
     st.stop()  # Arrête l'exécution du reste du code
 
-# Vérification des noms bannis
-if is_name_banned(user_name):
-    st.error("💀 Interdit par décision du Conseil (moi)")
-    st.stop()
+# Enregistrer le nom de l'utilisateur au début
+log_user_start()
 
 def _choose_next(exclude_idx=None):
     remaining = [i for i in st.session_state.order if st.session_state.mastery[i] < TARGET_MASTERY]
@@ -1607,7 +1584,6 @@ def _advance_to_next():
     next_idx = _choose_next(exclude_idx=st.session_state.current)
 
     if next_idx is None:
-        save_all_pending_answers()
         st.balloons()
         st.toast("👏 Bravo ! C'est Maîtrisé", icon="🎉")
         stamped = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -1684,8 +1660,6 @@ def render_single(q_index):
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # Enregistrer la réponse localement
-        log_answer_local(q_index, correct, selected)
 
         # Mise à jour de la maîtrise
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
