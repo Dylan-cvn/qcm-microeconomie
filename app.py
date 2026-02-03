@@ -6,17 +6,6 @@ import pandas as pd
 import requests
 
 # ============================================
-# LISTE DES NOMS BANNIS
-# ============================================
-BANNED_NAMES = ["0"]
-
-def is_name_banned(name):
-    """Vérifie si le nom est dans la liste des noms bannis (insensible à la casse)"""
-    if not name:
-        return False
-    return name.strip().lower() in BANNED_NAMES
-
-# ============================================
 # EFFET MATRIX POUR LA DERNIÈRE QUESTION
 # ============================================
 
@@ -214,60 +203,8 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ============================================
-# SECTION INTRODUCTION VIDÉO (INSÉRER ICI)
-# ============================================
-
-if "intro_vue" not in st.session_state:
-    st.session_state.intro_vue = False
-
-if not st.session_state.intro_vue:
-
-    video_file = open("Une_vido_futuriste_202512222049_w4k58.mp4", "rb")
-    st.video(video_file)
-    
-    st.markdown("""
-    <style>
-    /* Style du bouton Uiverse appliqué au bouton Streamlit */
-    div.stButton > button {
-        --green: #00D4FF;
-        font-size: 18px !important;
-        padding: 0.7em 2.7em !important;
-        letter-spacing: 0.06em;
-        position: relative;
-        font-family: inherit;
-        border-radius: 0.6em !important;
-        overflow: hidden;
-        transition: all 0.3s;
-        line-height: 1.4em;
-        border: 2px solid var(--green) !important;
-        background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%) !important;
-        color: var(--green) !important;
-        box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
-    }
-    
-    div.stButton > button:hover {
-        color: #82ffc9 !important;
-        box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
-        border: 2px solid #82ffc9 !important;
-    }
-    
-    div.stButton > button:active {
-        transform: scale(0.98);
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    # Centrer le bouton
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("I'M READY", use_container_width=True):
-            st.session_state.intro_vue = True
-            st.rerun()
-    
-    st.stop()
-
 # Données du Quiz
+
 QUESTIONS = [
     {
         "q": (
