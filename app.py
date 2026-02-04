@@ -1772,22 +1772,22 @@ else:
         if 'timestamp' in df.columns:
             df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
 
-st.subheader("📊 Statistiques générales")
-col1, col2, col3 = st.columns(3)
+        st.subheader("📊 Statistiques générales")
+        col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.metric("Total connexions", len(df))
-with col2:
-    if 'user' in df.columns:
-        st.metric("Nb étudiants", df['user'].nunique())
-with col3:
-    if 'timestamp' in df.columns and not df.empty:
-        derniere = df['timestamp'].max()
-        if pd.notna(derniere):
-            st.metric("Dernière activité", derniere.strftime("%d/%m %H:%M"))
+        with col1:
+            st.metric("Total connexions", len(df))
+        with col2:
+            if 'user' in df.columns:
+                st.metric("Nb étudiants", df['user'].nunique())
+        with col3:
+            if 'timestamp' in df.columns and not df.empty:
+                derniere = df['timestamp'].max()
+                if pd.notna(derniere):
+                    st.metric("Dernière activité", derniere.strftime("%d/%m %H:%M"))
 
-st.subheader("📋 Liste des connexions")
-st.dataframe(df, use_container_width=True)      
+        st.subheader("📋 Liste des connexions")
+        st.dataframe(df, use_container_width=True)      
    
         csv_data = df.to_csv(index=False).encode("utf-8")
         st.download_button(
