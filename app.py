@@ -127,12 +127,16 @@ def show_matrix_background():
     """
     st.markdown(matrix_html, unsafe_allow_html=True)
 
-# Configuration de la page Streamlit
+# ===========================================================================
+# CONFIGURATION PAGE & STYLE
+# ===========================================================================
+
 st.set_page_config(page_title="QCM Microéconomie", page_icon="🧠", layout="centered")
 
-# ============================================
+# ===========================================================================
 # STYLE NÉON VERT POUR LA SIDEBAR
-# ============================================
+# ===========================================================================
+
 st.markdown("""
 <style>
 /* Import police rétro */
@@ -203,7 +207,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Données du Quiz
+# ===========================================================================
+# DONNÉES DU QUIZ (QUESTIONS)
+# ===========================================================================
 
 QUESTIONS = [
     {
@@ -1403,18 +1409,8 @@ QUESTIONS = [
     },       
 ]
 
-#-------------------------------------------------------------------------------------------------------------------------------------------
-# CONFIGURATION ET VARIABLES GLOBALES
-#-------------------------------------------------------------------------------------------------------------------------------------------
-
-RESULTS_FILE = "results.csv" # Fichier de résultats
-
-#-------------------------------------------------------------------------------------------------------------------------------------------
-# FONCTIONS DE GESTION DES RÉSULTATS
-#-------------------------------------------------------------------------------------------------------------------------------------------
-
 # ===========================================================================
-# FONCTIONS JSONBIN
+# FONCTIONS JSONBIN (STOCKAGE CLOUD)
 # ===========================================================================
 
 BIN_ID = None
@@ -1514,7 +1510,10 @@ def log_user_start() -> None:
         pass
 
 
-# Sidebar
+# ===========================================================================
+# SIDEBAR (PARAMÈTRES UTILISATEUR)
+# ===========================================================================
+
 with st.sidebar:
     st.header("⚙️ Paramètres")
     user_name = st.text_input("Votre nom (obligatoire)", "")
@@ -1527,9 +1526,9 @@ with st.sidebar:
 
 TARGET_MASTERY = 1
 
-#-------------------------------------------------------------------------------------------------------------------------------------------
-# FONCTIONS DE GESTION DU QUIZ
-#-------------------------------------------------------------------------------------------------------------------------------------------
+# ===========================================================================
+# LOGIQUE DU QUIZ
+# ===========================================================================
 
 def full_init():
     st.session_state.init = True
@@ -1542,7 +1541,6 @@ def full_init():
     st.session_state.answers = {}
     st.session_state.just_validated = False
     st.session_state.last_result = None
-
 
 def reset_all():
     full_init()
@@ -1576,7 +1574,9 @@ def _choose_next(exclude_idx=None):
         candidates = [i for i in candidates if i != exclude_idx]
 
     return random.choice(candidates)
-# --------------------------------
+    
+# Passage à la question suivante
+
 def _advance_to_next():   
     next_idx = _choose_next(exclude_idx=st.session_state.current)
 
@@ -1601,7 +1601,9 @@ def _advance_to_next():
         st.session_state.last_result = None
         st.rerun()
 
-#------------------------------------------------------------------------------------------
+# ===========================================================================
+# AFFICHAGE D'UNE QUESTION
+# ===========================================================================
 
 def render_single(q_index):
     """Affiche une question."""
@@ -1724,7 +1726,10 @@ def render_single(q_index):
     return None
 
 
-# MODE APPRENTISSAGE
+# ===========================================================================
+# BOUCLE PRINCIPALE DU QUIZ
+# ===========================================================================
+
 progress_bar_slot = st.empty()
 progress_text_slot = st.empty()
 
