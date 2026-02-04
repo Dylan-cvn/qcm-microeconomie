@@ -1699,9 +1699,6 @@ def render_single(q_index):
         st.session_state.just_validated = True
         st.session_state.last_result = correct
 
-        # Enregistrer la réponse
-        log_answer(user_name, q_index, correct, selected)
-
         # Mise à jour de la maîtrise
         if correct and st.session_state.mastery[q_index] < TARGET_MASTERY:
             st.session_state.mastery[q_index] += 1
