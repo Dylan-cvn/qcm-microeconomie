@@ -1771,41 +1771,24 @@ else:
     else:
         if 'timestamp' in df.columns:
             df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
-        
-        st.subheader("📊 Statistiques générales")
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            st.metric("Total réponses", len(df))
-        with col2:
-            if 'is_correct' in df.columns:
-                df['is_correct'] = pd.to_numeric(df['is_correct'], errors='coerce')
-                taux = (df['is_correct'].sum() / len(df)) * 100
-                st.metric("Taux de réussite", f"{taux:.1f}%")
-        with col3:
-            if 'user' in df.columns:
-                st.metric("Nb étudiants", df['user'].nunique())
-        with col4:
-            if 'timestamp' in df.columns and not df.empty:
-                derniere = df['timestamp'].max()
-                if pd.notna(derniere):
-                    st.metric("Dernière activité", derniere.strftime("%d/%m %H:%M"))
-        
-        st.subheader("👥 Résultats par étudiant")
-        if 'user' in df.columns and 'is_correct' in df.columns:
-            df['is_correct'] = pd.to_numeric(df['is_correct'], errors='coerce')
-            stats_user = df.groupby('user').agg(
-                nb_reponses=('is_correct', 'count'),
-                nb_correct=('is_correct', 'sum'),
-            ).reset_index()
-            stats_user['nb_correct'] = stats_user['nb_correct'].astype(int)
-            stats_user['taux_reussite'] = ((stats_user['nb_correct'] / stats_user['nb_reponses']) * 100).round(1).astype(str) + '%'
-            stats_user.columns = ['Étudiant', 'Nb réponses', 'Nb correct', 'Taux réussite']
-            st.dataframe(stats_user, use_container_width=True)
-        
-        st.subheader("📋 Toutes les réponses")
-        st.dataframe(df, use_container_width=True)
-        
+
+st.subheader("📊 Statistiques générales")
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric("Total connexions", len(df))
+with col2:
+    if 'user' in df.columns:
+        st.metric("Nb étudiants", df['user'].nunique())
+with col3:
+    if 'timestamp' in df.columns and not df.empty:
+        derniere = df['timestamp'].max()
+        if pd.notna(derniere):
+            st.metric("Dernière activité", derniere.strftime("%d/%m %H:%M"))
+
+st.subheader("📋 Liste des connexions")
+st.dataframe(df, use_container_width=True)      
+   
         csv_data = df.to_csv(index=False).encode("utf-8")
         st.download_button(
             label="📥 Télécharger (CSV)",
