@@ -6,7 +6,7 @@ import pandas as pd
 import requests
 
 # ============================================
-# EFFET MATRIX POUR LA DERNIÈRE QUESTION
+# EFFET MATRIX 
 # ============================================
 
 def show_matrix_background():
